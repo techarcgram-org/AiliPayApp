@@ -22,7 +22,7 @@ export default function LoginScreen() {
         <View>
           <CustomInput placeholder="Email Address" />
           <CustomInput placeholder="Password" />
-          <CustomButton style={{marginTop: 20, marginBottom: 20}} title="login" backgroundColor="#063B87" color="white" onPress={Actions.helpScreen} />
+          <CustomButton style={{marginTop: 20, marginBottom: 20}} title="login" backgroundColor="#063B87" color="white" onPress={Actions.mainActivityScreen} />
           <CustomCheckbox label={<Text style={{fontWeight: 700, fontSize: 16}}> Save Email</Text>} />
           <Text style={{marginTop: 20}}>Forgot your password?<Text style={{color: "#3F5F90", fontWeight: 500}}> Reset password</Text></Text>
           <Text style={{marginTop: 10}}>Dont have an account?<Text style={{color: "#3F5F90", fontWeight: 500}} onPress={Actions.gettingStartedEmailScreen}> Get Started</Text></Text>

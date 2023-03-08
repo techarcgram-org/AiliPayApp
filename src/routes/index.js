@@ -12,6 +12,7 @@ import PasswordSetupScreen from '../screens/PasswordSetupScreen.js'
 import WelcomeScreen from '../screens/WelcomeScreen'
 import HelpScreen from '../screens/HelpScreen'
 import LoginScreen from '../screens/LoginScreen'
+import MainActivityScreen from '../screens/MainActivityScreen.js'
 
 export default function Routes() {
   return (
@@ -29,6 +30,7 @@ export default function Routes() {
          <Scene key="welcomeScreen" component={WelcomeScreen} title="WelcomeScreen" hideNavBar={true} />
          <Scene key="helpScreen" component={HelpScreen} title="HelpScreen" hideNavBar={true} />
          <Scene key="loginScreen" component={LoginScreen} title="LoginScreen" hideNavBar={true} />
+         <Scene key="mainActivityScreen" component={MainActivityScreen} title="MainActivityScreen" hideNavBar={true} />
       </Scene>
    </Router>
   )
