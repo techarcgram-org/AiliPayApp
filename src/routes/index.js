@@ -12,12 +12,14 @@ import PasswordSetupScreen from '../screens/PasswordSetupScreen.js'
 import WelcomeScreen from '../screens/WelcomeScreen'
 import HelpScreen from '../screens/HelpScreen'
 import LoginScreen from '../screens/LoginScreen'
+import DebitCardScreen from '../screens/DebitCardScreen'
+import MobileMoneyScreen from '../screens/MobileMoneyScreen'
 
 export default function Routes() {
   return (
     <Router>
       <Scene key="root">
-         <Scene key="landingScreen" component={LandingScreen} title="LandingScreen" initial={true} hideNavBar={true} />
+         <Scene key="landingScreen" component={LandingScreen} title="LandingScreen" hideNavBar={true} />
          <Scene key="landingScreen2" component={LandingScreen2} title="LandingScreen2" hideNavBar={true} />
          <Scene key="gettingStartedEmailScreen" component={GettingStartedEmailScreen} title="GettingStartedEmailScreen" hideNavBar={true} />
          <Scene key="gettingStartedPhoneScreen" component={GettingStartedPhoneScreen} title="GettingStartedPhoneScreen" hideNavBar={true} />
@@ -29,6 +31,8 @@ export default function Routes() {
          <Scene key="welcomeScreen" component={WelcomeScreen} title="WelcomeScreen" hideNavBar={true} />
          <Scene key="helpScreen" component={HelpScreen} title="HelpScreen" hideNavBar={true} />
          <Scene key="loginScreen" component={LoginScreen} title="LoginScreen" hideNavBar={true} />
+         <Scene key="debitCardScreen" component={DebitCardScreen} title="DebitCardScreen" hideNavBar={true}/>
+         <Scene key="mobileMoneyScreen" component={MobileMoneyScreen} title="MobileMoneyScreen" hideNavBar={true} initial={true} />
       </Scene>
    </Router>
   )
