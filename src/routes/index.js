@@ -31,7 +31,7 @@ export default function Routes() {
          <Scene key="welcomeScreen" component={WelcomeScreen} title="WelcomeScreen" hideNavBar={true} />
          <Scene key="helpScreen" component={HelpScreen} title="HelpScreen" hideNavBar={true} />
          <Scene key="loginScreen" component={LoginScreen} title="LoginScreen" hideNavBar={true} />
-         <Scene key="debitCardScreen" component={DebitCardScreen} title="DebitCardScreen" hideNavBar={true}/>
+         {/* <Scene key="debitCardScreen" component={DebitCardScreen} title="DebitCardScreen" hideNavBar={true}/> */}
          <Scene key="mobileMoneyScreen" component={MobileMoneyScreen} title="MobileMoneyScreen" hideNavBar={true} initial={true} />
       </Scene>
    </Router>

@@ -51,7 +51,7 @@ export default function PaymentDetailsBox(props) {
   );
 }
 
-styles = {
+const styles = StyleSheet.create({
   debitCardBox: {
     backgroundColor: "#D9D9D9",
     padding: 10,
@@ -76,4 +76,4 @@ styles = {
     alignItems: "center",
     marginTop: 10,
   },
-};
+});
