@@ -3,16 +3,19 @@ import {
   Text,
   View
 } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Header({text}) {
+export default function Header({text, onPressMenu}) {
   return (
     <View style={styles.container}>
-      <Icon
-        name="bars"
-        size={40}
-        color={'#063B87'}
-      />
+      <TouchableOpacity onPress={onPressMenu}>
+        <Icon
+          name="bars"
+          size={40}
+          color={'#063B87'}
+        />
+      </TouchableOpacity>
       <Text style={styles.headerText}>{text}</Text>
       <Icon
         name="bell"

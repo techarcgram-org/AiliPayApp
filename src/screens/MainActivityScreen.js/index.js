@@ -18,7 +18,7 @@ export default function MainActivityScreen() {
 
   return (
     <View style={styles.container}>
-      <Header text="AiliPay Balance" />
+      <Header text="AiliPay Balance" onPressMenu={Actions.drawer}/>
       <ScrollView>
         <View style={styles.sumary}>
           <Text style={{fontSize: 35, fontWeight: 700}}>XAF 100,000</Text>
@@ -36,7 +36,8 @@ export default function MainActivityScreen() {
             />
           </View>
           <Text 
-            style={{fontSize: 12, color: "#3F5F90", fontWeight: 700, marginTop: 20}}
+            style={{fontSize: 13, color: "#3F5F90", fontWeight: 700, marginTop: 20}}
+            onPress={Actions.balanceSummary}
           >
             VIEW BALANCE SUMMARY 
             <IconCommunity  
@@ -55,13 +56,15 @@ export default function MainActivityScreen() {
                 backgroundColor="#979EBA"
                 color="black"
                 title="  XAF 5000"
-                style={{fontWeight: 700, fontSize: 18, marginRight: 2}}
+                style={{marginRight: 2}}
+                textStyle={{fontWeight: 700, fontSize: 18, }}
               />
               <CustomButton 
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 10000"
-                style={{fontWeight: 700, fontSize: 18, marginLeft: 2}}
+                style={{marginLeft: 2}}
+                textStyle={{fontWeight: 700, fontSize: 18, }}
               />
             </View>
             <View style={styles.row}>
@@ -69,13 +72,15 @@ export default function MainActivityScreen() {
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 10000"
-                style={{fontWeight: 700, fontSize: 18, marginRight: 2}}
+                style={{marginRight: 2}}
+                textStyle={{fontWeight: 700, fontSize: 18}}
               />
               <CustomButton 
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 50000"
-                style={{fontWeight: 700, fontSize: 18, marginLeft: 2}}
+                style={{marginLeft: 2}}
+                textStyle={{fontWeight: 700, fontSize: 18 }}
               />
             </View>
             <View style={styles.row}>
@@ -83,32 +88,35 @@ export default function MainActivityScreen() {
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 100000"
-                style={{fontWeight: 700, fontSize: 18, marginRight: 2, flex: 1}}
+                style={{marginRight: 2, flex: 1}}
+                textStyle={{fontWeight: 700, fontSize: 18 }}
               />
               <CustomButton 
                 backgroundColor="#979EBA"
                 color="black"
                 title="Others"
-                style={{fontWeight: 700, fontSize: 18, marginLeft: 2, flex: 1}}
+                style={{marginLeft: 2, flex: 1}}
+                textStyle={{fontWeight: 700, fontSize: 18, }}
               />
             </View>
             <CustomButton 
               backgroundColor="#979EBA"
               color="black"
               title="Entire Balance"
-              style={{fontWeight: 700, fontSize: 18}}
+              textStyle={{fontWeight: 700, fontSize: 18}}
             />
             <CustomButton 
               backgroundColor="#063B87"
               color="white"
               title="Start Transfer"
-              style={{fontWeight: 700, fontSize: 18}}
+              textStyle={{fontWeight: 700, fontSize: 18}}
+              onPress={Actions.transferScreen}
             />
-            <CustomButton 
+            <CustomButton s
               backgroundColor="#063B87"
               color="white"
               title="Save"
-              style={{fontWeight: 700, fontSize: 18}}
+              textStyle={{fontWeight: 700, fontSize: 18}}
             />
           </View>
         </View>
