@@ -17,7 +17,9 @@ import BalanceSummary from '../screens/MainActivityScreen.js/BalanceSummary'
 import BalanceDetails from '../screens/MainActivityScreen.js/BalanceDetails'
 import TransferScreen from '../screens/TransferScreens.js'
 import TransferCompleteScreen from '../screens/TransferScreens.js/TransferCompleteScreen'
-import DrawerContent from './DrawerContent'
+// import DrawerContent from './DrawerContent'
+import DebitCardScreen from '../screens/DebitCardScreen'
+import MobileMoneyScreen from '../screens/MobileMoneyScreen'
 
 export default function Routes() {
 
@@ -37,10 +39,12 @@ export default function Routes() {
           <Scene key="helpScreen" component={HelpScreen} title="HelpScreen" hideNavBar={true} />
           <Scene key="loginScreen" component={LoginScreen} title="LoginScreen" hideNavBar={true} />
           <Scene key="mainActivityScreen" component={MainActivityScreen} title="MainActivityScreen" hideNavBar={true} />
-            <Scene key="balanceSummary" component={BalanceSummary} title="BalanceSummary" hideNavBar={true} />
-            <Scene key="balanceDetails" component={BalanceDetails} title="BalanceDetails" hideNavBar={true} />
-            <Scene key="transferScreen" component={TransferScreen} title="TransferScreen" hideNavBar={true} />
-            <Scene key="transferCompleteScreen" component={TransferCompleteScreen} title="TransferCompleteScreen" hideNavBar={true} />
+          <Scene key="balanceSummary" component={BalanceSummary} title="BalanceSummary" hideNavBar={true} />
+          <Scene key="balanceDetails" component={BalanceDetails} title="BalanceDetails" hideNavBar={true} />
+          <Scene key="transferScreen" component={TransferScreen} title="TransferScreen" hideNavBar={true} />
+          <Scene key="transferCompleteScreen" component={TransferCompleteScreen} title="TransferCompleteScreen" hideNavBar={true} />
+          <Scene key="debitCardScreen" component={DebitCardScreen} title="DebitCardScreen" hideNavBar={true}/>
+         <Scene key="mobileMoneyScreen" component={MobileMoneyScreen} title="MobileMoneyScreen" hideNavBar={true} initial={true} />
           {/* <Drawer
             key="drawer"
             hideNavBar={true}
