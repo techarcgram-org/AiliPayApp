@@ -36,7 +36,12 @@ export default function Routes() {
           <Scene key="welcomeScreen" component={WelcomeScreen} title="WelcomeScreen" hideNavBar={true} />
           <Scene key="helpScreen" component={HelpScreen} title="HelpScreen" hideNavBar={true} />
           <Scene key="loginScreen" component={LoginScreen} title="LoginScreen" hideNavBar={true} />
-          <NavigationDrawer
+          <Scene key="mainActivityScreen" component={MainActivityScreen} title="MainActivityScreen" hideNavBar={true} />
+            <Scene key="balanceSummary" component={BalanceSummary} title="BalanceSummary" hideNavBar={true} />
+            <Scene key="balanceDetails" component={BalanceDetails} title="BalanceDetails" hideNavBar={true} />
+            <Scene key="transferScreen" component={TransferScreen} title="TransferScreen" hideNavBar={true} />
+            <Scene key="transferCompleteScreen" component={TransferCompleteScreen} title="TransferCompleteScreen" hideNavBar={true} />
+          {/* <Drawer
             key="drawer"
             hideNavBar={true}
             contentCoponent={DrawerContent}
@@ -45,12 +50,8 @@ export default function Routes() {
             swipeEnabled={true}
             drawer
           >
-            <Scene key="mainActivityScreen" component={MainActivityScreen} title="MainActivityScreen" hideNavBar={true} />
-            <Scene key="balanceSummary" component={BalanceSummary} title="BalanceSummary" hideNavBar={true} />
-            <Scene key="balanceDetails" component={BalanceDetails} title="BalanceDetails" hideNavBar={true} />
-            <Scene key="transferScreen" component={TransferScreen} title="TransferScreen" hideNavBar={true} />
-            <Scene key="transferCompleteScreen" component={TransferCompleteScreen} title="TransferCompleteScreen" hideNavBar={true} />
-          </NavigationDrawer>
+            
+          </Drawer> */}
         </Scene>
    </Router>
   )
