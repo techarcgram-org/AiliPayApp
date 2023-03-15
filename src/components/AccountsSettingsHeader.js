@@ -14,10 +14,11 @@ export default function AccountSettingsHeader(props) {
 
 const styles = StyleSheet.create ({
     headerContainer: {
-        flex: 1,
+        // flex: 1,
         flexDirection: "row",
         justifyContent: 'space-between',
-        padding: 20
+        padding: 20,
+        alignItems: 'center'
       },
       infoHeader: {
         fontWeight: 700,

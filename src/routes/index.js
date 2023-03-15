@@ -27,6 +27,7 @@ import DebitCardScreen from "../screens/DebitCardScreen";
 import MobileMoneyScreen from "../screens/MobileMoneyScreen";
 import BankAccountScreen from "../screens/BankAccountScreen";
 import LoginAndSecurityScreen from "../screens/LoginAndSecurityScreen";
+import NotificationPreferencesScreen from "../screens/NotificationPreferencesScreen";
 
 export default function Routes() {
   return (
@@ -36,7 +37,7 @@ export default function Routes() {
           key="landingScreen"
           component={LandingScreen}
           title="LandingScreen"
-          initial={true}
+          // initial={true}
           hideNavBar={true}
 
         />
@@ -159,7 +160,14 @@ export default function Routes() {
           component={LoginAndSecurityScreen}
           title="LoginAndSecurityScreen"
           hideNavBar={true}
-          
+          // initial={true}
+        />
+        <Scene
+          key="notificationPreferencesScreen"
+          component={NotificationPreferencesScreen}
+          title="NotificationPreferencesScreen"
+          hideNavBar={true}
+          initial={true}
         />
 
         {/* <Drawer

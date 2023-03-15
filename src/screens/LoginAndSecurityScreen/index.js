@@ -2,6 +2,7 @@ import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import ToggleButton from "../../components/ToggleButton";
 import { Actions } from "react-native-router-flux";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import LineSeparator from "../../components/LineSeparator";
 
 export default function LoginAndSecurityScreen() {
   return (
@@ -10,17 +11,17 @@ export default function LoginAndSecurityScreen() {
         <AccountSettingsHeader backAction={Actions.bankAccountScreen} headerTitle="LOGIN AND SECURITY " />
         </View>
       <View style={styles.configurationContainer}>
-        <View style={styles.lineSeparator} />
+        <LineSeparator />
         <View style={styles.configurationOptions}>
           <Text>Enable Pin</Text>
           <ToggleButton />
         </View>
-        <View style={styles.lineSeparator} />
+        <LineSeparator />
         <View style={styles.configurationOptions}>
           <Text>Enable Fingerprint</Text>
           <ToggleButton />
         </View>
-        <View style={styles.lineSeparator} />
+        <LineSeparator />
       </View>
     </SafeAreaView>
   );
@@ -41,10 +42,5 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1,
-  },
-  lineSeparator: {
-    borderBottomColor: "#ACB3BC",
-    borderBottomWidth: 2,
-    marginVertical: 20,
   },
 });
