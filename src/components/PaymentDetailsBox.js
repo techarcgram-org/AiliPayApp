@@ -6,6 +6,7 @@ export default function PaymentDetailsBox(props) {
     visaCard:require('../../assets/ScreenIcons/visa.png'),
     masterCard:require('../../assets/ScreenIcons/master.png'),
     mtnMomo:require('../../assets/ScreenIcons/mtn-momo.png'),
+    bankAccount:require('../../assets/ScreenIcons/bank.png')
   }
   const validationImages = {
     Valid: require('../../assets/ScreenIcons/valid-icon.png'),
@@ -51,7 +52,7 @@ export default function PaymentDetailsBox(props) {
   );
 }
 
-styles = {
+const styles = {
   debitCardBox: {
     backgroundColor: "#D9D9D9",
     padding: 10,
