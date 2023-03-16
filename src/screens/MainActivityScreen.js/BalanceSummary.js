@@ -6,17 +6,14 @@ import {
   ScrollView
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import Logo from '../../components/Logo';
-import CustomButton from '../../components/CustomButton';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import IconMaterial from 'react-native-vector-icons/FontAwesome';
 import IconFoundation from 'react-native-vector-icons/Foundation';
-import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
 
-export default function BalanceSummary() {
+export default function BalanceSummary({navigation}) {
 
   return (
     <View style={styles.container}>
@@ -39,7 +36,7 @@ export default function BalanceSummary() {
           </View>
           <Text 
             style={{fontSize: 13, color: "#3F5F90", fontWeight: 700, marginTop: 20, justifyContent: "center"}}
-            onPress={Actions.balanceDetails}
+            onPress={() => navigation.navigate("BalanceDetails")}
           >
             View Balance and Shift Details 
             <Ionicons  

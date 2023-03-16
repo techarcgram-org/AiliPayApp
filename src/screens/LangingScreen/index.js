@@ -8,20 +8,23 @@ import {
 import { Actions } from 'react-native-router-flux';
 import Logo from '../../components/Logo';
 
-export default function LandingScreen() {
+export default function LandingScreen({navigation}) {
   // useEffect(() => {
   //   setTimeout(() => {
   //     Actions.welcomeScreen()
   //   }, 5000)
   // },[])
+const goToLandingPage2 = () => {
+  navigation.navigate("LandingScreen2")
+}
 
 return (
-  <View style={styles.container}>
-    <Logo />
-    <TouchableOpacity style={{ width: "50%" }} onPress={Actions.landingScreen2}>
-      <Text style={styles.seconderyText}>Financial system that works for everyone</Text>
-    </TouchableOpacity>
-  </View>
+    <View style={styles.container}>
+      <Logo />
+      <TouchableOpacity style={{ width: "50%" }} onPress={goToLandingPage2}>
+        <Text style={styles.seconderyText}>Financial system that works for everyone</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
 

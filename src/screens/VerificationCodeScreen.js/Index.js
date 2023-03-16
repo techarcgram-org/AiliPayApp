@@ -9,9 +9,9 @@ import Logo from '../../components/Logo';
 import CustomRadioButton from '../../components/CustomRadioButton';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function VerificationCodeScreen() {
-  const [selectedOption, setSelectedOption] = useState('phone')
+export default function VerificationCodeScreen({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -23,9 +23,9 @@ export default function VerificationCodeScreen() {
           <Text>A text message with your verification code was sent to xxxx-xxxx-343</Text>
           <View style={styles.confirmCode}>
             <CustomInput placeholder="Enter verification code" />
-            <CustomButton title="Confirm Code" backgroundColor="#063B87" color="white" onPress={Actions.passwordSetupScreen} />
+            <CustomButton title="Confirm Code" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("PasswordSetupScreen")} />
             <Text style={styles.text}>Didn't get verification code?</Text>
-            <Text style={styles.text} onPress={Actions.verificationCodeEmailScreen}>Send code to xxxstaing@airlipay.com</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("VerificationCodeEmailScreen")}><Text style={[styles.text,{color: "#063B87"}]}>Send code to xxxstaing@airlipay.com</Text></TouchableOpacity>
             <Text style={styles.noAccess}>I don't have access to the listed accounts</Text>
           </View>
         </View>

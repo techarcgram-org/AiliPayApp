@@ -12,11 +12,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function TransferScreen() {
+export default function TransferScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={Actions.mainActivityScreen}>
+      <TouchableOpacity onPress={() => navigation.navigate("MainActivityScreen")}>
         <Ionicons 
           name="md-arrow-back"
           size={30}
@@ -70,7 +70,7 @@ export default function TransferScreen() {
               title="Complete Transfer" 
               backgroundColor="#063B87" 
               color="white" 
-              onPress={Actions.transferCompleteScreen}
+              onPress={() => navigation.navigate("TransferCompleteScreen")}
             />
             <CustomButton title="Start Over" backgroundColor="transparent" color="#063B87" />
           </View>

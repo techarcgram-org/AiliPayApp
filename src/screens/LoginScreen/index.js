@@ -10,7 +10,7 @@ import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import CustomCheckbox from '../../components/CustomCheckbox';
 
-export default function LoginScreen() {
+export default function LoginScreen({navigation}) {
 
   return (
     <View style={styles.container}>
@@ -22,10 +22,10 @@ export default function LoginScreen() {
         <View>
           <CustomInput placeholder="Email Address" />
           <CustomInput placeholder="Password" />
-          <CustomButton style={{marginTop: 20, marginBottom: 20}} title="login" backgroundColor="#063B87" color="white" onPress={Actions.mainActivityScreen} />
+          <CustomButton style={{marginTop: 20, mxwarginBottom: 20}} title="login" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("MainActivityScreen")} />
           <CustomCheckbox label={<Text style={{fontWeight: 700, fontSize: 16}}> Save Email</Text>} />
           <Text style={{marginTop: 20}}>Forgot your password?<Text style={{color: "#3F5F90", fontWeight: 500}}> Reset password</Text></Text>
-          <Text style={{marginTop: 10}}>Dont have an account?<Text style={{color: "#3F5F90", fontWeight: 500}} onPress={Actions.gettingStartedEmailScreen}> Get Started</Text></Text>
+          <Text style={{marginTop: 10}}>Dont have an account?<Text style={{color: "#3F5F90", fontWeight: 500}} onPress={() => navigation.navigate("GettingStartedEmailScreen")}> Get Started</Text></Text>
         </View>
       </View>
       <View style={styles.pageFooter}>

@@ -10,11 +10,11 @@ import CustomButton from '../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function TransferCompleteScreen() {
+export default function TransferCompleteScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={Actions.mainActivityScreen}>
+      <TouchableOpacity onPress={() => navigation.navigate("MainActivityScreen")}>
         <Ionicons 
           name="md-arrow-back"
           size={30}
@@ -24,7 +24,7 @@ export default function TransferCompleteScreen() {
       <ScrollView>
         <Text style={styles.infoText}>Tranfer Complete!</Text>
         <Text style={styles.summaryText}>Your transfer was completed successfully. Your funds are on its way!</Text>
-        <CustomButton title="Done!" backgroundColor="transparent" color="#063B87" />
+        <CustomButton title="Done!" backgroundColor="transparent" color="#063B87" onPress={() => navigation.navigate("MainActivityScreen")}/>
       </ScrollView>
     </View>
   );

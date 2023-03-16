@@ -14,11 +14,16 @@ import IconMaterial from 'react-native-vector-icons/FontAwesome';
 import IconFoundation from 'react-native-vector-icons/Foundation';
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function MainActivityScreen() {
+export default function MainActivityScreen({navigation}) {
+  openDrawer = () => {
+    return () => {
+      Actions.refresh({key: 'drawer', open: true });
+    }
+  }
 
   return (
     <View style={styles.container}>
-      <Header text="AiliPay Balance" onPressMenu={Actions.drawer}/>
+      <Header text="AiliPay Balance" onPressMenu={openDrawer}/>
       <ScrollView>
         <View style={styles.sumary}>
           <Text style={{fontSize: 35, fontWeight: 700}}>XAF 100,000</Text>
@@ -37,7 +42,7 @@ export default function MainActivityScreen() {
           </View>
           <Text 
             style={{fontSize: 13, color: "#3F5F90", fontWeight: 700, marginTop: 20}}
-            onPress={Actions.balanceSummary}
+            onPress={() => navigation.navigate("BalanceSummary")}
           >
             VIEW BALANCE SUMMARY 
             <IconCommunity  
@@ -110,7 +115,7 @@ export default function MainActivityScreen() {
               color="white"
               title="Start Transfer"
               textStyle={{fontWeight: 700, fontSize: 18}}
-              onPress={Actions.transferScreen}
+              onPress={() => navigation.navigate("TransferScreen")}
             />
             <CustomButton s
               backgroundColor="#063B87"

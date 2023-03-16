@@ -9,7 +9,7 @@ import Logo from '../../components/Logo';
 import CustomRadioButton from '../../components/CustomRadioButton';
 import CustomButton from '../../components/CustomButton';
 
-export default function VerifyIdentity() {
+export default function VerifyIdentity({navigation}) {
   const [selectedOption, setSelectedOption] = useState('phone')
   return (
     <View style={styles.container}>
@@ -49,7 +49,7 @@ export default function VerifyIdentity() {
                 style={{fontWeight: 700}}
               />
             </View>
-            <CustomButton title="Get Code" backgroundColor="#063B87" color="white" onPress={Actions.verificationCodeScreen} />
+            <CustomButton title="Get Code" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("VerificationCodeScreen")} />
             <Text style={styles.noAccess}>I don't have access to the listed accounts</Text>
           </View>
         </View>

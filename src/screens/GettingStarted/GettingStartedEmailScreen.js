@@ -8,8 +8,26 @@ import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import CustomHr from '../../components/CustomHr';
+// import { 
+//   goToGettingStartedEmployeeIdScreen,
+//   goToLoginScreen,
+//   goToGettingStartedPhoneScreen,
+//   goToVerifyIdentity
+//  } from '../../helper/navigation';
 
-export default function GettingStartedEmailScreen() {
+export default function GettingStartedEmailScreen({navigation}) {
+  const goToVerifyIdentity = () => {
+    navigation.navigate("VerifyIdentity")
+  }
+  const goToLoginScreen = () => {
+    navigation.navigate("LoginScreen")
+  }
+  const goToGettingStartedPhoneScreen = () => {
+    navigation.navigate("GettingStartedPhoneScreen")
+  }
+  const goToGettingStartedEmployeeIdScreen = () => {
+    navigation.navigate("GettingStartedEmployeeIdScreen")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -20,16 +38,16 @@ export default function GettingStartedEmailScreen() {
         <View>
           <CustomInput placeholder="Email (required)" />
           <CustomInput placeholder="Empolyer (optional)" />
-          <CustomButton title="Next" backgroundColor="#063B87" color="white" onPress={Actions.verifyIdentify}/>
+          <CustomButton title="Next" backgroundColor="#063B87" color="white" onPress={goToVerifyIdentity}/>
         </View>
       </View>
       <View style={styles.info}>
         <CustomHr style={styles.hr} text="or" />
-        <CustomButton backgroundColor="transparent" title="Try your phone" color="grey" onPress={Actions.gettingStartedPhoneScreen} />
-        <CustomButton backgroundColor="transparent" title="Try your employee Id" color="grey" onPress={Actions.gettingStartedEmployeeIdScreen}/>
+        <CustomButton backgroundColor="transparent" title="Try your phone" color="grey" onPress={goToGettingStartedPhoneScreen} />
+        <CustomButton backgroundColor="transparent" title="Try your employee Id" color="grey" onPress={goToGettingStartedEmployeeIdScreen}/>
       </View>
       <View style={styles.pageFooter}>
-        <Text style={styles.loginInstead} onPress={Actions.loginScreen}>Login Instead</Text>
+        <Text style={styles.loginInstead} onPress={goToLoginScreen}>Login Instead</Text>
         <View style={styles.helpText}>
           <Text style={styles.frontText}>Need Help? </Text>
           <Text>© AirliPay 2023</Text>

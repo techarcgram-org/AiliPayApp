@@ -5,15 +5,8 @@ import {
   View,
   ScrollView
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import Logo from '../../components/Logo';
-import CustomButton from '../../components/CustomButton';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import IconMaterial from 'react-native-vector-icons/FontAwesome';
-import IconFoundation from 'react-native-vector-icons/Foundation';
-import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
 
 export default function BalanceDetails() {
@@ -91,7 +84,7 @@ export default function BalanceDetails() {
               </View>
               <View style={styles.row}>
                 <Text style={styles.sumaryTextHeader}>Direct Savings</Text>
-                <Text style={styles.sumaryTextHeader}> XAF 5 000</Text>
+                <Text style={styles.sumaryTextHeader}> XAF 5z 000</Text>
               </View>
             </View>
           </View>

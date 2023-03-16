@@ -7,10 +7,8 @@ import {
 import { Actions } from 'react-native-router-flux';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
-import CustomCheckbox from '../../components/CustomCheckbox';
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
 
   return (
     <View style={styles.container}>
@@ -32,7 +30,7 @@ export default function WelcomeScreen() {
             <Text style={{textAlign: "center"}}>3 - Add a bank account</Text>
           </View>
           
-          <CustomButton style={{marginTop: 40}} title="Get Started" backgroundColor="#063B87" color="white" onPress={Actions.helpScreen} />
+          <CustomButton style={{marginTop: 40}} title="Get Started" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("HelpScreen")} />
         </View>
       </View>
       <View style={styles.pageFooter}>
