@@ -1,24 +1,6 @@
 import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import CustomButton from "../../components/CustomButton";
 import { Actions } from "react-native-router-flux";
-<<<<<<< HEAD
-import BackIcon from "../../components/BackIcon";
-import NotificationIcon from "../../components/NotificationIcon";
-import PaymentDetailsBox from "../../components/PaymentDetailsBox";
-
-export default function DebitCardScreen() {
-  
-  return (
-
-    <SafeAreaView style={styles.container}>
-      
-      {/* ----------------------header navigation container -------------*/}
-      <View style={styles.headerContainer}>
-        <BackIcon onPress={Actions.mobileMoneyScreen} />
-        <Text style={styles.infoHeader}>DEBIT CARD</Text>
-        <NotificationIcon onPress={Actions.landingScreen} />
-      </View>
-=======
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 
@@ -27,7 +9,6 @@ export default function DebitCardScreen() {
     <SafeAreaView style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
       <AccountSettingsHeader headerTitle="DEBIT CARD" backAction={Actions.mobileMoneyScreen}/>
->>>>>>> notification-and-login-preferences
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
@@ -80,11 +61,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 2,
-<<<<<<< HEAD
-    padding: 20
-=======
     padding: 20,
->>>>>>> notification-and-login-preferences
   },
   cardBox: {
     marginTop: 20,
@@ -97,20 +74,6 @@ const styles = StyleSheet.create({
   debitCardContent: {
     marginTop: 30,
   },
-<<<<<<< HEAD
-  headerContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 20
-  },
-  infoHeader: {
-    fontWeight: 700,
-    fontSize: 25,
-    marginBottom: 20,
-  },
-=======
->>>>>>> notification-and-login-preferences
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,

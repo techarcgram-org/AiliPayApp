@@ -6,10 +6,7 @@ export default function PaymentDetailsBox(props) {
     visaCard:require('../../assets/ScreenIcons/visa.png'),
     masterCard:require('../../assets/ScreenIcons/master.png'),
     mtnMomo:require('../../assets/ScreenIcons/mtn-momo.png'),
-<<<<<<< HEAD
-=======
     bankAccount:require('../../assets/ScreenIcons/bank.png')
->>>>>>> notification-and-login-preferences
   }
   const validationImages = {
     Valid: require('../../assets/ScreenIcons/valid-icon.png'),
@@ -55,11 +52,7 @@ export default function PaymentDetailsBox(props) {
   );
 }
 
-<<<<<<< HEAD
-const styles = StyleSheet.create({
-=======
 const styles = {
->>>>>>> notification-and-login-preferences
   debitCardBox: {
     backgroundColor: "#D9D9D9",
     padding: 10,
@@ -84,8 +77,4 @@ const styles = {
     alignItems: "center",
     marginTop: 10,
   },
-<<<<<<< HEAD
-});
-=======
 };
->>>>>>> notification-and-login-preferences
