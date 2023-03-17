@@ -1,19 +1,28 @@
 import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import CustomButton from "../../components/CustomButton";
 import { Actions } from "react-native-router-flux";
+<<<<<<< HEAD
 import BackIcon from "../../components/BackIcon";
 import NotificationIcon from "../../components/NotificationIcon";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
+=======
+import PaymentDetailsBox from "../../components/PaymentDetailsBox";
+import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+>>>>>>> notification-and-login-preferences
 
 export default function MobileMoneyScreen() {
   return (
       <SafeAreaView style={styles.container}>
         {/* ----------------------header navigation container -------------*/}
+<<<<<<< HEAD
         <View style={styles.headerContainer}>
           <BackIcon onPress={Actions.debitCardScreen} />
           <Text style={styles.infoHeader}>MOBILE MONEY</Text>
           <NotificationIcon onPress={Actions.landingScreen} />
         </View>
+=======
+        <AccountSettingsHeader headerTitle="MOBILE MONEY" backAction={Actions.bankAccountScreen}/>
+>>>>>>> notification-and-login-preferences
 
         {/* ----------------------Payment detatils box container----------------- */}
         <View style={styles.debitCardContainer}>
@@ -41,7 +50,11 @@ export default function MobileMoneyScreen() {
         {/* -----------------add payment details button container---------------- */}
         <View style={styles.buttonContainer}>
           <CustomButton
+<<<<<<< HEAD
             title="Add a new Debit Card"
+=======
+            title="Add Mobile Money Account"
+>>>>>>> notification-and-login-preferences
             color="white"
             backgroundColor="#063B87"
           />
@@ -75,6 +88,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
   },
+<<<<<<< HEAD
   headerContainer: {
     flex: 1,
     flexDirection: "row",
@@ -86,6 +100,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginBottom: 20,
   },
+=======
+>>>>>>> notification-and-login-preferences
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,

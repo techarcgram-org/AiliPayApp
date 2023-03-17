@@ -1,59 +1,43 @@
 import { View, StyleSheet, Text, SafeAreaView } from "react-native";
 import CustomButton from "../../components/CustomButton";
 import { Actions } from "react-native-router-flux";
-<<<<<<< HEAD
-import BackIcon from "../../components/BackIcon";
-import NotificationIcon from "../../components/NotificationIcon";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
-
-export default function DebitCardScreen() {
-  
-  return (
-
-    <SafeAreaView style={styles.container}>
-      
-      {/* ----------------------header navigation container -------------*/}
-      <View style={styles.headerContainer}>
-        <BackIcon onPress={Actions.mobileMoneyScreen} />
-        <Text style={styles.infoHeader}>DEBIT CARD</Text>
-        <NotificationIcon onPress={Actions.landingScreen} />
-      </View>
-=======
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
-import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 
-export default function DebitCardScreen() {
+export default function BankAccountScreen() {
   return (
     <SafeAreaView style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
-      <AccountSettingsHeader headerTitle="DEBIT CARD" backAction={Actions.mobileMoneyScreen}/>
->>>>>>> notification-and-login-preferences
+      <AccountSettingsHeader
+        headerTitle="BANK ACCOUNT"
+        backAction={Actions.debitCardScreen}
+      />
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Debit Card</Text>
+        <Text style={styles.infoTitle}>Bank Accounts</Text>
         <View style={styles.debitCardContent}>
           <View>
             <PaymentDetailsBox
-              paymentType="VISA"
-              lastDigits="1234"
-              primaryStatus="Primary Debit Card"
+              paymentType="ECOBANK"
+              lastDigits="........7372"
+              primaryStatus="Primary Bank Account"
               validationStatus="Valid"
-              imageType="visaCard"
+              imageType="bankAccount"
             />
             <PaymentDetailsBox
-              paymentType="MASTER"
-              lastDigits="4567"
+              paymentType="UBA BANK"
+              lastDigits="........7272"
               primaryStatus=""
               validationStatus="Invalid"
-              imageType="masterCard"
+              imageType="bankAccount"
             />
             <PaymentDetailsBox
-              paymentType="VISA"
-              lastDigits="4567"
+              paymentType="NFC BANK"
+              lastDigits="........2892"
               primaryStatus=""
               validationStatus="Valid"
-              imageType="visaCard"
+              imageType="bankAccount"
             />
           </View>
         </View>
@@ -62,7 +46,7 @@ export default function DebitCardScreen() {
       {/* -----------------add payment details button container---------------- */}
       <View style={styles.buttonContainer}>
         <CustomButton
-          title="Add a new Debit Card"
+          title="Add a new Bank Account"
           color="white"
           backgroundColor="#063B87"
         />
@@ -80,11 +64,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 2,
-<<<<<<< HEAD
-    padding: 20
-=======
     padding: 20,
->>>>>>> notification-and-login-preferences
   },
   cardBox: {
     marginTop: 20,
@@ -93,24 +73,13 @@ const styles = StyleSheet.create({
     flex: 6,
     flexDirection: "column",
     alignItems: "center",
+    margin: 20,
   },
   debitCardContent: {
     marginTop: 30,
+    marginLeft: 20,
+    marginRight: 20,
   },
-<<<<<<< HEAD
-  headerContainer: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 20
-  },
-  infoHeader: {
-    fontWeight: 700,
-    fontSize: 25,
-    marginBottom: 20,
-  },
-=======
->>>>>>> notification-and-login-preferences
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
