@@ -5,8 +5,11 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Footer({}) {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Icon
@@ -14,16 +17,21 @@ export default function Footer({}) {
         size={40}
         color={'#063B87'}
       />
-      <EntypoIcon
-        name="wallet"
-        size={40}
-        color={'#063B87'}
-      />
-      <EntypoIcon
-        name="swap"
-        size={40}
-        color={'#063B87'}
-      />
+      <TouchableOpacity onPress={() => navigation.navigate("PastPayPeriodsScreen")}>
+        <EntypoIcon
+          name="wallet"
+          size={40}
+          color={'#063B87'}
+          
+        />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("CompletedPayments")}>
+        <EntypoIcon
+          name="swap"
+          size={40}
+          color={'#063B87'}
+        />
+      </TouchableOpacity>
     </View>
   );
 }

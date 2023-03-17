@@ -20,10 +20,10 @@ export default function MainActivityScreen({navigation}) {
       Actions.refresh({key: 'drawer', open: true });
     }
   }
-
+  console.log("navigation", navigation)
   return (
     <View style={styles.container}>
-      <Header text="AiliPay Balance" onPressMenu={openDrawer}/>
+      <Header text="AiliPay Balance" />
       <ScrollView>
         <View style={styles.sumary}>
           <Text style={{fontSize: 35, fontWeight: 700}}>XAF 100,000</Text>
@@ -53,22 +53,22 @@ export default function MainActivityScreen({navigation}) {
           </Text>
         </View>
         <View style={styles.transferSection}>
-          <Logo color="#063B87"/>
-          <Text style={{color: "black", fontSize: 16}}>Choose an amount</Text>
+          <Logo color="#063B87" style={{alignSelf: "center"}}/>
+          <Text style={{color: "black", fontSize: 16, textAlign: "center"}}>Choose an amount</Text>
           <View style={styles.transacButtons}>
             <View style={styles.row}>
               <CustomButton 
                 backgroundColor="#979EBA"
                 color="black"
                 title="  XAF 5000"
-                style={{marginRight: 2}}
+                style={{marginRight: 2, flex: 1}}
                 textStyle={{fontWeight: 700, fontSize: 18, }}
               />
               <CustomButton 
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 10000"
-                style={{marginLeft: 2}}
+                style={{marginLeft: 2, flex: 1}}
                 textStyle={{fontWeight: 700, fontSize: 18, }}
               />
             </View>
@@ -77,14 +77,14 @@ export default function MainActivityScreen({navigation}) {
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 10000"
-                style={{marginRight: 2}}
+                style={{marginRight: 2, flex: 1}}
                 textStyle={{fontWeight: 700, fontSize: 18}}
               />
               <CustomButton 
                 backgroundColor="#979EBA"
                 color="black"
                 title="XAF 50000"
-                style={{marginLeft: 2}}
+                style={{marginLeft: 2, flex: 1}}
                 textStyle={{fontWeight: 700, fontSize: 18 }}
               />
             </View>
@@ -122,6 +122,7 @@ export default function MainActivityScreen({navigation}) {
               color="white"
               title="Save"
               textStyle={{fontWeight: 700, fontSize: 18}}
+              onPress={() => navigation.navigate("SavingsScreen")}
             />
           </View>
         </View>
@@ -152,7 +153,6 @@ const styles = StyleSheet.create({
   },
   transferSection: {
     marginTop: 20,
-    alignItems: "center"
   },
   row: {
     flexDirection: "row",
