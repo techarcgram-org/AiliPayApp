@@ -6,8 +6,8 @@ import {
 
 export default function CustomHr(props) {
   return (
-    <View style={{...styles.container, ...props.style}} >
-      <View style={styles.bottomBorder} />
+    <View style={[styles.container, props.style]} >
+      <View style={styles.bottomBorder(props)} />
       {props.text && <Text style={styles.text}>{props.text}</Text>}
     </View>
   );
@@ -18,13 +18,13 @@ const styles = StyleSheet.compose({
     position: 'relative',
     alignItems: "center"
   },
-  bottomBorder: {
-    borderBottomWidth: 2,
-    borderBottomColor: '#1E1E1E',
+  bottomBorder: props => ({
+    borderBottomWidth: props.width ? props.width : 2,
+    borderBottomColor: props.color ?  props.color: '#1E1E1E',
     position: 'absolute',
     bottom: 0,
     width: "100%"
-  },
+  }),
   text: {
     position: 'absolute',
     bottom: -8,

@@ -11,7 +11,7 @@ export default function CustomButton(props) {
       style={[styles.button(props), props.style]}
       onPress={props.onPress}
     >
-      <Text style={styles.text(props.color)}>{props.title}</Text>
+      <Text style={[styles.text(props.color), props.textStyle]}>{props.title}</Text>
     </TouchableOpacity>
   );
 }

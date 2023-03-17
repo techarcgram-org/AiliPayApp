@@ -10,7 +10,7 @@ import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import CustomCheckbox from '../../components/CustomCheckbox';
 
-export default function PasswordSetupScreen() {
+export default function PasswordSetupScreen({navigation}) {
   const label = <><Text style={{fontSize: 12.5}}>I agree to the Airlipay <Text style={{color: "#2673D3"}}>Terms and Conditions </Text>
   and <Text style={{color: "#48658A"}}>Privacy Policy</Text></Text></>
   return (
@@ -37,7 +37,7 @@ export default function PasswordSetupScreen() {
             <View>
               <CustomCheckbox label={label} />
             </View>
-            <CustomButton style={{marginTop: 40}} title="View your balance" backgroundColor="#063B87" color="white" onPress={Actions.welcomeScreen} />
+            <CustomButton style={{marginTop: 40}} title="View your balance" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("WelcomeScreen")} />
           </View>
         </View>
       </View>

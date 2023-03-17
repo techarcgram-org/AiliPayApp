@@ -5,7 +5,7 @@ import {
 
 export default function Logo(props) {
   return (
-    <Text style={styles.logo(props.color)}>AirliPay.</Text>
+    <Text style={[styles.logo(props.color), props.style]}>AirliPay.</Text>
   );
 }
 

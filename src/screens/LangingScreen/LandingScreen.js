@@ -7,7 +7,14 @@ import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import DisplayBox from '../../components/DisplayBox';
 
-export default function LandingScreen2() {
+export default function LandingScreen2({navigation}) {
+  const goToLoginScreen = () => {
+    navigation.navigate("LoginScreen")
+  }
+
+  const goToGettingStartedEmailScreen = () => {
+    navigation.navigate("GettingStartedEmailScreen")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -16,7 +23,7 @@ export default function LandingScreen2() {
           title="login" 
           backgroundColor="#3F5F90"
           color="white" 
-          onPress={Actions.loginScreen}
+          onPress={goToLoginScreen}
         />
       </View>
       <View style={styles.image}>
@@ -32,7 +39,7 @@ export default function LandingScreen2() {
               title="Get started" 
               backgroundColor="#063B87" 
               color="white"
-              onPress={Actions.gettingStartedEmailScreen}
+              onPress={goToGettingStartedEmailScreen}
             />
           }
         />

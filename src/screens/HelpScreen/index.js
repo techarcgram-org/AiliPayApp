@@ -8,7 +8,7 @@ import { Actions } from 'react-native-router-flux';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 
-export default function HelpScreen() {
+export default function HelpScreen({navigation}) {
 
   return (
     <View style={styles.container}>
@@ -28,8 +28,8 @@ export default function HelpScreen() {
             <Text style={{marginBottom: 5}}>- If you’re a new employee, we might not have your information yet, so either contact us or wait a few days and try again.</Text>
             <Text style={{marginBottom: 5}}>- If you’re information is correct contact support at: ***support nubmer*** </Text>
           </View>
-          <CustomButton style={{marginTop: 40}} title="Get Started" backgroundColor="#063B87" color="white" onPress={Actions.verificationCodeEmailScreen} />
-          <CustomButton style={{marginTop: 10}} title="Ask your employeer about getting AirliPay" backgroundColor="#063B87" color="white" onPress={Actions.verificationCodeEmailScreen} />
+          <CustomButton style={{marginTop: 40}} title="Get Started" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("GettingStartedEmailScreen")} />
+          <CustomButton style={{marginTop: 10}} title="Ask your employeer about getting AirliPay" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("VerificationCodeEmailScreen")} />
         </View>
       </View>
       <View style={styles.pageFooter}>
