@@ -2,6 +2,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function AccountSettingsHeader({headerTitle}) {
   const navigation = useNavigation();
@@ -12,10 +13,10 @@ export default function AccountSettingsHeader({headerTitle}) {
           navigation.goBack();
         }}
       >
-        <Icon name="arrow-left" size={40} color={"#063B87"} />
+        <Ionicons name="arrow-back" size={33} color={"black"} />
       </TouchableOpacity>
       <Text style={styles.headerText}>{headerTitle}</Text>
-      <Icon name="bell" size={40} color={"#063B87"} />
+      <Icon name="bell" size={30} color={"#063B87"} />
     </View>
   );
 }

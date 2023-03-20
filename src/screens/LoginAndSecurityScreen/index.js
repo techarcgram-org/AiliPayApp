@@ -16,12 +16,12 @@ export default function LoginAndSecurityScreen({ navigation }) {
       <View style={styles.configurationContainer}>
         <LineSeparator />
         <View style={styles.configurationOptions}>
-          <Text>Enable Pin</Text>
+          <Text style={styles.textStyle}>Enable Pin</Text>
           <ToggleButton />
         </View>
         <LineSeparator />
         <View style={styles.configurationOptions}>
-          <Text>Enable Fingerprint</Text>
+          <Text style={styles.textStyle}>Enable Fingerprint</Text>
           <ToggleButton />
         </View>
         <LineSeparator />
@@ -46,4 +46,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
   },
+  textStyle: {
+    fontSize: 20
+  }
 });

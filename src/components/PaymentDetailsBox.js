@@ -48,7 +48,7 @@ export default function PaymentDetailsBox(props) {
                 : "times-circle"
             }
             size={20}
-            color={props.validationStatus === "Valid" ? "#063B87" : "#FF0000"}
+            color={props.validationStatus === "Valid" ? "green" : "#FF0000"}
           />
           {/* <Image
             source={validationImages[props.validationStatus]}
@@ -61,7 +61,7 @@ export default function PaymentDetailsBox(props) {
       {/* three dots icon with options to remove, update or set payment method as primary */}
       <View style={styles.moreOptionsDotIcon}>
         <TouchableOpacity>
-          <FontAwesome name="ellipsis-v" size={20} color="#063B87" />
+          <FontAwesome name="ellipsis-v" size={20} color="black" />
         </TouchableOpacity>
       </View>
     </View>
@@ -73,10 +73,10 @@ const styles = {
     backgroundColor: "#D9D9D9",
     padding: 10,
     borderRadius: 10,
-    overflow: "hidden",
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: 10,
+    marginBottom: 10,
+    alignItems: "stretch"
   },
   cardText: {
     fontSize: 15,
