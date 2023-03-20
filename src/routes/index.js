@@ -35,7 +35,7 @@ import NotificationPreferencesScreen from '../screens/NotificationPreferencesScr
 import MobileMoneyScreen from '../screens/MobileMoneyScreen';
 import DebitCardScreen from '../screens/DebitCardScreen'
 import BankAccountScreen from '../screens/BankAccountScreen'
-import AccountCancelation from '../screens/AccountCancelation';
+import AccountCancellation from '../screens/AccountCancellation';
 import AccountInformation from '../screens/AccountInformation';
 import AutomaticSavings from '../screens/AutomaticSavings';
 import CompleteTransfer from '../screens/CompleteTransfer';
@@ -84,7 +84,7 @@ export default function Routes () {
         <Stack.Screen name="MobileMoneyScreen" component={MobileMoneyScreen} options={{headerShown: false}} />
         <Stack.Screen name="DebitCardScreen" component={DebitCardScreen} options={{headerShown: false}}/>
         <Stack.Screen name="BankAccountScreen" component={BankAccountScreen} options={{headerShown: false}}/>
-        <Stack.Screen name="AccountCancelation" component={AccountCancelation} options={{headerShown: false}}/>
+        <Stack.Screen name="AccountCancellation" component={AccountCancellation} options={{headerShown: false}}/>
         <Stack.Screen name="AccountInformation" component={AccountInformation} options={{headerShown: false}}/>
         <Stack.Screen name="AutomaticSavings" component={AutomaticSavings} options={{headerShown: false}}/>
         <Stack.Screen name="CompleteTransfer" component={CompleteTransfer} options={{headerShown: false}}/>

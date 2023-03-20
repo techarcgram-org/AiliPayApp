@@ -23,14 +23,14 @@ export default function MobileMoneyScreen({navigation}) {
               lastDigits="XXX8"
               primaryStatus="Primary Mobile Money"
               validationStatus="Valid"
-              imageType="mtnMomo"
+              validationImage="check-circle"
             />
             <PaymentDetailsBox
               paymentType="MTN MoMo"
               lastDigits="XXX9"
               primaryStatus="Primary Mobile Money"
               validationStatus="Invalid"
-              imageType="mtnMomo"
+              validationImage="times-circle"
             />
           </View>
         </View>

@@ -4,18 +4,18 @@ import CustomButton from "../../components/CustomButton";
 import CustomHr from "../../components/CustomHr";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 
-export default function AccountCancelation({navigation}) {
+export default function AccountCancellation({navigation}) {
   return (
     <View style={styles.container}>
       <AccountSettingsHeader
         headerTitle="ACCOUNT CANCELLATION"
         navigation={navigation}
       />
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => navigation.navigate("MainActivityScreen")}
       >
         <Ionicons name="md-arrow-back" size={30} color="black" />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <Text style={styles.infoText}>Cancellation Process</Text>
       <Text style={styles.apologyText}>We are sorry to see you go</Text>
       <View style={styles.detailSection}>

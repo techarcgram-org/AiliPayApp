@@ -72,7 +72,7 @@ export default function SettingsScreen({navigation}) {
           size={20}
           color="#3F5F90"
         />
-        <TouchableOpacity style={styles.innerSettingsContainer} onPress={() => navigation.navigate("AccountInformation")}>
+        <TouchableOpacity style={styles.innerSettingsContainer} onPress={() => navigation.navigate("AccountCancellation")}>
           <Text style={{ fontSize: 20 }}>Account Cancellation</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>

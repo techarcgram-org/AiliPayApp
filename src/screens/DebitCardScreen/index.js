@@ -20,21 +20,24 @@ export default function DebitCardScreen({navigation}) {
               lastDigits="1234"
               primaryStatus="Primary Debit Card"
               validationStatus="Valid"
-              imageType="visaCard"
+              validationImage="check-circle"
+              imageName="cc-visa"
             />
             <PaymentDetailsBox
               paymentType="MASTER"
               lastDigits="4567"
               primaryStatus=""
               validationStatus="Invalid"
-              imageType="masterCard"
+              validationImage="times-circle"
+              imageName="cc-mastercard"
             />
             <PaymentDetailsBox
               paymentType="VISA"
               lastDigits="4567"
               primaryStatus=""
               validationStatus="Valid"
-              imageType="visaCard"
+              validationImage="check-circle"
+              imageName="cc-visa"
             />
           </View>
         </View>

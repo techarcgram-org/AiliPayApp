@@ -23,21 +23,24 @@ export default function BankAccountScreen({navigation}) {
               lastDigits="........7372"
               primaryStatus="Primary Bank Account"
               validationStatus="Valid"
-              imageType="bankAccount"
+              validationImage="check-circle"
+              imageName="bank"
             />
             <PaymentDetailsBox
               paymentType="UBA BANK"
               lastDigits="........7272"
               primaryStatus=""
               validationStatus="Invalid"
-              imageType="bankAccount"
+              validationImage="times-circle"
+              imageName="bank"
             />
             <PaymentDetailsBox
               paymentType="NFC BANK"
               lastDigits="........2892"
               primaryStatus=""
               validationStatus="Valid"
-              imageType="bankAccount"
+              validationImage="check-circle"
+              imageName="bank"
             />
           </View>
         </View>
