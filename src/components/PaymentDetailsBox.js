@@ -82,6 +82,9 @@ const styles = {
     // alignItems: "center",
     // justifyContent: "space-between",
     margin: 10,
+    justifyContent: "space-between",
+    marginBottom: 10,
+    alignItems: "stretch"
   },
   typeAlign: { /* provide alignment of text items to left */
     flexDirection: "row",
