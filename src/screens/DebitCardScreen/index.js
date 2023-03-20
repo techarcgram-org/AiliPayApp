@@ -28,16 +28,12 @@ export default function DebitCardScreen({navigation}) {
               lastDigits="4567"
               primaryStatus=""
               validationStatus="Invalid"
-              validationImage="times-circle"
-              imageName="cc-mastercard"
             />
             <PaymentDetailsBox
               paymentType="VISA"
               lastDigits="4567"
               primaryStatus=""
               validationStatus="Valid"
-              validationImage="check-circle"
-              imageName="cc-visa"
             />
           </View>
         </View>

@@ -4,7 +4,7 @@ import { Actions } from "react-native-router-flux";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 
-export default function BankAccountScreen({navigation}) {
+export default function BankAccountScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
@@ -31,16 +31,12 @@ export default function BankAccountScreen({navigation}) {
               lastDigits="........7272"
               primaryStatus=""
               validationStatus="Invalid"
-              validationImage="times-circle"
-              imageName="bank"
             />
             <PaymentDetailsBox
               paymentType="NFC BANK"
               lastDigits="........2892"
               primaryStatus=""
               validationStatus="Valid"
-              validationImage="check-circle"
-              imageName="bank"
             />
           </View>
         </View>
@@ -77,7 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     margin: 20,
-    marginTop: 30
+    marginTop: 30,
   },
   debitCardContent: {
     marginTop: 30,

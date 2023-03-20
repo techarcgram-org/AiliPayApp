@@ -20,7 +20,17 @@ export default function PaymentDetailsBox(props) {
             style={{ width: 40, height: 40 }}
           />
         ) : (
-          <FontAwesome name={props.imageName} size={40} color="#063B87" />
+          <FontAwesome
+            name={
+              props.paymentType === "VISA"
+                ? "cc-visa"
+                : props.paymentType === "MASTERCARD"
+                ? "cc-mastercard"
+                : "bank"
+            }
+            size={40}
+            color="#063B87"
+          />
         )}
       </View>
 
@@ -32,7 +42,11 @@ export default function PaymentDetailsBox(props) {
         <Text>{props.primaryStatus}</Text>
         <View style={styles.validationContainer}>
           <FontAwesome
-            name={props.validationImage}
+            name={
+              props.validationStatus === "Valid"
+                ? "check-circle"
+                : "times-circle"
+            }
             size={20}
             color={props.validationStatus === "Valid" ? "#063B87" : "#FF0000"}
           />
