@@ -4,15 +4,15 @@ import { Actions } from "react-native-router-flux";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 
-export default function DebitCardScreen() {
+export default function DebitCardScreen({navigation}) {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
-      <AccountSettingsHeader headerTitle="DEBIT CARD" backAction={Actions.mobileMoneyScreen}/>
+      <AccountSettingsHeader headerTitle="DEBIT CARD" navigation={navigation}/>
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Debit Card</Text>
+        <Text style={styles.infoTitle}>Debit Cards</Text>
         <View style={styles.debitCardContent}>
           <View>
             <PaymentDetailsBox
@@ -48,14 +48,14 @@ export default function DebitCardScreen() {
           backgroundColor="#063B87"
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 40,
     backgroundColor: "white",
     flexDirection: "column",
   },
@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     flex: 6,
     flexDirection: "column",
     alignItems: "center",
+    marginTop: 30
   },
   debitCardContent: {
     marginTop: 30,

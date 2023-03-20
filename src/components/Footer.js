@@ -12,11 +12,14 @@ export default function Footer({}) {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("MainActivityScreen")} >
       <Icon
         name="home"
         size={40}
         color={'#063B87'}
       />
+      </TouchableOpacity>
+      
       <TouchableOpacity onPress={() => navigation.navigate("PastPayPeriodsScreen")}>
         <EntypoIcon
           name="wallet"

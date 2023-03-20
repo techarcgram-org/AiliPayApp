@@ -1,16 +1,15 @@
 import { SafeAreaView, StyleSheet, View, Text } from "react-native";
-import { Actions } from "react-native-router-flux";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import LineSeparator from "../../components/LineSeparator";
 import FrontArrowIcon from "../../components/FrontArrowIcon";
 
-export default function NotificationPreferencesScreen() {
+export default function NotificationPreferencesScreen({navigation}) {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.headerContainer}>
         <AccountSettingsHeader
-          backAction={Actions.loginAndSecurityScreen}
-          headerTitle="NOTIFICATION PREFERENCES "
+          headerTitle="NOTIFICATION PREFERENCES"
+          navigation={navigation}
         />
       </View>
       <View style={styles.preferencesContainer}>
@@ -31,7 +30,7 @@ export default function NotificationPreferencesScreen() {
         </View>
         <LineSeparator />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -40,7 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "stretch",
-    padding: 20,
+    padding: 40,
   },
   headerContainer: {
     justifyContent: "center",

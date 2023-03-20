@@ -4,12 +4,15 @@ import { Actions } from "react-native-router-flux";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import LineSeparator from "../../components/LineSeparator";
 
-export default function LoginAndSecurityScreen() {
+export default function LoginAndSecurityScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-        <View style={styles.headerContainer}>
-        <AccountSettingsHeader backAction={Actions.bankAccountScreen} headerTitle="LOGIN AND SECURITY " />
-        </View>
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <AccountSettingsHeader
+          navigation={navigation}
+          headerTitle="LOGIN AND SECURITY "
+        />
+      </View>
       <View style={styles.configurationContainer}>
         <LineSeparator />
         <View style={styles.configurationOptions}>
@@ -23,22 +26,22 @@ export default function LoginAndSecurityScreen() {
         </View>
         <LineSeparator />
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    padding: 40,
   },
   configurationContainer: {
     flex: 10,
-    padding: 10
+    padding: 10,
   },
-  configurationOptions:{
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
+  configurationOptions: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   headerContainer: {
     flex: 1,

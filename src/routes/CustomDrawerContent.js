@@ -24,7 +24,7 @@ export default function CustomDrawerContent(props) {
       <DrawerItem
         label="Settings"
         icon={({ focused, color, size }) => <MaterialIcon name="settings" size={40} />}
-        onPress={() => props.navigation.navigate('https://mywebsite.com/help')}
+        onPress={() => props.navigation.navigate('SettingsScreen')}
       />
       <DrawerItem
         label="Help"

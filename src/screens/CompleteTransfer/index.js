@@ -2,10 +2,16 @@ import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from "react-nati
 import CustomHr from '../../components/CustomHr';
 import CustomButton from '../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 
-export default function CompleteTransfer() {
+
+export default function CompleteTransfer({navigation}) {
 
     return (<View style={styles.container}>
+        <AccountSettingsHeader
+        headerTitle="COMPLETE TRANSFER"
+        navigation={navigation}
+      />
         <TouchableOpacity onPress={() => navigation.navigate("MainActivityScreen")}>
             <Ionicons
                 name="md-arrow-back"
