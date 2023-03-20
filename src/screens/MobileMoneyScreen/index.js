@@ -4,17 +4,20 @@ import { Actions } from "react-native-router-flux";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from "react-native-vector-icons/FontAwesome";
 
-export default function MobileMoneyScreen({navigation}) {
+export default function MobileMoneyScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
-      
-      <AccountSettingsHeader headerTitle="MOBILE MONEY" navigation={navigation}/>
+
+      <AccountSettingsHeader
+        headerTitle="MOBILE MONEY"
+        navigation={navigation}
+      />
 
       {/* ----------------------Payment detatils box container----------------- */}
-      <View style={styles.debitCardContainer} >
+      <View style={styles.debitCardContainer}>
         <Text style={styles.infoTitle}>Mtn Momo Accounts</Text>
         <View style={styles.debitCardContent}>
           <View>
@@ -23,14 +26,12 @@ export default function MobileMoneyScreen({navigation}) {
               lastDigits="XXX8"
               primaryStatus="Primary Mobile Money"
               validationStatus="Valid"
-              validationImage="check-circle"
             />
             <PaymentDetailsBox
               paymentType="MTN MoMo"
               lastDigits="XXX9"
               primaryStatus="Primary Mobile Money"
               validationStatus="Invalid"
-              validationImage="times-circle"
             />
           </View>
         </View>
