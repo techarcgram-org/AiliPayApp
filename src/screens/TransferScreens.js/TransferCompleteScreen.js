@@ -5,7 +5,6 @@ import {
   View,
   ScrollView
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import CustomButton from '../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';

@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+
 import LandingScreen from '../screens/LangingScreen'
 import LandingScreen2 from '../screens/LangingScreen/LandingScreen'
 import GettingStartedEmailScreen from '../screens/GettingStarted/GettingStartedEmailScreen'
@@ -28,6 +29,16 @@ import PastPayPeriodsScreen from '../screens/PastPayPeriods';
 import StatementOverviewScreen from '../screens/PastPayPeriods/StateMentOverviewScreen';
 import CompletedTransferAmount from '../screens/PastPayPeriods/CompletedTransferAmount';
 import CompletedPayments from '../screens/CompletedPayments';
+import SettingsScreen from '../screens/SettingsScreen';
+import LoginAndSecurityScreen from '../screens/LoginAndSecurityScreen';
+import NotificationPreferencesScreen from '../screens/NotificationPreferencesScreen';
+import MobileMoneyScreen from '../screens/MobileMoneyScreen';
+import DebitCardScreen from '../screens/DebitCardScreen'
+import BankAccountScreen from '../screens/BankAccountScreen'
+import AccountCancellation from '../screens/AccountCancellation';
+import AccountInformation from '../screens/AccountInformation';
+import AutomaticSavings from '../screens/AutomaticSavings';
+import CompleteTransfer from '../screens/CompleteTransfer';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -46,6 +57,7 @@ function MenuDrawer () {
         <Drawer.Screen name="StatementOverviewScreen" component={StatementOverviewScreen} options={{headerShown: false}} />
         <Drawer.Screen name="CompletedTransferAmount" component={CompletedTransferAmount} options={{headerShown: false}} />
         <Drawer.Screen name="CompletedPayments" component={CompletedPayments} options={{headerShown: false}} />
+        <Drawer.Screen name="SettingsScreen" component={SettingsScreen} options={{headerShown: false}} />
     </Drawer.Navigator>
   )
 }
@@ -65,7 +77,18 @@ export default function Routes () {
         <Stack.Screen name="PasswordSetupScreen" component={PasswordSetupScreen} options={{headerShown: false}} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{headerShown: false}} />
         <Stack.Screen name="HelpScreen" component={HelpScreen} options={{headerShown: false}} />
+        <Stack.Screen name="SettingsScreen" component={SettingsScreen} options={{headerShown: false}}/>
         <Stack.Screen name="LoginScreen" component={LoginScreen} options={{headerShown: false}} />
+        <Stack.Screen name="LoginAndSecurityScreen" component={LoginAndSecurityScreen} options={{headerShown: false}} />
+        <Stack.Screen name="NotificationPreferencesScreen" component={NotificationPreferencesScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="MobileMoneyScreen" component={MobileMoneyScreen} options={{headerShown: false}} />
+        <Stack.Screen name="DebitCardScreen" component={DebitCardScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="BankAccountScreen" component={BankAccountScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="AccountCancellation" component={AccountCancellation} options={{headerShown: false}}/>
+        <Stack.Screen name="AccountInformation" component={AccountInformation} options={{headerShown: false}}/>
+        <Stack.Screen name="AutomaticSavings" component={AutomaticSavings} options={{headerShown: false}}/>
+        <Stack.Screen name="CompleteTransfer" component={CompleteTransfer} options={{headerShown: false}}/>
+
 
         <Stack.Screen
           name="DrawerScreens"
