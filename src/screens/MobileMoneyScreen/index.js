@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     alignItems: "center",
     // alignItems: "center",
+    alignItems: "center",
     // margin: 20,
     marginTop: 30,
   },
@@ -88,6 +89,11 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     // marginLeft: 20,
     // marginRight: 20,
+    // marginTop: 30,
+    marginLeft: 20,
+    marginRight: 20,
+    flexDirection: "column",
+    width: "100%",
   },
   infoTitle: {
     fontWeight: 600,
@@ -95,5 +101,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 40,
     textAlign: 'center',
+    marginTop: 40,
   },
 });

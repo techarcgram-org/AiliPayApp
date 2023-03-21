@@ -97,6 +97,14 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     // marginLeft: 20,
     // marginRight: 20,
+    alignItems: "center",
+    // flexDirection: "column",
+    marginTop: 30
+  },
+  debitCardContent: {
+    // marginTop: 30,
+    flexDirection: "column",
+    width: "100%",
   },
   infoTitle: {
     fontWeight: 600,
@@ -104,5 +112,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 40,
     textAlign: 'center',
+    marginTop: 40,
   },
 });
