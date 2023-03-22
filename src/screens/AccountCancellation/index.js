@@ -16,6 +16,7 @@ export default function AccountCancellation({navigation}) {
       >
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity> */}
+      <View style={styles.innerContainer}>
       <Text style={styles.infoText}>Cancellation Process</Text>
       <Text style={styles.apologyText}>We are sorry to see you go</Text>
       <View style={styles.detailSection}>
@@ -53,6 +54,7 @@ export default function AccountCancellation({navigation}) {
           onPress={() => navigation.navigate("")}
         />
       </View>
+      </View>
     </View>
   );
 }
@@ -81,8 +83,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     color: "white",
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
     flexDirection: "column",
+  },
+  innerContainer: {
+    paddingLeft: 20, 
+    paddingRight: 20,
   },
   row: {
     flexDirection: "row",

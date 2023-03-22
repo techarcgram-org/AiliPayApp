@@ -26,13 +26,13 @@ export default function DebitCardScreen({navigation}) {
             <PaymentDetailsBox
               paymentType="MASTERCARD"
               lastDigits="4567"
-              primaryStatus=""
+              primaryStatus="Debit Card"
               validationStatus="Invalid"
             />
             <PaymentDetailsBox
               paymentType="VISA"
               lastDigits="4567"
-              primaryStatus=""
+              primaryStatus="Debit Card"
               validationStatus="Valid"
             />
           </View>
@@ -54,13 +54,15 @@ export default function DebitCardScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
     backgroundColor: "white",
     flexDirection: "column",
   },
   buttonContainer: {
     flex: 2,
     padding: 20,
+    width: "100%",
   },
   cardBox: {
     marginTop: 20,
@@ -77,10 +79,39 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     // marginLeft: 20,
     // marginRight: 20,
+    alignItems: "center",
+    // flexDirection: "column",
+    marginTop: 30
+  },
+  debitCardContent: {
+    // marginTop: 30,
+    flexDirection: "column",
+    width: "100%",
+    // flexDirection: "column",
+    // alignItems: "center",
+    // margin: 20,
+    marginTop: 30,
+  },
+  debitCardContent: {
+    marginTop: 30,
+    alignItems: "stretch",
+    // marginLeft: 20,
+    // marginRight: 20,
+    alignItems: "center",
+    // flexDirection: "column",
+    marginTop: 30
+  },
+  debitCardContent: {
+    // marginTop: 30,
+    flexDirection: "column",
+    width: "100%",
   },
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
     textAlign: 'center',
+    marginTop: 40,
+    textAlign: 'center',
+    marginTop: 40,
   },
 });

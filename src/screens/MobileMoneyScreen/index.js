@@ -18,7 +18,7 @@ export default function MobileMoneyScreen({ navigation }) {
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Mtn Momo Accounts</Text>
+        <Text style={styles.infoTitle}>Mobile Money Accounts</Text>
         <View style={styles.debitCardContent}>
           <View>
             <PaymentDetailsBox
@@ -52,13 +52,15 @@ export default function MobileMoneyScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
     backgroundColor: "white",
     flexDirection: "column",
   },
   buttonContainer: {
     flex: 2,
     padding: 20,
+    width: "100%",
   },
   cardBox: {
     marginTop: 20,
@@ -67,6 +69,9 @@ const styles = StyleSheet.create({
     flex: 6,
     // flexDirection: "column",
     // alignItems: "center",
+    alignItems: "center",
+    // alignItems: "center",
+    alignItems: "center",
     // margin: 20,
     marginTop: 30,
   },
@@ -75,10 +80,27 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     // marginLeft: 20,
     // marginRight: 20,
+    // marginTop: 30,
+    marginLeft: 20,
+    marginRight: 20,
+    flexDirection: "column",
+    width: "100%",
+    marginTop: 30,
+    alignItems: "stretch",
+    // marginLeft: 20,
+    // marginRight: 20,
+    // marginTop: 30,
+    marginLeft: 20,
+    marginRight: 20,
+    flexDirection: "column",
+    width: "100%",
   },
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
     textAlign: 'center',
+    marginTop: 40,
+    textAlign: 'center',
+    marginTop: 40,
   },
 });

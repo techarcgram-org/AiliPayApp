@@ -13,7 +13,8 @@ export default function AutomaticSavings({navigation}) {
         navigation={navigation}
       />
       <Text style={styles.infoText}>Automatic Savings</Text>
-      <View style={styles.detail}>
+      <View style={styles.innerContainer}>
+        <View style={styles.detail}>
         <View>
           <Text style={styles.detailTextHeader}>Automatic Savings amount</Text>
           <Text style={styles.detailAmount}>XAF 20 000</Text>
@@ -24,8 +25,8 @@ export default function AutomaticSavings({navigation}) {
           <Text style={styles.detailAmount}>xxxx xxxx xxxx 2312</Text>
         </View>
         <CustomHr width={1} />
-      </View>
-      <View style={styles.buttonSection}>
+        </View>
+        <View style={styles.buttonSection}>
         <CustomButton
           title="Update Automatic Saving"
           backgroundColor="#063B87"
@@ -38,6 +39,7 @@ export default function AutomaticSavings({navigation}) {
           color="#063B87"
           onPress={() => navigation.navigate("")}
         />
+        </View>
       </View>
     </View>
   );
@@ -48,8 +50,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     color: "white",
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
     flexDirection: "column",
+  },
+  innerContainer: {
+    paddingLeft: 20, 
+    paddingRight: 20,
   },
   infoText: {
     fontSize: 25,

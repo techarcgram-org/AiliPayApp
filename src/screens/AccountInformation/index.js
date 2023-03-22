@@ -17,7 +17,7 @@ export default function AccountInformation({ navigation }) {
       <View style={styles.avatar}>
         <Ionicons name="person" size={100} color="black" alignSelf="center" />
         <Text style={styles.nameText}>Fname Lname</Text>
-        <Text style={styles.editText}>Edit</Text>
+        <Text style={styles.editNameText}>Edit</Text>
       </View>
       <View style={styles.securityAlert}>
         <MaterialCommunityIcons
@@ -34,20 +34,24 @@ export default function AccountInformation({ navigation }) {
         <CustomHr width={1} />
         <View style={styles.row}>
           <MaterialCommunityIcons name="email" size={20} color="#3F5F90" />
-          <View style={styles.textSection}>
-            <Text>Email Address</Text>
-            <Text>fname.lname@dname.com</Text>
+          <View style={styles.innerRow}>
+            <View style={styles.textSection}>
+              <Text>Email Address</Text>
+              <Text>fname.lname@dname.com</Text>
+            </View>
+            <Text>Verify</Text>
+            <Text style={styles.editText}>Edit</Text>
           </View>
-          <Text>Verify</Text>
-          <Text style={styles.editText}>Edit</Text>
         </View>
         <View style={styles.row}>
           <MaterialCommunityIcons name="cellphone" size={20} color="#3F5F90" />
-          <View style={styles.textSection}>
-            <Text>Phone Number</Text>
-            <Text>+237XXXXXXXXX</Text>
+          <View style={styles.innerRow}>
+            <View style={styles.textSection}>
+              <Text>Phone Number</Text>
+              <Text>+237XXXXXXXXX</Text>
+            </View>
+            <Text style={styles.editText}>Edit</Text>
           </View>
-          <Text style={styles.editText}>Edit</Text>
         </View>
         <View style={styles.row}>
           <MaterialCommunityIcons
@@ -55,19 +59,23 @@ export default function AccountInformation({ navigation }) {
             size={20}
             color="#3F5F90"
           />
-          <View>
-            <Text>Password</Text>
-            <Text>*********</Text>
+          <View style={styles.innerRow}>
+            <View>
+              <Text>Password</Text>
+              <Text>*********</Text>
+            </View>
+            <Text style={styles.editText}>Edit</Text>
           </View>
-          <Text style={styles.editText}>Edit</Text>
         </View>
         <View style={styles.row}>
           <MaterialIcons name="language" size={20} color="#3F5F90" />
-          <View>
-            <Text>Language</Text>
-            <Text>English Language</Text>
+          <View style={styles.innerRow}>
+            <View>
+              <Text>Language</Text>
+              <Text>English Language</Text>
+            </View>
+            <Text style={styles.editText}>Edit</Text>
           </View>
-          <Text style={styles.editText}>Edit</Text>
         </View>
       </View>
     </View>
@@ -79,7 +87,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
     color: "white",
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
     flexDirection: "column",
   },
   avatar: {
@@ -95,6 +104,11 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
   editText: {
+    // alignSelf: "center",
+    fontSize: 12,
+    color: "#3F5F90",
+  },
+  editNameText:{
     alignSelf: "center",
     fontSize: 12,
     color: "#3F5F90",
@@ -112,16 +126,20 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
   userInformation: {
-    marginTop: 20,
-    marginLeft: 40,
-    marginRight: 40,
-    marginBottom: 20,
+    margin: 20,
   },
   row: {
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "space-between",
     marginVertical: 15,
+  },
+  innerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    flex: 1,
+    marginLeft: 20,
+    alignItems: "flex-start",
   },
   textSection: {
     justifyContent: "flex-start",

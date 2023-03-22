@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     top: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   headerText: {
     fontWeight: 700,
