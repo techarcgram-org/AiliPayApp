@@ -84,7 +84,13 @@ const styles = {
     margin: 10,
     justifyContent: "space-between",
     marginBottom: 10,
-    alignItems: "stretch"
+    alignItems: "stretch",
+    justifyContent: "space-between",
+    marginBottom: 10,
+    alignItems: "stretch",
+    // alignItems: "center",
+    // justifyContent: "space-between",
+    margin: 10,
   },
   typeAlign: { /* provide alignment of text items to left */
     flexDirection: "row",
