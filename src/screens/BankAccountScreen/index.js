@@ -70,18 +70,20 @@ const styles = StyleSheet.create({
   },
   debitCardContainer: {
     flex: 6,
-    flexDirection: "column",
-    alignItems: "center",
-    margin: 20,
+    // flexDirection: "column",
+    // alignItems: "center",
+    // margin: 20,
     marginTop: 30,
   },
   debitCardContent: {
     marginTop: 30,
-    marginLeft: 20,
-    marginRight: 20,
+    alignItems: "stretch",
+    // marginLeft: 20,
+    // marginRight: 20,
   },
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
+    textAlign: 'center',
   },
 });

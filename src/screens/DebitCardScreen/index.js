@@ -24,7 +24,7 @@ export default function DebitCardScreen({navigation}) {
               imageName="cc-visa"
             />
             <PaymentDetailsBox
-              paymentType="MASTER"
+              paymentType="MASTERCARD"
               lastDigits="4567"
               primaryStatus=""
               validationStatus="Invalid"
@@ -67,15 +67,20 @@ const styles = StyleSheet.create({
   },
   debitCardContainer: {
     flex: 6,
-    flexDirection: "column",
-    alignItems: "center",
-    marginTop: 30
+    // flexDirection: "column",
+    // alignItems: "center",
+    // margin: 20,
+    marginTop: 30,
   },
   debitCardContent: {
     marginTop: 30,
+    alignItems: "stretch",
+    // marginLeft: 20,
+    // marginRight: 20,
   },
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
+    textAlign: 'center',
   },
 });

@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 700,
     alignSelf: "center",
+    marginBottom: 20
   },
   payperiodDate: {
     alignSelf: "center",

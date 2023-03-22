@@ -15,17 +15,17 @@ export default function NotificationPreferencesScreen({navigation}) {
       <View style={styles.preferencesContainer}>
         <LineSeparator />
         <View style={styles.notificationSettings}>
-          <Text>Push Notifications</Text>
+          <Text style={styles.textStyle}>Push Notifications</Text>
           <FrontArrowIcon />
         </View>
         <LineSeparator />
         <View style={styles.notificationSettings}>
-          <Text>SMS Notifications</Text>
+          <Text style={styles.textStyle}>SMS Notifications</Text>
           <FrontArrowIcon />
         </View>
         <LineSeparator />
         <View style={styles.notificationSettings}>
-          <Text>Email Notifications</Text>
+          <Text style={styles.textStyle}>Email Notifications</Text>
           <FrontArrowIcon />
         </View>
         <LineSeparator />
@@ -51,4 +51,7 @@ const styles = StyleSheet.create({
   preferencesContainer: {
     padding: 20,
   },
+  textStyle: {
+    fontSize: 20
+  }
 });
