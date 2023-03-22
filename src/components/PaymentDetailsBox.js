@@ -33,9 +33,9 @@ export default function PaymentDetailsBox(props) {
           />
         )}
       </View>
-
-      {/* Payment type(master/visa/momo) with last digits and validation status conatainer */}
-      <View>
+      <View style={styles.typeAlign}>
+              {/* Payment type(master/visa/momo) with last digits and validation status conatainer */}
+        <View>
         <Text style={styles.cardText}>
           {props.paymentType} ....{props.lastDigits}
         </Text>
@@ -58,12 +58,14 @@ export default function PaymentDetailsBox(props) {
         </View>
       </View>
 
-      {/* three dots icon with options to remove, update or set payment method as primary */}
-      <View style={styles.moreOptionsDotIcon}>
+              <View style={styles.moreOptionsDotIcon}>
         <TouchableOpacity>
           <FontAwesome name="ellipsis-v" size={20} color="black" />
         </TouchableOpacity>
       </View>
+      </View>
+
+
     </View>
   );
 }
@@ -76,7 +78,17 @@ const styles = {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 10,
-    alignItems: "stretch"
+    alignItems: "stretch",
+    // alignItems: "center",
+    // justifyContent: "space-between",
+    margin: 10,
+  },
+  typeAlign: { /* provide alignment of text items to left */
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between", 
+    marginLeft: 20,
+    flex: 1,
   },
   cardText: {
     fontSize: 15,

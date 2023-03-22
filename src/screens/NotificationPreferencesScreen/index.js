@@ -39,17 +39,21 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-start",
     alignItems: "stretch",
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
   },
   headerContainer: {
     justifyContent: "center",
+    marginBottom: 10,
   },
   notificationSettings: {
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingLeft: 15,
+    paddingRight: 15,
   },
   preferencesContainer: {
-    padding: 20,
+    // padding: 20,
   },
   textStyle: {
     fontSize: 20

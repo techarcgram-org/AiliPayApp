@@ -93,6 +93,7 @@ export default function SettingsScreen({navigation}) {
             <FontAwesome name="angle-right" size={20} />
           </TouchableOpacity>
       </View>
+      <LineSeparator />
     </View>
   );
 }
@@ -100,7 +101,8 @@ export default function SettingsScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
     flexDirection: "column"
   },
   innerSettingsContainer: {
@@ -113,6 +115,7 @@ const styles = StyleSheet.create({
   settingsContainer: {
     flexDirection: "row",
     alignItems: "center",
-    // padding: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
   },
 });

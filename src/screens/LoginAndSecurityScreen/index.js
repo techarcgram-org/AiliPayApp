@@ -32,16 +32,19 @@ export default function LoginAndSecurityScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 40,
+    paddingTop: 40,
+    paddingBottom: 40,
   },
   configurationContainer: {
     flex: 10,
-    padding: 10,
+    // padding: 10,
   },
   configurationOptions: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    paddingRight: 15, 
+    paddingLeft: 15,
   },
   headerContainer: {
     flex: 1,
