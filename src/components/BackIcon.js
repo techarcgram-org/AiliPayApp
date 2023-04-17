@@ -1,5 +1,4 @@
-import { StyleSheet, Image, View, TouchableOpacity } from "react-native";
-import { clickProps } from "react-native-web/dist/cjs/modules/forwardedProps";
+import { Image, TouchableOpacity } from "react-native";
 
 export default function BackIcon(props) {
   return (

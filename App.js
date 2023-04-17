@@ -1,9 +1,11 @@
+import Toast from "react-native-toast-message";
 import Routes from "./src/routes";
-import WelcomeScreen
- from "./src/screens/WelcomeScreen";
+
 export default function App() {
   return (
-    <Routes />
+    <>
+      <Routes />
+      <Toast visibilityTime={5000} />
+    </>
   );
 }
-

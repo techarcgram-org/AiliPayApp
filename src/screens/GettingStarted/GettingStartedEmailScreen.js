@@ -1,53 +1,85 @@
-import { 
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import Logo from '../../components/Logo';
-import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
-import CustomHr from '../../components/CustomHr';
-// import { 
-//   goToGettingStartedEmployeeIdScreen,
-//   goToLoginScreen,
-//   goToGettingStartedPhoneScreen,
-//   goToVerifyIdentity
-//  } from '../../helper/navigation';
+import { StyleSheet, Text, View } from "react-native";
+import Logo from "../../components/Logo";
+import CustomButton from "../../components/CustomButton";
+import CustomInput from "../../components/CustomInput";
+import CustomHr from "../../components/CustomHr";
+import { useState } from "react";
+import { Formik } from "formik";
 
-export default function GettingStartedEmailScreen({navigation}) {
+export default function GettingStartedEmailScreen({ navigation }) {
+  const [loading, setLoading] = useState(false);
   const goToVerifyIdentity = () => {
-    navigation.navigate("VerifyIdentity")
-  }
+    navigation.navigate("VerifyIdentity");
+  };
   const goToLoginScreen = () => {
-    navigation.navigate("LoginScreen")
-  }
+    navigation.navigate("LoginScreen");
+  };
   const goToGettingStartedPhoneScreen = () => {
-    navigation.navigate("GettingStartedPhoneScreen")
-  }
+    navigation.navigate("GettingStartedPhoneScreen");
+  };
   const goToGettingStartedEmployeeIdScreen = () => {
-    navigation.navigate("GettingStartedEmployeeIdScreen")
-  }
+    navigation.navigate("GettingStartedEmployeeIdScreen");
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Logo color="#063B87" />
       </View>
       <View style={styles.form}>
-        <Text style={styles.formHeader}>Lets' get started</Text>
+        <Text style={styles.formHeader}>Lets get started</Text>
         <View>
-          <CustomInput placeholder="Email (required)" />
-          <CustomInput placeholder="Empolyer (optional)" />
-          <CustomButton title="Next" backgroundColor="#063B87" color="white" onPress={goToVerifyIdentity}/>
+          <Formik
+            // validationSchema={gettingStartedValidationSchema}
+            initialValues={{ employeeId: "", lastName: "" }}
+            onSubmit={(values) => console.log("Values", values)}
+          >
+            {({ handleSubmit, isValid }) => (
+              <>
+                <CustomInput placeholder="Email (required)" />
+                <CustomInput placeholder="Empolyer (optional)" />
+                <CustomButton
+                  title="Next"
+                  backgroundColor="#063B87"
+                  color="white"
+                  onPress={goToVerifyIdentity}
+                />
+                <CustomButton
+                  title={
+                    loading ? (
+                      <ActivityIndicator size="small" color="#0000ff" />
+                    ) : (
+                      "Next"
+                    )
+                  }
+                  backgroundColor="#063B87"
+                  color="white"
+                  onPress={handleSubmit}
+                  disabled={!isValid}
+                />
+              </>
+            )}
+          </Formik>
         </View>
       </View>
       <View style={styles.info}>
         <CustomHr style={styles.hr} text="or" />
-        <CustomButton backgroundColor="transparent" title="Try your phone" color="grey" onPress={goToGettingStartedPhoneScreen} />
-        <CustomButton backgroundColor="transparent" title="Try your employee Id" color="grey" onPress={goToGettingStartedEmployeeIdScreen}/>
+        <CustomButton
+          backgroundColor="transparent"
+          title="Try your phone"
+          color="grey"
+          onPress={goToGettingStartedPhoneScreen}
+        />
+        <CustomButton
+          backgroundColor="transparent"
+          title="Try your employee Id"
+          color="grey"
+          onPress={goToGettingStartedEmployeeIdScreen}
+        />
       </View>
       <View style={styles.pageFooter}>
-        <Text style={styles.loginInstead} onPress={goToLoginScreen}>Login Instead</Text>
+        <Text style={styles.loginInstead} onPress={goToLoginScreen}>
+          Login Instead
+        </Text>
         <View style={styles.helpText}>
           <Text style={styles.frontText}>Need Help? </Text>
           <Text>© AirliPay 2023</Text>
@@ -60,49 +92,49 @@ export default function GettingStartedEmailScreen({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     color: "white",
     padding: 40,
-    flexDirection: "column"
+    flexDirection: "column",
   },
   header: {
     flexDirection: "row",
     top: 20,
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 20,
   },
   form: {
     flex: 3,
-    marginTop: 40
+    marginTop: 40,
   },
   info: {
     flex: 2,
-    marginTop: 30
+    marginTop: 30,
   },
   hr: {
-    marginBottom: 40
+    marginBottom: 40,
   },
   formHeader: {
     fontWeight: 700,
     fontSize: 25,
     marginTop: 40,
-    marginBottom: 20
+    marginBottom: 20,
   },
   pageFooter: {
     flex: 1,
     marginTop: 40,
-    alignItems: "center"
+    alignItems: "center",
   },
   loginInstead: {
     fontWeight: 700,
     color: "#3F5F90",
-    marginBottom: 20
+    marginBottom: 20,
   },
   helpText: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   frontText: {
     fontWeight: 600,
-  }
+  },
 });
