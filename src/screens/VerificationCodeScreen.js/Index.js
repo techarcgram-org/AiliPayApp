@@ -1,17 +1,38 @@
-import React, { useState } from 'react';
-import { 
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import Logo from '../../components/Logo';
-import CustomRadioButton from '../../components/CustomRadioButton';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Field, Formik } from 'formik';
+import { useContext, useState } from 'react';
+import { verificationSchema } from '../../validationSchemas/verificationSchema';
+import { verifyEmailSecret } from '../../services';
+import Toast from 'react-native-toast-message';
+import { store } from '../../../store';
 
-export default function VerificationCodeScreen({navigation}) {
+export default function VerificationCodeScreen({ navigation }) {
+  const [loading, setLoading] = useState();
+  const { state } = useContext(store);
+
+  const onSubmitEvent = async (values) => {
+    console.log('help');
+    setLoading(true);
+    const response = await verifyEmailSecret({ secret: values.secret, email: state.auth.email });
+    setLoading(false);
+    if (response.status == 404) {
+      navigation.navigate('HelpScreen');
+    } else if (response.status == 200) {
+      // await dispatch({ type: 'SET_AUTH', payload: response.data.data });
+      navigation.navigate('PasswordSetupScreen');
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Something went wrong please try again later 🥲'
+      });
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -20,12 +41,40 @@ export default function VerificationCodeScreen({navigation}) {
       <View style={styles.info}>
         <Text style={styles.infoHeader}>Verification code sent!</Text>
         <View>
-          <Text>A text message with your verification code was sent to xxxx-xxxx-343</Text>
+          <Text>
+            A text message with your verification code was sent to xxxx{state.auth.email.slice(7)}
+          </Text>
           <View style={styles.confirmCode}>
-            <CustomInput placeholder="Enter verification code" />
-            <CustomButton title="Confirm Code" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("PasswordSetupScreen")} />
+            <Formik
+              validationSchema={verificationSchema}
+              initialValues={{ secret: '' }}
+              onSubmit={(values) => onSubmitEvent(values)}>
+              {({ handleSubmit, isValid }) => (
+                <>
+                  <Field
+                    component={CustomInput}
+                    name="secret"
+                    placeholder="Enter verification code"
+                    editable={!loading}
+                  />
+
+                  <CustomButton
+                    title={
+                      loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Confirm Code'
+                    }
+                    backgroundColor="#063B87"
+                    color="white"
+                    onPress={handleSubmit}
+                  />
+                </>
+              )}
+            </Formik>
             <Text style={styles.text}>Didn't get verification code?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("VerificationCodeEmailScreen")}><Text style={[styles.text,{color: "#063B87"}]}>Send code to xxxstaing@airlipay.com</Text></TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('VerificationCodeEmailScreen')}>
+              <Text style={[styles.text, { color: '#063B87' }]}>
+                Send code to xxxstaing@airlipay.com
+              </Text>
+            </TouchableOpacity>
             <Text style={styles.noAccess}>I don't have access to the listed accounts</Text>
           </View>
         </View>
@@ -44,19 +93,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    color: "white",
+    color: 'white',
     padding: 40,
-    flexDirection: "column"
+    flexDirection: 'column'
   },
   header: {
-    flexDirection: "row",
+    flexDirection: 'row',
     top: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 20
   },
   info: {
-    flex: 7,
+    flex: 7
   },
   infoHeader: {
     fontWeight: 700,
@@ -67,25 +116,25 @@ const styles = StyleSheet.create({
   pageFooter: {
     flex: 1,
     marginTop: 40,
-    alignItems: "center"
+    alignItems: 'center'
   },
   helpText: {
-    flexDirection: "row"
+    flexDirection: 'row'
   },
   frontText: {
-    fontWeight: 600,
+    fontWeight: 600
   },
   noAccess: {
-    alignSelf: "center", 
-    fontWeight: 700, 
-    color: "#3F5F90",
-    marginTop: 70,
+    alignSelf: 'center',
+    fontWeight: 700,
+    color: '#3F5F90',
+    marginTop: 70
   },
   confirmCode: {
-    marginTop: 20,
+    marginTop: 20
   },
   text: {
-    alignSelf: "center",
+    alignSelf: 'center',
     marginTop: 20
   }
 });

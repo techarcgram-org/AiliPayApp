@@ -1,27 +1,28 @@
-import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
-import Toast from "react-native-toast-message";
-import Logo from "../../components/Logo";
-import CustomButton from "../../components/CustomButton";
-import CustomInput from "../../components/CustomInput";
-import CustomHr from "../../components/CustomHr";
-import { searchUserByEmployeeId } from "../../services";
-import { useState } from "react";
-import { Field, Formik } from "formik";
-import { gettingStartedValidationSchema } from "../../validationSchemas/gettingStartedValidationSchema";
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import Toast from 'react-native-toast-message';
+import Logo from '../../components/Logo';
+import CustomButton from '../../components/CustomButton';
+import CustomInput from '../../components/CustomInput';
+import CustomHr from '../../components/CustomHr';
+import { searchUserByEmployeeId } from '../../services';
+import { useState } from 'react';
+import { Field, Formik } from 'formik';
+import { gettingStartedValidationSchema } from '../../validationSchemas/gettingStartedValidationSchema';
+import { store } from '../../../store';
+import { useContext } from 'react';
 
 export default function GettingStartedEmployeeIdScreen({ navigation }) {
-  const [employeeId, setEmployeeId] = useState("");
-  const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const globalState = useContext(store);
+  const { dispatch } = globalState;
   const goToLoginScreen = () => {
-    navigation.navigate("LoginScreen");
+    navigation.navigate('LoginScreen');
   };
   const goToGettingStartedPhoneScreen = () => {
-    navigation.navigate("GettingStartedPhoneScreen");
+    navigation.navigate('GettingStartedPhoneScreen');
   };
   const goToGettingStartedEmailScreen = () => {
-    navigation.navigate("GettingStartedEmailScreen");
+    navigation.navigate('GettingStartedEmailScreen');
   };
 
   const onNextClick = async (values) => {
@@ -29,18 +30,19 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
     const response = await searchUserByEmployeeId(values.employeeId);
     setLoading(false);
     if (response.status == 404) {
-      navigation.navigate("HelpScreen");
+      navigation.navigate('HelpScreen');
     } else if (response.status == 200) {
-      console.log("response", response);
-      navigation.navigate("VerifyIdentity");
+      await dispatch({ type: 'SET_AUTH', payload: response.data.data });
+      navigation.navigate('VerifyIdentityScreen');
     } else {
       Toast.show({
-        type: "error",
-        text1: "Error",
-        text2: "Something went wrong please try again later 🥲",
+        type: 'error',
+        text1: 'Error',
+        text2: 'Something went wrong please try again later 🥲'
       });
     }
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -51,9 +53,8 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
         <View>
           <Formik
             validationSchema={gettingStartedValidationSchema}
-            initialValues={{ employeeId: "", lastName: "" }}
-            onSubmit={(values) => onNextClick(values)}
-          >
+            initialValues={{ employeeId: '', lastName: '' }}
+            onSubmit={(values) => onNextClick(values)}>
             {({ handleSubmit, isValid }) => (
               <>
                 <Field
@@ -75,13 +76,7 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
                   editable={!loading}
                 />
                 <CustomButton
-                  title={
-                    loading ? (
-                      <ActivityIndicator size="small" color="#0000ff" />
-                    ) : (
-                      "Next"
-                    )
-                  }
+                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
                   backgroundColor="#063B87"
                   color="white"
                   onPress={handleSubmit}
@@ -123,49 +118,49 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    color: "white",
+    backgroundColor: 'white',
+    color: 'white',
     padding: 40,
-    flexDirection: "column",
+    flexDirection: 'column'
   },
   header: {
-    flexDirection: "row",
+    flexDirection: 'row',
     top: 20,
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 20,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20
   },
   form: {
     flex: 3,
-    marginTop: 40,
+    marginTop: 40
   },
   info: {
     flex: 2,
-    marginTop: 30,
+    marginTop: 30
   },
   hr: {
-    marginBottom: 40,
+    marginBottom: 40
   },
   formHeader: {
     fontWeight: 700,
     fontSize: 25,
     marginTop: 40,
-    marginBottom: 20,
+    marginBottom: 20
   },
   pageFooter: {
     flex: 1,
     marginTop: 40,
-    alignItems: "center",
+    alignItems: 'center'
   },
   loginInstead: {
     fontWeight: 700,
-    color: "#3F5F90",
-    marginBottom: 20,
+    color: '#3F5F90',
+    marginBottom: 20
   },
   helpText: {
-    flexDirection: "row",
+    flexDirection: 'row'
   },
   frontText: {
-    fontWeight: 600,
-  },
+    fontWeight: 600
+  }
 });

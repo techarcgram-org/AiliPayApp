@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput } from 'react-native';
 
 export default function CustomInput(props) {
   const {
@@ -24,10 +24,10 @@ export default function CustomInput(props) {
 const styles = StyleSheet.compose({
   input: (errors) => ({
     borderBottomWidth: 2,
-    borderColor: errors ? "red" : "#1E1E1E",
+    borderColor: errors ? 'red' : '#1E1E1E',
     borderRadius: 4,
     paddingHorizontal: 5,
     paddingVertical: 10,
-    marginBottom: 20,
-  }),
+    marginBottom: 20
+  })
 });

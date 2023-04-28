@@ -1,17 +1,14 @@
-import { View, StyleSheet, Text, SafeAreaView } from "react-native";
-import ToggleButton from "../../components/ToggleButton";
-import { Actions } from "react-native-router-flux";
-import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
-import LineSeparator from "../../components/LineSeparator";
+import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
+import ToggleButton from '../../components/ToggleButton';
+import { Actions } from 'react-native-router-flux';
+import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import LineSeparator from '../../components/LineSeparator';
 
 export default function LoginAndSecurityScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <AccountSettingsHeader
-          navigation={navigation}
-          headerTitle="LOGIN AND SECURITY "
-        />
+        <AccountSettingsHeader navigation={navigation} headerTitle="LOGIN AND SECURITY " />
       </View>
       <View style={styles.configurationContainer}>
         <LineSeparator />
@@ -33,21 +30,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 40,
-    paddingBottom: 40,
+    paddingBottom: 40
   },
   configurationContainer: {
-    flex: 10,
+    flex: 10
     // padding: 10,
   },
   configurationOptions: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingRight: 15, 
-    paddingLeft: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingRight: 15,
+    paddingLeft: 15
   },
   headerContainer: {
-    flex: 1,
+    flex: 1
   },
   textStyle: {
     fontSize: 20
