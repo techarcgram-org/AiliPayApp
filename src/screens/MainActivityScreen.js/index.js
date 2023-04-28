@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import { Actions } from "react-native-router-flux";
-import Logo from "../../components/Logo";
-import CustomButton from "../../components/CustomButton";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import IconMaterial from "react-native-vector-icons/FontAwesome";
-import IconFoundation from "react-native-vector-icons/Foundation";
-import IconCommunity from "react-native-vector-icons/MaterialCommunityIcons";
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import Logo from '../../components/Logo';
+import CustomButton from '../../components/CustomButton';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import IconMaterial from 'react-native-vector-icons/FontAwesome';
+import IconFoundation from 'react-native-vector-icons/Foundation';
+import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function MainActivityScreen({ navigation }) {
-  openDrawer = () => {
+  const openDrawer = () => {
     return () => {
-      Actions.refresh({ key: "drawer", open: true });
+      Actions.refresh({ key: 'drawer', open: true });
     };
   };
   return (
@@ -23,7 +23,7 @@ export default function MainActivityScreen({ navigation }) {
           <Text style={{ fontSize: 35, fontWeight: 700 }}>XAF 100,000</Text>
           <View style={styles.updateSection}>
             <IconMaterial name="refresh" size={10} color="black" />
-            <Text style={{ fontWeight: "bold", fontSize: 12, margin: 5 }}>
+            <Text style={{ fontWeight: 'bold', fontSize: 12, margin: 5 }}>
               last updated 15 Feb 2023
             </Text>
             <IconFoundation name="info" sie={10} color="black" />
@@ -31,19 +31,18 @@ export default function MainActivityScreen({ navigation }) {
           <Text
             style={{
               fontSize: 13,
-              color: "#3F5F90",
+              color: '#3F5F90',
               fontWeight: 700,
-              marginTop: 20,
+              marginTop: 20
             }}
-            onPress={() => navigation.navigate("BalanceSummary")}
-          >
+            onPress={() => navigation.navigate('BalanceSummary')}>
             VIEW BALANCE SUMMARY
             <IconCommunity name="greater-than" size={10} color="#3F5F90" />
           </Text>
         </View>
         <View style={styles.transferSection}>
-          <Logo color="#063B87" style={{ alignSelf: "center" }} />
-          <Text style={{ color: "black", fontSize: 16, textAlign: "center" }}>
+          <Logo color="#063B87" style={{ alignSelf: 'center' }} />
+          <Text style={{ color: 'black', fontSize: 16, textAlign: 'center' }}>
             Choose an amount
           </Text>
           <View style={styles.transacButtons}>
@@ -106,7 +105,7 @@ export default function MainActivityScreen({ navigation }) {
               color="white"
               title="Start Transfer"
               textStyle={{ fontWeight: 700, fontSize: 18 }}
-              onPress={() => navigation.navigate("TransferScreen")}
+              onPress={() => navigation.navigate('TransferScreen')}
             />
             <CustomButton
               s
@@ -114,7 +113,7 @@ export default function MainActivityScreen({ navigation }) {
               color="white"
               title="Save"
               textStyle={{ fontWeight: 700, fontSize: 18 }}
-              onPress={() => navigation.navigate("SavingsScreen")}
+              onPress={() => navigation.navigate('SavingsScreen')}
             />
           </View>
         </View>
@@ -127,30 +126,30 @@ export default function MainActivityScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    color: "white",
+    backgroundColor: 'white',
+    color: 'white',
     padding: 40,
-    flexDirection: "column",
+    flexDirection: 'column'
   },
   header: {},
   sumary: {
-    alignItems: "center",
-    marginTop: 40,
+    alignItems: 'center',
+    marginTop: 40
   },
   updateSection: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   transferSection: {
-    marginTop: 20,
+    marginTop: 20
   },
   row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    marginTop: -5,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: -5
   },
   transacButtons: {
-    marginTop: 20,
+    marginTop: 20
   },
-  footer: {},
+  footer: {}
 });
