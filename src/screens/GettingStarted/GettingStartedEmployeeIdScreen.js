@@ -131,11 +131,11 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   form: {
-    flex: 3,
+    // flex: 3,
     marginTop: 40
   },
   info: {
-    flex: 2,
+    // flex: 2,
     marginTop: 30
   },
   hr: {

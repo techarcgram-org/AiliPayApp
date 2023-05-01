@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   header: {
-    flex: 1,
+    // flex: 1,
     flexDirection: 'row',
     top: 20,
     justifyContent: 'space-between',
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   info: {
-    flex: 8
+    // flex: 8
   },
   infoHeader: {
     fontWeight: 700,

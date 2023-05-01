@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   info: {
-    flex: 7
+    // flex: 7
   },
   infoHeader: {
     fontWeight: 700,

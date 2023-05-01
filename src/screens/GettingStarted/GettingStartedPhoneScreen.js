@@ -68,12 +68,12 @@ export default function GettingStartedPhoneScreen({ navigation }) {
                   placeholder="Employer (optional)"
                   editable={!loading}
                 />
-                <CustomButton
+                {/* <CustomButton
                   title="Next"
                   backgroundColor="#063B87"
                   color="white"
                   onPress={goToVerifyIdentity}
-                />
+                /> */}
                 <CustomButton
                   title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
                   backgroundColor="#063B87"
@@ -130,11 +130,11 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   form: {
-    flex: 3,
+    // flex: 3,
     marginTop: 40
   },
   info: {
-    flex: 2,
+    // flex: 2,
     marginTop: 30
   },
   hr: {
