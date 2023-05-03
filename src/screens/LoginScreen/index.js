@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
-import { 
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import CustomCheckbox from '../../components/CustomCheckbox';
+import { Field, Formik } from 'formik';
+import { loginValidationSchema } from '../../validationSchemas/verificationSchema';
+import { useContext, useState } from 'react';
+import { login } from '../../services';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { store } from '../../../store';
 
-export default function LoginScreen({navigation}) {
+export default function LoginScreen({ navigation }) {
+  const [loading, setLoading] = useState(false);
+  const { state, dispatch } = useContext(store);
 
+  const onSubmitEvent = async (values) => {
+    setLoading(true);
+    const response = await login({
+      username: values.email,
+      password: values.password
+    });
+    setLoading(false);
+    if (response.status == 201) {
+      await dispatch({ type: 'SET_USER', payload: response.data.data });
+      navigation.navigate('DrawerScreens');
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Something went wrong please try again later 🥲'
+      });
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -20,12 +40,51 @@ export default function LoginScreen({navigation}) {
       <View style={styles.info}>
         <Text style={styles.infoHeader}>Login</Text>
         <View>
-          <CustomInput placeholder="Email Address" />
-          <CustomInput placeholder="Password" />
-          <CustomButton style={{marginTop: 20, mxwarginBottom: 20}} title="login" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("DrawerScreens")} />
-          <CustomCheckbox label={<Text style={{fontWeight: 700, fontSize: 16}}> Save Email</Text>} />
-          <Text style={{marginTop: 20}}>Forgot your password?<Text style={{color: "#3F5F90", fontWeight: 500}}> Reset password</Text></Text>
-          <Text style={{marginTop: 10}}>Dont have an account?<Text style={{color: "#3F5F90", fontWeight: 500}} onPress={() => navigation.navigate("GettingStartedEmailScreen")}> Get Started</Text></Text>
+          <Formik
+            validationSchema={loginValidationSchema}
+            initialValues={{ email: '', password: '' }}
+            onSubmit={(values) => onSubmitEvent(values)}>
+            {({ handleSubmit, isValid }) => (
+              <>
+                <Field
+                  component={CustomInput}
+                  name="email"
+                  placeholder="Email Address"
+                  editable={!loading}
+                />
+                <Field
+                  component={CustomInput}
+                  name="password"
+                  placeholder="Password"
+                  editable={!loading}
+                />
+                <CustomButton
+                  style={{ marginTop: 40 }}
+                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'login'}
+                  backgroundColor="#063B87"
+                  color="white"
+                  onPress={handleSubmit}
+                  disabled={!isValid}
+                />
+              </>
+            )}
+          </Formik>
+          <CustomCheckbox
+            label={<Text style={{ fontWeight: 700, fontSize: 16 }}> Save Email</Text>}
+          />
+          <Text style={{ marginTop: 20 }}>
+            Forgot your password?
+            <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>
+          </Text>
+          <Text style={{ marginTop: 10 }}>
+            Dont have an account?
+            <Text
+              style={{ color: '#3F5F90', fontWeight: 500 }}
+              onPress={() => navigation.navigate('GettingStartedEmailScreen')}>
+              {' '}
+              Get Started
+            </Text>
+          </Text>
         </View>
       </View>
       <View style={styles.pageFooter}>
@@ -42,21 +101,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    color: "white",
+    color: 'white',
     padding: 40,
-    flexDirection: "column"
+    flexDirection: 'column'
   },
   header: {
-    flex: 1,
-    flexDirection: "row",
+    // flex: 1,
+    flexDirection: 'row',
     top: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 20
   },
   info: {
-    flex: 8,
-
+    // flex: 8
   },
   infoHeader: {
     fontWeight: 700,
@@ -67,25 +125,25 @@ const styles = StyleSheet.create({
   pageFooter: {
     flex: 1,
     marginTop: 40,
-    alignItems: "center"
+    alignItems: 'center'
   },
   helpText: {
-    flexDirection: "row"
+    flexDirection: 'row'
   },
   frontText: {
-    fontWeight: 600,
+    fontWeight: 600
   },
   noAccess: {
-    alignSelf: "center", 
-    fontWeight: 700, 
-    color: "#3F5F90",
-    marginTop: 70,
+    alignSelf: 'center',
+    fontWeight: 700,
+    color: '#3F5F90',
+    marginTop: 70
   },
   confirmCode: {
-    marginTop: 20,
+    marginTop: 20
   },
   text: {
-    alignSelf: "center",
+    alignSelf: 'center',
     marginTop: 20
   }
 });
