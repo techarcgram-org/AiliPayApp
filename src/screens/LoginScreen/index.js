@@ -3,12 +3,13 @@ import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import CustomCheckbox from '../../components/CustomCheckbox';
-import { Field, Formik } from 'formik';
+import { ErrorMessage, Field, Formik } from 'formik';
 import { loginValidationSchema } from '../../validationSchemas/verificationSchema';
 import { useContext, useState } from 'react';
 import { login } from '../../services';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
 import { store } from '../../../store';
+import InputErrorMessage from '../../components/InputErrorMessage';
 
 export default function LoginScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
@@ -51,13 +52,17 @@ export default function LoginScreen({ navigation }) {
                   name="email"
                   placeholder="Email Address"
                   editable={!loading}
+                  inputMode="email"
                 />
+                <ErrorMessage component={InputErrorMessage} name="email" />
                 <Field
                   component={CustomInput}
                   name="password"
                   placeholder="Password"
                   editable={!loading}
+                  secureTextEntry={true}
                 />
+                <ErrorMessage component={InputErrorMessage} name="password" />
                 <CustomButton
                   style={{ marginTop: 40 }}
                   title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'login'}

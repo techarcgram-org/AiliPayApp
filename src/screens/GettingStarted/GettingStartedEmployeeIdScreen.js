@@ -3,13 +3,13 @@ import Toast from 'react-native-toast-message';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
-import CustomHr from '../../components/CustomHr';
 import { searchUserByEmployeeId } from '../../services';
 import { useState } from 'react';
-import { Field, Formik } from 'formik';
+import { Field, Formik, ErrorMessage } from 'formik';
 import { gettingStartedValidationSchema } from '../../validationSchemas/gettingStartedValidationSchema';
 import { store } from '../../../store';
 import { useContext } from 'react';
+import InputErrorMessage from '../../components/InputErrorMessage';
 
 export default function GettingStartedEmployeeIdScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
@@ -17,12 +17,6 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
   const { dispatch } = globalState;
   const goToLoginScreen = () => {
     navigation.navigate('LoginScreen');
-  };
-  const goToGettingStartedPhoneScreen = () => {
-    navigation.navigate('GettingStartedPhoneScreen');
-  };
-  const goToGettingStartedEmailScreen = () => {
-    navigation.navigate('GettingStartedEmailScreen');
   };
 
   const onNextClick = async (values) => {
@@ -32,8 +26,17 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
     if (response.status == 404) {
       navigation.navigate('HelpScreen');
     } else if (response.status == 200) {
-      await dispatch({ type: 'SET_AUTH', payload: response.data.data });
-      navigation.navigate('VerifyIdentityScreen');
+      if (response.data.data.accounts.email_confirmed) {
+        navigation.navigate('LoginScreen');
+        Toast.show({
+          type: 'info',
+          text1: 'Login',
+          text2: 'Email already verified!'
+        });
+      } else {
+        await dispatch({ type: 'SET_AUTH', payload: response.data.data });
+        navigation.navigate('VerifyIdentityScreen');
+      }
     } else {
       Toast.show({
         type: 'error',
@@ -63,18 +66,21 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
                   placeholder="Employee ID (required)"
                   editable={!loading}
                 />
+                <ErrorMessage component={InputErrorMessage} name="employeeId" />
                 <Field
                   component={CustomInput}
                   name="lastName"
                   placeholder="Last Name (required)"
                   editable={!loading}
                 />
+                <ErrorMessage component={InputErrorMessage} name="lastName" />
                 <Field
                   component={CustomInput}
                   name="employer"
                   placeholder="Employer (optional)"
                   editable={!loading}
                 />
+                <ErrorMessage component={InputErrorMessage} name="employer" />
                 <CustomButton
                   title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
                   backgroundColor="#063B87"
@@ -88,19 +94,19 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
         </View>
       </View>
       <View style={styles.info}>
-        <CustomHr style={styles.hr} text="or" />
+        {/* <CustomHr style={styles.hr} text="or" />
         <CustomButton
           backgroundColor="transparent"
           title="Try your phone"
           color="grey"
-          onPress={goToGettingStartedPhoneScreen}
+          onPress={() => navigation.navigate('GettingStartedPhoneScreen');}
         />
         <CustomButton
           backgroundColor="transparent"
           title="Try you Email"
           color="grey"
-          onPress={goToGettingStartedEmailScreen}
-        />
+          onPress={() => navigation.navigate('GettingStartedEmailScreen');}
+        /> */}
       </View>
       <View style={styles.pageFooter}>
         <Text style={styles.loginInstead} onPress={goToLoginScreen}>

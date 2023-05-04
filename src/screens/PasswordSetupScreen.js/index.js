@@ -5,10 +5,11 @@ import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import CustomCheckbox from '../../components/CustomCheckbox';
 import { store } from '../../../store';
-import { Field, Formik } from 'formik';
+import { Field, Formik, ErrorMessage } from 'formik';
 import { createPasswordValidationSchema } from '../../validationSchemas/verificationSchema';
 import Toast from 'react-native-toast-message';
 import { createPassword } from '../../services';
+import InputErrorMessage from '../../components/InputErrorMessage';
 
 export default function PasswordSetupScreen({ navigation }) {
   const { state } = useContext(store);
@@ -50,7 +51,7 @@ export default function PasswordSetupScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Hello! first_name, last_name</Text>
+        <Text style={styles.infoHeader}>Hello! {state.auth.name}</Text>
         <View>
           <Text style={{ width: '80%', fontSize: 16 }}>
             Choose your password to access your Airlipay pay benefits. Use a mix of different
@@ -59,7 +60,7 @@ export default function PasswordSetupScreen({ navigation }) {
 
           <View style={styles.confirmCode}>
             <View style={{ flexDirection: 'row', marginBottom: 20 }}>
-              <Text style={{ fontWeight: 700 }}>Username:</Text>
+              <Text style={{ fontWeight: 700 }}>Username: </Text>
               <Text>{state.auth.email}</Text>
             </View>
             <Formik
@@ -73,14 +74,19 @@ export default function PasswordSetupScreen({ navigation }) {
                     name="password"
                     placeholder="New password (Required)"
                     editable={!loading}
+                    textContentType="password"
+                    secureTextEntry={true}
                   />
-
+                  <ErrorMessage component={InputErrorMessage} name="password" />
                   <Field
                     component={CustomInput}
                     name="confirmPassword"
                     placeholder="New password (Required)"
                     editable={!loading}
+                    textContentType="password"
+                    secureTextEntry={true}
                   />
+                  <ErrorMessage component={InputErrorMessage} name="confirmPassword" />
                   <View>
                     <CustomCheckbox label={label} />
                   </View>

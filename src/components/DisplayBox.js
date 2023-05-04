@@ -1,6 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function DisplayBox(props) {
   return (
