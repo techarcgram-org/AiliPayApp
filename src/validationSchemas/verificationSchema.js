@@ -11,8 +11,12 @@ export const createPasswordValidationSchema = yup.object().shape({
     .matches(/^(?=.*[a-z])/, 'Must Contain One Lowercase Character')
     .matches(/^(?=.*[A-Z])/, 'Must Contain One Uppercase Character')
     .matches(/^(?=.*[0-9])/, 'Must Contain One Number Character')
-    .matches(/^(?=.*[!@#\$%\^&\*])/, '  Must Contain  One Special Case Character'),
-  confirmPassword: yup.string().required('Confirm password is required')
+    .matches(/^(?=.*[!@#\$%\^&\*])/, '  Must Contain  One Special Case Character')
+    .min(8, 'Must be at least 8 characters'),
+  confirmPassword: yup
+    .string()
+    .required('Confirm password is required')
+    .oneOf([yup.ref('password'), null], 'Passwords must match')
 });
 
 export const loginValidationSchema = yup.object().shape({

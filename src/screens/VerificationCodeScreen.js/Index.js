@@ -3,12 +3,13 @@ import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Field, Formik } from 'formik';
+import { Field, Formik, ErrorMessage } from 'formik';
 import { useContext, useState } from 'react';
 import { verificationSchema } from '../../validationSchemas/verificationSchema';
 import { verifyEmailSecret } from '../../services';
 import Toast from 'react-native-toast-message';
 import { store } from '../../../store';
+import InputErrorMessage from '../../components/InputErrorMessage';
 
 export default function VerificationCodeScreen({ navigation }) {
   const [loading, setLoading] = useState();
@@ -56,8 +57,9 @@ export default function VerificationCodeScreen({ navigation }) {
                     name="secret"
                     placeholder="Enter verification code"
                     editable={!loading}
+                    inputMode="numeric"
                   />
-
+                  <ErrorMessage component={InputErrorMessage} name="secret" />
                   <CustomButton
                     title={
                       loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Confirm Code'
@@ -65,6 +67,7 @@ export default function VerificationCodeScreen({ navigation }) {
                     backgroundColor="#063B87"
                     color="white"
                     onPress={handleSubmit}
+                    disabled={!isValid}
                   />
                 </>
               )}
