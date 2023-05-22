@@ -1,27 +1,16 @@
-import React, { useState } from 'react';
-import { 
-  StyleSheet,
-  Text,
-  View,
-  ScrollView
-} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import React from 'react';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function TransferScreen({navigation}) {
-
+export default function TransferScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("MainActivityScreen")}>
-        <Ionicons 
-          name="md-arrow-back"
-          size={30}
-          color="black"
-        />
+      <TouchableOpacity onPress={() => navigation.navigate('MainActivityScreen')}>
+        <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
       <ScrollView>
         <Text style={styles.infoText}>Almost Done! Just confirm your XAF 20 000 transfer</Text>
@@ -38,11 +27,7 @@ export default function TransferScreen({navigation}) {
               <Text style={styles.sumaryTextHeader}>When</Text>
               <TouchableOpacity style={styles.nowSection}>
                 <Text style={styles.summaryInfoTex}> Now</Text>
-                <IconMaterial 
-                  name="arrow-drop-down"
-                  size={20}
-                  color="black"
-                />
+                <IconMaterial name="arrow-drop-down" size={20} color="black" />
               </TouchableOpacity>
             </View>
             <CustomHr width={1} />
@@ -66,11 +51,11 @@ export default function TransferScreen({navigation}) {
             <CustomHr width={1} />
           </View>
           <View style={styles.buttonsSection}>
-            <CustomButton 
-              title="Complete Transfer" 
-              backgroundColor="#063B87" 
-              color="white" 
-              onPress={() => navigation.navigate("TransferCompleteScreen")}
+            <CustomButton
+              title="Complete Transfer"
+              backgroundColor="#063B87"
+              color="white"
+              onPress={() => navigation.navigate('TransferCompleteScreen')}
             />
             <CustomButton title="Start Over" backgroundColor="transparent" color="#063B87" />
           </View>
@@ -84,33 +69,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    color: "white",
+    color: 'white',
     padding: 40,
-    flexDirection: "column"
+    flexDirection: 'column'
   },
-  header: {
-    
-  },
+  header: {},
   sumary: {
-    alignItems: "center",
-    marginTop: 40,
+    alignItems: 'center',
+    marginTop: 40
   },
   infoText: {
     fontSize: 25,
     fontWeight: 700,
     marginBottom: 20,
     marginTop: 40,
-    alignSelf: "center"
+    alignSelf: 'center'
   },
   changeText: {
     fontSize: 16,
     fontWeight: 500,
-    color: "#3F5F90"
-
+    color: '#3F5F90'
   },
   strikeThrough: {
-    textDecorationLine: 'line-through', 
-    textDecorationStyle: 'solid',
+    textDecorationLine: 'line-through',
+    textDecorationStyle: 'solid'
   },
   headingText: {
     fontSize: 17,
@@ -118,30 +100,30 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   updateSection: {
-    flexDirection: "row",
-    alignItems: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   balanceDetailsText: {
     fontSize: 22,
     fontWeight: 700,
-    alignSelf: "center",
-    color: "#063B87"
-  }, 
+    alignSelf: 'center',
+    color: '#063B87'
+  },
   transferSection: {
-    marginTop: 20,
+    marginTop: 20
   },
   row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginVertical: 24
   },
   sumaryInfo: {
     marginTop: 20
   },
   nowSection: {
-    flexDirection: "row",
-    alignItems: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   sumaryTextHeader: {
     fontWeight: 600,
@@ -154,7 +136,7 @@ const styles = StyleSheet.create({
   freeText: {
     fontWeight: 500,
     fontSize: 17,
-    color: "#4F9E57",
+    color: '#4F9E57',
     marginRight: 10
   },
   summaryTopText: {
@@ -166,10 +148,9 @@ const styles = StyleSheet.create({
   },
   balanceText: {
     fontWeight: 700,
-    fontSize: 15,
+    fontSize: 15
   },
   buttonsSection: {
     marginTop: 30
   }
-  
 });

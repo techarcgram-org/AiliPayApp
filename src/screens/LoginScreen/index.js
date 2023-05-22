@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
@@ -19,11 +20,13 @@ export default function LoginScreen({ navigation }) {
     setLoading(true);
     const response = await login({
       username: values.email,
-      password: values.password
+      password: values.password,
+      remember: values.remember
     });
     setLoading(false);
     if (response.status == 201) {
       await dispatch({ type: 'SET_USER', payload: response.data.data });
+      await AsyncStorage.setItem('access_token', response.data.access_token);
       navigation.navigate('DrawerScreens');
     } else {
       Toast.show({
@@ -43,7 +46,7 @@ export default function LoginScreen({ navigation }) {
         <View>
           <Formik
             validationSchema={loginValidationSchema}
-            initialValues={{ email: '', password: '' }}
+            initialValues={{ email: '', password: '', remember: false }}
             onSubmit={(values) => onSubmitEvent(values)}>
             {({ handleSubmit, isValid }) => (
               <>
@@ -63,6 +66,7 @@ export default function LoginScreen({ navigation }) {
                   secureTextEntry={true}
                 />
                 <ErrorMessage component={InputErrorMessage} name="password" />
+                <Field component={CustomCheckbox} name="remember" label="Remember me" />
                 <CustomButton
                   style={{ marginTop: 40 }}
                   title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'login'}
@@ -74,9 +78,6 @@ export default function LoginScreen({ navigation }) {
               </>
             )}
           </Formik>
-          <CustomCheckbox
-            label={<Text style={{ fontWeight: 700, fontSize: 16 }}> Save Email</Text>}
-          />
           <Text style={{ marginTop: 20 }}>
             Forgot your password?
             <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>

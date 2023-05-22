@@ -46,3 +46,15 @@ export const verifyEmailSecret = async (userData) => {
     return error.response;
   }
 };
+
+export const validateAccessToken = async (token) => {
+  try {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    const response = await axios.get('/auth/');
+    return response;
+  } catch (error) {
+    // Handle error
+    console.error("Couldn't validate token:", error.response.status, error.response.data);
+    return error.response;
+  }
+};
