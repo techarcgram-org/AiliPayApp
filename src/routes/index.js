@@ -43,7 +43,10 @@ const Drawer = createDrawerNavigator();
 
 function MenuDrawer() {
   return (
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawerContent {...props} />}>
+    <Drawer.Navigator
+      drawerContent={(props) => (
+        <CustomDrawerContent {...props} options={{ gestureEnabled: false }} />
+      )}>
       <Drawer.Screen
         name="MainActivityScreen"
         component={MainActivityScreen}
@@ -111,7 +114,7 @@ function MenuDrawer() {
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LandingScreen">
+      <Stack.Navigator initialRouteName="LandingScreen" screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
           name="LandingScreen"
           component={LandingScreen}

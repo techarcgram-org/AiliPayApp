@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 
 export default function CustomInput(props) {

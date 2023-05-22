@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import Header from '../../components/Header';
@@ -9,12 +8,11 @@ import IconMaterial from 'react-native-vector-icons/FontAwesome';
 import IconFoundation from 'react-native-vector-icons/Foundation';
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { store } from '../../../store';
+
 export default function MainActivityScreen({ navigation }) {
-  const openDrawer = () => {
-    return () => {
-      Actions.refresh({ key: 'drawer', open: true });
-    };
-  };
+  const { state, dispatch } = useContext(store);
+
   return (
     <View style={styles.container}>
       <Header text="AiliPay Balance" />
