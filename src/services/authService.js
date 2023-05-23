@@ -54,7 +54,48 @@ export const validateAccessToken = async (token) => {
     return response;
   } catch (error) {
     // Handle error
-    console.error("Couldn't validate token:", error.response.status, error.response.data);
+    // console.error("Couldn't validate token:", error.response.status, error.response.data);
+    return error.response;
+  }
+};
+
+export const sendPasswordResetEmail = async (email) => {
+  try {
+    const response = await axios.post('/auth/resetPassword/sendEmail', { email });
+    return response;
+  } catch (error) {
+    // Handle error
+    console.error(
+      'Could not send password reset email:',
+      error.response.status,
+      error.response.data
+    );
+    return error.response;
+  }
+};
+
+export const verifyPasswordResetToken = async (token, email) => {
+  try {
+    const response = await axios.post('/auth/resetPassword/verifyToken', { token, email });
+    return response;
+  } catch (error) {
+    // Handle error
+    console.error(
+      'Could not verify password reset token:',
+      error.response.status,
+      error.response.data
+    );
+    return error.response;
+  }
+};
+
+export const resetPassword = async (password, email) => {
+  try {
+    const response = await axios.post('/auth/resetPassword', { password, email });
+    return response;
+  } catch (error) {
+    // Handle error
+    console.error('Could not reset password', error.response.status, error.response.data);
     return error.response;
   }
 };

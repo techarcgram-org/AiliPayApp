@@ -15,9 +15,9 @@ import PasswordSetupScreen from '../screens/PasswordSetupScreen.js';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import HelpScreen from '../screens/HelpScreen';
 import LoginScreen from '../screens/LoginScreen';
-import MainActivityScreen from '../screens/MainActivityScreen.js';
-import BalanceSummary from '../screens/MainActivityScreen.js/BalanceSummary';
-import BalanceDetails from '../screens/MainActivityScreen.js/BalanceDetails';
+import MainActivityScreen from '../screens/MainActivityScreen';
+import BalanceSummary from '../screens/MainActivityScreen/BalanceSummary';
+import BalanceDetails from '../screens/MainActivityScreen/BalanceDetails';
 import TransferScreen from '../screens/TransferScreens.js';
 import TransferCompleteScreen from '../screens/TransferScreens.js/TransferCompleteScreen';
 import CustomDrawerContent from './CustomDrawerContent';
@@ -37,6 +37,7 @@ import AccountCancellation from '../screens/AccountCancellation';
 import AccountInformation from '../screens/AccountInformation';
 import AutomaticSavings from '../screens/AutomaticSavings';
 import CompleteTransfer from '../screens/CompleteTransfer';
+import PasswordResetScreen from '../screens/PasswordResetScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -217,7 +218,11 @@ export default function Routes() {
           component={CompleteTransfer}
           options={{ headerShown: false }}
         />
-
+        <Stack.Screen
+          name="PasswordResetScreen"
+          component={PasswordResetScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="DrawerScreens"
           component={MenuDrawer}

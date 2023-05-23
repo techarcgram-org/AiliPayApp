@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
@@ -80,7 +80,9 @@ export default function LoginScreen({ navigation }) {
           </Formik>
           <Text style={{ marginTop: 20 }}>
             Forgot your password?
-            <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('PasswordResetScreen')}>
+              <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>
+            </TouchableOpacity>
           </Text>
           <Text style={{ marginTop: 10 }}>
             Dont have an account?

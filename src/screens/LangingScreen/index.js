@@ -15,7 +15,10 @@ export default function LandingScreen({ navigation }) {
     const onSubmitEvent = async () => {
       setLoading(true);
       const token = await AsyncStorage.getItem('access_token');
-      if (!token) return;
+      if (!token) {
+        setLoading(false);
+        return;
+      }
       const response = await validateAccessToken(token);
       setLoading(false);
       if (response.status == 200) {
@@ -24,7 +27,10 @@ export default function LandingScreen({ navigation }) {
           payload: { data: response.data.data, accessToken: token }
         });
         navigation.navigate('DrawerScreens');
+      } else {
+        await AsyncStorage.removeItem('access_token');
       }
+      return;
     };
     onSubmitEvent();
   }, []);
@@ -37,7 +43,7 @@ export default function LandingScreen({ navigation }) {
       <Logo />
       <TouchableOpacity style={{ width: '50%' }} onPress={goToLandingPage2}>
         <Text style={styles.seconderyText}>Financial system that works for everyone</Text>
-        <ActivityIndicator size="large" color="#00ff00" animating={!loading} hidesWhenStopped />
+        <ActivityIndicator size="large" color="#00ff00" animating={loading} hidesWhenStopped />
       </TouchableOpacity>
     </View>
   );
