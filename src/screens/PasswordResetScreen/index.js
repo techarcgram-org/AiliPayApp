@@ -4,6 +4,9 @@ import Logo from '../../components/Logo';
 import ResetForm from './ResetForm';
 import CodeForm from './CodeForm';
 import NewPasswordResetForm from './NewPasswordForm';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { sendPasswordResetEmail } from '../../services';
 
 const stages = {
   REQUEST_LINK: 'REQUEST_LINK',
@@ -19,6 +22,35 @@ export default function PasswordResetScreen({ navigation }) {
     setStage(stage);
   };
 
+  const [loading, setLoading] = useState(false);
+
+  const onSubmitEmailEvent = async (email) => {
+    setLoading(true);
+    const response = await sendPasswordResetEmail(email);
+    setLoading(false);
+    if (response.status == 200) {
+      setEmail(email);
+      switchStage(stages.VERIFY);
+      Toast.show({
+        type: 'info',
+        text1: 'Success',
+        text2: 'Code sent success'
+      });
+    } else if (response.status == 404) {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'User with email not found'
+      });
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Something went wrong please try again later 🥲'
+      });
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -32,6 +64,8 @@ export default function PasswordResetScreen({ navigation }) {
               switchStage={switchStage}
               setEmail={setEmail}
               infoHeader={styles.infoHeader}
+              loading={loading}
+              onSubmitEmailEvent={onSubmitEmailEvent}
             />
           )}
           {stage === stages.VERIFY && (
@@ -40,6 +74,7 @@ export default function PasswordResetScreen({ navigation }) {
               switchStage={switchStage}
               infoHeader={styles.infoHeader}
               email={email}
+              navigation={navigation}
             />
           )}
           {stage === stages.RESET && (
@@ -51,19 +86,27 @@ export default function PasswordResetScreen({ navigation }) {
               navigation={navigation}
             />
           )}
-          <Text style={{ marginTop: 20 }}>
-            Forgot your password?
-            <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>
-          </Text>
-          <Text style={{ marginTop: 10 }}>
-            Dont have an account?
-            <Text
-              style={{ color: '#3F5F90', fontWeight: 500 }}
-              onPress={() => navigation.navigate('GettingStartedEmailScreen')}>
-              {' '}
-              Get Started
-            </Text>
-          </Text>
+          {stage !== stages.VERIFY ? (
+            <View style={{ marginTop: 20, flexDirection: 'row' }}>
+              <Text>Already have an account?</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+                <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Login</Text>
+              </TouchableOpacity>
+            </View>
+          ) : (
+            <View style={{ marginTop: 20, flexDirection: 'row' }}>
+              <Text>Did not receive code</Text>
+              <TouchableOpacity onPress={() => onSubmitEmailEvent(email)}>
+                <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Resend</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+          <View style={{ marginTop: 20, flexDirection: 'row' }}>
+            <Text>Dont have an account?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('GettingStartedEmailScreen')}>
+              <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Get Started</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
       <View style={styles.pageFooter}>

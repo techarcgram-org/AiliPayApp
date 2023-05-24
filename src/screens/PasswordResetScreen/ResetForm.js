@@ -2,44 +2,17 @@ import { ActivityIndicator, Text } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import { ErrorMessage, Field, Formik } from 'formik';
-import { useState } from 'react';
-import { sendPasswordResetEmail } from '../../services';
-import { Toast } from 'react-native-toast-message/lib/src/Toast';
 import InputErrorMessage from '../../components/InputErrorMessage';
 import { emailSchema } from '../../validationSchemas/resetPasswordSchema';
 
-export default function ResetForm({ infoHeader, switchStage, stages, setEmail }) {
-  const [loading, setLoading] = useState(false);
-
-  const onSubmitEvent = async (values) => {
-    setLoading(true);
-    const response = await sendPasswordResetEmail(values.email);
-    setLoading(false);
-    if (response.status == 200) {
-      setEmail(values.email);
-      switchStage(stages.VERIFY);
-    } else if (response.status == 404) {
-      Toast.show({
-        type: 'error',
-        text1: 'Error',
-        text2: 'User with email not found'
-      });
-    } else {
-      Toast.show({
-        type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
-      });
-    }
-  };
-
+export default function ResetForm({ infoHeader, loading, onSubmitEmailEvent }) {
   return (
     <>
       <Text style={infoHeader}>Password Reset Email</Text>
       <Formik
         validationSchema={emailSchema}
         initialValues={{ email: '' }}
-        onSubmit={(values) => onSubmitEvent(values)}>
+        onSubmit={(values) => onSubmitEmailEvent(values.email)}>
         {({ handleSubmit, isValid }) => (
           <>
             <Field

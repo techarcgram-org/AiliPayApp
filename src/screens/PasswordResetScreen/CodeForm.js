@@ -18,6 +18,12 @@ export default function CodeForm({ infoHeader, switchStage, stages, email }) {
     setLoading(false);
     if (response.status == 200) {
       switchStage(stages.RESET);
+    } else if (response.status == 400) {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Invalid Token 🥲'
+      });
     } else {
       Toast.show({
         type: 'error',

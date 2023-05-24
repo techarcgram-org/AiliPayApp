@@ -78,12 +78,12 @@ export default function LoginScreen({ navigation }) {
               </>
             )}
           </Formik>
-          <Text style={{ marginTop: 20 }}>
-            Forgot your password?
+          <View style={{ marginTop: 20, flexDirection: 'row' }}>
+            <Text>Forgot your password?</Text>
             <TouchableOpacity onPress={() => navigation.navigate('PasswordResetScreen')}>
               <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>
             </TouchableOpacity>
-          </Text>
+          </View>
           <Text style={{ marginTop: 10 }}>
             Dont have an account?
             <Text
