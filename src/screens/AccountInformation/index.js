@@ -1,11 +1,21 @@
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button } from "react-native";
 import CustomHr from "../../components/CustomHr";
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import UpdateInformation from '../../components/UpdateInformation';
+import Modal from 'react-native-modal';
 
 export default function AccountInformation({ navigation }) {
+
+  const [editEmail, setEditEmail] = useState(false);
+
+  if (editEmail) {
+    <UpdateInformation />
+  }
+
   return (
     <View style={styles.container}>
 
@@ -40,7 +50,7 @@ export default function AccountInformation({ navigation }) {
               <Text>fname.lname@dname.com</Text>
             </View>
             <Text>Verify</Text>
-            <Text style={styles.editText}>Edit</Text>
+            <Button onPress={() => setEditEmail(true)} style={styles.editButton} title='Edit'></Button>
           </View>
         </View>
         <View style={styles.row}>
@@ -102,6 +112,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 15,
     fontWeight: 600,
+  },
+  editButton: {
+    backgroundColor: 'transparent',
+    color: '#3F5F90',
+    fontSize: 12,
+    textTransform: 'capitalize'
   },
   editText: {
     // alignSelf: "center",
