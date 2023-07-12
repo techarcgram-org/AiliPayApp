@@ -197,11 +197,11 @@ export default function Routes() {
           component={DebitCardScreen}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="BankAccountScreen"
           component={BankAccountScreen}
           options={{ headerShown: false }}
-        /> */}
+        />
         <Stack.Screen
           name="AccountCancellation"
           component={AccountCancellation}

@@ -3,6 +3,7 @@ import CustomButton from "../../components/CustomButton";
 import { Actions } from "react-native-router-flux";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import UpdateInformation from "../../components/UpdateInformation";
 
 export default function BankAccountScreen({ navigation }) {
   return (
@@ -43,13 +44,14 @@ export default function BankAccountScreen({ navigation }) {
       </View>
 
       {/* -----------------add payment details button container---------------- */}
-      <View style={styles.buttonContainer}>
+      <UpdateInformation editValue="Bank" />
+      {/* <View style={styles.buttonContainer}>
         <CustomButton
           title="Add a new Bank Account"
           color="white"
           backgroundColor="#063B87"
         />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   debitCardContainer: {
-    flex: 6,
+    // flex: 6,
     // flexDirection: "column",
     // alignItems: "center",
     // margin: 20,
