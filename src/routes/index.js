@@ -38,6 +38,10 @@ import AccountInformation from '../screens/AccountInformation';
 import AutomaticSavings from '../screens/AutomaticSavings';
 import CompleteTransfer from '../screens/CompleteTransfer';
 import PasswordResetScreen from '../screens/PasswordResetScreen';
+import TransferFailedScreen from '../screens/TransferScreens.js/TransferFailedScreen';
+import changePassword from '../screens/AccountInformation/ChangePassword';
+import addDebitCard from '../screens/DebitCardScreen/AddDebitCardScreen';
+import addBankAccount from '../screens/BankAccountScreen/AddBankAccountScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();

@@ -3,6 +3,7 @@ import CustomButton from "../../components/CustomButton";
 import { Actions } from "react-native-router-flux";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import UpdateInformation from "../../components/UpdateInformation";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -38,13 +39,14 @@ export default function MobileMoneyScreen({ navigation }) {
       </View>
 
       {/* -----------------add payment details button container---------------- */}
-      <View style={styles.buttonContainer}>
+      <UpdateInformation editValue="Momo" />
+      {/* <View style={styles.buttonContainer}>
         <CustomButton
           title="Add Mobile Money Account"
           color="white"
           backgroundColor="#063B87"
         />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   buttonContainer: {
-    flex: 2,
+    // flex: 2,
     padding: 20,
     width: "100%",
   },
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   debitCardContainer: {
-    flex: 6,
+    // flex: 6,
     // flexDirection: "column",
     // alignItems: "center",
     alignItems: "center",

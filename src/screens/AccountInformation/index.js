@@ -1,30 +1,33 @@
-import { StyleSheet, Text, View } from "react-native";
-import CustomHr from "../../components/CustomHr";
-import { Ionicons } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
+import CustomHr from '../../components/CustomHr';
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
+import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import UpdateInformation from '../../components/UpdateInformation';
+import Modal from 'react-native-modal';
 
 export default function AccountInformation({ navigation }) {
+  const [editEmail, setEditEmail] = useState(false);
+
+  if (editEmail) {
+    <UpdateInformation />;
+  }
+
   return (
     <View style={styles.container}>
-
-      <AccountSettingsHeader
-        headerTitle="ACCOUNT INFORMATION"
-        navigation={navigation}
-      />
+      <AccountSettingsHeader headerTitle="ACCOUNT INFORMATION" navigation={navigation} />
 
       <View style={styles.avatar}>
         <Ionicons name="person" size={100} color="black" alignSelf="center" />
         <Text style={styles.nameText}>Fname Lname</Text>
-        <Text style={styles.editNameText}>Edit</Text>
+        <UpdateInformation editValue="Name" />
+
+        {/* <Text style={styles.editNameText}>Edit</Text> */}
       </View>
       <View style={styles.securityAlert}>
-        <MaterialCommunityIcons
-          name="shield-alert-outline"
-          size={30}
-          color="white"
-        />
+        <MaterialCommunityIcons name="shield-alert-outline" size={30} color="white" />
         <View style={styles.alertText}>
           <Text style={styles.headingText}>Security Alert!</Text>
           <Text>Please update or verify your contact information below.</Text>
@@ -40,7 +43,8 @@ export default function AccountInformation({ navigation }) {
               <Text>fname.lname@dname.com</Text>
             </View>
             <Text>Verify</Text>
-            <Text style={styles.editText}>Edit</Text>
+            <UpdateInformation editValue="Email" />
+            {/* <Button onPress={() => setEditEmail(true)} style={styles.editButton} title='Edit'></Button> */}
           </View>
         </View>
         <View style={styles.row}>
@@ -50,21 +54,19 @@ export default function AccountInformation({ navigation }) {
               <Text>Phone Number</Text>
               <Text>+237XXXXXXXXX</Text>
             </View>
-            <Text style={styles.editText}>Edit</Text>
+            <UpdateInformation editValue="Phone" />
+            {/* <Text style={styles.editText}>Edit</Text> */}
           </View>
         </View>
         <View style={styles.row}>
-          <MaterialCommunityIcons
-            name="form-textbox-password"
-            size={20}
-            color="#3F5F90"
-          />
+          <MaterialCommunityIcons name="form-textbox-password" size={20} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View>
               <Text>Password</Text>
               <Text>*********</Text>
             </View>
-            <Text style={styles.editText}>Edit</Text>
+            <UpdateInformation editValue="Password" />
+            {/* <Text style={styles.editText}>Edit</Text> */}
           </View>
         </View>
         <View style={styles.row}>
@@ -74,7 +76,8 @@ export default function AccountInformation({ navigation }) {
               <Text>Language</Text>
               <Text>English Language</Text>
             </View>
-            <Text style={styles.editText}>Edit</Text>
+            <UpdateInformation editValue="Language" />
+            {/* <Text style={styles.editText}>Edit</Text> */}
           </View>
         </View>
       </View>
@@ -85,63 +88,69 @@ export default function AccountInformation({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    color: "white",
+    backgroundColor: 'white',
+    color: 'white',
     paddingTop: 40,
     paddingBottom: 40,
-    flexDirection: "column",
+    flexDirection: 'column'
   },
   avatar: {
-    alignSelf: "center",
+    alignSelf: 'center',
     marginTop: 40,
     marginLeft: 40,
     marginRight: 40,
-    marginBottom: 20,
+    marginBottom: 20
   },
   nameText: {
-    alignSelf: "center",
+    alignSelf: 'center',
     fontSize: 15,
-    fontWeight: 600,
+    fontWeight: 600
+  },
+  editButton: {
+    backgroundColor: 'transparent',
+    color: '#3F5F90',
+    fontSize: 12,
+    textTransform: 'capitalize'
   },
   editText: {
     // alignSelf: "center",
     fontSize: 12,
-    color: "#3F5F90",
+    color: '#3F5F90'
   },
-  editNameText:{
-    alignSelf: "center",
+  editNameText: {
+    alignSelf: 'center',
     fontSize: 12,
-    color: "#3F5F90",
+    color: '#3F5F90'
   },
   securityAlert: {
-    backgroundColor: "#063B87",
-    flexDirection: "row",
-    padding: 20,
+    backgroundColor: '#063B87',
+    flexDirection: 'row',
+    padding: 20
   },
   alertText: {
-    marginLeft: 10,
+    marginLeft: 10
   },
   headingText: {
     fontSize: 15,
-    fontWeight: 600,
+    fontWeight: 600
   },
   userInformation: {
-    margin: 20,
+    margin: 20
   },
   row: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-    marginVertical: 15,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    marginVertical: 15
   },
   innerRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     flex: 1,
     marginLeft: 20,
-    alignItems: "flex-start",
+    alignItems: 'flex-start'
   },
   textSection: {
-    justifyContent: "flex-start",
-  },
+    justifyContent: 'flex-start'
+  }
 });

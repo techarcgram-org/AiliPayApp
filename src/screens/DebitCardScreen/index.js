@@ -1,14 +1,15 @@
-import { View, StyleSheet, Text, SafeAreaView } from "react-native";
-import CustomButton from "../../components/CustomButton";
-import { Actions } from "react-native-router-flux";
-import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
-import PaymentDetailsBox from "../../components/PaymentDetailsBox";
+import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
+import CustomButton from '../../components/CustomButton';
+import { Actions } from 'react-native-router-flux';
+import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import PaymentDetailsBox from '../../components/PaymentDetailsBox';
+import UpdateInformation from '../../components/UpdateInformation';
 
-export default function DebitCardScreen({navigation}) {
+export default function DebitCardScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
-      <AccountSettingsHeader headerTitle="DEBIT CARD" navigation={navigation}/>
+      <AccountSettingsHeader headerTitle="DEBIT CARD" navigation={navigation} />
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
@@ -40,13 +41,14 @@ export default function DebitCardScreen({navigation}) {
       </View>
 
       {/* -----------------add payment details button container---------------- */}
-      <View style={styles.buttonContainer}>
+      <UpdateInformation editValue="Card" />
+      {/* <View style={styles.buttonContainer}>
         <CustomButton
           title="Add a new Debit Card"
           color="white"
           backgroundColor="#063B87"
         />
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -56,55 +58,55 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 40,
     paddingBottom: 40,
-    backgroundColor: "white",
-    flexDirection: "column",
+    backgroundColor: 'white',
+    flexDirection: 'column'
   },
   buttonContainer: {
-    flex: 2,
+    // flex: 2,
     padding: 20,
-    width: "100%",
+    width: '100%'
   },
   cardBox: {
-    marginTop: 20,
+    marginTop: 20
   },
   debitCardContainer: {
-    flex: 6,
+    // flex: 6,
     // flexDirection: "column",
     // alignItems: "center",
     // margin: 20,
-    marginTop: 30,
+    marginTop: 30
   },
   debitCardContent: {
     marginTop: 30,
-    alignItems: "stretch",
+    alignItems: 'stretch',
     // marginLeft: 20,
     // marginRight: 20,
-    alignItems: "center",
+    alignItems: 'center',
     // flexDirection: "column",
     marginTop: 30
   },
   debitCardContent: {
     // marginTop: 30,
-    flexDirection: "column",
-    width: "100%",
+    flexDirection: 'column',
+    width: '100%',
     // flexDirection: "column",
     // alignItems: "center",
     // margin: 20,
-    marginTop: 30,
+    marginTop: 30
   },
   debitCardContent: {
     marginTop: 30,
-    alignItems: "stretch",
+    alignItems: 'stretch',
     // marginLeft: 20,
     // marginRight: 20,
-    alignItems: "center",
+    alignItems: 'center',
     // flexDirection: "column",
     marginTop: 30
   },
   debitCardContent: {
     // marginTop: 30,
-    flexDirection: "column",
-    width: "100%",
+    flexDirection: 'column',
+    width: '100%'
   },
   infoTitle: {
     fontWeight: 600,
@@ -112,6 +114,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 40,
     textAlign: 'center',
-    marginTop: 40,
-  },
+    marginTop: 40
+  }
 });

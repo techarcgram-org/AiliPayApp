@@ -17,7 +17,7 @@ export default function CustomButton(props) {
 
 const styles = StyleSheet.compose({
   button: (props) => ({
-    borderRadius: 15,
+    borderRadius: 25,
     paddingHorizontal: 20,
     paddingVertical: 10,
     color: "white",
