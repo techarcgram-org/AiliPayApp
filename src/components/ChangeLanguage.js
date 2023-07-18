@@ -1,6 +1,6 @@
 import React, { useState }from 'react';
 import { StyleSheet, Text, View, } from 'react-native';
-import CustomButton from './customButton';
+import CustomButton from './CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { RadioButton } from 'react-native-paper';
 import LineSeparator from './LineSeparator';
