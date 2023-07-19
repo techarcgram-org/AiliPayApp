@@ -17,14 +17,12 @@ export default function LoginScreen({ navigation }) {
   const { state, dispatch } = useContext(store);
 
   const onSubmitEvent = async (values) => {
-    console.log("LOGIN")
     setLoading(true);
     const response = await login({
       username: values.email,
       password: values.password,
       remember: values.remember
     });
-    console.log("RESPONSE", response)
     setLoading(false);
     if (response.status == 201) {
       await dispatch({ type: 'SET_USER', payload: response.data.data });
