@@ -60,12 +60,12 @@ export default function UpdateInformation({ editValue }) {
             {editValue == 'Language' ? (
               <View style={styles.languageOptions}>
                 <View style={styles.languageBox}>
-                  <Text style={{fontSize: 15}}>English</Text>
+                  <Text style={{ fontSize: 15 }}>English</Text>
                   <TouchableOpacity style={styles.circle}></TouchableOpacity>
                 </View>
                 <LineSeparator />
                 <View style={styles.languageBox}>
-                  <Text style={{fontSize: 15}}>French</Text>
+                  <Text style={{ fontSize: 15 }}>French</Text>
                   <TouchableOpacity style={styles.circle} />
                 </View>
               </View>
@@ -177,13 +177,15 @@ const styles = StyleSheet.create({
   },
   modalBox: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'rgba(63, 95, 144, 0.8)'
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(63, 95, 144, 0.2)',
+    bottom: 0
   },
   popup: {
-    margin: 30,
     backgroundColor: 'white',
-    borderRadius: 20,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
     padding: 35,
     alignItems: 'center',
     shadowColor: '#000',
@@ -193,7 +195,9 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
+    width: '100%',
+    bottom: 0
   },
   heading: {
     fontSize: 20,
