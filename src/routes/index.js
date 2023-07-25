@@ -3,45 +3,50 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LandingScreen from '../screens/LangingScreen';
-import LandingScreen2 from '../screens/LangingScreen/LandingScreen';
-import GettingStartedEmailScreen from '../screens/GettingStarted/GettingStartedEmailScreen';
-import GettingStartedPhoneScreen from '../screens/GettingStarted/GettingStartedPhoneScreen';
-import GettingStartedEmployeeIdScreen from '../screens/GettingStarted/GettingStartedEmployeeIdScreen';
-import VerifyIdentityScreen from '../screens/VerifyIdentityScreen/VerifyIdentityScreen';
-import VerificationCodeScreen from '../screens/VerificationCodeScreen.js/Index';
-import VerificationCodeEmailScreen from '../screens/VerificationCodeScreen.js/VerificationCodeEmailScreen';
-import PasswordSetupScreen from '../screens/PasswordSetupScreen.js';
-import WelcomeScreen from '../screens/WelcomeScreen';
-import HelpScreen from '../screens/HelpScreen';
-import LoginScreen from '../screens/LoginScreen';
-import MainActivityScreen from '../screens/MainActivityScreen';
-import BalanceSummary from '../screens/MainActivityScreen/BalanceSummary';
-import BalanceDetails from '../screens/MainActivityScreen/BalanceDetails';
-import TransferScreen from '../screens/TransferScreens.js';
-import TransferCompleteScreen from '../screens/TransferScreens.js/TransferCompleteScreen';
 import CustomDrawerContent from './CustomDrawerContent';
-import SavingsScreen from '../screens/SavingsScreens';
-import SavingsCompleteScreen from '../screens/SavingsScreens/SavingsCompleteScreen';
-import PastPayPeriodsScreen from '../screens/PastPayPeriods';
-import StatementOverviewScreen from '../screens/PastPayPeriods/StateMentOverviewScreen';
-import CompletedTransferAmount from '../screens/PastPayPeriods/CompletedTransferAmount';
-import CompletedPayments from '../screens/CompletedPayments';
-import SettingsScreen from '../screens/SettingsScreen';
-import LoginAndSecurityScreen from '../screens/LoginAndSecurityScreen';
-import NotificationPreferencesScreen from '../screens/NotificationPreferencesScreen';
-import MobileMoneyScreen from '../screens/MobileMoneyScreen';
-import DebitCardScreen from '../screens/DebitCardScreen';
-import BankAccountScreen from '../screens/BankAccountScreen';
-import AccountCancellation from '../screens/AccountCancellation';
-import AccountInformation from '../screens/AccountInformation';
-import AutomaticSavings from '../screens/AutomaticSavings';
-import CompleteTransfer from '../screens/CompleteTransfer';
-import PasswordResetScreen from '../screens/PasswordResetScreen';
-import TransferFailedScreen from '../screens/TransferScreens.js/TransferFailedScreen';
-import changePassword from '../screens/AccountInformation/ChangePassword';
-import addDebitCard from '../screens/DebitCardScreen/AddDebitCardScreen';
-import addBankAccount from '../screens/BankAccountScreen/AddBankAccountScreen';
+import {
+  LandingScreen,
+  LandingScreen2,
+  GettingStartedEmailScreen,
+  GettingStartedPhoneScreen,
+  GettingStartedEmployeeIdScreen,
+  VerifyIdentityScreen,
+  VerificationCodeScreen,
+  VerificationCodeEmailScreen,
+  PasswordSetupScreen,
+  WelcomeScreen,
+  HelpScreen,
+  LoginScreen,
+  MainActivityScreen,
+  BalanceSummary,
+  TransferScreen,
+  BalanceDetails,
+  TransferCompleteScreen,
+  SavingsScreen,
+  SavingsCompleteScreen,
+  PastPayPeriods as PastPayPeriodsScreen,
+  StatementOverviewScreen,
+  CompletedTransferAmount,
+  CompletedPayments,
+  SettingsScreen,
+  LoginAndSecurityScreen,
+  NotificationPreferencesScreen,
+  MobileMoneyScreen,
+  DebitCardScreen,
+  BankAccountScreen,
+  AccountCancellation,
+  AccountInformation,
+  AutomaticSavings,
+  CompletedTransfer as CompleteTransfer,
+  PasswordResetScreen,
+  TransferFailedScreen,
+  ChangePassword,
+  AddDebitCardScreen,
+  AddBankAccountScreen
+} from '../screens';
+// import changePassword from '../screens/AccountInformation/ChangePassword';
+// import addDebitCard from '../screens/DebitCardScreen/AddDebitCardScreen';
+// import addBankAccount from '../screens/BankAccountScreen/AddBankAccountScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
