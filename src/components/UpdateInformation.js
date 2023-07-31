@@ -7,9 +7,9 @@ import {
   Button,
   Alert,
   Modal,
-  Pressable,
-  TouchableOpacity
+  Pressable
 } from 'react-native';
+import { RadioButton, TouchableRipple } from 'react-native-paper';
 import CustomButton from './CustomButton';
 import LineSeparator from './LineSeparator';
 import CustomHr from './CustomHr';
@@ -17,6 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function UpdateInformation({ editValue }) {
   const [modalVisible, setModalVisible] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('English');
 
   return (
     <View style={styles.contianer}>
@@ -39,35 +40,51 @@ export default function UpdateInformation({ editValue }) {
               {editValue == 'Name'
                 ? 'Update Name'
                 : editValue == 'Email'
-                ? 'Update Email Address'
-                : editValue == 'Momo'
-                ? 'Add Momo Number'
-                : editValue == 'Phone'
-                ? 'Update Phone Number'
-                : editValue == 'Language'
-                ? 'Change Language'
-                : editValue == 'Password'
-                ? 'Update Password'
-                : editValue == 'Card'
-                ? 'Add Debit Card'
-                : editValue == 'Bank'
-                ? 'Add Bank Account'
-                : 'error!'}
+                  ? 'Update Email Address'
+                  : editValue == 'Momo'
+                    ? 'Add Momo Number'
+                    : editValue == 'Phone'
+                      ? 'Update Phone Number'
+                      : editValue == 'Language'
+                        ? 'Change Language'
+                        : editValue == 'Password'
+                          ? 'Update Password'
+                          : editValue == 'Card'
+                            ? 'Add Debit Card'
+                            : editValue == 'Bank'
+                              ? 'Add Bank Account'
+                              : 'error!'}
             </Text>
 
             {/* field input -----------------------------*/}
 
             {editValue == 'Language' ? (
               <View style={styles.languageOptions}>
-                <View style={styles.languageBox}>
-                  <Text style={{ fontSize: 15 }}>English</Text>
-                  <TouchableOpacity style={styles.circle}></TouchableOpacity>
-                </View>
+                <TouchableRipple onPress={() => setSelectedValue('English')}>
+                  <View style={styles.radioButtonContainer}>
+                    <Text>English</Text>
+                    <RadioButton
+                      value="English"
+                      status={selectedValue === 'English' ? 'checked' : 'unchecked'}
+                      onPress={() => setSelectedValue('English')}
+                      color='#063B87'
+                    />
+                  </View>
+                </TouchableRipple>
+
                 <LineSeparator />
-                <View style={styles.languageBox}>
-                  <Text style={{ fontSize: 15 }}>French</Text>
-                  <TouchableOpacity style={styles.circle} />
-                </View>
+
+                <TouchableRipple onPress={() => setSelectedValue('French')}>
+                  <View style={styles.radioButtonContainer}>
+                    <Text>French</Text>
+                    <RadioButton
+                      value="French"
+                      status={selectedValue === 'French' ? 'checked' : 'unchecked'}
+                      onPress={() => setSelectedValue('French')}
+                      color='#063B87'
+                    />
+                  </View>
+                </TouchableRipple>
               </View>
             ) : editValue == 'Card' ? (
               <>
@@ -98,9 +115,9 @@ export default function UpdateInformation({ editValue }) {
             {/* description of fields -----------------------------*/}
 
             {editValue == 'Language' ||
-            editValue == 'Password' ||
-            editValue == 'Card' ||
-            editValue == 'Bank' ? (
+              editValue == 'Password' ||
+              editValue == 'Card' ||
+              editValue == 'Bank' ? (
               ''
             ) : (
               <Text style={styles.description}>
@@ -115,16 +132,16 @@ export default function UpdateInformation({ editValue }) {
                 editValue == 'Name'
                   ? 'Update Name'
                   : editValue == 'Email'
-                  ? 'Update'
-                  : editValue == 'Momo' || editValue == 'Card' || editValue == 'Bank'
-                  ? 'Add'
-                  : editValue == 'Phone'
-                  ? 'Update'
-                  : editValue == 'Language'
-                  ? 'Done'
-                  : editValue == 'Password'
-                  ? 'Update'
-                  : 'error!'
+                    ? 'Update'
+                    : editValue == 'Momo' || editValue == 'Card' || editValue == 'Bank'
+                      ? 'Add'
+                      : editValue == 'Phone'
+                        ? 'Update'
+                        : editValue == 'Language'
+                          ? 'Done'
+                          : editValue == 'Password'
+                            ? 'Update'
+                            : 'error!'
               }
               backgroundColor="#063B87"
               color="white"
@@ -139,10 +156,10 @@ export default function UpdateInformation({ editValue }) {
               editValue == 'Momo'
                 ? 'Add Mobile Money Account'
                 : editValue == 'Card'
-                ? 'Add a new Debit Card'
-                : editValue == 'Bank'
-                ? 'Add a new Bank Account'
-                : 'error!'
+                  ? 'Add a new Debit Card'
+                  : editValue == 'Bank'
+                    ? 'Add a new Bank Account'
+                    : 'error!'
             }
             color="white"
             backgroundColor="#063B87"
@@ -207,13 +224,13 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   inputField: {
-    borderRadius: 10,
-    width: '85%',
+    borderRadius: 4,
+    width: '100%',
     maxWidth: 300,
     paddingHorizontal: 10,
-    paddingVertical: 4,
+    paddingVertical: 8,
     backgroundColor: '#D9D9D9',
-    color: 'white',
+    color: '#1E1E1E',
     marginBottom: 20
   },
   description: {
@@ -241,25 +258,16 @@ const styles = StyleSheet.create({
     paddingTop: 10
     // backgroundColor: 'white'
   },
-  languageBox: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  circle: {
-    height: 15,
-    width: 15,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: 'black'
-    // alignItems: 'center',
-    // justifyContent: 'center',
-  },
   languageOptions: {
-    //   alignItems: 'center'
     justifyContent: 'center',
     padding: 10,
-    width: '70%'
+    width: '100%'
+  },
+  radioButtonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 0,
+    justifyContent: 'space-between'
   },
   buttonContainer: {
     padding: 20,
