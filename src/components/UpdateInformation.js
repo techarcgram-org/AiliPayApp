@@ -4,7 +4,6 @@ import {
   Text,
   View,
   TextInput,
-  Button,
   Alert,
   Modal,
   Pressable
@@ -12,6 +11,8 @@ import {
 import { RadioButton, TouchableRipple } from 'react-native-paper';
 import CustomButton from './CustomButton';
 import LineSeparator from './LineSeparator';
+import CustomInput from './CustomInput';
+import { ErrorMessage, Field, Formik } from 'formik';
 import CustomHr from './CustomHr';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -87,30 +88,166 @@ export default function UpdateInformation({ editValue }) {
                 </TouchableRipple>
               </View>
             ) : editValue == 'Card' ? (
-              <>
-                <TextInput style={styles.inputField} placeholder="Cardholder Name"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Card Number"></TextInput>
-                <TextInput style={styles.inputField} placeholder="CVV/CVC"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Expiration Date"></TextInput>
-              </>
+
+              <Formik
+                // validationSchema={}
+                initialValues={{ holderName: '', cardNumber: '', cvv: '', expirationDate: '' }}
+                onSubmit={(values) => onBankSubmitEvent(values)}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="holderName"
+                      placeholder="Card Holder Name"
+                      inputMode="holderName"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="holderName" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="cardNumber"
+                      placeholder="Card Number"
+                      inputMode="cardNumber"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="cardNumber" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="cvv"
+                      placeholder="CVV/CVC"
+                      inputMode="cvv"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="cvv" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="expirationDate"
+                      placeholder="Expiration Date"
+                      inputMode="expirationDate"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="expirationDate" /> // line should be included when validation schema is added  */}
+                  </>
+                )}
+              </Formik>
+
+              // <>
+              //   <TextInput style={styles.inputField} placeholder="Cardholder Name"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Card Number"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="CVV/CVC"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Expiration Date"></TextInput>
+              // </>
             ) : editValue == 'Password' ? (
-              <>
-                <TextInput style={styles.inputField} placeholder="Enter Old Password"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Enter New Password"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Confirm New Password"></TextInput>
-              </>
+              <Formik
+                // validationSchema={}
+                initialValues={{ oldPassword: '', newPassword: '', confirmNewPassword: '', }}
+                onSubmit={(values) => onBankSubmitEvent(values)}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="oldPassword"
+                      placeholder="Old Password"
+                      inputMode="oldPassword"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="oldPassword" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="newPassword"
+                      placeholder="New Password"
+                      inputMode="newPassword"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="newPassword" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="confirmNewPassword"
+                      placeholder="Confirm New Password"
+                      inputMode="confirmNewPassword"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="confirmNewPassword" /> // line should be included when validation schema is added  */}
+                  </>
+                )}
+              </Formik>
+
+              // <>
+              //   <TextInput style={styles.inputField} placeholder="Enter Old Password"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Enter New Password"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Confirm New Password"></TextInput>
+              // </>
             ) : editValue == 'Bank' ? (
-              <>
-                <TextInput style={styles.inputField} placeholder="Account Holder Name"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Account Number"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Routing Number"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Bank Name"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Bank Address"></TextInput>
-                <TextInput style={styles.inputField} placeholder="SWIFT/BIC code"></TextInput>
-              </>
+              <Formik
+                // validationSchema={}
+                initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
+                onSubmit={(values) => onBankSubmitEvent(values)}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="accountName"
+                      placeholder="Account Holder Name"
+                      inputMode="accountName"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="accountName" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="accountNumber"
+                      placeholder="Account Number"
+                      inputMode="accountNumber"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="accountNumber" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="routingNumber"
+                      placeholder="Routing Number"
+                      inputMode="routingNumber"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="routingNumber" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="bankName"
+                      placeholder="Bank Name"
+                      inputMode="bankName"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="bankName" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="bankAddress"
+                      placeholder="Bank Address"
+                      inputMode="bankAddress"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="bankAddress" /> // line should be included when validation schema is added  */}
+                    <Field
+                      component={CustomInput}
+                      name="swiftCode"
+                      placeholder="SWIFT/BIC Code"
+                      inputMode="swiftCode"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="swiftCode" /> // line should be included when validation schema is added  */}
+                  </>
+                )}
+              </Formik>
+              // <>
+              //   <TextInput style={styles.inputField} placeholder="Account Holder Name"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Account Number"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Routing Number"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Bank Name"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="Bank Address"></TextInput>
+              //   <TextInput style={styles.inputField} placeholder="SWIFT/BIC code"></TextInput>
+              // </>
             ) : (
-              <TextInput style={styles.inputField}></TextInput>
-            )}
+              <Formik
+                // validationSchema={}
+                initialValues={{ oldPassword: '' }}
+                onSubmit={(values) => onBankSubmitEvent(values)}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="oldPassword"
+                    />
+                    {/* <ErrorMessage component={InputErrorMessage} name="oldPassword" /> // line should be included when validation schema is added  */}
+                  </>
+                )}
+              </Formik>
+              // <TextInput style={styles.inputField}></TextInput>
+            )
+            }
 
             {/* description of fields -----------------------------*/}
 
@@ -172,16 +309,6 @@ export default function UpdateInformation({ editValue }) {
         </Pressable>
       )}
     </View>
-
-    // <View style={styles.container}>
-    //     <View style={styles.popup}>
-    //         <Button><Ionicons name='close' size={20} style={styles.close}/></Button>
-    //         <Text style={styles.heading}>Update Name</Text>
-    //         <TextInput style={styles.inputField}></TextInput>
-    //         <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS. </Text>
-    //         <CustomButton title='Done' backgroundColor='#063B87' color='white' />
-    //     </View>
-    // </View>
   );
 }
 
@@ -189,8 +316,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center'
-    // marginTop: 22,
-    // backgroundColor: 'blue'
   },
   modalBox: {
     flex: 1,
