@@ -45,13 +45,7 @@ export default function BankAccountScreen({ navigation }) {
 
       {/* -----------------add payment details button container---------------- */}
       <UpdateInformation editValue="Bank" />
-      {/* <View style={styles.buttonContainer}>
-        <CustomButton
-          title="Add a new Bank Account"
-          color="white"
-          backgroundColor="#063B87"
-        />
-      </View> */}
+      
     </View>
   );
 }
