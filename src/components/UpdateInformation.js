@@ -38,7 +38,7 @@ export default function UpdateInformation({ editValue }) {
             <Pressable
               style={styles.close}
               onPress={() => setModalVisible((prevModalVisible) => !prevModalVisible)}>
-              <Text style={{ color: 'black', fontSize: 20, textAlign: 'center' }}>x</Text>
+              <Text style={{ color: 'black', fontSize: 20, textAlign: 'center' }}><Ionicons name="close" size={20} color="black" /></Text>
             </Pressable>
             <Text style={styles.heading}>
               {editValue == 'Name'
