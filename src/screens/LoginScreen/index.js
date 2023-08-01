@@ -36,6 +36,9 @@ export default function LoginScreen({ navigation }) {
       });
     }
   };
+
+  const year = new Date().getFullYear();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -98,7 +101,7 @@ export default function LoginScreen({ navigation }) {
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
           <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text>© AirliPay {year}</Text>
         </View>
       </View>
     </View>
