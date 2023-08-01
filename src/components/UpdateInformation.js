@@ -14,9 +14,21 @@ import CustomButton from './CustomButton';
 import LineSeparator from './LineSeparator';
 import CustomHr from './CustomHr';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { ErrorMessage, Field, Formik } from 'formik';
+import { bankValidationSchema } from '../validationSchemas/verificationSchema';
+import CustomInput from './CustomInput';
+import InputErrorMessage from './InputErrorMessage';
 
-export default function UpdateInformation({ editValue }) {
+export default function UpdateInformation({ editValue,handleSubmit }) {
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(false)
+
+  const initialValues = editValue == 'Bank' ? {
+    account_number:'',
+    bank_id:''
+  } : {
+
+  }
 
   return (
     <View style={styles.contianer}>
@@ -56,7 +68,9 @@ export default function UpdateInformation({ editValue }) {
             </Text>
 
             {/* field input -----------------------------*/}
-
+            <View style={styles.formikContainer} >
+              <Formik validationSchema={ editValue == 'Bank' ? bankValidationSchema : '' } initialValues={initialValues} onSubmit={(values) => handleSubmit(values)} >
+                <>
             {editValue == 'Language' ? (
               <View style={styles.languageOptions}>
                 <View style={styles.languageBox}>
@@ -84,16 +98,36 @@ export default function UpdateInformation({ editValue }) {
               </>
             ) : editValue == 'Bank' ? (
               <>
-                <TextInput style={styles.inputField} placeholder="Account Holder Name"></TextInput>
+                {/* <TextInput style={styles.inputField} placeholder="Account Holder Name"></TextInput>
                 <TextInput style={styles.inputField} placeholder="Account Number"></TextInput>
                 <TextInput style={styles.inputField} placeholder="Routing Number"></TextInput>
                 <TextInput style={styles.inputField} placeholder="Bank Name"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Bank Address"></TextInput>
-                <TextInput style={styles.inputField} placeholder="SWIFT/BIC code"></TextInput>
+                <TextInput style={styles.inputField} placeholder="Bank Address"></TextInput> */}
+                {/* <TextInput style={styles.inputField} placeholder="SWIFT/BIC code"></TextInput> */}
+                <Field
+                  component={CustomInput}
+                  name="account_number"
+                  placeholder="Bank Account Number"
+                  editable={!loading}
+                  inputMode="text"
+                />
+                <ErrorMessage component={InputErrorMessage} name="account_number" />
+
+                <Field
+                  component={CustomInput}
+                  name="bank_id"
+                  placeholder="Select Your Bank"
+                  editable={!loading}
+                  inputMode="text"
+                />
+                <ErrorMessage component={InputErrorMessage} name="bank_id" />
               </>
             ) : (
               <TextInput style={styles.inputField}></TextInput>
             )}
+                </>
+              </Formik>
+            </View>
 
             {/* description of fields -----------------------------*/}
 
@@ -171,9 +205,10 @@ export default function UpdateInformation({ editValue }) {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
     // marginTop: 22,
-    // backgroundColor: 'blue'
+    // backgroundColor: 'blue',
+    width:'100%'
   },
   modalBox: {
     flex: 1,
@@ -264,5 +299,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     padding: 20,
     width: '100%'
+  },
+  formikContainer:{
+    padding: 20,
+    width: 400,
+    marginBottom:10
   }
 });
