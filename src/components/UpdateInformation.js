@@ -18,6 +18,7 @@ import { ErrorMessage, Field, Formik } from 'formik';
 import { bankValidationSchema } from '../validationSchemas/verificationSchema';
 import CustomInput from './CustomInput';
 import InputErrorMessage from './InputErrorMessage';
+import CustomSelectInput from './CustomSelectInput';
 
 export default function UpdateInformation({ editValue,handleSubmit }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -29,6 +30,21 @@ export default function UpdateInformation({ editValue,handleSubmit }) {
   } : {
 
   }
+
+  const cameroonBanks = [
+  "Afriland First Bank",
+  "Banque Atlantique",
+  "Banque Internationale du Cameroun pour l'Epargne et le Crédit (BICEC)",
+  "Banque des États de l'Afrique Centrale (BEAC)",
+  "Banque Nationale de Développement Agricole (BNDA)",
+  "Banque Sahélo-Saharienne pour l'Investissement et le Commerce (BSIC)",
+  "Commercial Bank of Cameroon (CBC)",
+  "Ecobank Cameroon",
+  "International Commercial Bank (ICB)",
+  "Société Générale Cameroun",
+  "Standard Chartered Bank Cameroon",
+  "United Bank for Africa (UBA)",
+];
 
   return (
     <View style={styles.contianer}>
@@ -114,11 +130,12 @@ export default function UpdateInformation({ editValue,handleSubmit }) {
                 <ErrorMessage component={InputErrorMessage} name="account_number" />
 
                 <Field
-                  component={CustomInput}
+                  component={CustomSelectInput}
                   name="bank_id"
                   placeholder="Select Your Bank"
                   editable={!loading}
                   inputMode="text"
+                  options={cameroonBanks}
                 />
                 <ErrorMessage component={InputErrorMessage} name="bank_id" />
               </>
