@@ -81,7 +81,7 @@ export const addMobileMoney = async (phone_number) => {
   }
 }
 
-export const addBankAccount = async (userData) => {
+export const addNewBankAccount = async (userData) => {
   await sleep(3000);
   try {
     // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;

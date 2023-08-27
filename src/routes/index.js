@@ -126,8 +126,8 @@ export default function Routes() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="BankAccountScreen" screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
-          name="LandingScreen"
-          component={LandingScreen}
+          name="AddBankAccountScreen"
+          component={AddBankAccountScreen}
           options={{ headerShown: false }}
         />
         <Stack.Screen
