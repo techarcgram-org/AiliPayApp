@@ -481,8 +481,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 500,
     marginBottom: 20,
-    alignItems: 'center',
-    marginBottom: 20
+    alignItems: 'center'
   },
   inputField: {
     borderRadius: 4,
