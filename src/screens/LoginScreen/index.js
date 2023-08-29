@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity } from 'rea
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
+import CustomInput from '../../components/CustomInput'; 
 import CustomCheckbox from '../../components/CustomCheckbox';
 import { ErrorMessage, Field, Formik } from 'formik';
 import { loginValidationSchema } from '../../validationSchemas/verificationSchema';
@@ -36,6 +36,9 @@ export default function LoginScreen({ navigation }) {
       });
     }
   };
+
+  const year = new Date().getFullYear();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -98,7 +101,7 @@ export default function LoginScreen({ navigation }) {
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
           <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text>© AirliPay {year}</Text>
         </View>
       </View>
     </View>

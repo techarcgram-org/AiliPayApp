@@ -1,7 +1,7 @@
 import { SafeAreaView, StyleSheet, View, Text } from "react-native";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import LineSeparator from "../../components/LineSeparator";
-import FrontArrowIcon from "../../components/FrontArrowIcon";
+import ToggleButton from "../../components/ToggleButton";
 
 export default function NotificationPreferencesScreen({navigation}) {
   return (
@@ -16,17 +16,17 @@ export default function NotificationPreferencesScreen({navigation}) {
         <LineSeparator />
         <View style={styles.notificationSettings}>
           <Text style={styles.textStyle}>Push Notifications</Text>
-          <FrontArrowIcon />
+          <ToggleButton />
         </View>
         <LineSeparator />
         <View style={styles.notificationSettings}>
           <Text style={styles.textStyle}>SMS Notifications</Text>
-          <FrontArrowIcon />
-        </View>
+          <ToggleButton />
+        </View> 
         <LineSeparator />
         <View style={styles.notificationSettings}>
           <Text style={styles.textStyle}>Email Notifications</Text>
-          <FrontArrowIcon />
+          <ToggleButton />
         </View>
         <LineSeparator />
       </View>

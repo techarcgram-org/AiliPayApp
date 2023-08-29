@@ -16,13 +16,14 @@ const styles = StyleSheet.create({
   },
   header: {
     color: 'red',
+    textAlign: 'left',
     fontSize: 12,
     marginTop: -15,
-    marginLeft: 5
+    marginLeft: 5,
   },
   body: {
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: 'left',
     fontWeight: 400,
     marginBottom: 20
   }

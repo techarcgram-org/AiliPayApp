@@ -6,14 +6,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 import UpdateInformation from '../../components/UpdateInformation';
-import Modal from 'react-native-modal';
 
 export default function AccountInformation({ navigation }) {
-  const [editEmail, setEditEmail] = useState(false);
-
-  if (editEmail) {
-    <UpdateInformation />;
-  }
 
   return (
     <View style={styles.container}>

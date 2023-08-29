@@ -71,6 +71,7 @@ export default function BankAccountScreen({ navigation }) {
       </View>
 
       {/* -----------------add payment details button container---------------- */}
+
       <UpdateInformation handleSubmit={() => onAddBankAccount} editValue="Bank" />
       {/* <View style={styles.buttonContainer}>
         <CustomButton
@@ -79,6 +80,10 @@ export default function BankAccountScreen({ navigation }) {
           backgroundColor="#063B87"
         />
       </View> */}
+
+      <UpdateInformation editValue="Bank" />
+      
+
     </View>
   );
 }
