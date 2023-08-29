@@ -273,14 +273,14 @@ export default function UpdateInformation({ editValue,handleSubmit }) {
                 />
                 <ErrorMessage component={InputErrorMessage} name="bank_id" />
               </>
-            ) : (
+            ) :  (
               <TextInput style={styles.inputField}></TextInput>
             )}
                 </>
               </Formik>
             </View>
-
-              <Formik
+{/* ( */}
+              {/* <Formik
                 validationSchema={ bankValidationSchema }
                 initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
                 onSubmit={(values) => {
@@ -343,8 +343,8 @@ export default function UpdateInformation({ editValue,handleSubmit }) {
                     />
                   </>
                 )}
-              </Formik>
-
+              </Formik> */}
+{/* 
             ) : editValue == 'Name' ? (
               <Formik
                 validationSchema={nameValidationSchema}
@@ -484,7 +484,7 @@ export default function UpdateInformation({ editValue,handleSubmit }) {
                   </>
                 )}
               </Formik>
-            )
+            ) */}
             {/* } */}
 
           </View>
