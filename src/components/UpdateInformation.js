@@ -18,10 +18,10 @@ import InputErrorMessage from '../components/InputErrorMessage';
 import { nameValidationSchema, emailValidationSchema, phoneValidationSchema, bankValidationSchema,cardValidationSchema } from '../validationSchemas/modalInputSchemas';
 import CustomHr from './CustomHr';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { ErrorMessage, Field, Formik } from 'formik';
-import { bankValidationSchema } from '../validationSchemas/verificationSchema';
-import CustomInput from './CustomInput';
-import InputErrorMessage from './InputErrorMessage';
+// import { ErrorMessage, Field, Formik } from 'formik';
+// import { bankValidationSchema } from '../validationSchemas/verificationSchema';
+// import CustomInput from './CustomInput';
+// import InputErrorMessage from './InputErrorMessage';
 import CustomSelectInput from './CustomSelectInput';
 
 export default function UpdateInformation({ editValue,handleSubmit }) {
@@ -485,7 +485,7 @@ export default function UpdateInformation({ editValue,handleSubmit }) {
                 )}
               </Formik>
             )
-            }
+            {/* } */}
 
           </View>
         </View>
@@ -522,7 +522,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // marginTop: 22,
     // backgroundColor: 'blue',
-    width:'100%'
+    width:'100%',
 
     alignItems: 'center'
   },
