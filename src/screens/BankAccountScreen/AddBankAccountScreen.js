@@ -4,14 +4,24 @@ import CustomButton from '../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { addNewBankAccount } from '../../services';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
 export default function addBankAccount(navigation) {
   const [loading, setLoading] = useState(false)
-  const onAddBankAccount = async () => {
+  const onAddBankAccount = async (values) => {
     setLoading(true)
     const response = await addNewBankAccount({
-      
+      account_number:values.account_number,
+      bank_id:values.bank_id
     })
+    if(response.status === 201){
+      Toast.show({
+        type:'info',
+        text1:'sucess',
+        text2:'You have successfully added a bank account'
+      })
+    }
+    setLoading(false)
   };
 
   return (
