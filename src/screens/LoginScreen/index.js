@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ActivityIndicator, TouchableOpacity } from 'rea
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput'; 
+import CustomInput from '../../components/CustomInput';
 import CustomCheckbox from '../../components/CustomCheckbox';
 import { ErrorMessage, Field, Formik } from 'formik';
 import { loginValidationSchema } from '../../validationSchemas/verificationSchema';
@@ -91,7 +91,7 @@ export default function LoginScreen({ navigation }) {
             Dont have an account?
             <Text
               style={{ color: '#3F5F90', fontWeight: 500 }}
-              onPress={() => navigation.navigate('GettingStartedEmailScreen')}>
+              onPress={() => navigation.navigate('GettingStartedEmployeeIdScreen')}>
               {' '}
               Get Started
             </Text>

@@ -16,7 +16,7 @@ const StateProvider = ({ children }) => {
             email: payload.accounts.email,
             employeeId: payload.employee_id,
             name: payload.name,
-            phoneNumber: payload.accounts.addresses.phone_number,
+            phoneNumber: payload.addresses.primary_phone_number,
             userId: payload.id
           }
         };
