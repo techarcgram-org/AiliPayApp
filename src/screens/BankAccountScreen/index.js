@@ -81,7 +81,7 @@ export default function BankAccountScreen({ navigation }) {
         />
       </View> */}
 
-      <UpdateInformation editValue="Bank" />
+      {/* <UpdateInformation editValue="Bank" /> */}
       
 
     </View>
