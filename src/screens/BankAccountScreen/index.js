@@ -4,8 +4,35 @@ import { Actions } from "react-native-router-flux";
 import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import UpdateInformation from "../../components/UpdateInformation";
+import { useState } from "react";
+import { addBankAccount } from "../../services";
+import Toast from "react-native-toast-message";
 
 export default function BankAccountScreen({ navigation }) {
+  const [loading, setLoading] = useState(false)
+  const onAddBankAccount = async (values) => {
+    setLoading(true)
+    const response = await addBankAccount({
+      account_number: values.account_number,
+      bank_id: values.bank_id
+    })
+    setLoading(false)
+    if(response.status == 201){
+      Toast.show({
+        type: 'error',
+        text1: 'Congratulation',
+        text2: 'Successfully added a bank account'
+      });
+      console.log('success')
+    }else {
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Something went wrong please try again later 🥲'
+      });
+      console.log('error')
+    }
+  }
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
@@ -44,8 +71,19 @@ export default function BankAccountScreen({ navigation }) {
       </View>
 
       {/* -----------------add payment details button container---------------- */}
-      <UpdateInformation editValue="Bank" />
+
+      <UpdateInformation handleSubmit={() => onAddBankAccount} editValue="Bank" />
+      {/* <View style={styles.buttonContainer}>
+        <CustomButton
+          title="Add a new Bank Account"
+          color="white"
+          backgroundColor="#063B87"
+        />
+      </View> */}
+
+      {/* <UpdateInformation editValue="Bank" /> */}
       
+
     </View>
   );
 }

@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Alert,
-  Modal,
-  Pressable
-} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Alert, Modal, Pressable } from 'react-native';
 import { RadioButton, TouchableRipple } from 'react-native-paper';
 import CustomButton from './CustomButton';
 import LineSeparator from './LineSeparator';
@@ -15,16 +7,53 @@ import CustomInput from './CustomInput';
 import { ErrorMessage, Field, Formik } from 'formik';
 import { createPasswordValidationSchema } from '../validationSchemas/verificationSchema';
 import InputErrorMessage from '../components/InputErrorMessage';
-import { nameValidationSchema, emailValidationSchema, phoneValidationSchema, bankValidationSchema,cardValidationSchema } from '../validationSchemas/modalInputSchemas';
+import {
+  nameValidationSchema,
+  emailValidationSchema,
+  phoneValidationSchema,
+  bankValidationSchema,
+  cardValidationSchema
+} from '../validationSchemas/modalInputSchemas';
 import CustomHr from './CustomHr';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+// import { ErrorMessage, Field, Formik } from 'formik';
+// import { bankValidationSchema } from '../validationSchemas/verificationSchema';
+// import CustomInput from './CustomInput';
+// import InputErrorMessage from './InputErrorMessage';
+import CustomSelectInput from './CustomSelectInput';
 
-export default function UpdateInformation({ editValue }) {
+export default function UpdateInformation({ editValue, handleSubmit }) {
   const [modalVisible, setModalVisible] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+
+  const initialValues =
+    editValue == 'Bank'
+      ? {
+          account_number: '',
+          bank_id: ''
+        }
+      : {};
+
+  const cameroonBanks = [
+    'Afriland First Bank',
+    'Banque Atlantique',
+    "Banque Internationale du Cameroun pour l'Epargne et le Crédit (BICEC)",
+    "Banque des États de l'Afrique Centrale (BEAC)",
+    'Banque Nationale de Développement Agricole (BNDA)',
+    "Banque Sahélo-Saharienne pour l'Investissement et le Commerce (BSIC)",
+    'Commercial Bank of Cameroon (CBC)',
+    'Ecobank Cameroon',
+    'International Commercial Bank (ICB)',
+    'Société Générale Cameroun',
+    'Standard Chartered Bank Cameroon',
+    'United Bank for Africa (UBA)'
+  ];
+
   const [selectedValue, setSelectedValue] = useState('English');
 
   return (
-    <View style={styles.contianer}>
+    <View style={styles.container}>
       <Modal
         animationType="slide"
         transparent={true}
@@ -38,182 +67,240 @@ export default function UpdateInformation({ editValue }) {
             <Pressable
               style={styles.close}
               onPress={() => setModalVisible((prevModalVisible) => !prevModalVisible)}>
-              <Text style={{ color: 'black', fontSize: 20, textAlign: 'center' }}><Ionicons name="close" size={20} color="black" /></Text>
+              <Text style={{ color: 'black', fontSize: 20, textAlign: 'center' }}>
+                <Ionicons name="close" size={20} color="black" />
+              </Text>
             </Pressable>
             <Text style={styles.heading}>
               {editValue == 'Name'
                 ? 'Update Name'
                 : editValue == 'Email'
-                  ? 'Update Email Address'
-                  : editValue == 'Momo'
-                    ? 'Add Momo Number'
-                    : editValue == 'Phone'
-                      ? 'Update Phone Number'
-                      : editValue == 'Language'
-                        ? 'Change Language'
-                        : editValue == 'Password'
-                          ? 'Update Password'
-                          : editValue == 'Card'
-                            ? 'Add Debit Card'
-                            : editValue == 'Bank'
-                              ? 'Add Bank Account'
-                              : 'error!'}
+                ? 'Update Email Address'
+                : editValue == 'Momo'
+                ? 'Add Momo Number'
+                : editValue == 'Phone'
+                ? 'Update Phone Number'
+                : editValue == 'Language'
+                ? 'Change Language'
+                : editValue == 'Password'
+                ? 'Update Password'
+                : editValue == 'Card'
+                ? 'Add Debit Card'
+                : editValue == 'Bank'
+                ? 'Add Bank Account'
+                : 'error!'}
             </Text>
 
             {/* field input -----------------------------*/}
+            <View style={styles.formikContainer}>
+              {/* <Formik
+                validationSchema={editValue == 'Bank' ? bankValidationSchema : ''}
+                initialValues={initialValues}
+                onSubmit={(values) => handleSubmit(values)}>
+                <> */}
+              {editValue == 'Language' ? (
+                <Formik
+                  // validationSchema={}
+                  initialValues={{ language: selectedValue }}
+                  onSubmit={(values) => {
+                    //handle submission code goes here
 
-            {editValue == 'Language' ? (
-              <Formik
-                // validationSchema={}
-                initialValues={{ language: selectedValue }}
-                onSubmit={(values) => {
+                    console.log(`updated language is: ${values}`);
+                  }}>
+                  {({ handleSubmit, isValid }) => (
+                    <View style={styles.languageOptions}>
+                      <TouchableRipple onPress={() => setSelectedValue('English')}>
+                        <View style={styles.radioButtonContainer}>
+                          <Text>English</Text>
+                          <RadioButton
+                            value="English"
+                            status={selectedValue === 'English' ? 'checked' : 'unchecked'}
+                            onPress={() => setSelectedValue('English')}
+                            color="#063B87"
+                          />
+                        </View>
+                      </TouchableRipple>
 
-                  //handle submission code goes here
+                      <LineSeparator />
 
-                  console.log(`updated language is: ${values}`);
-                }}>
+                      <TouchableRipple onPress={() => setSelectedValue('French')}>
+                        <View style={styles.radioButtonContainer}>
+                          <Text>French</Text>
+                          <RadioButton
+                            value="French"
+                            status={selectedValue === 'French' ? 'checked' : 'unchecked'}
+                            onPress={() => setSelectedValue('French')}
+                            color="#063B87"
+                          />
+                        </View>
+                      </TouchableRipple>
+                      <CustomButton
+                        style={{ marginTop: 10 }}
+                        title={'Change Language'}
+                        backgroundColor="#063B87"
+                        color="white"
+                        onPress={handleSubmit}
+                        disabled={!isValid}
+                        type="submit"
+                      />
+                    </View>
+                  )}
+                </Formik>
+              ) : editValue == 'Card' ? (
+                <Formik
+                  validationSchema={cardValidationSchema}
+                  initialValues={{
+                    holderName: '',
+                    cardNumber: '',
+                    cvv: '',
+                    expirationDate: ''
+                  }}
+                  onSubmit={(values) => {
+                    // handle submission code goes here
 
-                {({ handleSubmit, isValid }) => (
-                  <View style={styles.languageOptions}>
-                    <TouchableRipple onPress={() => setSelectedValue('English')}>
-                      <View style={styles.radioButtonContainer}>
-                        <Text>English</Text>
-                        <RadioButton
-                          value="English"
-                          status={selectedValue === 'English' ? 'checked' : 'unchecked'}
-                          onPress={() => setSelectedValue('English')}
-                          color='#063B87'
-                        />
-                      </View>
-                    </TouchableRipple>
+                    console.log(`card details are ${values}`);
+                  }}>
+                  {({ handleSubmit, isValid }) => (
+                    <>
+                      <Field
+                        component={CustomInput}
+                        name="holderName"
+                        placeholder="Card Holder Name"
+                        // inputMode="holderName"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="holderName" />
+                      <Field
+                        component={CustomInput}
+                        name="cardNumber"
+                        placeholder="Card Number"
+                        // inputMode="cardNumber"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="cardNumber" />
+                      <Field
+                        component={CustomInput}
+                        name="cvv"
+                        placeholder="CVV/CVC"
+                        // inputMode="cvv"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="cvv" />
+                      <Field
+                        component={CustomInput}
+                        name="expirationDate"
+                        placeholder="Expiration Date (MM/YY)"
+                        // inputMode="expirationDate"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="expirationDate" />
+                      <CustomButton
+                        style={{ marginTop: 10 }}
+                        title={'Add Debit Card'}
+                        backgroundColor="#063B87"
+                        color="white"
+                        onPress={handleSubmit}
+                        disabled={!isValid}
+                        type="submit"
+                      />
+                    </>
+                  )}
+                </Formik>
+              ) : editValue == 'Password' ? (
+                <Formik
+                  validationSchema={createPasswordValidationSchema}
+                  initialValues={{ oldPassword: '', password: '', confirmPassword: '' }}
+                  onSubmit={(values) => {
+                    //handle submission code goes here
 
-                    <LineSeparator />
+                    console.log(`updated password is: ${values}`);
+                  }}>
+                  {({ handleSubmit, isValid }) => (
+                    <>
+                      <Field
+                        component={CustomInput}
+                        name="oldPassword"
+                        placeholder="Old Password"
+                        // inputMode="oldPassword"
+                      />
+                      <ErrorMessage
+                        component={InputErrorMessage}
+                        name="oldPassword"
+                        style={{ textAlign: 'left' }}
+                      />
+                      <Field
+                        component={CustomInput}
+                        name="password"
+                        placeholder="New Password"
+                        // inputMode="Password"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="password" />
+                      <Field
+                        component={CustomInput}
+                        name="confirmPassword"
+                        placeholder="Confirm New Password"
+                        // inputMode="confirmPassword"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="confirmPassword" />
+                      <CustomButton
+                        style={{ marginTop: 10 }}
+                        title={'Change Password'}
+                        backgroundColor="#063B87"
+                        color="white"
+                        onPress={handleSubmit}
+                        disabled={!isValid}
+                        type="submit"
+                      />
+                    </>
+                  )}
+                </Formik>
+              ) : editValue == 'Bank' ? (
+                <Formik
+                  validationSchema={bankValidationSchema}
+                  initialValues={{ bank_id: '', account_number: '' }}
+                  onSubmit={handleSubmit}>
+                  {({ handleSubmit, isValid }) => (
+                    <>
+                      {/* <TextInput style={styles.inputField} placeholder="Account Holder Name"></TextInput>
+                <TextInput style={styles.inputField} placeholder="Account Number"></TextInput>
+                <TextInput style={styles.inputField} placeholder="Routing Number"></TextInput>
+                <TextInput style={styles.inputField} placeholder="Bank Name"></TextInput>
+                <TextInput style={styles.inputField} placeholder="Bank Address"></TextInput> */}
+                      {/* <TextInput style={styles.inputField} placeholder="SWIFT/BIC code"></TextInput> */}
+                      <Field
+                        component={CustomInput}
+                        name="account_number"
+                        placeholder="Bank Account Number"
+                        editable={!loading}
+                        inputMode="text"
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="account_number" />
 
-                    <TouchableRipple onPress={() => setSelectedValue('French')}>
-                      <View style={styles.radioButtonContainer}>
-                        <Text>French</Text>
-                        <RadioButton
-                          value="French"
-                          status={selectedValue === 'French' ? 'checked' : 'unchecked'}
-                          onPress={() => setSelectedValue('French')}
-                          color='#063B87'
-                        />
-                      </View>
-                    </TouchableRipple>
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Change Language'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </View>
-                )}
-              </Formik>
-            ) : editValue == 'Card' ? (
-
-              <Formik
-                validationSchema={ cardValidationSchema }
-                initialValues={{ holderName: '', cardNumber: '', cvv: '', expirationDate: '' }}
-                onSubmit={(values) => {
-                  
-                  // handle submission code goes here 
-
-                  console.log(`card details are ${values}`);
-                }}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="holderName"
-                      placeholder="Card Holder Name"
-                      // inputMode="holderName"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="holderName" /> 
-                    <Field
-                      component={CustomInput}
-                      name="cardNumber"
-                      placeholder="Card Number"
-                      // inputMode="cardNumber"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="cardNumber" />
-                    <Field
-                      component={CustomInput}
-                      name="cvv"
-                      placeholder="CVV/CVC"
-                      // inputMode="cvv"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="cvv" />
-                    <Field
-                      component={CustomInput}
-                      name="expirationDate"
-                      placeholder="Expiration Date (MM/YY)"
-                      // inputMode="expirationDate"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="expirationDate" />
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Add Debit Card'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik>
-
-            ) : editValue == 'Password' ? (
-              <Formik
-                validationSchema={createPasswordValidationSchema}
-                initialValues={{ oldPassword: '', password: '', confirmPassword: '', }}
-                onSubmit={(values) => {
-
-                  //handle submission code goes here
-
-                  console.log(`updated password is: ${values}`);
-                }}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="oldPassword"
-                      placeholder="Old Password"
-                      // inputMode="oldPassword"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="oldPassword" style={{ textAlign: 'left' }} />
-                    <Field
-                      component={CustomInput}
-                      name="password"
-                      placeholder="New Password"
-                      // inputMode="Password"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="password" />
-                    <Field
-                      component={CustomInput}
-                      name="confirmPassword"
-                      placeholder="Confirm New Password"
-                      // inputMode="confirmPassword"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="confirmPassword" />
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Change Password'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik>
-
-            ) : editValue == 'Bank' ? (
-              <Formik
+                      <Field
+                        component={CustomSelectInput}
+                        name="bank_id"
+                        placeholder="Select Your Bank"
+                        editable={!loading}
+                        inputMode="text"
+                        options={cameroonBanks}
+                      />
+                      <ErrorMessage component={InputErrorMessage} name="bank_id" />
+                      <CustomButton
+                        style={{ marginTop: 10 }}
+                        title={'Add Bank'}
+                        backgroundColor="#063B87"
+                        color="white"
+                        onPress={handleSubmit}
+                        disabled={!isValid}
+                        type="submit"
+                      />
+                    </>
+                  )}
+                </Formik>
+              ) : (
+                <TextInput style={styles.inputField}></TextInput>
+              )}
+              {/* </>
+              </Formik> */}
+            </View>
+            {/* ( */}
+            {/* <Formik
                 validationSchema={ bankValidationSchema }
                 initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
                 onSubmit={(values) => {
@@ -276,14 +363,15 @@ export default function UpdateInformation({ editValue }) {
                     />
                   </>
                 )}
-              </Formik>
-
+              </Formik> */}
+            {/* 
             ) : editValue == 'Name' ? (
               <Formik
                 validationSchema={nameValidationSchema}
                 initialValues={{ name: '' }}
                 onSubmit={(values) => {
                   // handle submission code goes here
+
 
                   console.log(`submitted values from update name: ${values}`);
                 }}>
@@ -416,9 +504,8 @@ export default function UpdateInformation({ editValue }) {
                   </>
                 )}
               </Formik>
-            )
-            }
-
+            ) */}
+            {/* } */}
           </View>
         </View>
       </Modal>
@@ -429,10 +516,10 @@ export default function UpdateInformation({ editValue }) {
               editValue == 'Momo'
                 ? 'Add Mobile Money Account'
                 : editValue == 'Card'
-                  ? 'Add a new Debit Card'
-                  : editValue == 'Bank'
-                    ? 'Add a new Bank Account'
-                    : 'error!'
+                ? 'Add a new Debit Card'
+                : editValue == 'Bank'
+                ? 'Add a new Bank Account'
+                : 'error!'
             }
             color="white"
             backgroundColor="#063B87"
@@ -451,6 +538,11 @@ export default function UpdateInformation({ editValue }) {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    alignItems: 'center',
+    // marginTop: 22,
+    // backgroundColor: 'blue',
+    width: '100%',
+
     alignItems: 'center'
   },
   modalBox: {
@@ -532,5 +624,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     padding: 20,
     width: '100%'
+  },
+  formikContainer: {
+    padding: 20,
+    width: 400,
+    marginBottom: 10
   }
 });
