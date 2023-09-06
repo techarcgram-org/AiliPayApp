@@ -1,6 +1,14 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, TouchableOpacity, Keyboard } from 'react-native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
+
+const DismissKeyboard = ({ children }) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {' '}
+    {children}
+  </TouchableWithoutFeedback>
+);
 
 export default function CustomInput(props) {
   const [showPassword, setShowPassword] = useState(props.secureTextEntry || false);
@@ -11,24 +19,26 @@ export default function CustomInput(props) {
   } = props;
   const hasError = errors[name] && touched[name];
   return (
-    <View style={styles.container(hasError)}>
-      <TextInput
-        {...resProps}
-        value={value}
-        onChangeText={(text) => onChange(name)(text)}
-        style={styles.input}
-        onBlur={() => {
-          setFieldTouched(name);
-          onBlur(name);
-        }}
-        secureTextEntry={showPassword}
-      />
-      {resProps.secureTextEntry && (
-        <TouchableOpacity styles={styles.icon} onPress={() => setShowPassword(!showPassword)}>
-          <EntypoIcons name={showPassword ? 'eye-with-line' : 'eye'} size={20} />
-        </TouchableOpacity>
-      )}
-    </View>
+    <DismissKeyboard>
+      <View style={styles.container(hasError)}>
+        <TextInput
+          {...resProps}
+          value={value}
+          onChangeText={(text) => onChange(name)(text)}
+          style={styles.input}
+          onBlur={() => {
+            setFieldTouched(name);
+            onBlur(name);
+          }}
+          secureTextEntry={showPassword}
+        />
+        {resProps.secureTextEntry && (
+          <TouchableOpacity styles={styles.icon} onPress={() => setShowPassword(!showPassword)}>
+            <EntypoIcons name={showPassword ? 'eye-with-line' : 'eye'} size={20} />
+          </TouchableOpacity>
+        )}
+      </View>
+    </DismissKeyboard>
   );
 }
 

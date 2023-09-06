@@ -7,21 +7,22 @@ import { addNewBankAccount } from '../../services';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
 export default function addBankAccount(navigation) {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
   const onAddBankAccount = async (values) => {
-    setLoading(true)
+    setLoading(true);
     const response = await addNewBankAccount({
-      account_number:values.account_number,
-      bank_id:values.bank_id
-    })
-    if(response.status === 201){
+      account_number: values.account_number,
+      bank_id: values.bank_id
+    });
+    if (response.status === 201) {
       Toast.show({
-        type:'info',
-        text1:'sucess',
-        text2:'You have successfully added a bank account'
-      })
+        type: 'info',
+        text1: 'sucess',
+        text2: 'You have successfully added a bank account'
+      });
     }
-    setLoading(false)
+    setLoading(false);
   };
 
   return (
