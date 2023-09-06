@@ -2,8 +2,11 @@ import { StyleSheet, View } from "react-native";
 import Logo from "../../components/Logo";
 import CustomButton from "../../components/CustomButton";
 import DisplayBox from "../../components/DisplayBox";
+import i18next, {languageResources} from '../../services/i18next'
+import {useTranslation} from 'react-i18next'
 
 export default function LandingScreen2({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <View style={styles.header}>

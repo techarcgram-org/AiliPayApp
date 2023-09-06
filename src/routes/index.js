@@ -124,7 +124,7 @@ function MenuDrawer() {
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="BankAccountScreen" screenOptions={{ gestureEnabled: false }}>
+      <Stack.Navigator initialRouteName="LandingScreen" screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
           name="LandingScreen"
           component={LandingScreen}
