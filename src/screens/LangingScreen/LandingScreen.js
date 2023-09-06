@@ -15,23 +15,20 @@ export default function LandingScreen2({ navigation }) {
           title="login"
           backgroundColor="#3F5F90"
           color="white"
-          onPress={() => navigation.navigate("LoginScreen")}
+          onPress={() => navigation.navigate('LoginScreen')}
         />
       </View>
       <View style={styles.image}></View>
       <View style={styles.info}>
         <DisplayBox
-          header="Get Instant Access to your Earnings When you need it the most"
-          body="On demand pay enables fiinancial control you need to minimize borrowing 
-                and improve your financial well-being"
+          header={t('landing2.text1')}
+          body={t('landing2.text2')}
           footer={
             <CustomButton
-              title="Get started"
+              title={t('landing2.button')}
               backgroundColor="#063B87"
               color="white"
-              onPress={() =>
-                navigation.navigate("GettingStartedEmployeeIdScreen")
-              }
+              onPress={() => navigation.navigate('GettingStartedEmployeeIdScreen')}
             />
           }
         />

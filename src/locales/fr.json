@@ -2,5 +2,10 @@
   "landing1": {
     "title": "",
     "welcome": "Un système financier qui fonctionne pour tout le monde"
+  },
+  "landing2":{
+    "text1":"Obtenez un accès instantané à vos gains lorsque vous en avez le plus besoin",
+    "text2":"Le paiement à la demande vous permet d'avoir le contrôle financier dont vous avez besoin pour réduire les emprunts et améliorer votre bien-être financier",
+    "button":"Commencer"
   }
 }

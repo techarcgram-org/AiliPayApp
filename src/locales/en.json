@@ -3,5 +3,10 @@
   "landing1":{
     "title":"",
     "welcome":"Financial system that works for everyone"
+  },
+  "landing2":{
+    "text1":"Get Instant Access to your Earnings When you need it the most",
+    "text2":"On demand pay enables fiinancial control you need to minimize borrowing and improve your financial well-being",
+    "button":"Get started"
   }
 }
