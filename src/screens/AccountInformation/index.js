@@ -6,6 +6,52 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 import UpdateInformation from '../../components/UpdateInformation';
+import axios from 'axios';
+
+export const ChangePassword = async (data) => {
+  try {
+    const response = await axios.post('api endpoint', data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+export const ChangeName = async (data) => {
+  try {
+    const response = await axios.post('api endpoint', data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+export const ChangeEmail = async (data) => {
+  try {
+    const response = await axios.post('api endpoint', data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+export const ChangeNumber = async (data) => {
+  try {
+    const response = await axios.post('api endpoint', data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
+
+export const ChangeLanguage = async (data) => {
+  try {
+    const response = await axios.post('api endpoint', data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+}
 
 export default function AccountInformation({ navigation }) {
 

@@ -15,9 +15,10 @@ import CustomInput from './CustomInput';
 import { ErrorMessage, Field, Formik } from 'formik';
 import { createPasswordValidationSchema } from '../validationSchemas/verificationSchema';
 import InputErrorMessage from '../components/InputErrorMessage';
-import { nameValidationSchema, emailValidationSchema, phoneValidationSchema, bankValidationSchema,cardValidationSchema } from '../validationSchemas/modalInputSchemas';
+import { nameValidationSchema, emailValidationSchema, phoneValidationSchema, bankValidationSchema, cardValidationSchema } from '../validationSchemas/modalInputSchemas';
 import CustomHr from './CustomHr';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { ChangePassword, ChangeName, ChangeEmail, ChangeNumber, ChangeLanguage } from '../screens/AccountInformation/index.js';
 
 export default function UpdateInformation({ editValue }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -30,7 +31,7 @@ export default function UpdateInformation({ editValue }) {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed');
+          // Alert.alert('Modal has been closed');
           setModalVisible(!modalVisible);
         }}>
         <View style={styles.modalBox}>
@@ -38,7 +39,7 @@ export default function UpdateInformation({ editValue }) {
             <Pressable
               style={styles.close}
               onPress={() => setModalVisible((prevModalVisible) => !prevModalVisible)}>
-              <Text style={{ color: 'black', fontSize: 20, textAlign: 'center' }}><Ionicons name="close" size={20} color="black" /></Text>
+              <Ionicons name="close" size={20} color="black" />
             </Pressable>
             <Text style={styles.heading}>
               {editValue == 'Name'
@@ -66,11 +67,13 @@ export default function UpdateInformation({ editValue }) {
               <Formik
                 // validationSchema={}
                 initialValues={{ language: selectedValue }}
-                onSubmit={(values) => {
-
-                  //handle submission code goes here
-
-                  console.log(`updated language is: ${values}`);
+                onSubmit={ async (values) => {
+                  try {
+                    const response = await ChangeLanguage(values);
+                    console.log(response);
+                  } catch (error) {
+                    console.error(error.message);
+                  }
                 }}>
 
                 {({ handleSubmit, isValid }) => (
@@ -115,10 +118,10 @@ export default function UpdateInformation({ editValue }) {
             ) : editValue == 'Card' ? (
 
               <Formik
-                validationSchema={ cardValidationSchema }
+                validationSchema={cardValidationSchema}
                 initialValues={{ holderName: '', cardNumber: '', cvv: '', expirationDate: '' }}
                 onSubmit={(values) => {
-                  
+
                   // handle submission code goes here 
 
                   console.log(`card details are ${values}`);
@@ -129,28 +132,24 @@ export default function UpdateInformation({ editValue }) {
                       component={CustomInput}
                       name="holderName"
                       placeholder="Card Holder Name"
-                      // inputMode="holderName"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="holderName" /> 
+                    <ErrorMessage component={InputErrorMessage} name="holderName" />
                     <Field
                       component={CustomInput}
                       name="cardNumber"
                       placeholder="Card Number"
-                      // inputMode="cardNumber"
                     />
                     <ErrorMessage component={InputErrorMessage} name="cardNumber" />
                     <Field
                       component={CustomInput}
                       name="cvv"
                       placeholder="CVV/CVC"
-                      // inputMode="cvv"
                     />
                     <ErrorMessage component={InputErrorMessage} name="cvv" />
                     <Field
                       component={CustomInput}
                       name="expirationDate"
                       placeholder="Expiration Date (MM/YY)"
-                      // inputMode="expirationDate"
                     />
                     <ErrorMessage component={InputErrorMessage} name="expirationDate" />
                     <CustomButton
@@ -170,11 +169,14 @@ export default function UpdateInformation({ editValue }) {
               <Formik
                 validationSchema={createPasswordValidationSchema}
                 initialValues={{ oldPassword: '', password: '', confirmPassword: '', }}
-                onSubmit={(values) => {
+                onSubmit={async (values) => {
 
-                  //handle submission code goes here
-
-                  console.log(`updated password is: ${values}`);
+                  try {
+                    const response = await ChangePassword(values);
+                    console.log(response);
+                  } catch (error) {
+                    console.error(error.message);
+                  }
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -182,21 +184,18 @@ export default function UpdateInformation({ editValue }) {
                       component={CustomInput}
                       name="oldPassword"
                       placeholder="Old Password"
-                      // inputMode="oldPassword"
                     />
                     <ErrorMessage component={InputErrorMessage} name="oldPassword" style={{ textAlign: 'left' }} />
                     <Field
                       component={CustomInput}
                       name="password"
                       placeholder="New Password"
-                      // inputMode="Password"
                     />
                     <ErrorMessage component={InputErrorMessage} name="password" />
                     <Field
                       component={CustomInput}
                       name="confirmPassword"
                       placeholder="Confirm New Password"
-                      // inputMode="confirmPassword"
                     />
                     <ErrorMessage component={InputErrorMessage} name="confirmPassword" />
                     <CustomButton
@@ -214,7 +213,7 @@ export default function UpdateInformation({ editValue }) {
 
             ) : editValue == 'Bank' ? (
               <Formik
-                validationSchema={ bankValidationSchema }
+                validationSchema={bankValidationSchema}
                 initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
                 onSubmit={(values) => {
                   //handle submission code goes here
@@ -227,44 +226,38 @@ export default function UpdateInformation({ editValue }) {
                       component={CustomInput}
                       name="accountName"
                       placeholder="Account Holder Name"
-                      // inputMode="accountName"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="accountName" /> 
+                    <ErrorMessage component={InputErrorMessage} name="accountName" />
                     <Field
                       component={CustomInput}
                       name="accountNumber"
                       placeholder="Account Number"
-                      // inputMode="accountNumber"
                     />
                     <ErrorMessage component={InputErrorMessage} name="accountNumber" />
                     <Field
                       component={CustomInput}
                       name="routingNumber"
                       placeholder="Routing Number"
-                      // inputMode="routingNumber"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="routingNumber" /> 
+                    <ErrorMessage component={InputErrorMessage} name="routingNumber" />
                     <Field
                       component={CustomInput}
                       name="bankName"
                       placeholder="Bank Name"
-                      // inputMode="bankName"
                     />
                     <ErrorMessage component={InputErrorMessage} name="bankName" />
                     <Field
                       component={CustomInput}
                       name="bankAddress"
                       placeholder="Bank Address"
-                      // inputMode="bankAddress"
                     />
                     <ErrorMessage component={InputErrorMessage} name="bankAddress" />
                     <Field
                       component={CustomInput}
                       name="swiftCode"
                       placeholder="SWIFT/BIC Code"
-                      // inputMode="swiftCode"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="swiftCode" /> 
+                    <ErrorMessage component={InputErrorMessage} name="swiftCode" />
                     <CustomButton
                       style={{ marginTop: 10 }}
                       title={'Add Bank Account'}
@@ -282,10 +275,13 @@ export default function UpdateInformation({ editValue }) {
               <Formik
                 validationSchema={nameValidationSchema}
                 initialValues={{ name: '' }}
-                onSubmit={(values) => {
-                  // handle submission code goes here
-
-                  console.log(`submitted values from update name: ${values}`);
+                onSubmit={ async (values) => {
+                  try {
+                    const response = await ChangeName(values);
+                    console.log('api respnse', response);
+                  } catch (error) {
+                    console.error('api error', error.message);
+                  }
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -313,10 +309,13 @@ export default function UpdateInformation({ editValue }) {
               <Formik
                 validationSchema={emailValidationSchema}
                 initialValues={{ email: '' }}
-                onSubmit={(values) => {
-
-
-                  console.log(`update email value is ${values}`)
+                onSubmit={ async (values) => {
+                  try {
+                    const response = await ChangeEmail(values);
+                    console.log('api respnse', response);
+                  } catch (error) {
+                    console.error('api error', error.message);
+                  }
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -345,10 +344,13 @@ export default function UpdateInformation({ editValue }) {
               <Formik
                 validationSchema={phoneValidationSchema}
                 initialValues={{ phone: '' }}
-                onSubmit={(values) => {
-                  //code to handle phone number update goes here
-
-                  console.log(`the new phone number is: ${values}`);
+                onSubmit={async (values) => {
+                  try {
+                    const response = await ChangeNumber (values);
+                    console.log('api respnse', response);
+                  } catch (error) {
+                    console.error('api error', error.message);
+                  }
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -374,7 +376,7 @@ export default function UpdateInformation({ editValue }) {
               </Formik>
             ) : editValue == 'Momo' ? (
               <Formik
-                validationSchema={ phoneValidationSchema }
+                validationSchema={phoneValidationSchema}
                 initialValues={{ phone: '' }}
                 onSubmit={(values) => onBankSubmitEvent(values)}>
                 {({ handleSubmit, isValid }) => (
