@@ -3,9 +3,19 @@
     "title": "",
     "welcome": "Un système financier qui fonctionne pour tout le monde"
   },
-  "landing2":{
-    "text1":"Obtenez un accès instantané à vos gains lorsque vous en avez le plus besoin",
-    "text2":"Le paiement à la demande vous permet d'avoir le contrôle financier dont vous avez besoin pour réduire les emprunts et améliorer votre bien-être financier",
-    "button":"Commencer"
+  "landing2": {
+    "text1": "Obtenez un accès instantané à vos gains lorsque vous en avez le plus besoin",
+    "text2": "Le paiement à la demande vous permet d'avoir le contrôle financier dont vous avez besoin pour réduire les emprunts et améliorer votre bien-être financier",
+    "button": "Commencer"
+  },
+  "getStartedId": {
+    "title": "Commençons",
+    "button": "Suivant",
+    "option": "Se connecter plutôt",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Identifiant de l'employé (obligatoire)",
+    "placeholder2": "Nom de famille (obligatoire)",
+    "placeholder3": "Employeur (facultatif)"
   }
 }

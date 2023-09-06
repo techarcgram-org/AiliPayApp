@@ -8,5 +8,15 @@
     "text1":"Get Instant Access to your Earnings When you need it the most",
     "text2":"On demand pay enables fiinancial control you need to minimize borrowing and improve your financial well-being",
     "button":"Get started"
+  },
+  "getStartedId":{
+    "title": "Lets get started",
+    "button": "Next",
+    "option": "Login Instead",
+    "footer1": "Need Help?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Employee ID (required)",
+    "placeholder2": "Last Name (required)",
+    "placeholder3":"Employer (optional)"
   }
 }
