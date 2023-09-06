@@ -60,7 +60,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed');
-          setModalVisible(!modalVisible);
+          setModalVisible(!modalVisible);ModalVisible
         }}>
         <View style={styles.modalBox}>
           <View style={styles.popup}>

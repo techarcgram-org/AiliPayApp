@@ -7,6 +7,7 @@ import UpdateInformation from "../../components/UpdateInformation";
 import { useState } from "react";
 import { addBankAccount } from "../../services";
 import Toast from "react-native-toast-message";
+import UpdateModal from "./UpdateModal";
 
 export default function BankAccountScreen({ navigation }) {
   const [loading, setLoading] = useState(false)
@@ -68,22 +69,8 @@ export default function BankAccountScreen({ navigation }) {
             />
           </View>
         </View>
-      </View>
-
-      {/* -----------------add payment details button container---------------- */}
-
-      <UpdateInformation handleSubmit={() => onAddBankAccount} editValue="Bank" />
-      {/* <View style={styles.buttonContainer}>
-        <CustomButton
-          title="Add a new Bank Account"
-          color="white"
-          backgroundColor="#063B87"
-        />
-      </View> */}
-
-      {/* <UpdateInformation editValue="Bank" /> */}
-      
-
+      </View>    
+      <UpdateModal handleSubmit={onAddBankAccount} />
     </View>
   );
 }
