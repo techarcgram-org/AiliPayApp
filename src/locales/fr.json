@@ -17,5 +17,51 @@
     "placeholder1": "Identifiant de l'employé (obligatoire)",
     "placeholder2": "Nom de famille (obligatoire)",
     "placeholder3": "Employeur (facultatif)"
+  },
+  "login": {
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer plus tard 🥲"
+    },
+    "title": "Connexion",
+    "placeholder1": "Adresse e-mail",
+    "placeholder2": "Mot de passe",
+    "label3": "Se souvenir de moi",
+    "button": "Connexion",
+    "option1": "Mot de passe oublié",
+    "option3": "Vous n'avez pas de compte",
+    "option2": "Réinitialiser le mot de passe",
+    "option4": "Commencer",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023"
+  },
+  "passwordResetScreen": {
+    "stages": {
+      "requestLink": "DEMANDE DE LIEN",
+      "verify": "VÉRIFIER",
+      "reset": "RÉINITIALISER"
+    },
+    "toast": {
+      "success": {
+        "text1": "Succès",
+        "text2": "Code envoyé avec succès"
+      },
+      "error": {
+        "text1": "Erreur",
+        "text2": "Utilisateur avec cet e-mail introuvable"
+      },
+      "somethingWentWrong": {
+        "text1": "Erreur",
+        "text2": "Quelque chose s'est mal passé, veuillez réessayer plus tard 🥲"
+      }
+    },
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "login": "Connexion",
+    "didNotReceiveCode": "N'avez-vous pas reçu le code ?",
+    "resend": "Renvoyer",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "getStarted": "Commencer",
+    "needHelp": "Besoin d'aide ?",
+    "footer": "© AirliPay 2023"
   }
 }

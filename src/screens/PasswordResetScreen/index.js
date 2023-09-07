@@ -7,16 +7,17 @@ import NewPasswordResetForm from './NewPasswordForm';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
 import { sendPasswordResetEmail } from '../../services';
-
-const stages = {
-  REQUEST_LINK: 'REQUEST_LINK',
-  VERIFY: 'VERIFY',
-  RESET: 'RESET'
-};
+import { useTranslation } from 'react-i18next';
 
 export default function PasswordResetScreen({ navigation }) {
-  const [stage, setStage] = useState(stages.REQUEST_LINK);
   const [email, setEmail] = useState(null);
+  const { t } = useTranslation();
+  const stages = {
+    REQUEST_LINK: t('passwordResetScreen.stages.requestLink'),
+    VERIFY: t('passwordResetScreen.stages.verify'),
+    RESET: t('passwordResetScreen.stages.reset')
+  };
+  const [stage, setStage] = useState(stages.REQUEST_LINK);
 
   const switchStage = (stage) => {
     setStage(stage);
@@ -33,20 +34,20 @@ export default function PasswordResetScreen({ navigation }) {
       switchStage(stages.VERIFY);
       Toast.show({
         type: 'info',
-        text1: 'Success',
-        text2: 'Code sent success'
+        text1: t('passwordResetScreen.toast.success.text1'),
+        text2: t('passwordResetScreen.toast.success.text2')
       });
     } else if (response.status == 404) {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'User with email not found'
+        text1: t('passwordResetScreen.toast.error.text1'),
+        text2: t('passwordResetScreen.toast.error.text2')
       });
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('passwordResetScreen.toast.somethingWentWrong.text1'),
+        text2: t('passwordResetScreen.toast.somethingWentWrong.text2')
       });
     }
   };
@@ -88,31 +89,31 @@ export default function PasswordResetScreen({ navigation }) {
           )}
           {stage !== stages.VERIFY ? (
             <View style={{ marginTop: 20, flexDirection: 'row' }}>
-              <Text>Already have an account?</Text>
+              <Text>{t('passwordResetScreen.alreadyHaveAccount')}</Text>
               <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-                <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Login</Text>
+                <Text style={{ color: '#3F5F90', fontWeight: 500 }}> {t('passwordResetScreen.login')}</Text>
               </TouchableOpacity>
             </View>
           ) : (
             <View style={{ marginTop: 20, flexDirection: 'row' }}>
-              <Text>Did not receive code</Text>
+              <Text>{t('passwordResetScreen.didNotReceiveCode')}</Text>
               <TouchableOpacity onPress={() => onSubmitEmailEvent(email)}>
-                <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Resend</Text>
+                <Text style={{ color: '#3F5F90', fontWeight: 500 }}> {t('passwordResetScreen.resend')}</Text>
               </TouchableOpacity>
             </View>
           )}
           <View style={{ marginTop: 20, flexDirection: 'row' }}>
-            <Text>Dont have an account?</Text>
+            <Text>{t('passwordResetScreen.dontHaveAccount')}</Text>
             <TouchableOpacity onPress={() => navigation.navigate('GettingStartedEmailScreen')}>
-              <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Get Started</Text>
+              <Text style={{ color: '#3F5F90', fontWeight: 500 }}> {t('passwordResetScreen.getStarted')}</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text style={styles.frontText}>{t('passwordResetScreen.needHelp')} </Text>
+          <Text>{t('passwordResetScreen.footer')}</Text>
         </View>
       </View>
     </View>
@@ -128,7 +129,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   header: {
-    // flex: 1,
     flexDirection: 'row',
     top: 20,
     justifyContent: 'space-between',

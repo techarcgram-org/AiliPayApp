@@ -84,7 +84,13 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
                 />
                 <ErrorMessage component={InputErrorMessage} name="employer" />
                 <CustomButton
-                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
+                  title={
+                    loading ? (
+                      <ActivityIndicator size="small" color="#0000ff" />
+                    ) : (
+                      t('getStartedId.button')
+                    )
+                  }
                   backgroundColor="#063B87"
                   color="white"
                   onPress={handleSubmit}

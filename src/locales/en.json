@@ -18,5 +18,51 @@
     "placeholder1": "Employee ID (required)",
     "placeholder2": "Last Name (required)",
     "placeholder3":"Employer (optional)"
+  },
+  "login":{
+    "toast": {
+      "text1": "Error",
+      "text2": "Something went wrong please try again later 🥲"
+    },
+    "title": "Login",
+    "placeholder1": "Email Address",
+    "placeholder2": "Password",
+    "label3": "Remember me",
+    "button": "Login",
+    "option1": "Forgot your password",
+    "option3": "Dont have an account",
+    "option2": "Reset password",
+    "option4": "Get Started",
+    "footer1": "Need Help?",
+    "footer2": "© AirliPay 2023"
+  },
+  "passwordResetScreen": {
+    "stages": {
+      "requestLink": "REQUEST LINK",
+      "verify": "VERIFY",
+      "reset": "RESET"
+    },
+    "toast": {
+      "success": {
+        "text1": "Success",
+        "text2": "Code sent successfully"
+      },
+      "error": {
+        "text1": "Error",
+        "text2": "User with email not found"
+      },
+      "somethingWentWrong": {
+        "text1": "Error",
+        "text2": "Something went wrong, please try again later 🥲"
+      }
+    },
+    "alreadyHaveAccount": "Already have an account?",
+    "login": "Login",
+    "didNotReceiveCode": "Did not receive the code?",
+    "resend": "Resend",
+    "dontHaveAccount": "Don't have an account?",
+    "getStarted": "Get Started",
+    "needHelp": "Need Help?",
+    "footer": "© AirliPay 2023"
   }
 }
