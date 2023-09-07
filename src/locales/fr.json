@@ -63,5 +63,34 @@
     "getStarted": "Commencer",
     "needHelp": "Besoin d'aide ?",
     "footer": "© AirliPay 2023"
+  },
+  "getStartedPhone": {
+    "title": "Commencer",
+    "button": "Suivant",
+    "option": "Se connecter plutôt",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Numéro de téléphone (obligatoire)",
+    "placeholder2": "Employeur (facultatif)",
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer ultérieurement 🥲"
+    }
+  },
+  "getStartedEmail": {
+    "title": "Commencer",
+    "button": "Suivant",
+    "option": "Se connecter plutôt",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Adresse e-mail (obligatoire)",
+    "placeholder2": "Employeur (facultatif)",
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer ultérieurement 🥲"
+    },
+    "hr": "ou",
+    "other1": "Essayez avec votre téléphone",
+    "other2": "Essayez avec votre identifiant employé"
   }
 }

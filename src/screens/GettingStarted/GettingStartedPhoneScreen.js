@@ -8,9 +8,11 @@ import { gettingStartedValidationSchema } from '../../validationSchemas/gettingS
 import Toast from 'react-native-toast-message';
 import { useState } from 'react';
 import { searchUserByEmployeePhone } from '../../services';
+import { useTranslation } from 'react-i18next';
 
 export default function GettingStartedPhoneScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
+  const { t } = useTranslation();
 
   const goToVerifyIdentity = () => {
     navigation.navigate('VerifyIdentityScreen');
@@ -27,17 +29,17 @@ export default function GettingStartedPhoneScreen({ navigation }) {
 
   const onNextClick = async (values) => {
     setLoading(true);
-    const response = await searchUserByEmployeePhone(values.employeeId);
+    const response = await searchUserByEmployeePhone(values.phoneNumber);
     setLoading(false);
-    if (response.status == 404) {
+    if (response.status === 404) {
       navigation.navigate('HelpScreen');
-    } else if (response.status == 200) {
+    } else if (response.status === 200) {
       navigation.navigate('VerifyIdentity');
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('getStartedPhone.toast.text1'),
+        text2: t('getStartedPhone.toast.text2')
       });
     }
   };
@@ -48,34 +50,34 @@ export default function GettingStartedPhoneScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.form}>
-        <Text style={styles.formHeader}>Lets get started</Text>
+        <Text style={styles.formHeader}>{t('getStartedPhone.title')}</Text>
         <View>
           <Formik
             validationSchema={gettingStartedValidationSchema}
-            initialValues={{ email: '', employer: '' }}
+            initialValues={{ phoneNumber: '', employer: '' }}
             onSubmit={(values) => onNextClick(values)}>
             {({ handleSubmit, isValid }) => (
               <>
                 <Field
                   component={CustomInput}
                   name="phoneNumber"
-                  placeholder="Phone Number (required)"
+                  placeholder={t('getStartedPhone.placeholder1')}
                   editable={!loading}
                 />
                 <Field
                   component={CustomInput}
                   name="employer"
-                  placeholder="Employer (optional)"
+                  placeholder={t('getStartedPhone.placeholder2')}
                   editable={!loading}
                 />
-                {/* <CustomButton
-                  title="Next"
-                  backgroundColor="#063B87"
-                  color="white"
-                  onPress={goToVerifyIdentity}
-                /> */}
                 <CustomButton
-                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
+                  title={
+                    loading ? (
+                      <ActivityIndicator size="small" color="#0000ff" />
+                    ) : (
+                      t('getStartedPhone.button')
+                    )
+                  }
                   backgroundColor="#063B87"
                   color="white"
                   onPress={handleSubmit}
@@ -90,24 +92,24 @@ export default function GettingStartedPhoneScreen({ navigation }) {
         <CustomHr style={styles.hr} text="or" />
         <CustomButton
           backgroundColor="transparent"
-          title="Try you Email"
+          title={t('getStartedPhone.option')}
           color="grey"
-          onPress={goToGettingStartedEmailScreen}
+          onPress={goToLoginScreen}
         />
         <CustomButton
           backgroundColor="transparent"
-          title="Try your employee Id"
+          title={t('getStartedPhone.option')}
           color="grey"
-          onPress={goToGettingStartedEmployeeIdScreen}
+          onPress={goToGettingStartedEmailScreen}
         />
       </View>
       <View style={styles.pageFooter}>
         <Text style={styles.loginInstead} onPress={goToLoginScreen}>
-          Login Instead
+          {t('getStartedPhone.option')}
         </Text>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text style={styles.frontText}>{t('getStartedPhone.footer1')} </Text>
+          <Text>{t('getStartedPhone.footer2')}</Text>
         </View>
       </View>
     </View>
@@ -130,18 +132,16 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   form: {
-    // flex: 3,
     marginTop: 40
   },
   info: {
-    // flex: 2,
     marginTop: 30
   },
   hr: {
     marginBottom: 40
   },
   formHeader: {
-    fontWeight: 700,
+    fontWeight: 'bold',
     fontSize: 25,
     marginTop: 40,
     marginBottom: 20
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   loginInstead: {
-    fontWeight: 700,
+    fontWeight: 'bold',
     color: '#3F5F90',
     marginBottom: 20
   },
@@ -160,6 +160,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   frontText: {
-    fontWeight: 600
+    fontWeight: 'bold'
   }
 });

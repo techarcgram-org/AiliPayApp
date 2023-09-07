@@ -1,15 +1,14 @@
-
 {
-  "landing1":{
-    "title":"",
-    "welcome":"Financial system that works for everyone"
+  "landing1": {
+    "title": "",
+    "welcome": "Financial system that works for everyone"
   },
-  "landing2":{
-    "text1":"Get Instant Access to your Earnings When you need it the most",
-    "text2":"On demand pay enables fiinancial control you need to minimize borrowing and improve your financial well-being",
-    "button":"Get started"
+  "landing2": {
+    "text1": "Get Instant Access to your Earnings When you need it the most",
+    "text2": "On demand pay enables fiinancial control you need to minimize borrowing and improve your financial well-being",
+    "button": "Get started"
   },
-  "getStartedId":{
+  "getStartedId": {
     "title": "Lets get started",
     "button": "Next",
     "option": "Login Instead",
@@ -17,9 +16,9 @@
     "footer2": "© AirliPay 2023",
     "placeholder1": "Employee ID (required)",
     "placeholder2": "Last Name (required)",
-    "placeholder3":"Employer (optional)"
+    "placeholder3": "Employer (optional)"
   },
-  "login":{
+  "login": {
     "toast": {
       "text1": "Error",
       "text2": "Something went wrong please try again later 🥲"
@@ -64,5 +63,34 @@
     "getStarted": "Get Started",
     "needHelp": "Need Help?",
     "footer": "© AirliPay 2023"
+  },
+  "getStartedPhone": {
+    "title": "Lets get started",
+    "button": "Next",
+    "option": "Login Instead",
+    "footer1": "Need Help?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Phone Number (required)",
+    "placeholder2": "Employer (optional)",
+    "toast": {
+      "text1": "Error",
+      "text2": "Something went wrong please try again later 🥲"
+    }
+  },
+  "getStartedEmail": {
+    "title": "Lets get started",
+    "button": "Next",
+    "option": "Login Instead",
+    "footer1": "Need Help?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Email (required)",
+    "placeholder2": "Employer (optional)",
+    "toast": {
+      "text1": "Error",
+      "text2": "Something went wrong please try again later 🥲"
+    },
+    "hr": "or",
+    "other1": "Try your phone",
+    "other2": "Try your employee Id"
   }
 }
