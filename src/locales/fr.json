@@ -160,5 +160,46 @@
       "footerText": "© AirliPay 2023"
     },
     "agreeText": "J'accepte les termes et conditions."
+  },
+  "welcomeScreen":{
+    "header":"Let's Go",
+    "title":"Password Created successfully",
+    "action1":"1 - Enable lalance alerts",
+    "action2":"2 - Add a debit card",
+    "action3":"3 - Add a bank account",
+    "action4":"4 - Verify Phone Number",
+    "footer":"Need Help?"
+  },
+  "needHelp":{
+    "footer":"Need Help?",
+    "title":"Thank you for your interest in Airlipay, but we can’t find your account",
+    "center1":"- Confirm that your employer offers Airlipay",
+    "center2":"- Check to make sure everything matches the information on file with your employer.",
+    "center3":"- We can’t find your account using an email address, cell phone number or employee ID. If you’re having difficulties with one of these methods, try entering a different piece of information.",
+    "center4":"- If you’re a new employee, we might not have your information yet, so either contact us or wait a few days and try again.",
+    "center5":"- If you’re information is correct contact support at: ***support nubmer*** ",
+    "button1":"Get Started",
+    "button2":"Ask your employeer about getting AirliPay"
+  },
+  "settingScreen":{
+    "title":"Account Information",
+    "info1":"Bank Account",
+    "info2":"Debit Card",
+    "info3":"Mobile Money",
+    "info4":"Automatic Savings",
+    "info5":"Account Councelation",
+    "info6":"Notifications Settings",
+    "info7":"Login and Security"
+  },
+  "loginAndSecurity":{
+    "text1":"Enable Pin",
+    "text2":"Enable Fingerprint",
+    "title":"LOGIN AND SECURITY"
+  },
+  "notifications":{
+    "title":"NOTIFICATION PREFERENCES",
+    "text1":"Push Notifications",
+    "text2":"SMS Notifications",
+    "text3":"Email Notifications"
   }
 }

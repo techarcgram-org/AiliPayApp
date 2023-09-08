@@ -1,24 +1,25 @@
-import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
-import ToggleButton from '../../components/ToggleButton';
-import { Actions } from 'react-native-router-flux';
+import { StyleSheet, Text, View } from 'react-native';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 import LineSeparator from '../../components/LineSeparator';
+import ToggleButton from '../../components/ToggleButton';
+import { useTranslation } from 'react-i18next';
 
 export default function LoginAndSecurityScreen({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <AccountSettingsHeader navigation={navigation} headerTitle="LOGIN AND SECURITY " />
+        <AccountSettingsHeader navigation={navigation} headerTitle={t('loginAndSecurity.title')} />
       </View>
       <View style={styles.configurationContainer}>
         <LineSeparator />
         <View style={styles.configurationOptions}>
-          <Text style={styles.textStyle}>Enable Pin</Text>
+          <Text style={styles.textStyle}>{t('loginAndSecurity.text1')}</Text>
           <ToggleButton />
         </View>
         <LineSeparator />
         <View style={styles.configurationOptions}>
-          <Text style={styles.textStyle}>Enable Fingerprint</Text>
+          <Text style={styles.textStyle}>{t('loginAndSecurity.text2')}</Text>
           <ToggleButton />
         </View>
         <LineSeparator />
