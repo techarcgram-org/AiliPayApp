@@ -1,59 +1,59 @@
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Text, View } from "react-native";
+import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
 import CustomButton from "../../components/CustomButton";
 import CustomHr from "../../components/CustomHr";
-import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import { useTranslation } from "react-i18next";
 
 export default function AccountCancellation({navigation}) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
-      <AccountSettingsHeader
-        headerTitle="ACCOUNT CANCELLATION"
-        navigation={navigation}
-      />
+      <AccountSettingsHeader headerTitle={t('accountCancelation.title')} navigation={navigation} />
       {/* <TouchableOpacity
         onPress={() => navigation.navigate("MainActivityScreen")}
       >
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity> */}
       <View style={styles.innerContainer}>
-      <Text style={styles.infoText}>Cancellation Process</Text>
-      <Text style={styles.apologyText}>We are sorry to see you go</Text>
-      <View style={styles.detailSection}>
-        <Text style={styles.companyName}>Company Name</Text>
-        <Text style={styles.payperiodHeading}>Previous Payperiod</Text>
-        <Text style={styles.payperiodDate}>Nov 29 - Dec 29</Text>
-        <CustomHr width={1} />
-        <View style={styles.row}>
-          <Text style={styles.detailTextHeader}>Transferred Early</Text>
-          <Text style={styles.detailTextHeader}>XAF 40 000</Text>
-        </View>
-        <CustomHr width={1} />
-        <View style={styles.row}>
-          <Text style={styles.detailTextHeader}>Days until next payday</Text>
-          <Text style={styles.detailTextHeader}>12 day</Text>
-        </View>
-        <CustomHr width={1} />
-        <Text style={styles.explanationText}>
-          On Mon Dec 31st, AirliPay will send your salary like normal. If your
-          salary does not exceed XAF 40 000, AirliPay will debit your account
-          with the difference.
+        <Text style={styles.infoText}>{t('accountCancelation.text1')}</Text>
+        <Text style={styles.apologyText}>
+          On Mon Dec 31st, AirliPay will send your salary like normal. If your salary does not
+          exceed XAF 40 000, AirliPay will debit your account with the difference.
         </Text>
-      </View>
-      <View style={styles.buttonSection}>
-        <CustomButton
-          title="Keep my account active"
-          backgroundColor="#063B87"
-          color="white"
-          onPress={() => navigation.navigate("")}
-        />
-        <CustomButton
-          title="Cancel my account"
-          backgroungColor="transparent"
-          color="#063B87"
-          onPress={() => navigation.navigate("")}
-        />
-      </View>
+        <View style={styles.detailSection}>
+          <Text style={styles.companyName}>Company Name</Text>
+          <Text style={styles.payperiodHeading}>Previous Payperiod</Text>
+          <Text style={styles.payperiodDate}>Nov 29 - Dec 29</Text>
+          <CustomHr width={1} />
+          <View style={styles.row}>
+            <Text style={styles.detailTextHeader}>Transferred Early</Text>
+            <Text style={styles.detailTextHeader}>XAF 40 000</Text>
+          </View>
+          <CustomHr width={1} />
+          <View style={styles.row}>
+            <Text style={styles.detailTextHeader}>Days until next payday</Text>
+            <Text style={styles.detailTextHeader}>12 day</Text>
+          </View>
+          <CustomHr width={1} />
+          <Text style={styles.explanationText}>
+            On Mon Dec 31st, AirliPay will send your salary like normal. If your salary does not
+            exceed XAF 40 000, AirliPay will debit your account with the difference.
+          </Text>
+        </View>
+        <View style={styles.buttonSection}>
+          <CustomButton
+            title="Keep my account active"
+            backgroundColor="#063B87"
+            color="white"
+            onPress={() => navigation.navigate('')}
+          />
+          <CustomButton
+            title="Cancel my account"
+            backgroungColor="transparent"
+            color="#063B87"
+            onPress={() => navigation.navigate('')}
+          />
+        </View>
       </View>
     </View>
   );

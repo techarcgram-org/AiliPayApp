@@ -161,45 +161,73 @@
     },
     "agreeText": "J'accepte les termes et conditions."
   },
-  "welcomeScreen":{
-    "header":"Let's Go",
-    "title":"Password Created successfully",
-    "action1":"1 - Enable lalance alerts",
-    "action2":"2 - Add a debit card",
-    "action3":"3 - Add a bank account",
-    "action4":"4 - Verify Phone Number",
-    "footer":"Need Help?"
+  "welcomeScreen": {
+    "header": "Let's Go",
+    "title": "Password Created successfully",
+    "action1": "1 - Enable lalance alerts",
+    "action2": "2 - Add a debit card",
+    "action3": "3 - Add a bank account",
+    "action4": "4 - Verify Phone Number",
+    "footer": "Need Help?"
   },
-  "needHelp":{
-    "footer":"Need Help?",
-    "title":"Thank you for your interest in Airlipay, but we can’t find your account",
-    "center1":"- Confirm that your employer offers Airlipay",
-    "center2":"- Check to make sure everything matches the information on file with your employer.",
-    "center3":"- We can’t find your account using an email address, cell phone number or employee ID. If you’re having difficulties with one of these methods, try entering a different piece of information.",
-    "center4":"- If you’re a new employee, we might not have your information yet, so either contact us or wait a few days and try again.",
-    "center5":"- If you’re information is correct contact support at: ***support nubmer*** ",
-    "button1":"Get Started",
-    "button2":"Ask your employeer about getting AirliPay"
+  "needHelp": {
+    "footer": "Besoin d'aide ?",
+    "title": "Merci de votre intérêt pour Airlipay, mais nous ne trouvons pas votre compte",
+    "center1": "- Confirmez que votre employeur propose Airlipay",
+    "center2": "- Vérifiez que toutes les informations correspondent à celles enregistrées auprès de votre employeur.",
+    "center3": "- Nous ne trouvons pas votre compte en utilisant une adresse e-mail, un numéro de téléphone portable ou un identifiant d'employé. Si vous rencontrez des difficultés avec l'une de ces méthodes, essayez de saisir une autre information.",
+    "center4": "- Si vous êtes un nouvel employé, nous pourrions ne pas avoir encore vos informations, veuillez donc nous contacter ou attendre quelques jours et réessayer.",
+    "center5": "- Si vos informations sont correctes, contactez le support au : ***numéro de support***",
+    "button1": "Commencer",
+    "button2": "Demandez à votre employeur comment obtenir AirliPay"
   },
-  "settingScreen":{
-    "title":"Account Information",
-    "info1":"Bank Account",
-    "info2":"Debit Card",
-    "info3":"Mobile Money",
-    "info4":"Automatic Savings",
-    "info5":"Account Councelation",
-    "info6":"Notifications Settings",
-    "info7":"Login and Security"
+  "settingScreen": {
+    "title": "Informations sur le compte",
+    "info1": "Compte bancaire",
+    "info2": "Carte de débit",
+    "info3": "Mobile Money",
+    "info4": "Épargne automatique",
+    "info5": "Annulation du compte",
+    "info6": "Paramètres de notification",
+    "info7": "Connexion et sécurité"
   },
-  "loginAndSecurity":{
-    "text1":"Enable Pin",
-    "text2":"Enable Fingerprint",
-    "title":"LOGIN AND SECURITY"
+  "loginAndSecurity": {
+    "text1": "Activer le code PIN",
+    "text2": "Activer l'empreinte digitale",
+    "title": "CONNEXION ET SÉCURITÉ"
   },
-  "notifications":{
-    "title":"NOTIFICATION PREFERENCES",
-    "text1":"Push Notifications",
-    "text2":"SMS Notifications",
-    "text3":"Email Notifications"
+  "notifications": {
+    "title": "PREFERENCES DE NOTIFICATION",
+    "text1": "Notifications push",
+    "text2": "Notifications SMS",
+    "text3": "Notifications par e-mail"
+  },
+  "mobileMoney": {
+    "title": "MOBILE MONEY",
+    "header": "Compte Mobile Money",
+    "status": "Mobile Money principal"
+  },
+  "debitCard": {
+    "title": "Ajouter une carte de débit",
+    "placeholder1": "Nom du titulaire de la carte",
+    "placeholder2": "Numéro de carte",
+    "placeholder3": "CVV/CVC",
+    "placeholder4": "Date d'expiration",
+    "text1": "Un peu de texte va ici",
+    "button": "Ajouter"
+  },
+  "accountCancelation": {
+    "title": "ANNULATION DU COMPTE",
+    "text1": "Processus d'annulation",
+    "text2": "Nous sommes désolés de vous voir partir",
+    "text3": "Nom de l'entreprise",
+    "text4": "Période de paie précédente",
+    "text5": "29 nov - 29 déc",
+    "text6": "Transféré plus tôt",
+    "text7": "Jours jusqu'à la prochaine paie",
+    "text8": "12 jours",
+    "text9": "Le lun. 31 déc., AirliPay enverra votre salaire comme d'habitude. Si votre salaire ne dépasse pas XAF 40 000, AirliPay débitera votre compte de la différence.",
+    "button1": "Garder mon compte actif",
+    "button2": "Annuler mon compte"
   }
 }

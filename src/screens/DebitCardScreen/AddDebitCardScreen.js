@@ -1,31 +1,43 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView } from 'react-native';
-import CustomButton from '../../components/CustomButton';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import React from 'react';
+import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import CustomButton from '../../components/CustomButton';
+import { useTranslation } from 'react-i18next';
 
 export default function addDebitCard (navigation) {
+    const {t} = useTranslation()
 
-    return(
-        <View style={styles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate("MainActivityScreen")}>
-                <Ionicons 
-                  name="md-arrow-back"
-                  size={30}
-                  color="black"
-                />
-            </TouchableOpacity>
-            <ScrollView>
-                <Text style={styles.infoText}>Add Debit Card</Text>
-                <TextInput style={styles.inputField} placeholder='Card Holder Name'></TextInput>
-                <TextInput style={styles.inputField} placeholder='Card Number'></TextInput>
-                <TextInput style={styles.inputField} placeholder='CVV/CVC'></TextInput>
-                <TextInput style={styles.inputField} placeholder='Expiration Date'></TextInput>
-                <Text style={styles.description}>Some text goes here</Text>
-                <CustomButton style={styles.btnSpace} title="Add" backgroundColor="#063B87" color="#063B87" onPress={() => navigation.navigate("MainActivityScreen")}/>
-            </ScrollView>
-        </View>
-    )
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.navigate('MainActivityScreen')}>
+          <Ionicons name="md-arrow-back" size={30} color="black" />
+        </TouchableOpacity>
+        <ScrollView>
+          <Text style={styles.infoText}>{t('debitCard.title')}</Text>
+          <TextInput
+            style={styles.inputField}
+            placeholder={t('debitCard.placeholder1')}></TextInput>
+          <TextInput
+            style={styles.inputField}
+            placeholder={t('debitCard.placeholder2')}></TextInput>
+          <TextInput
+            style={styles.inputField}
+            placeholder={t('debitCard.placeholder3')}></TextInput>
+          <TextInput
+            style={styles.inputField}
+            placeholder={t('debitCard.placeholder4')}></TextInput>
+          <Text style={styles.description}>{t('debitCard.text1')}</Text>
+          <CustomButton
+            style={styles.btnSpace}
+            title={t('debitCard.button')}
+            backgroundColor="#063B87"
+            color="#063B87"
+            onPress={() => navigation.navigate('MainActivityScreen')}
+          />
+        </ScrollView>
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({

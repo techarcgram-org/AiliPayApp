@@ -1,37 +1,32 @@
-import { View, StyleSheet, Text, SafeAreaView } from "react-native";
-import CustomButton from "../../components/CustomButton";
-import { Actions } from "react-native-router-flux";
-import PaymentDetailsBox from "../../components/PaymentDetailsBox";
+import { StyleSheet, Text, View } from "react-native";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import PaymentDetailsBox from "../../components/PaymentDetailsBox";
 import UpdateInformation from "../../components/UpdateInformation";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { useTranslation } from "react-i18next";
 
 export default function MobileMoneyScreen({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
 
-      <AccountSettingsHeader
-        headerTitle="MOBILE MONEY"
-        navigation={navigation}
-      />
+      <AccountSettingsHeader headerTitle={t('mobileMoney.title')} navigation={navigation} />
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Mobile Money Accounts</Text>
+        <Text style={styles.infoTitle}>{t('mobileMoney.header')}</Text>
         <View style={styles.debitCardContent}>
           <View>
             <PaymentDetailsBox
               paymentType="MTN MoMo"
               lastDigits="XXX8"
-              primaryStatus="Primary Mobile Money"
+              primaryStatus={t('mobileMoney.status')}
               validationStatus="Valid"
             />
             <PaymentDetailsBox
               paymentType="MTN MoMo"
               lastDigits="XXX9"
-              primaryStatus="Primary Mobile Money"
+              primaryStatus={t('mobileMoney.status')}
               validationStatus="Invalid"
             />
           </View>
