@@ -112,5 +112,53 @@
       "label3": "et la",
       "label4": "Politique de confidentialité d'Airlipay"
     }
+  },
+  "verifyIdentity": {
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer plus tard 🥲"
+    },
+    "title": "Super ! Nous avons trouvé votre compte",
+    "info": {
+      "verifyIdentity": "Vérifiez votre identité",
+      "account": {
+        "title": "Votre compte",
+        "name": "Nom :",
+        "employeeId": "ID Employé :"
+      },
+      "verificationCode": "Nous vous enverrons un code de vérification sur votre téléphone ou votre adresse e-mail enregistrée",
+      "getCode": {
+        "option": "envoyer le code à",
+        "getCodeButton": "Obtenir le code",
+        "noAccessText": "Je n'ai pas accès aux comptes répertoriés"
+      }
+    },
+    "helpText": {
+      "frontText": "Besoin d'aide ?",
+      "footerText": "© AirliPay 2023"
+    }
+  },
+  "verificationCodeScreen": {
+    "infoHeader": "Code de vérification envoyé !",
+    "messageText": "Un message texte contenant votre code de vérification a été envoyé à {{email}}",
+    "confirmCodeButton": "Confirmer le code",
+    "noAccessText": "Je n'ai pas accès aux comptes répertoriés",
+    "resendCodeText": "Vous n'avez pas reçu le code de vérification ?",
+    "sendCodeToText": "Envoyer le code à ",
+    "common": {
+      "loadingErrorText": "Une erreur s'est produite, veuillez réessayer ultérieurement 🥲",
+      "helpText": "Besoin d'aide ?"
+    }
+  },
+  "verificationCodeEmailScreen": {
+    "infoHeader": "Vérifions vos informations de contact !",
+    "emailText": "*****start@ailipay.com",
+    "editButton": "Modifier",
+    "sendVerificationCodeButton": "Envoyer le code de vérification",
+    "helpText": {
+      "frontText": "Besoin d'aide ?",
+      "footerText": "© AirliPay 2023"
+    },
+    "agreeText": "J'accepte les termes et conditions."
   }
 }

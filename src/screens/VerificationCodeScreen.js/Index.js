@@ -1,10 +1,11 @@
+import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Field, Formik, ErrorMessage } from 'formik';
-import { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { verificationSchema } from '../../validationSchemas/verificationSchema';
 import { verifyEmailSecret } from '../../services';
 import Toast from 'react-native-toast-message';
@@ -12,24 +13,24 @@ import { store } from '../../../store';
 import InputErrorMessage from '../../components/InputErrorMessage';
 
 export default function VerificationCodeScreen({ navigation }) {
-  const [loading, setLoading] = useState();
+  const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
   const { state } = useContext(store);
 
   const onSubmitEvent = async (values) => {
-    console.log('help');
     setLoading(true);
     const response = await verifyEmailSecret({ secret: values.secret, email: state.auth.email });
     setLoading(false);
+
     if (response.status == 404) {
       navigation.navigate('HelpScreen');
     } else if (response.status == 200) {
-      // await dispatch({ type: 'SET_AUTH', payload: response.data.data });
       navigation.navigate('PasswordSetupScreen');
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('verificationCodeScreen.common.loadingErrorText'),
+        text2: t('verificationCodeScreen.common.somethingWentWrongText')
       });
     }
   };
@@ -40,10 +41,10 @@ export default function VerificationCodeScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Verification code sent!</Text>
+        <Text style={styles.infoHeader}>{t('verificationCodeScreen.infoHeader')}</Text>
         <View>
           <Text>
-            A text message with your verification code was sent to xxxx{state.auth.email.slice(7)}
+            {t('verificationCodeScreen.messageText', { email: state.auth.email.slice(7) })}
           </Text>
           <View style={styles.confirmCode}>
             <Formik
@@ -55,14 +56,18 @@ export default function VerificationCodeScreen({ navigation }) {
                   <Field
                     component={CustomInput}
                     name="secret"
-                    placeholder="Enter verification code"
+                    placeholder={t('verificationCodeScreen.enterCodePlaceholder')}
                     editable={!loading}
                     inputMode="numeric"
                   />
                   <ErrorMessage component={InputErrorMessage} name="secret" />
                   <CustomButton
                     title={
-                      loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Confirm Code'
+                      loading ? (
+                        <ActivityIndicator size="small" color="#0000ff" />
+                      ) : (
+                        t('verificationCodeScreen.confirmCodeButton')
+                      )
                     }
                     backgroundColor="#063B87"
                     color="white"
@@ -72,19 +77,19 @@ export default function VerificationCodeScreen({ navigation }) {
                 </>
               )}
             </Formik>
-            <Text style={styles.text}>Didn't get verification code?</Text>
+            <Text style={styles.text}>{t('verificationCodeScreen.resendCodeText')}</Text>
             <TouchableOpacity onPress={() => navigation.navigate('VerificationCodeEmailScreen')}>
               <Text style={[styles.text, { color: '#063B87' }]}>
-                Send code to xxxstaing@airlipay.com
+                {t('verificationCodeScreen.sendCodeToText', { email: 'xxxstaing@airlipay.com' })}
               </Text>
             </TouchableOpacity>
-            <Text style={styles.noAccess}>I don't have access to the listed accounts</Text>
+            <Text style={styles.noAccess}>{t('verificationCodeScreen.noAccessText')}</Text>
           </View>
         </View>
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
+          <Text style={styles.frontText}>{t('verificationCodeScreen.verificationCodeScreen.helpText')} </Text>
           <Text>© AirliPay 2023</Text>
         </View>
       </View>

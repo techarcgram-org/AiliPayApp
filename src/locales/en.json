@@ -108,9 +108,57 @@
     "confirmPasswordPlaceholder": "Confirm password (Required)",
     "termsAndConditions": {
       "label1": "I agree to the Airlipay ",
-      "label2":"Terms and Conditions",
-      "label3":"and",
-      "label4":"Privacy Policy"
+      "label2": "Terms and Conditions",
+      "label3": "and",
+      "label4": "Privacy Policy"
+    }
+  },
+  "verifyIdentity": {
+    "toast": {
+      "text1": "Error",
+      "text2": "Something went wrong please try again later 🥲"
+    },
+    "title": "Great! we found your account",
+    "info": {
+      "verifyIdentity": "Verify Your Identify",
+      "account": {
+        "title": "Your Account",
+        "name": "Name:",
+        "employeeId": "Employee Id:"
+      },
+      "verificationCode": "We’ll send a verification code to your phone or email on file",
+      "getCode": {
+        "option": "send code to",
+        "getCodeButton": "Get Code",
+        "noAccessText": "I don't have access to the listed accounts"
+      }
+    },
+    "helpText": {
+      "frontText": "Need Help?",
+      "footerText": "© AirliPay 2023"
+    }
+  },
+  "verificationCodeEmailScreen": {
+    "infoHeader": "Let's verify your contact information!",
+    "emailText": "*****start@ailipay.com",
+    "editButton": "Edit",
+    "sendVerificationCodeButton": "Send Verification Code",
+    "helpText": {
+      "frontText": "Need help?",
+      "footerText": "© AirliPay 2023"
+    },
+    "agreeText": "I agree to the terms and conditions."
+  },
+  "verificationCodeScreen": {
+    "infoHeader": "Verification code sent!",
+    "messageText": "A text message with your verification code was sent to {{email}}",
+    "confirmCodeButton": "Confirm Code",
+    "noAccessText": "I don't have access to the listed accounts",
+    "resendCodeText": "Didn't get verification code?",
+    "sendCodeToText": "Send code to ",
+    "common": {
+      "loadingErrorText": "Something went wrong, please try again later 🥲",
+      "helpText": "Need Help?"
     }
   }
 }
