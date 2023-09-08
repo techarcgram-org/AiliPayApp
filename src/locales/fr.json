@@ -92,5 +92,25 @@
     "hr": "ou",
     "other1": "Essayez avec votre téléphone",
     "other2": "Essayez avec votre identifiant employé"
+  },
+  "passwordSetup": {
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer ultérieurement 🥲"
+    },
+    "infoHeader": "Bonjour !",
+    "passwordDescription": "Choisissez votre mot de passe pour accéder à vos avantages de paiement Airlipay. Utilisez un mélange de lettres, de chiffres et de symboles différents",
+    "usernameLabel": "Nom d'utilisateur :",
+    "confirmCodeButton": "Confirmer le code",
+    "needHelp": "Besoin d'aide ?",
+    "copyRight": "© AirliPay 2023",
+    "passwordPlaceholder": "Nouveau mot de passe (obligatoire)",
+    "confirmPasswordPlaceholder": "Confirmer le mot de passe (obligatoire)",
+    "termsAndConditions": {
+      "label1": "J'accepte les ",
+      "label2": "Conditions générales d'utilisation",
+      "label3": "et la",
+      "label4": "Politique de confidentialité d'Airlipay"
+    }
   }
 }

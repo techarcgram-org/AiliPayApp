@@ -92,5 +92,25 @@
     "hr": "or",
     "other1": "Try your phone",
     "other2": "Try your employee Id"
+  },
+  "passwordSetup": {
+    "toast": {
+      "text1": "Error",
+      "text2": "Something went wrong please try again later 🥲"
+    },
+    "infoHeader": "Hello!",
+    "passwordDescription": "Choose your password to access your Airlipay pay benefits. Use a mix of different letters, numbers, and symbols",
+    "usernameLabel": "Username:",
+    "confirmCodeButton": "Confirm Code",
+    "needHelp": "Need Help?",
+    "copyRight": "© AirliPay 2023",
+    "passwordPlaceholder": "New password (Required)",
+    "confirmPasswordPlaceholder": "Confirm password (Required)",
+    "termsAndConditions": {
+      "label1": "I agree to the Airlipay ",
+      "label2":"Terms and Conditions",
+      "label3":"and",
+      "label4":"Privacy Policy"
+    }
   }
 }

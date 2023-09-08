@@ -10,10 +10,12 @@ import { createPasswordValidationSchema } from '../../validationSchemas/verifica
 import Toast from 'react-native-toast-message';
 import { createPassword } from '../../services';
 import InputErrorMessage from '../../components/InputErrorMessage';
+import { useTranslation } from 'react-i18next';
 
 export default function PasswordSetupScreen({ navigation }) {
   const { state } = useContext(store);
   const [loading, setLoading] = useState(false);
+  const {t} = useTranslation
 
   const onSubmitEvent = async (values) => {
     setLoading(true);
@@ -30,8 +32,8 @@ export default function PasswordSetupScreen({ navigation }) {
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('passwordSetup.toast.text1'),
+        text2: t('passwordSetup.toast.text2')
       });
     }
   };
@@ -39,8 +41,10 @@ export default function PasswordSetupScreen({ navigation }) {
   const label = (
     <>
       <Text style={{ fontSize: 12.5 }}>
-        I agree to the Airlipay <Text style={{ color: '#2673D3' }}>Terms and Conditions </Text>
-        and <Text style={{ color: '#48658A' }}>Privacy Policy</Text>
+        {t('passwordSetup.termsAndConditions.label1')}{' '}
+        <Text style={{ color: '#2673D3' }}>{t('passwordSetup.termsAndConditions.label2')} </Text>
+        {t('passwordSetup.termsAndConditions.label3')}{' '}
+        <Text style={{ color: '#48658A' }}>{t('passwordSetup.termsAndConditions.label4')}</Text>
       </Text>
     </>
   );
@@ -51,16 +55,17 @@ export default function PasswordSetupScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Hello! {state.auth.name}</Text>
+        <Text style={styles.infoHeader}>
+          {t('passwordSetup.infoHeader')} {state.auth.name}
+        </Text>
         <View>
           <Text style={{ width: '80%', fontSize: 16 }}>
-            Choose your password to access your Airlipay pay benefits. Use a mix of different
-            letters, numbers, and symbols
+            {t('passwordSetup.passwordDescription')}
           </Text>
 
           <View style={styles.confirmCode}>
             <View style={{ flexDirection: 'row', marginBottom: 20 }}>
-              <Text style={{ fontWeight: 700 }}>Username: </Text>
+              <Text style={{ fontWeight: 700 }}>{t('passwordSetup.usernameLabel')}: </Text>
               <Text>{state.auth.email}</Text>
             </View>
             <Formik
@@ -72,7 +77,7 @@ export default function PasswordSetupScreen({ navigation }) {
                   <Field
                     component={CustomInput}
                     name="password"
-                    placeholder="New password (Required)"
+                    placeholder={t('passwordSetup.passwordPlaceholder')}
                     editable={!loading}
                     textContentType="password"
                     secureTextEntry={true}
@@ -81,7 +86,7 @@ export default function PasswordSetupScreen({ navigation }) {
                   <Field
                     component={CustomInput}
                     name="confirmPassword"
-                    placeholder="New password (Required)"
+                    placeholder={t('passwordSetup.confirmPasswordPlaceholder')}
                     editable={!loading}
                     textContentType="password"
                     secureTextEntry={true}
@@ -91,7 +96,11 @@ export default function PasswordSetupScreen({ navigation }) {
                   <CustomButton
                     style={{ marginTop: 40 }}
                     title={
-                      loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Confirm Code'
+                      loading ? (
+                        <ActivityIndicator size="small" color="#0000ff" />
+                      ) : (
+                        t('passwordSetup.confirmCodeButton')
+                      )
                     }
                     backgroundColor="#063B87"
                     color="white"
@@ -106,7 +115,7 @@ export default function PasswordSetupScreen({ navigation }) {
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
+          <Text style={styles.frontText}>{t('passwordSetup.needHelp')} </Text>
           <Text>© AirliPay 2023</Text>
         </View>
       </View>
