@@ -229,5 +229,10 @@
     "text9": "Le lun. 31 déc., AirliPay enverra votre salaire comme d'habitude. Si votre salaire ne dépasse pas XAF 40 000, AirliPay débitera votre compte de la différence.",
     "button1": "Garder mon compte actif",
     "button2": "Annuler mon compte"
+  },
+  "resetPassword":{
+    "infoHeader": "Réinitialisation du mot de passe",
+    "placeholder": "Adresse e-mail",
+    "button": "Envoyer le code"
   }
 }

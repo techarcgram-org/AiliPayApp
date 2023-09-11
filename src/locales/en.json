@@ -220,5 +220,32 @@
     "text9": "On Mon Dec 31st, AirliPay will send your salary like normal. If your salary does not exceed XAF 40 000, AirliPay will debit your account with the difference.",
     "button1": "Keep my account active",
     "button2": "Cancel my account"
+  },
+  "drawerScreen":{
+    "header":"AirliPay Balance",
+    "title":"VIEW BALANCE SUMMARY",
+    "action":"Choose an account",
+    "option":"Others",
+    "button1":"Start Transfer",
+    "button2":"Save"
+  },
+  "reset":{
+    "infoHeader": "Enter New Password",
+    "placeholder1": "New Password",
+    "placeholder2": "Confirm password (Required)",
+    "button": "Reset Password",
+    "toast": {
+      "text1": "Success",
+      "text2": "Password reseted successfully"
+    },
+    "errorToast": {
+      "text1": "Error",
+      "text2": "Something went wrong please try again later 🥲"
+    }
+  },
+  "resetPassword":{
+    "infoHeader": "Password Reset Email",
+    "placeholder": "Email Address",
+    "button": "Submit Code"
   }
 }
