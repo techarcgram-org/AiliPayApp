@@ -221,15 +221,15 @@
     "button1": "Keep my account active",
     "button2": "Cancel my account"
   },
-  "drawerScreen":{
-    "header":"AirliPay Balance",
-    "title":"VIEW BALANCE SUMMARY",
-    "action":"Choose an account",
-    "option":"Others",
-    "button1":"Start Transfer",
-    "button2":"Save"
+  "drawerScreen": {
+    "header": "AirliPay Balance",
+    "title": "VIEW BALANCE SUMMARY",
+    "action": "Choose an account",
+    "option": "Others",
+    "button1": "Start Transfer",
+    "button2": "Save"
   },
-  "reset":{
+  "reset": {
     "infoHeader": "Enter New Password",
     "placeholder1": "New Password",
     "placeholder2": "Confirm password (Required)",
@@ -243,9 +243,23 @@
       "text2": "Something went wrong please try again later 🥲"
     }
   },
-  "resetPassword":{
+  "resetPassword": {
     "infoHeader": "Password Reset Email",
     "placeholder": "Email Address",
     "button": "Submit Code"
+  },
+  "completeTransfer": {
+    "headerTitle": "COMPLETE TRANSFER",
+    "infoText": "Please confirm your XAF 20 000 savings allocation",
+    "summaryInfo": {
+      "amount": "Amount",
+      "change": "Change",
+      "when": "When",
+      "fee": "Fee",
+      "amountReceived": "Amount you'll receive",
+      "accountBalance": "Account Balance"
+    },
+    "button1": "Complete Transfer",
+    "button2": "Cancel"
   }
 }

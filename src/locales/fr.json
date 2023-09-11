@@ -230,9 +230,33 @@
     "button1": "Garder mon compte actif",
     "button2": "Annuler mon compte"
   },
-  "resetPassword":{
+  "resetPassword": {
     "infoHeader": "Réinitialisation du mot de passe",
     "placeholder": "Adresse e-mail",
     "button": "Envoyer le code"
+  },
+  "completeTransfer": {
+    "headerTitle": "TRANSFERT COMPLET",
+    "infoText": "Veuillez confirmer votre allocation d'épargne de 20 000 XAF",
+    "summaryInfo": {
+      "amount": "Montant",
+      "change": "Changement",
+      "when": "Quand",
+      "fee": "Frais",
+      "amountReceived": "Montant que vous recevrez",
+      "accountBalance": "Solde du compte"
+    },
+    "buttons": {
+      "completeTransfer": {
+        "title": "Transfert Complet",
+        "backgroundColor": "#063B87",
+        "color": "white"
+      },
+      "cancel": {
+        "title": "Annuler",
+        "backgroundColor": "transparent",
+        "color": "#063B87"
+      }
+    }
   }
 }
