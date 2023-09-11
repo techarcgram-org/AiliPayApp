@@ -256,5 +256,16 @@
     "header2": "Compte de destination",
     "button1": "Mettre à jour l'épargne automatique",
     "button2": "Effacer"
+  },
+  "accountInformation": {
+    "headerTitle": "INFORMATIONS DU COMPTE",
+    "editValue": "Modifier",
+    "text1": "Alerte de sécurité !",
+    "text2": "Veuillez mettre à jour ou vérifier vos informations de contact ci-dessous.",
+    "email": "Adresse e-mail",
+    "verify": "Vérifier",
+    "phone": "Numéro de téléphone",
+    "password": "Mot de passe",
+    "language": "Langue"
   }
 }

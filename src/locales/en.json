@@ -271,5 +271,16 @@
     "detailAmount2": "xxxx xxxx xxxx 2312",
     "button1": "Update Automatic Saving",
     "button2": "Clear"
+  },
+  "accountInformation":{
+    "headerTitle": "ACCOUNT INFORMATION",
+    "editValue": "Edit",
+    "text1": "Security Alert!",
+    "text2": "Please update or verify your contact information below.",
+    "email": "Email Address",
+    "verify": "Verify",
+    "phone": "Phone Number",
+    "password": "Password",
+    "language": "Language"
   }
 }

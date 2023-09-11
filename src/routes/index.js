@@ -125,7 +125,7 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="AutomaticSavings"
+        initialRouteName="AccountInformation"
         screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
           name="LandingScreen"
