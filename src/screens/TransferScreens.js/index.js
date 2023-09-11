@@ -5,6 +5,7 @@ import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Formik, Field, Form } from 'formik';
 
 export default function TransferScreen({ navigation }) {
   return (
@@ -25,6 +26,24 @@ export default function TransferScreen({ navigation }) {
             <CustomHr width={1} />
             <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>When</Text>
+              {/* <Formik
+                initialValues={{ selectedOption: 'now' }}
+                >
+                  <Field
+                    as='select'
+                    id='selectedOption'
+                    name='selectedOption'
+                    onChange={(e) => e.target.blur() }
+                    onBlur={(e) => {
+                      //Handle value change
+
+                      console.log('selected value is: ', e.target.value);
+                    }}
+                  >
+                    <option value='now'>Now</option>
+                    <option value='next day'>Next Day</option>
+                  </Field>
+              </Formik> */}
               <TouchableOpacity style={styles.nowSection}>
                 <Text style={styles.summaryInfoTex}> Now</Text>
                 <IconMaterial name="arrow-drop-down" size={20} color="black" />
