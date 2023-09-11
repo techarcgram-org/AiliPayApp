@@ -23,3 +23,8 @@ export const loginValidationSchema = yup.object().shape({
   email: yup.string().required('Enter username/email'),
   password: yup.string().required('Enter password')
 });
+
+export const bankValidationSchema = yup.object().shape({
+  account_number: yup.string().required('Enter Your Bank account number'),
+  bank_id: yup.string().required('Select your bank')
+});

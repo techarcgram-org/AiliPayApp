@@ -1,23 +1,30 @@
-import React, { useState } from "react";
-import { View, Switch, StyleSheet } from "react-native";
+import React, { useState, useEffect } from 'react';
+import { View, Switch, StyleSheet } from 'react-native';
 
-export default function ToggleButton() {
-  const [isEnabled, setIsEnabled] = useState(false);
+export default function ToggleButton(props) {
+  const {
+    field: { name, onBlur, onChange, value },
+    form: { errors, touched, setFieldTouched, setFieldValue },
+    ...resProps
+  } = props;
 
-  function toggleSwitch() {
-    setIsEnabled((previousState) => !previousState);
+  function toggleSwitch(value) {
+    if (resProps.handleSubmit) {
+      resProps.handleSubmit();
+    }
+    setFieldValue(name, value);
   }
 
   return (
-    <View >
+    <View>
       <Switch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#063B87" : "#f4f3f4"}
+        {...resProps}
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={value ? '#063B87' : '#f4f3f4'}
         ios_backgroundColor="#3e3e3e"
-        onValueChange={toggleSwitch}
-        value={isEnabled}
+        onValueChange={(value) => toggleSwitch(value)}
+        value={value}
       />
     </View>
   );
 }
-

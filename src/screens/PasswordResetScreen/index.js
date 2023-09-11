@@ -58,7 +58,7 @@ export default function PasswordResetScreen({ navigation }) {
       </View>
       <View style={styles.info}>
         <View>
-          {stage === stages.REQUEST_LINK && (
+          {stage === stages.REQUEST_LINK ? (
             <ResetForm
               stages={stages}
               switchStage={switchStage}
@@ -67,8 +67,8 @@ export default function PasswordResetScreen({ navigation }) {
               loading={loading}
               onSubmitEmailEvent={onSubmitEmailEvent}
             />
-          )}
-          {stage === stages.VERIFY && (
+          ) : null}
+          {stage === stages.VERIFY ? (
             <CodeForm
               stages={stages}
               switchStage={switchStage}
@@ -76,8 +76,8 @@ export default function PasswordResetScreen({ navigation }) {
               email={email}
               navigation={navigation}
             />
-          )}
-          {stage === stages.RESET && (
+          ) : null}
+          {stage === stages.RESET ? (
             <NewPasswordResetForm
               stages={stages}
               switchStage={switchStage}
@@ -85,7 +85,7 @@ export default function PasswordResetScreen({ navigation }) {
               infoHeader={styles.infoHeader}
               navigation={navigation}
             />
-          )}
+          ) : null}
           {stage !== stages.VERIFY ? (
             <View style={{ marginTop: 20, flexDirection: 'row' }}>
               <Text>Already have an account?</Text>

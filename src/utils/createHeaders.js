@@ -1,13 +1,10 @@
-import {AxiosRequestHeaders} from "axios"
+import { AxiosRequestHeaders } from 'axios';
 
-export default function createHeaders(
-  contentType = "application/json",
-  accessToken
-) {
+export default function createHeaders(contentType = 'application/json', accessToken) {
   return {
-    "Content-Type": contentType,
-    Accept: "*/*",
-    "Access-Control-Allow-Headers": "*",
-    ...(accessToken && {Authorization: `Bearer ${accessToken}`}),
-  }
+    'Content-Type': contentType,
+    Accept: '*/*',
+    'Access-Control-Allow-Headers': '*',
+    ...(accessToken && { Authorization: `Bearer ${accessToken}` })
+  };
 }

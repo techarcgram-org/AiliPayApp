@@ -87,9 +87,7 @@ export default function PasswordSetupScreen({ navigation }) {
                     secureTextEntry={true}
                   />
                   <ErrorMessage component={InputErrorMessage} name="confirmPassword" />
-                  <View>
-                    <CustomCheckbox label={label} />
-                  </View>
+                  <Field component={CustomCheckbox} name="remember" label={label} />
                   <CustomButton
                     style={{ marginTop: 40 }}
                     title={

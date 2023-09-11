@@ -16,12 +16,14 @@ const StateProvider = ({ children }) => {
             email: payload.accounts.email,
             employeeId: payload.employee_id,
             name: payload.name,
-            phoneNumber: payload.accounts.addresses.phone_number,
+            phoneNumber: payload.addresses.primary_phone_number,
             userId: payload.id
           }
         };
       case 'SET_USER':
         return { ...state, user: payload.data, accessToken: payload.accessToken };
+      case 'SET_ACCOUNT_SETTINGS':
+        return { ...state, accountSettings: payload.data };
       default:
         throw new Error();
     }
