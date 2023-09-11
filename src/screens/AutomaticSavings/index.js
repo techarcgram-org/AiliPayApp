@@ -1,44 +1,45 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import CustomHr from "../../components/CustomHr";
-import CustomButton from "../../components/CustomButton";
-import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Text, View } from "react-native";
 import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
+import CustomButton from "../../components/CustomButton";
+import CustomHr from "../../components/CustomHr";
+import { useTranslation } from "react-i18next";
 
 
 export default function AutomaticSavings({navigation}) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <AccountSettingsHeader
-        headerTitle="AUTOMATIC SAVINGS"
+        headerTitle={t('automaticSaving.headerTitle')}
         navigation={navigation}
       />
-      <Text style={styles.infoText}>Automatic Savings</Text>
+      <Text style={styles.infoText}>{t('automaticSaving.infoText')}</Text>
       <View style={styles.innerContainer}>
         <View style={styles.detail}>
-        <View>
-          <Text style={styles.detailTextHeader}>Automatic Savings amount</Text>
-          <Text style={styles.detailAmount}>XAF 20 000</Text>
-        </View>
-        <CustomHr width={1} />
-        <View>
-          <Text style={styles.detailTextHeader}>Destination Account</Text>
-          <Text style={styles.detailAmount}>xxxx xxxx xxxx 2312</Text>
-        </View>
-        <CustomHr width={1} />
+          <View>
+            <Text style={styles.detailTextHeader}>{t('automaticSaving.header1')}</Text>
+            <Text style={styles.detailAmount}>XAF 20 000</Text>
+          </View>
+          <CustomHr width={1} />
+          <View>
+            <Text style={styles.detailTextHeader}>{t('automaticSaving.header2')}</Text>
+            <Text style={styles.detailAmount}>xxxx xxxx xxxx 2312</Text>
+          </View>
+          <CustomHr width={1} />
         </View>
         <View style={styles.buttonSection}>
-        <CustomButton
-          title="Update Automatic Saving"
-          backgroundColor="#063B87"
-          color="white"
-          onPress={() => navigation.navigate("")}
-        />
-        <CustomButton
-          title="Clear"
-          backgroundColor="transparent"
-          color="#063B87"
-          onPress={() => navigation.navigate("")}
-        />
+          <CustomButton
+            title={t('automaticSaving.button1')}
+            backgroundColor="#063B87"
+            color="white"
+            onPress={() => navigation.navigate('')}
+          />
+          <CustomButton
+            title={t('automaticSaving.button2')}
+            backgroundColor="transparent"
+            color="#063B87"
+            onPress={() => navigation.navigate('')}
+          />
         </View>
       </View>
     </View>

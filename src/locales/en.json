@@ -261,5 +261,15 @@
     },
     "button1": "Complete Transfer",
     "button2": "Cancel"
+  },
+  "automaticSaving": {
+    "headerTitle": "AUTOMATIC SAVING",
+    "infoText": "Automatic Saving",
+    "header1": "Automatic Saving Amount",
+    "detailAmount1": "20,000 XAF",
+    "header2": "Destination Account",
+    "detailAmount2": "xxxx xxxx xxxx 2312",
+    "button1": "Update Automatic Saving",
+    "button2": "Clear"
   }
 }

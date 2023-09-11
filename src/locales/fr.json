@@ -246,17 +246,15 @@
       "amountReceived": "Montant que vous recevrez",
       "accountBalance": "Solde du compte"
     },
-    "buttons": {
-      "completeTransfer": {
-        "title": "Transfert Complet",
-        "backgroundColor": "#063B87",
-        "color": "white"
-      },
-      "cancel": {
-        "title": "Annuler",
-        "backgroundColor": "transparent",
-        "color": "#063B87"
-      }
-    }
+    "button1": "Transfert Complet",
+    "button2": "Annuler"
+  },
+  "automaticSaving": {
+    "headerTitle": "ÉPARGNE AUTOMATIQUE",
+    "infoText": "Épargne automatique",
+    "header1": "Montant de l'épargne automatique",
+    "header2": "Compte de destination",
+    "button1": "Mettre à jour l'épargne automatique",
+    "button2": "Effacer"
   }
 }
