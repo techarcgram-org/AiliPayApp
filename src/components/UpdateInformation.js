@@ -60,7 +60,8 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed');
-          setModalVisible(!modalVisible);ModalVisible
+          setModalVisible(!modalVisible);
+          ModalVisible;
         }}>
         <View style={styles.modalBox}>
           <View style={styles.popup}>
@@ -104,8 +105,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   initialValues={{ language: selectedValue }}
                   onSubmit={(values) => {
                     //handle submission code goes here
-
-                    console.log(`updated language is: ${values}`);
                   }}>
                   {({ handleSubmit, isValid }) => (
                     <View style={styles.languageOptions}>
@@ -157,8 +156,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   }}
                   onSubmit={(values) => {
                     // handle submission code goes here
-
-                    console.log(`card details are ${values}`);
                   }}>
                   {({ handleSubmit, isValid }) => (
                     <>
@@ -208,8 +205,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   initialValues={{ oldPassword: '', password: '', confirmPassword: '' }}
                   onSubmit={(values) => {
                     //handle submission code goes here
-
-                    console.log(`updated password is: ${values}`);
                   }}>
                   {({ handleSubmit, isValid }) => (
                     <>
@@ -305,8 +300,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                 initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
                 onSubmit={(values) => {
                   //handle submission code goes here
-
-                  console.log(`bank details are  ${values}`);
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -371,9 +364,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                 initialValues={{ name: '' }}
                 onSubmit={(values) => {
                   // handle submission code goes here
-
-
-                  console.log(`submitted values from update name: ${values}`);
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -402,9 +392,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                 validationSchema={emailValidationSchema}
                 initialValues={{ email: '' }}
                 onSubmit={(values) => {
-
-
-                  console.log(`update email value is ${values}`)
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>

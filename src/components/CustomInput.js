@@ -1,13 +1,18 @@
 import { useState } from 'react';
-import { StyleSheet, TextInput, View, TouchableOpacity, Keyboard } from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import {
+  StyleSheet,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Keyboard,
+  TouchableWithoutFeedback,
+  KeyboardAvoidingView,
+  Platform
+} from 'react-native';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 
 const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-    {' '}
-    {children}
-  </TouchableWithoutFeedback>
+  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>{children}</TouchableWithoutFeedback>
 );
 
 export default function CustomInput(props) {
@@ -19,26 +24,29 @@ export default function CustomInput(props) {
   } = props;
   const hasError = errors[name] && touched[name];
   return (
-    <DismissKeyboard>
-      <View style={styles.container(hasError)}>
-        <TextInput
-          {...resProps}
-          value={value}
-          onChangeText={(text) => onChange(name)(text)}
-          style={styles.input}
-          onBlur={() => {
-            setFieldTouched(name);
-            onBlur(name);
-          }}
-          secureTextEntry={showPassword}
-        />
-        {resProps.secureTextEntry && (
-          <TouchableOpacity styles={styles.icon} onPress={() => setShowPassword(!showPassword)}>
-            <EntypoIcons name={showPassword ? 'eye-with-line' : 'eye'} size={20} />
-          </TouchableOpacity>
-        )}
-      </View>
-    </DismissKeyboard>
+    <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <DismissKeyboard>
+        <View style={styles.container(hasError)}>
+          <TextInput
+            {...resProps}
+            value={value}
+            onChangeText={(text) => onChange(name)(text)}
+            style={styles.input}
+            onBlur={() => {
+              setFieldTouched(name);
+              onBlur(name);
+            }}
+            secureTextEntry={showPassword}
+            placeholderTextColor="grey"
+          />
+          {resProps.secureTextEntry ? (
+            <TouchableOpacity styles={styles.icon} onPress={() => setShowPassword(!showPassword)}>
+              <EntypoIcons name={showPassword ? 'eye-with-line' : 'eye'} size={20} />
+            </TouchableOpacity>
+          ) : null}
+        </View>
+      </DismissKeyboard>
+    </KeyboardAvoidingView>
   );
 }
 

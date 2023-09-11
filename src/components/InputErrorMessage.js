@@ -1,7 +1,6 @@
 import { StyleSheet, Text } from 'react-native';
 
 export default function InputErrorMessage(props) {
-  console.log(props);
   return <Text style={styles.header}>{props.children}</Text>;
 }
 
@@ -19,7 +18,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 12,
     marginTop: -15,
-    marginLeft: 5,
+    marginLeft: 5
   },
   body: {
     fontSize: 16,

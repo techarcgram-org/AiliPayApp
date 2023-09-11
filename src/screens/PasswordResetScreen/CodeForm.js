@@ -14,7 +14,6 @@ export default function CodeForm({ infoHeader, switchStage, stages, email }) {
   const onSubmitEvent = async (values) => {
     setLoading(true);
     const response = await verifyPasswordResetToken(values.token, email);
-    console.log(values, email);
     setLoading(false);
     if (response.status == 200) {
       switchStage(stages.RESET);

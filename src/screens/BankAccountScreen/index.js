@@ -1,39 +1,55 @@
-import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
-import CustomButton from '../../components/CustomButton';
-import { Actions } from 'react-native-router-flux';
+import { View, StyleSheet, Text } from 'react-native';
+import React, { useEffect, useCallback } from 'react';
 import PaymentDetailsBox from '../../components/PaymentDetailsBox';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import UpdateInformation from '../../components/UpdateInformation';
 import { useState } from 'react';
-import { addBankAccount } from '../../services';
+import { addNewBankAccount } from '../../services';
 import Toast from 'react-native-toast-message';
 import UpdateModal from './UpdateModal';
+import { getBanks, getUserBanks } from '../../services/userSettingsService';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function BankAccountScreen({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [banks, setBanks] = useState([]);
+  const [userBanks, setUserBanks] = useState([]);
+
   const onAddBankAccount = async (values) => {
     setLoading(true);
-    const response = await addBankAccount({
+    const response = await addNewBankAccount({
       account_number: values.account_number,
-      bank_id: values.bank_id
+      bank_id: parseInt(values.bank_id)
     });
     setLoading(false);
-    if (response.status == 201) {
+    if (response.status == 200) {
       Toast.show({
-        type: 'error',
+        type: 'success',
         text1: 'Congratulation',
         text2: 'Successfully added a bank account'
       });
-      console.log('success');
+      setModalVisible(false);
     } else {
       Toast.show({
         type: 'error',
         text1: 'Error',
         text2: 'Something went wrong please try again later 🥲'
       });
-      console.log('error');
     }
   };
+  const getAllUserBanks = useCallback(async () => {
+    const userBanks = await getUserBanks();
+    setUserBanks(userBanks.data);
+  }, []);
+  const getAllBanks = useCallback(async () => {
+    const banks = await getBanks();
+    setBanks(banks.data);
+  }, []);
+  useEffect(() => {
+    getAllBanks();
+    getAllUserBanks();
+  }, [getAllBanks, getAllUserBanks]);
+
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
@@ -43,31 +59,28 @@ export default function BankAccountScreen({ navigation }) {
       <View style={styles.debitCardContainer}>
         <Text style={styles.infoTitle}>Bank Accounts</Text>
         <View style={styles.debitCardContent}>
-          <View>
-            <PaymentDetailsBox
-              paymentType="ECOBANK"
-              lastDigits="........7372"
-              primaryStatus="Primary Bank Account"
-              validationStatus="Valid"
-              validationImage="check-circle"
-              imageName="bank"
-            />
-            <PaymentDetailsBox
-              paymentType="UBA BANK"
-              lastDigits="........7272"
-              primaryStatus="Secondary Bank Account"
-              validationStatus="Invalid"
-            />
-            <PaymentDetailsBox
-              paymentType="NFC BANK"
-              lastDigits="........2892"
-              primaryStatus="Secondary Bank Account"
-              validationStatus="Valid"
-            />
-          </View>
+          <ScrollView>
+            {userBanks.map((userBank) => (
+              <PaymentDetailsBox
+                paymentType={userBank.banks.name}
+                lastDigits="........7372"
+                primaryStatus="Primary Bank Account"
+                validationStatus={userBank.banks.is_partner ? 'Valid' : 'inValid'}
+                validationImage="check-circle"
+                imageName="bank"
+                key={userBank.id}
+              />
+            ))}
+          </ScrollView>
         </View>
       </View>
-      <UpdateModal handleSubmit={onAddBankAccount} />
+      <UpdateModal
+        handleSubmit={onAddBankAccount}
+        loading={loading}
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        banks={banks}
+      />
     </View>
   );
 }
@@ -130,8 +143,6 @@ const styles = StyleSheet.create({
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
-    textAlign: 'center',
-    marginTop: 40,
     textAlign: 'center',
     marginTop: 40
   }

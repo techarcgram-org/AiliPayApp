@@ -16,7 +16,6 @@ export default function VerificationCodeScreen({ navigation }) {
   const { state } = useContext(store);
 
   const onSubmitEvent = async (values) => {
-    console.log('help');
     setLoading(true);
     const response = await verifyEmailSecret({ secret: values.secret, email: state.auth.email });
     setLoading(false);

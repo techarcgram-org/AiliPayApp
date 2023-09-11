@@ -22,6 +22,8 @@ const StateProvider = ({ children }) => {
         };
       case 'SET_USER':
         return { ...state, user: payload.data, accessToken: payload.accessToken };
+      case 'SET_ACCOUNT_SETTINGS':
+        return { ...state, accountSettings: payload.data };
       default:
         throw new Error();
     }
