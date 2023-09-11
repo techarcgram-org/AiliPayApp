@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 export default function PasswordSetupScreen({ navigation }) {
   const { state } = useContext(store);
   const [loading, setLoading] = useState(false);
-  const {t} = useTranslation
+  const {t} = useTranslation()
 
   const onSubmitEvent = async (values) => {
     setLoading(true);
