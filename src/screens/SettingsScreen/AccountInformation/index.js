@@ -1,9 +1,9 @@
 import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import CustomHr from '../../components/CustomHr';
-import UpdateInformation from '../../components/UpdateInformation';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import CustomHr from '../../../components/CustomHr';
+import UpdateInformation from '../../../components/UpdateInformation';
 import { useTranslation } from 'react-i18next';
 
 export default function AccountInformation({ navigation }) {

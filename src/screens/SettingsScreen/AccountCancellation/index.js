@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import CustomButton from '../../components/CustomButton';
-import CustomHr from '../../components/CustomHr';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import CustomButton from '../../../components/CustomButton';
+import CustomHr from '../../../components/CustomHr';
 import { useTranslation } from 'react-i18next';
 
 export default function AccountCancellation({ navigation }) {
