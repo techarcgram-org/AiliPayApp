@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
 import React, { useState, useCallback, useEffect } from 'react';
 import PaymentDetailsBox from '../../../components/PaymentDetailsBox';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
@@ -37,8 +37,10 @@ export default function MobileMoneyScreen({ navigation }) {
   };
 
   const getAllMomoAccounts = useCallback(async () => {
+    setLoading(true);
     const allMomoAccounts = await getMomoAccounts();
     setMomoAccounts(allMomoAccounts.data.data);
+    setLoading(false);
   }, []);
   useEffect(() => {
     getAllMomoAccounts();
@@ -47,7 +49,6 @@ export default function MobileMoneyScreen({ navigation }) {
     <View style={styles.container}>
       <AccountSettingsHeader headerTitle={t('mobileMoney.title')} navigation={navigation} />
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>{t('mobileMoney.header')}</Text>
         <View style={styles.debitCardContent}>
           <ScrollView>
             {momoAccounts
@@ -61,6 +62,7 @@ export default function MobileMoneyScreen({ navigation }) {
                   />
                 ))
               : null}
+            <ActivityIndicator size="large" color="#00ff00" animating={loading} hidesWhenStopped />
           </ScrollView>
         </View>
       </View>

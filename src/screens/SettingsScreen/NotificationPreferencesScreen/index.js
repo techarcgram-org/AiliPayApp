@@ -1,7 +1,7 @@
 import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import LineSeparator from '../../components/LineSeparator';
-import ToggleButton from '../../components/ToggleButton';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import LineSeparator from '../../../components/LineSeparator';
+import ToggleButton from '../../../components/ToggleButton';
 import { useTranslation } from 'react-i18next';
 
 export default function NotificationPreferencesScreen({ navigation }) {

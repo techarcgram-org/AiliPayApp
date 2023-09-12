@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
 import React, { useEffect, useCallback } from 'react';
 import PaymentDetailsBox from '../../../components/PaymentDetailsBox';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
@@ -38,13 +38,16 @@ export default function BankAccountScreen({ navigation }) {
     }
   };
   const getAllUserBanks = useCallback(async () => {
+    setLoading(true);
     const userBanks = await getUserBanks();
     setUserBanks(userBanks.data);
+    setLoading(false);
   }, []);
   const getAllBanks = useCallback(async () => {
     const banks = await getBanks();
     setBanks(banks.data);
   }, []);
+
   useEffect(() => {
     getAllBanks();
     getAllUserBanks();
@@ -57,7 +60,6 @@ export default function BankAccountScreen({ navigation }) {
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Bank Accounts</Text>
         <View style={styles.debitCardContent}>
           <ScrollView>
             {userBanks.map((userBank) => (
@@ -71,6 +73,7 @@ export default function BankAccountScreen({ navigation }) {
                 key={userBank.id}
               />
             ))}
+            <ActivityIndicator size="large" color="#00ff00" animating={loading} hidesWhenStopped />
           </ScrollView>
         </View>
       </View>

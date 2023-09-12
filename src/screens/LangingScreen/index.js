@@ -51,9 +51,7 @@ export default function LandingScreen({ navigation }) {
     <View style={styles.container}>
       <Logo />
       <TouchableOpacity style={{ width: '50%' }} onPress={goToLandingPage2}>
-        <Text style={styles.seconderyText}>
-          {t('landing1.welcome')}
-        </Text>
+        <Text style={styles.seconderyText}>{t('landing1.welcome')}</Text>
         <ActivityIndicator size="large" color="#00ff00" animating={loading} hidesWhenStopped />
       </TouchableOpacity>
     </View>
