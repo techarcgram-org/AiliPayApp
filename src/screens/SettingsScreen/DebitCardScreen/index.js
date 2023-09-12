@@ -4,22 +4,27 @@ import { Actions } from 'react-native-router-flux';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
 import PaymentDetailsBox from '../../../components/PaymentDetailsBox';
 import UpdateInformation from '../../../components/UpdateInformation';
+import { useTranslation } from 'react-i18next';
 
 export default function DebitCardScreen({ navigation }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
-      <AccountSettingsHeader headerTitle="DEBIT CARD" navigation={navigation} />
+      <AccountSettingsHeader
+        headerTitle={t('debitCardScreen.headerTitle')}
+        navigation={navigation}
+      />
 
       {/* ----------------------Payment detatils box container----------------- */}
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Debit Cards</Text>
+        <Text style={styles.infoTitle}>{t('debitCardScreen.infoTitle')}</Text>
         <View style={styles.debitCardContent}>
           <View>
             <PaymentDetailsBox
               paymentType="VISA"
               lastDigits="1234"
-              primaryStatus="Primary Debit Card"
+              primaryStatus={t('debitCardScreen.status1')}
               validationStatus="Valid"
               validationImage="check-circle"
               imageName="cc-visa"
@@ -27,13 +32,13 @@ export default function DebitCardScreen({ navigation }) {
             <PaymentDetailsBox
               paymentType="MASTERCARD"
               lastDigits="4567"
-              primaryStatus="Debit Card"
+              primaryStatus={t('debitCardScreen.status2')}
               validationStatus="Invalid"
             />
             <PaymentDetailsBox
               paymentType="VISA"
               lastDigits="4567"
-              primaryStatus="Debit Card"
+              primaryStatus={t('debitCardScreen.status2')}
               validationStatus="Valid"
             />
           </View>
@@ -111,8 +116,6 @@ const styles = StyleSheet.create({
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
-    textAlign: 'center',
-    marginTop: 40,
     textAlign: 'center',
     marginTop: 40
   }

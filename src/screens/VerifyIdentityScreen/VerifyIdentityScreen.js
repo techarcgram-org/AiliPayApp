@@ -6,11 +6,13 @@ import CustomButton from '../../components/CustomButton';
 import { store } from '../../../store';
 import Toast from 'react-native-toast-message';
 import { sendVerificationEmail } from '../../services';
+import { useTranslation } from 'react-i18next';
 
 export default function VerifyIdentityScreen({ navigation }) {
   const [selectedOption, setSelectedOption] = useState('phone');
   const [loading, setLoading] = useState(false);
   const { state } = useContext(store);
+  const {t} = useTranslation()
 
   const onSubmitEvent = async () => {
     setLoading(true);
@@ -24,8 +26,8 @@ export default function VerifyIdentityScreen({ navigation }) {
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('verifyIdentity.toast.text1'),
+        text2: t('verifyIdentity.toast.text2')
       });
     }
   };
@@ -36,51 +38,61 @@ export default function VerifyIdentityScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Great! we found your account</Text>
+        <Text style={styles.infoHeader}>{t('verifyIdentity.title')}</Text>
         <View>
-          <Text>Verify Your Identify</Text>
+          <Text>{t('verifyIdentity.info.verifyIdentity')}</Text>
           <View style={styles.infoBox}>
-            <Text style={styles.infoBoxTitle}>Your Account</Text>
+            <Text style={styles.infoBoxTitle}>{t('verifyIdentity.info.account.title')}</Text>
             <View style={styles.infoBoxTextOne}>
-              <Text style={{ fontWeight: 700 }}>Name: </Text>
+              <Text style={{ fontWeight: 700 }}>{t('verifyIdentity.info.account.name')}: </Text>
               <Text>{state.auth.name}</Text>
             </View>
             <View style={styles.infoBoxTextTwo}>
-              <Text style={{ fontWeight: 700 }}>Employee Id: </Text>
+              <Text style={{ fontWeight: 700 }}>
+                {t('verifyIdentity.info.account.employeeId')}:{' '}
+              </Text>
               <Text>******{state.auth.employeeId.slice(-3)}</Text>
             </View>
           </View>
-          <Text>We’ll send a verification code to your phone or email on file</Text>
+          <Text>{t('verifyIdentity.info.verificationCode')}</Text>
           <View style={styles.getCode}>
             <View style={styles.options}>
               <CustomRadioButton
                 value="phone"
-                label={`send code to *****${state.auth.phoneNumber.slice(-4)}`}
+                label={`{t('verifyIdentity.info.getCode.option')} *****${state.auth.phoneNumber.slice(
+                  -4
+                )}`}
                 selectedValue={selectedOption}
                 onValueChange={setSelectedOption}
                 style={{ fontWeight: 700 }}
               />
               <CustomRadioButton
                 value="email"
-                label={`send code to ***${state.auth.email.slice(7)}`}
+                label={`{t('verifyIdentity.info.getCode.option')} ***${state.auth.email.slice(7)}`}
                 selectedValue={selectedOption}
                 onValueChange={setSelectedOption}
                 style={{ fontWeight: 700 }}
               />
             </View>
             <CustomButton
-              title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Get Code'}
+              title={
+                loading ? (
+                  <ActivityIndicator size="small" color="#0000ff" />
+                ) : (
+                  t('verifyIdentity.info.getCode.getCodeButton')
+                )
+              }
               backgroundColor="#063B87"
               color="white"
               onPress={onSubmitEvent}
             />
-            <Text style={styles.noAccess}>I don't have access to the listed accounts</Text>
+            <Text style={styles.noAccess}>{t('verifyIdentity.info.getCode.noAccessText')}</Text>
           </View>
         </View>
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
+          <Text style={styles.frontText}>{t('verifyIdentity.helpText.frontText')} </Text>
           <Text>© AirliPay 2023</Text>
         </View>
       </View>

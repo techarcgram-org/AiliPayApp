@@ -11,10 +11,12 @@ import { login } from '../../services';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
 import { store } from '../../../store';
 import InputErrorMessage from '../../components/InputErrorMessage';
+import { useTranslation } from 'react-i18next';
 
 export default function LoginScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(store);
+  const { t } = useTranslation();
 
   const onSubmitEvent = async (values) => {
     setLoading(true);
@@ -31,8 +33,8 @@ export default function LoginScreen({ navigation }) {
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('login.toast.text1'),
+        text2: t('login.toast.text2')
       });
     }
   };
@@ -45,7 +47,7 @@ export default function LoginScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Login</Text>
+        <Text style={styles.infoHeader}>{t('login.title')}</Text>
         <View>
           <Formik
             validationSchema={loginValidationSchema}
@@ -56,7 +58,7 @@ export default function LoginScreen({ navigation }) {
                 <Field
                   component={CustomInput}
                   name="email"
-                  placeholder="Email Address"
+                  placeholder={t('login.placeholder1')}
                   editable={!loading}
                   inputMode="email"
                 />
@@ -64,15 +66,17 @@ export default function LoginScreen({ navigation }) {
                 <Field
                   component={CustomInput}
                   name="password"
-                  placeholder="Password"
+                  placeholder={t('login.placeholder2')}
                   editable={!loading}
                   secureTextEntry={true}
                 />
                 <ErrorMessage component={InputErrorMessage} name="password" />
-                <Field component={CustomCheckbox} name="remember" label="Remember me" />
+                <Field component={CustomCheckbox} name="remember" label={t('login.label3')} />
                 <CustomButton
                   style={{ marginTop: 40 }}
-                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'login'}
+                  title={
+                    loading ? <ActivityIndicator size="small" color="#0000ff" /> : t('login.button')
+                  }
                   backgroundColor="#063B87"
                   color="white"
                   onPress={handleSubmit}
@@ -82,25 +86,25 @@ export default function LoginScreen({ navigation }) {
             )}
           </Formik>
           <View style={{ marginTop: 20, flexDirection: 'row' }}>
-            <Text>Forgot your password?</Text>
+            <Text>{t('login.option1')}</Text>
             <TouchableOpacity onPress={() => navigation.navigate('PasswordResetScreen')}>
-              <Text style={{ color: '#3F5F90', fontWeight: 500 }}> Reset password</Text>
+              <Text style={{ color: '#3F5F90', fontWeight: 500 }}> {t('login.option2')}</Text>
             </TouchableOpacity>
           </View>
           <Text style={{ marginTop: 10 }}>
-            Dont have an account?
+            {t('login.option3')}
             <Text
               style={{ color: '#3F5F90', fontWeight: 500 }}
               onPress={() => navigation.navigate('GettingStartedEmployeeIdScreen')}>
               {' '}
-              Get Started
+              {t('login.option4')}
             </Text>
           </Text>
         </View>
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
+          <Text style={styles.frontText}>{t('login.footer1')} </Text>
           <Text>© AirliPay {year}</Text>
         </View>
       </View>

@@ -9,8 +9,10 @@ import { TouchableOpacity } from 'react-native';
 // import Footer from '../../components/Footer';
 import React from 'react';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import { useTranslation } from 'react-i18next';
 
 export default function SettingsScreen({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <AccountSettingsHeader headerTitle="Settings" navigation={navigation} />
@@ -21,7 +23,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AccountInformation')}>
-          <Text style={{ fontSize: 20 }}>Account Information</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.title')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -31,7 +33,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('BankAccountScreen')}>
-          <Text style={{ fontSize: 20 }}>Bank Account</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info1')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -41,7 +43,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('DebitCardScreen')}>
-          <Text style={{ fontSize: 20 }}>Debit Card</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info2')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -51,7 +53,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('MobileMoneyScreen')}>
-          <Text style={{ fontSize: 20 }}>Mobile Money</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info3')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -61,7 +63,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AutomaticSavings')}>
-          <Text style={{ fontSize: 20 }}>Automatic Savings</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info4')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -71,7 +73,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AccountCancellation')}>
-          <Text style={{ fontSize: 20 }}>Account Cancellation</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info5')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -81,7 +83,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('NotificationPreferencesScreen')}>
-          <Text style={{ fontSize: 20 }}>Notification Settings</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info6')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -101,7 +103,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('LoginAndSecurityScreen')}>
-          <Text style={{ fontSize: 20 }}>Login and Security</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info7')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>

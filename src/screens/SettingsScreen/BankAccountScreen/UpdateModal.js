@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     width: '10%'
   },
   buttonContainer: {
+    minHeight: 100,
     padding: 20,
     width: '100%'
   }

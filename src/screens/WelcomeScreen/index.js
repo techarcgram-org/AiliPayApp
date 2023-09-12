@@ -2,8 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
+import { useTranslation } from 'react-i18next';
 
 export default function WelcomeScreen({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -11,21 +13,19 @@ export default function WelcomeScreen({ navigation }) {
       </View>
       <View style={styles.image}></View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Let's Go</Text>
+        <Text style={styles.infoHeader}>{t('welcomeScreen.header')}</Text>
         <View>
-          <Text style={{ textAlign: 'center', marginBottom: 20 }}>
-            Password Created successfully
-          </Text>
+          <Text style={{ textAlign: 'center', marginBottom: 20 }}>{t('welcomeScreen.title')}</Text>
           <View>
-            <Text style={{ textAlign: 'center' }}>1 - Enable lalance alerts</Text>
-            <Text style={{ textAlign: 'center' }}>2 - Add a debit card</Text>
-            <Text style={{ textAlign: 'center' }}>3 - Add a bank account</Text>
-            <Text style={{ textAlign: 'center' }}>4 - Verify Phone Number</Text>
+            <Text style={{ textAlign: 'center' }}>{t('welcomeScreen.action1')}</Text>
+            <Text style={{ textAlign: 'center' }}>{t('welcomeScreen.action2')}</Text>
+            <Text style={{ textAlign: 'center' }}>{t('welcomeScreen.action3')}</Text>
+            <Text style={{ textAlign: 'center' }}>{t('welcomeScreen.action4')}</Text>
           </View>
 
           <CustomButton
             style={{ marginTop: 40 }}
-            title="Get Started"
+            title={t('welcomeScreen.button')}
             backgroundColor="#063B87"
             color="white"
             onPress={() => navigation.navigate('LoginScreen')}
@@ -34,7 +34,7 @@ export default function WelcomeScreen({ navigation }) {
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
+          <Text style={styles.frontText}>{t('welcomeScreen.footer')} </Text>
           <Text>© AirliPay 2023</Text>
         </View>
       </View>

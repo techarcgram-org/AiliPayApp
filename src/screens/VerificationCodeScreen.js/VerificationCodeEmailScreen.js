@@ -4,27 +4,31 @@ import { Actions } from 'react-native-router-flux';
 import Logo from '../../components/Logo';
 import Icon from 'react-native-vector-icons/Entypo';
 import CustomButton from '../../components/CustomButton';
+import { useTranslation } from 'react-i18next';
 
 export default function VerificationCodeScreen() {
+  const { t } = useTranslation();
   const [selectedOption, setSelectedOption] = useState('phone');
-  const label = <Text>I agree to the Airlipay Terms and Conditions and Privacy Policy</Text>;
+  const label = <Text>{t('common.agreeText')}</Text>;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>Lets verify your contact information!</Text>
+        <Text style={styles.infoHeader}>{t('verificationCodeEmailScreen.infoHeader')}</Text>
         <View>
           <View style={{ flexDirection: 'row', marginLeft: 5, marginTop: 20, marginBottom: 20 }}>
-            <Text style={{ marginRight: 20 }}>*****start@ailipay.com</Text>
+            <Text style={{ marginRight: 20 }}>{t('verificationCodeEmailScreen.emailText')}</Text>
             <View style={styles.edit}>
               <Icon name="edit" />
-              <Text style={{ fontWeight: 700, marginLeft: 5 }}>Edit</Text>
+              <Text style={{ fontWeight: 700, marginLeft: 5 }}>
+                {t('verificationCodeEmailScreen.editButton')}
+              </Text>
             </View>
           </View>
           <CustomButton
-            title="Send verification vode"
+            title={t('verificationCodeEmailScreen.sendVerificationCodeButton')}
             backgroundColor="#063B87"
             color="white"
             onPress={Actions.verificationCodeScreen}
@@ -33,8 +37,8 @@ export default function VerificationCodeScreen() {
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text style={styles.frontText}>{t('verificationCodeEmailScreen.helpText.frontText')} </Text>
+          <Text>{t('verificationCodeEmailScreen.helpText.footerText')}</Text>
         </View>
       </View>
     </View>

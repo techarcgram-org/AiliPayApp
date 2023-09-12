@@ -3,54 +3,68 @@ import CustomHr from '../../components/CustomHr';
 import CustomButton from '../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import { useTranslation } from 'react-i18next';
 
 export default function CompleteTransfer({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
-      <AccountSettingsHeader headerTitle="COMPLETE TRANSFER" navigation={navigation} />
+      <AccountSettingsHeader
+        headerTitle={t('completeTransfer.headerTitle')}
+        navigation={navigation}
+      />
       <TouchableOpacity onPress={() => navigation.navigate('MainActivityScreen')}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
       <ScrollView>
-        <Text style={styles.infoText}>Please confirm your XAF 20 000 savings allocation</Text>
+        <Text style={styles.infoText}>{t('completeTransfer.infoText')}</Text>
         <View style={styles.summaryInfo}>
           <CustomHr width={1} />
           <View style={styles.row}>
-            <Text style={styles.summaryTextHeader}> Amount</Text>
-            <Text style={styles.changeText}> Change</Text>
+            <Text style={styles.summaryTextHeader}>
+              {' '}
+              {t('completeTransfer.summaryInfo.amount')}
+            </Text>
+            <Text style={styles.changeText}> {t('completeTransfer.summaryInfo.change')}</Text>
             <Text style={styles.summaryTextHeader}> xxxx 2524</Text>
           </View>
           <CustomHr width={1} />
           <View style={styles.row}>
-            <Text style={styles.summaryTextHeader}> When </Text>
+            <Text style={styles.summaryTextHeader}> {t('completeTransfer.summaryInfo.when')} </Text>
             <Text style={styles.summaryTextHeader}> March 17</Text>
           </View>
           <CustomHr width={1} />
           <View style={styles.row}>
-            <Text style={styles.summaryTextHeader}> Fee </Text>
+            <Text style={styles.summaryTextHeader}> {t('completeTransfer.summaryInfo.fee')} </Text>
             <Text style={styles.freeText}> Free</Text>
           </View>
           <CustomHr width={1} />
           <View style={styles.row}>
-            <Text style={styles.summaryTextHeader}> Amount you'll receive </Text>
+            <Text style={styles.summaryTextHeader}>
+              {' '}
+              {t('completeTransfer.summaryInfo.amountReceived')}{' '}
+            </Text>
             <Text style={styles.summaryTextHeader}> XAF 20 000</Text>
           </View>
           <CustomHr width={1} />
           <View style={styles.row}>
-            <Text style={styles.summaryTextHeader}> Account Balance </Text>
+            <Text style={styles.summaryTextHeader}>
+              {' '}
+              {t('completeTransfer.summaryInfo.accountBalance')}{' '}
+            </Text>
             <Text style={styles.summaryTextHeader}> XAF 50 000</Text>
           </View>
           <CustomHr width={1} />
         </View>
         <View style={styles.buttonSection}>
           <CustomButton
-            title="Complete Transfer"
+            title={t('completeTransfer.button1')}
             backgroundColor="#063B87"
             color="white"
             onPress={() => navigation.navigate('')}
           />
           <CustomButton
-            title="Cancel"
+            title={t('completeTransfer.button2')}
             backgroundColor="transparent"
             color="#063B87"
             onPress={() => navigation.navigate('')}

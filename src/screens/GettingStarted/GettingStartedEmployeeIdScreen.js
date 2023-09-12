@@ -10,6 +10,7 @@ import { gettingStartedValidationSchema } from '../../validationSchemas/gettingS
 import { store } from '../../../store';
 import { useContext } from 'react';
 import InputErrorMessage from '../../components/InputErrorMessage';
+import { useTranslation } from 'react-i18next';
 
 export default function GettingStartedEmployeeIdScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,7 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
   const goToLoginScreen = () => {
     navigation.navigate('LoginScreen');
   };
+  const {t} = useTranslation()
 
   const onNextClick = async (values) => {
     setLoading(true);
@@ -52,7 +54,7 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.form}>
-        <Text style={styles.formHeader}>Lets get started</Text>
+        <Text style={styles.formHeader}>{t('getStartedId.title')}</Text>
         <View>
           <Formik
             validationSchema={gettingStartedValidationSchema}
@@ -63,26 +65,32 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
                 <Field
                   component={CustomInput}
                   name="employeeId"
-                  placeholder="Employee ID (required)"
+                  placeholder={t('getStartedId.placeholder1')}
                   editable={!loading}
                 />
                 <ErrorMessage component={InputErrorMessage} name="employeeId" />
                 <Field
                   component={CustomInput}
                   name="lastName"
-                  placeholder="Last Name (required)"
+                  placeholder={t('getStartedId.placeholder2')}
                   editable={!loading}
                 />
                 <ErrorMessage component={InputErrorMessage} name="lastName" />
                 <Field
                   component={CustomInput}
                   name="employer"
-                  placeholder="Employer (optional)"
+                  placeholder={t('getStartedId.placeholder3')}
                   editable={!loading}
                 />
                 <ErrorMessage component={InputErrorMessage} name="employer" />
                 <CustomButton
-                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
+                  title={
+                    loading ? (
+                      <ActivityIndicator size="small" color="#0000ff" />
+                    ) : (
+                      t('getStartedId.button')
+                    )
+                  }
                   backgroundColor="#063B87"
                   color="white"
                   onPress={handleSubmit}
@@ -110,11 +118,11 @@ export default function GettingStartedEmployeeIdScreen({ navigation }) {
       </View>
       <View style={styles.pageFooter}>
         <Text style={styles.loginInstead} onPress={goToLoginScreen}>
-          Login Instead
+          {t('getStartedId.option')}
         </Text>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text style={styles.frontText}>{t('getStartedId.footer1')} </Text>
+          <Text>{t('getStartedId.footer2')}</Text>
         </View>
       </View>
     </View>

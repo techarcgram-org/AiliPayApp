@@ -9,10 +9,12 @@ import { gettingStartedValidationSchema } from '../../validationSchemas/gettingS
 import { searchUserByEmployeeEmail } from '../../services';
 import Toast from 'react-native-toast-message';
 import { store } from '../../../store';
+import { UseTranslationOptions, useTranslation } from 'react-i18next';
 
 export default function GettingStartedEmailScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
   const globalState = useContext(store);
+  const {t} = useTranslation()
 
   const goToLoginScreen = () => {
     navigation.navigate('LoginScreen');
@@ -35,8 +37,8 @@ export default function GettingStartedEmailScreen({ navigation }) {
     } else {
       Toast.show({
         type: 'error',
-        text1: 'Error',
-        text2: 'Something went wrong please try again later 🥲'
+        text1: t('getStartedEmail.toast.text1'),
+        text2: t('getStartedEmail.toast.text2')
       });
     }
   };
@@ -47,7 +49,7 @@ export default function GettingStartedEmailScreen({ navigation }) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.form}>
-        <Text style={styles.formHeader}>Lets get started</Text>
+        <Text style={styles.formHeader}>{t('getStartedEmail.title')}</Text>
         <View>
           <Formik
             validationSchema={gettingStartedValidationSchema}
@@ -58,17 +60,23 @@ export default function GettingStartedEmailScreen({ navigation }) {
                 <Field
                   component={CustomInput}
                   name="email"
-                  placeholder="Email (required)"
+                  placeholder={t('getStartedEmail.placeholder1')}
                   editable={!loading}
                 />
                 <Field
                   component={CustomInput}
                   name="employer"
-                  placeholder="Employer (optional)"
+                  placeholder={t('getStartedEmail.placeholder2')}
                   editable={!loading}
                 />
                 <CustomButton
-                  title={loading ? <ActivityIndicator size="small" color="#0000ff" /> : 'Next'}
+                  title={
+                    loading ? (
+                      <ActivityIndicator size="small" color="#0000ff" />
+                    ) : (
+                      t('getStartedEmail.button')
+                    )
+                  }
                   backgroundColor="#063B87"
                   color="white"
                   onPress={handleSubmit}
@@ -83,24 +91,24 @@ export default function GettingStartedEmailScreen({ navigation }) {
         <CustomHr style={styles.hr} text="or" />
         <CustomButton
           backgroundColor="transparent"
-          title="Try your phone"
+          title={t('getStartedEmail.other1')}
           color="grey"
           onPress={goToGettingStartedPhoneScreen}
         />
         <CustomButton
           backgroundColor="transparent"
-          title="Try your employee Id"
+          title={t('getStartedEmail.other2')}
           color="grey"
           onPress={goToGettingStartedEmployeeIdScreen}
         />
       </View>
       <View style={styles.pageFooter}>
         <Text style={styles.loginInstead} onPress={goToLoginScreen}>
-          Login Instead
+          {t('getStartedEmail.option')}
         </Text>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
-          <Text>© AirliPay 2023</Text>
+          <Text style={styles.frontText}>{t('getStartedEmail.footer1')}</Text>
+          <Text>{t('getStartedEmail.footer2')}</Text>
         </View>
       </View>
     </View>

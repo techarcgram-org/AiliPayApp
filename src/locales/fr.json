@@ -1,0 +1,271 @@
+{
+  "landing1": {
+    "title": "",
+    "welcome": "Un système financier qui fonctionne pour tout le monde"
+  },
+  "landing2": {
+    "text1": "Obtenez un accès instantané à vos gains lorsque vous en avez le plus besoin",
+    "text2": "Le paiement à la demande vous permet d'avoir le contrôle financier dont vous avez besoin pour réduire les emprunts et améliorer votre bien-être financier",
+    "button": "Commencer"
+  },
+  "getStartedId": {
+    "title": "Commençons",
+    "button": "Suivant",
+    "option": "Se connecter plutôt",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Identifiant de l'employé (obligatoire)",
+    "placeholder2": "Nom de famille (obligatoire)",
+    "placeholder3": "Employeur (facultatif)"
+  },
+  "login": {
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer plus tard 🥲"
+    },
+    "title": "Connexion",
+    "placeholder1": "Adresse e-mail",
+    "placeholder2": "Mot de passe",
+    "label3": "Se souvenir de moi",
+    "button": "Connexion",
+    "option1": "Mot de passe oublié",
+    "option3": "Vous n'avez pas de compte",
+    "option2": "Réinitialiser le mot de passe",
+    "option4": "Commencer",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023"
+  },
+  "passwordResetScreen": {
+    "stages": {
+      "requestLink": "DEMANDE DE LIEN",
+      "verify": "VÉRIFIER",
+      "reset": "RÉINITIALISER"
+    },
+    "toast": {
+      "success": {
+        "text1": "Succès",
+        "text2": "Code envoyé avec succès"
+      },
+      "error": {
+        "text1": "Erreur",
+        "text2": "Utilisateur avec cet e-mail introuvable"
+      },
+      "somethingWentWrong": {
+        "text1": "Erreur",
+        "text2": "Quelque chose s'est mal passé, veuillez réessayer plus tard 🥲"
+      }
+    },
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "login": "Connexion",
+    "didNotReceiveCode": "N'avez-vous pas reçu le code ?",
+    "resend": "Renvoyer",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "getStarted": "Commencer",
+    "needHelp": "Besoin d'aide ?",
+    "footer": "© AirliPay 2023"
+  },
+  "getStartedPhone": {
+    "title": "Commencer",
+    "button": "Suivant",
+    "option": "Se connecter plutôt",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Numéro de téléphone (obligatoire)",
+    "placeholder2": "Employeur (facultatif)",
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer ultérieurement 🥲"
+    }
+  },
+  "getStartedEmail": {
+    "title": "Commencer",
+    "button": "Suivant",
+    "option": "Se connecter plutôt",
+    "footer1": "Besoin d'aide ?",
+    "footer2": "© AirliPay 2023",
+    "placeholder1": "Adresse e-mail (obligatoire)",
+    "placeholder2": "Employeur (facultatif)",
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer ultérieurement 🥲"
+    },
+    "hr": "ou",
+    "other1": "Essayez avec votre téléphone",
+    "other2": "Essayez avec votre identifiant employé"
+  },
+  "passwordSetup": {
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer ultérieurement 🥲"
+    },
+    "infoHeader": "Bonjour !",
+    "passwordDescription": "Choisissez votre mot de passe pour accéder à vos avantages de paiement Airlipay. Utilisez un mélange de lettres, de chiffres et de symboles différents",
+    "usernameLabel": "Nom d'utilisateur :",
+    "confirmCodeButton": "Confirmer le code",
+    "needHelp": "Besoin d'aide ?",
+    "copyRight": "© AirliPay 2023",
+    "passwordPlaceholder": "Nouveau mot de passe (obligatoire)",
+    "confirmPasswordPlaceholder": "Confirmer le mot de passe (obligatoire)",
+    "termsAndConditions": {
+      "label1": "J'accepte les ",
+      "label2": "Conditions générales d'utilisation",
+      "label3": "et la",
+      "label4": "Politique de confidentialité d'Airlipay"
+    }
+  },
+  "verifyIdentity": {
+    "toast": {
+      "text1": "Erreur",
+      "text2": "Quelque chose s'est mal passé, veuillez réessayer plus tard 🥲"
+    },
+    "title": "Super ! Nous avons trouvé votre compte",
+    "info": {
+      "verifyIdentity": "Vérifiez votre identité",
+      "account": {
+        "title": "Votre compte",
+        "name": "Nom :",
+        "employeeId": "ID Employé :"
+      },
+      "verificationCode": "Nous vous enverrons un code de vérification sur votre téléphone ou votre adresse e-mail enregistrée",
+      "getCode": {
+        "option": "envoyer le code à",
+        "getCodeButton": "Obtenir le code",
+        "noAccessText": "Je n'ai pas accès aux comptes répertoriés"
+      }
+    },
+    "helpText": {
+      "frontText": "Besoin d'aide ?",
+      "footerText": "© AirliPay 2023"
+    }
+  },
+  "verificationCodeScreen": {
+    "infoHeader": "Code de vérification envoyé !",
+    "messageText": "Un message texte contenant votre code de vérification a été envoyé à {{email}}",
+    "confirmCodeButton": "Confirmer le code",
+    "noAccessText": "Je n'ai pas accès aux comptes répertoriés",
+    "resendCodeText": "Vous n'avez pas reçu le code de vérification ?",
+    "sendCodeToText": "Envoyer le code à ",
+    "common": {
+      "loadingErrorText": "Une erreur s'est produite, veuillez réessayer ultérieurement 🥲",
+      "helpText": "Besoin d'aide ?"
+    }
+  },
+  "verificationCodeEmailScreen": {
+    "infoHeader": "Vérifions vos informations de contact !",
+    "emailText": "*****start@ailipay.com",
+    "editButton": "Modifier",
+    "sendVerificationCodeButton": "Envoyer le code de vérification",
+    "helpText": {
+      "frontText": "Besoin d'aide ?",
+      "footerText": "© AirliPay 2023"
+    },
+    "agreeText": "J'accepte les termes et conditions."
+  },
+  "welcomeScreen": {
+    "title": "Allons-y",
+    "header": "Mot de passe créé avec succès",
+    "action1": "1 - Activer les alertes de solde",
+    "action2": "2 - Ajouter une carte de débit",
+    "action3": "3 - Ajouter un compte bancaire",
+    "action4": "4 - Vérifier le numéro de téléphone",
+    "button":"Commencer",
+    "footer":"Besoin d'aide ?"
+  },
+  "needHelp": {
+    "footer": "Besoin d'aide ?",
+    "title": "Merci de votre intérêt pour Airlipay, mais nous ne trouvons pas votre compte",
+    "center1": "- Confirmez que votre employeur propose Airlipay",
+    "center2": "- Vérifiez que toutes les informations correspondent à celles enregistrées auprès de votre employeur.",
+    "center3": "- Nous ne trouvons pas votre compte en utilisant une adresse e-mail, un numéro de téléphone portable ou un identifiant d'employé. Si vous rencontrez des difficultés avec l'une de ces méthodes, essayez de saisir une autre information.",
+    "center4": "- Si vous êtes un nouvel employé, nous pourrions ne pas avoir encore vos informations, veuillez donc nous contacter ou attendre quelques jours et réessayer.",
+    "center5": "- Si vos informations sont correctes, contactez le support au : ***numéro de support***",
+    "button1": "Commencer",
+    "button2": "Demandez à votre employeur comment obtenir AirliPay"
+  },
+  "settingScreen": {
+    "title": "Informations sur le compte",
+    "info1": "Compte bancaire",
+    "info2": "Carte de débit",
+    "info3": "Mobile Money",
+    "info4": "Épargne automatique",
+    "info5": "Annulation du compte",
+    "info6": "Paramètres de notification",
+    "info7": "Connexion et sécurité"
+  },
+  "loginAndSecurity": {
+    "text1": "Activer le code PIN",
+    "text2": "Activer l'empreinte digitale",
+    "title": "CONNEXION ET SÉCURITÉ"
+  },
+  "notifications": {
+    "title": "PREFERENCES DE NOTIFICATION",
+    "text1": "Notifications push",
+    "text2": "Notifications SMS",
+    "text3": "Notifications par e-mail"
+  },
+  "mobileMoney": {
+    "title": "MOBILE MONEY",
+    "header": "Compte Mobile Money",
+    "status": "Mobile Money principal",
+    "button":"Ajouter un Compte Mobile Money"
+  },
+  "debitCardScreen": {
+    "headerTitle": "CARTE DE DEBIT",
+    "infoTitle": "Cartes de débit",
+    "addNewDebitCard": "Ajouter une nouvelle carte de débit",
+    "status1": "Carte de Debit Primaire",
+    "status2": "Carte de Debit"
+  },
+  "accountCancelation": {
+    "title": "ANNULATION DU COMPTE",
+    "text1": "Processus d'annulation",
+    "text2": "Nous sommes désolés de vous voir partir",
+    "text3": "Nom de l'entreprise",
+    "text4": "Période de paie précédente",
+    "text5": "29 nov - 29 déc",
+    "text6": "Transféré plus tôt",
+    "text7": "Jours jusqu'à la prochaine paie",
+    "text8": "12 jours",
+    "text9": "Le lun. 31 déc., AirliPay enverra votre salaire comme d'habitude. Si votre salaire ne dépasse pas XAF 40 000, AirliPay débitera votre compte de la différence.",
+    "button1": "Garder mon compte actif",
+    "button2": "Annuler mon compte"
+  },
+  "resetPassword": {
+    "infoHeader": "Réinitialisation du mot de passe",
+    "placeholder": "Adresse e-mail",
+    "button": "Envoyer le code"
+  },
+  "completeTransfer": {
+    "headerTitle": "TRANSFERT COMPLET",
+    "infoText": "Veuillez confirmer votre allocation d'épargne de 20 000 XAF",
+    "summaryInfo": {
+      "amount": "Montant",
+      "change": "Changement",
+      "when": "Quand",
+      "fee": "Frais",
+      "amountReceived": "Montant que vous recevrez",
+      "accountBalance": "Solde du compte"
+    },
+    "button1": "Transfert Complet",
+    "button2": "Annuler"
+  },
+  "automaticSaving": {
+    "headerTitle": "ÉPARGNE AUTOMATIQUE",
+    "infoText": "Épargne automatique",
+    "header1": "Montant de l'épargne automatique",
+    "header2": "Compte de destination",
+    "button1": "Mettre à jour l'épargne automatique",
+    "button2": "Effacer"
+  },
+  "accountInformation": {
+    "headerTitle": "INFORMATIONS DU COMPTE",
+    "editValue": "Modifier",
+    "text1": "Alerte de sécurité !",
+    "text2": "Veuillez mettre à jour ou vérifier vos informations de contact ci-dessous.",
+    "email": "Adresse e-mail",
+    "verify": "Vérifier",
+    "phone": "Numéro de téléphone",
+    "password": "Mot de passe",
+    "language": "Langue"
+  }
+}

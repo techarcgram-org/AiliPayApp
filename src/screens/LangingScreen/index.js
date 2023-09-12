@@ -6,10 +6,13 @@ import { getUserAccountSettings, validateAccessToken } from '../../services';
 import { store } from '../../../store';
 import Logo from '../../components/Logo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18next, { languageResources } from '../../services/i18next';
+import { useTranslation } from 'react-i18next';
 
 export default function LandingScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(store);
+  const { t } = useTranslation();
 
   const onSubmitEvent = useCallback(async () => {
     setLoading(true);
@@ -48,7 +51,7 @@ export default function LandingScreen({ navigation }) {
     <View style={styles.container}>
       <Logo />
       <TouchableOpacity style={{ width: '50%' }} onPress={goToLandingPage2}>
-        <Text style={styles.seconderyText}>Financial system that works for everyone</Text>
+        <Text style={styles.seconderyText}>{t('landing1.welcome')}</Text>
         <ActivityIndicator size="large" color="#00ff00" animating={loading} hidesWhenStopped />
       </TouchableOpacity>
     </View>

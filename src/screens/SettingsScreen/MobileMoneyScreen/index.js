@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, ActivityIndicator } from 'react-native';
 import React, { useState, useCallback, useEffect } from 'react';
 import PaymentDetailsBox from '../../../components/PaymentDetailsBox';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
@@ -6,8 +6,10 @@ import MobileMoneyModal from './MobileMoneyModal';
 import Toast from 'react-native-toast-message';
 import { addMomoAccount, getMomoAccounts } from '../../../services';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useTranslation } from 'react-i18next';
 
 export default function MobileMoneyScreen({ navigation }) {
+  const { t } = useTranslation();
   const [momoAccounts, setMomoAccounts] = useState([]);
   const [modalVisible, setModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -35,17 +37,18 @@ export default function MobileMoneyScreen({ navigation }) {
   };
 
   const getAllMomoAccounts = useCallback(async () => {
+    setLoading(true);
     const allMomoAccounts = await getMomoAccounts();
     setMomoAccounts(allMomoAccounts.data.data);
+    setLoading(false);
   }, []);
   useEffect(() => {
     getAllMomoAccounts();
   }, [getAllMomoAccounts]);
   return (
     <View style={styles.container}>
-      <AccountSettingsHeader headerTitle="MOBILE MONEY" navigation={navigation} />
+      <AccountSettingsHeader headerTitle={t('mobileMoney.title')} navigation={navigation} />
       <View style={styles.debitCardContainer}>
-        <Text style={styles.infoTitle}>Mobile Money Accounts</Text>
         <View style={styles.debitCardContent}>
           <ScrollView>
             {momoAccounts
@@ -53,12 +56,13 @@ export default function MobileMoneyScreen({ navigation }) {
                   <PaymentDetailsBox
                     paymentType={momoAccount.operator}
                     lastDigits="XXX8"
-                    primaryStatus="Primary Mobile Money"
+                    primaryStatus={t('mobileMoney.status')}
                     validationStatus="Valid"
                     key={momoAccount.id}
                   />
                 ))
               : null}
+            <ActivityIndicator size="large" color="#00ff00" animating={loading} hidesWhenStopped />
           </ScrollView>
         </View>
       </View>

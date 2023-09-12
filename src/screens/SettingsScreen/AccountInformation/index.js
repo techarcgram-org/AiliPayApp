@@ -1,62 +1,20 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
-import CustomHr from '../../../components/CustomHr';
-import { Ionicons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import CustomHr from '../../../components/CustomHr';
 import UpdateInformation from '../../../components/UpdateInformation';
-import axios from 'axios';
-
-export const ChangePassword = async (data) => {
-  try {
-    const response = await axios.post('api endpoint', data);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-export const ChangeName = async (data) => {
-  try {
-    const response = await axios.post('api endpoint', data);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-export const ChangeEmail = async (data) => {
-  try {
-    const response = await axios.post('api endpoint', data);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-export const ChangeNumber = async (data) => {
-  try {
-    const response = await axios.post('api endpoint', data);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-export const ChangeLanguage = async (data) => {
-  try {
-    const response = await axios.post('api endpoint', data);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
+import { useTranslation } from 'react-i18next';
 
 export default function AccountInformation({ navigation }) {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
-      <AccountSettingsHeader headerTitle="ACCOUNT INFORMATION" navigation={navigation} />
+      <AccountSettingsHeader
+        headerTitle={t('accountInformation.headerTitle')}
+        navigation={navigation}
+      />
 
       <View style={styles.avatar}>
         <Ionicons name="person" size={100} color="black" alignSelf="center" />
@@ -68,8 +26,8 @@ export default function AccountInformation({ navigation }) {
       <View style={styles.securityAlert}>
         <MaterialCommunityIcons name="shield-alert-outline" size={30} color="white" />
         <View style={styles.alertText}>
-          <Text style={styles.headingText}>Security Alert!</Text>
-          <Text>Please update or verify your contact information below.</Text>
+          <Text style={styles.headingText}>{t('accountInformation.text1')}</Text>
+          <Text>{t('accountInformation.text2')}</Text>
         </View>
       </View>
       <View style={styles.userInformation}>
@@ -78,7 +36,7 @@ export default function AccountInformation({ navigation }) {
           <MaterialCommunityIcons name="email" size={20} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View style={styles.textSection}>
-              <Text>Email Address</Text>
+              <Text>{t('accountInformation.email')}</Text>
               <Text>fname.lname@dname.com</Text>
             </View>
             <Text>Verify</Text>
@@ -90,7 +48,7 @@ export default function AccountInformation({ navigation }) {
           <MaterialCommunityIcons name="cellphone" size={20} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View style={styles.textSection}>
-              <Text>Phone Number</Text>
+              <Text>{t('accountInformation.phone')}</Text>
               <Text>+237XXXXXXXXX</Text>
             </View>
             <UpdateInformation editValue="Phone" />
@@ -101,7 +59,7 @@ export default function AccountInformation({ navigation }) {
           <MaterialCommunityIcons name="form-textbox-password" size={20} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View>
-              <Text>Password</Text>
+              <Text>{t('accountInformation.password')}</Text>
               <Text>*********</Text>
             </View>
             <UpdateInformation editValue="Password" />
@@ -112,7 +70,7 @@ export default function AccountInformation({ navigation }) {
           <MaterialIcons name="language" size={20} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View>
-              <Text>Language</Text>
+              <Text>{t('accountInformation.language')}</Text>
               <Text>English Language</Text>
             </View>
             <UpdateInformation editValue="Language" />

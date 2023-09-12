@@ -1,54 +1,34 @@
-import { StyleSheet, View, Text } from 'react-native';
-import React, { useContext } from 'react';
+import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
 import LineSeparator from '../../../components/LineSeparator';
 import ToggleButton from '../../../components/ToggleButton';
-import { Field, Formik } from 'formik';
-import { store } from '../../../../store';
+import { useTranslation } from 'react-i18next';
 
 export default function NotificationPreferencesScreen({ navigation }) {
-  const { state, dispatch } = useContext(store);
-  const { accountSettings } = state;
-  const onSwitch = (values, actions) => {
-    console.log(values, actions);
-  };
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <AccountSettingsHeader headerTitle="NOTIFICATION PREFERENCES" navigation={navigation} />
+        <AccountSettingsHeader headerTitle={t('notifications.title')} navigation={navigation} />
       </View>
-      <Formik
-        initialValues={{
-          notification_enabled: accountSettings.notification_enabled
-          // sms_notification: null,
-          // email_notification: null
-        }}
-        onSubmit={(values, actions) => onSwitch(values, actions)}>
-        {({ handleSubmit }) => (
-          <View style={styles.preferencesContainer}>
-            <LineSeparator />
-            <View style={styles.notificationSettings}>
-              <Text style={styles.textStyle}>Push Notifications</Text>
-              <Field
-                name="notification_enabled"
-                component={ToggleButton}
-                handleSubmit={handleSubmit}
-              />
-            </View>
-            <LineSeparator />
-            {/* <View style={styles.notificationSettings}>
-              <Text style={styles.textStyle}>SMS Notifications</Text>
-              <Field name="sms_notification" component={ToggleButton} />
-            </View>
-            <LineSeparator />
-            <View style={styles.notificationSettings}>
-              <Text style={styles.textStyle}>Email Notifications</Text>
-              <Field name="email_notification" component={ToggleButton} />
-            </View>
-            <LineSeparator /> */}
-          </View>
-        )}
-      </Formik>
+      <View style={styles.preferencesContainer}>
+        <LineSeparator />
+        <View style={styles.notificationSettings}>
+          <Text style={styles.textStyle}>{t('notifications.text1')}</Text>
+          <ToggleButton />
+        </View>
+        <LineSeparator />
+        <View style={styles.notificationSettings}>
+          <Text style={styles.textStyle}>{t('notifications.text2')}</Text>
+          <ToggleButton />
+        </View>
+        <LineSeparator />
+        <View style={styles.notificationSettings}>
+          <Text style={styles.textStyle}>{t('notifications.text3')}</Text>
+          <ToggleButton />
+        </View>
+        <LineSeparator />
+      </View>
     </View>
   );
 }
