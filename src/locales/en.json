@@ -196,16 +196,14 @@
   "mobileMoney": {
     "title": "MOBILE MONEY",
     "header": "Mobile Money Account",
-    "status": "Primary Mobile Money"
+    "status": "Primary Mobile Money",
+    "button":"Add Mobile Money Account"
   },
-  "debitCard": {
-    "title": "Add Debit Card",
-    "placeholder1": "Card Holder Name",
-    "placeholder2": "Card Number",
-    "placeholder3": "CVV/CVC",
-    "placeholder4": "Expiration Date",
-    "text1": "Some text goes here",
-    "button": "Add"
+  "debitCardScreen": {
+    "headerTitle": "DEBIT CARD",
+    "infoTitle": "Debit Cards",
+    "addNewDebitCard": "Add a new Debit Card",
+    "status":"Primary Debit Card"
   },
   "accountCancelation": {
     "title": "ACCOUNT CANCELLATION",

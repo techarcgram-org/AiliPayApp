@@ -205,16 +205,15 @@
   "mobileMoney": {
     "title": "MOBILE MONEY",
     "header": "Compte Mobile Money",
-    "status": "Mobile Money principal"
+    "status": "Mobile Money principal",
+    "button":"Ajouter un Compte Mobile Money"
   },
-  "debitCard": {
-    "title": "Ajouter une carte de débit",
-    "placeholder1": "Nom du titulaire de la carte",
-    "placeholder2": "Numéro de carte",
-    "placeholder3": "CVV/CVC",
-    "placeholder4": "Date d'expiration",
-    "text1": "Un peu de texte va ici",
-    "button": "Ajouter"
+  "debitCardScreen": {
+    "headerTitle": "CARTE DE DEBIT",
+    "infoTitle": "Cartes de débit",
+    "addNewDebitCard": "Ajouter une nouvelle carte de débit",
+    "status1": "Carte de Debit Primaire",
+    "status2": "Carte de Debit"
   },
   "accountCancelation": {
     "title": "ANNULATION DU COMPTE",
