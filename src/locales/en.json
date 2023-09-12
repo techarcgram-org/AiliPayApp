@@ -280,5 +280,15 @@
     "phone": "Phone Number",
     "password": "Password",
     "language": "Language"
+  },
+  "welcomeScreen":{
+    "title":"Let's Go",
+    "header":"Password Created successfully",
+    "action1":"1 - Enable balance alerts",
+    "action2":"2 - Add a debit card",
+    "action3":"3 - Add a bank account",
+    "action4":"4 - Verify Phone Number",
+    "button":"Get started",
+    "footer":"Need Help?"
   }
 }

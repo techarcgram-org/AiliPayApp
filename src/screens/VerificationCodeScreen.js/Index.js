@@ -44,7 +44,7 @@ export default function VerificationCodeScreen({ navigation }) {
         <Text style={styles.infoHeader}>{t('verificationCodeScreen.infoHeader')}</Text>
         <View>
           <Text>
-            {t('verificationCodeScreen.messageText', { email: state.auth.email.slice(7) })}
+            {/* {t('verificationCodeScreen.messageText', { email: state.auth.email.slice(7) })} */}
           </Text>
           <View style={styles.confirmCode}>
             <Formik
@@ -89,7 +89,7 @@ export default function VerificationCodeScreen({ navigation }) {
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>{t('verificationCodeScreen.verificationCodeScreen.helpText')} </Text>
+          <Text style={styles.frontText}>{t('verificationCodeScreen.common.helpText')} </Text>
           <Text>© AirliPay 2023</Text>
         </View>
       </View>

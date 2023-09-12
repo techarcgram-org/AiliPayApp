@@ -125,7 +125,7 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="VerificationCodeScreen"
+        initialRouteName="LandingScren"
         screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
           name="LandingScreen"

@@ -25,7 +25,7 @@ export default function WelcomeScreen({ navigation }) {
 
           <CustomButton
             style={{ marginTop: 40 }}
-            title="Get Started"
+            title={t('welcomeScreen.button')}
             backgroundColor="#063B87"
             color="white"
             onPress={() => navigation.navigate('LoginScreen')}
