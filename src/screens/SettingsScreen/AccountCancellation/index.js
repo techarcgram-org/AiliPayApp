@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
-import CustomButton from "../../components/CustomButton";
-import CustomHr from "../../components/CustomHr";
-import { useTranslation } from "react-i18next";
+import { StyleSheet, Text, View } from 'react-native';
+import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import CustomButton from '../../components/CustomButton';
+import CustomHr from '../../components/CustomHr';
+import { useTranslation } from 'react-i18next';
 
-export default function AccountCancellation({navigation}) {
-  const {t} = useTranslation()
+export default function AccountCancellation({ navigation }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <AccountSettingsHeader headerTitle={t('accountCancelation.title')} navigation={navigation} />
@@ -59,58 +59,58 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     marginBottom: 0,
     marginTop: 40,
-    alignSelf: "center",
+    alignSelf: 'center'
   },
   apologyText: {
     marginBottom: 20,
-    alignSelf: "center",
-    fontSize: 12,
+    alignSelf: 'center',
+    fontSize: 12
   },
   detailSection: {
-    marginTop: 20,
+    marginTop: 20
   },
   detailTextHeader: {
     fontWeight: 600,
-    fontSize: 17,
+    fontSize: 17
   },
   container: {
     flex: 1,
-    backgroundColor: "white",
-    color: "white",
+    backgroundColor: 'white',
+    color: 'white',
     paddingTop: 40,
     paddingBottom: 40,
-    flexDirection: "column",
+    flexDirection: 'column'
   },
   innerContainer: {
-    paddingLeft: 20, 
-    paddingRight: 20,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginVertical: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginVertical: 24
   },
   buttonSection: {
-    marginTop: 30,
+    marginTop: 30
   },
   explanationText: {
     marginTop: 30,
     fontSize: 14,
-    alignSelf: "center",
+    alignSelf: 'center'
   },
   companyName: {
     fontSize: 20,
     marginBottom: 20,
-    alignSelf: "center",
+    alignSelf: 'center'
   },
   payperiodHeading: {
     fontSize: 20,
     fontWeight: 700,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginBottom: 20
   },
   payperiodDate: {
-    alignSelf: "center",
-  },
+    alignSelf: 'center'
+  }
 });

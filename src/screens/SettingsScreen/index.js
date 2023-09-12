@@ -89,6 +89,16 @@ export default function SettingsScreen({ navigation }) {
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
+        <MaterialIcons name="notifications-none" size={20} color="#3F5F90" />
+        <TouchableOpacity
+          style={styles.innerSettingsContainer}
+          onPress={() => navigation.navigate('DefaultLanguageScreen')}>
+          <Text style={{ fontSize: 20 }}>Default Language</Text>
+          <FontAwesome name="angle-right" size={20} />
+        </TouchableOpacity>
+      </View>
+      <LineSeparator />
+      <View style={styles.settingsContainer}>
         <MaterialCommunityIcons name="login" size={20} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}

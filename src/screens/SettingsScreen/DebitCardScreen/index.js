@@ -1,5 +1,5 @@
 import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '../../../components/CustomButton';
 import { Actions } from 'react-native-router-flux';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 import PaymentDetailsBox from '../../components/PaymentDetailsBox';
@@ -7,7 +7,7 @@ import UpdateInformation from '../../components/UpdateInformation';
 import { useTranslation } from 'react-i18next';
 
 export default function DebitCardScreen({ navigation }) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       {/* ----------------------header navigation container -------------*/}
@@ -116,8 +116,6 @@ const styles = StyleSheet.create({
   infoTitle: {
     fontWeight: 600,
     fontSize: 23,
-    textAlign: 'center',
-    marginTop: 40,
     textAlign: 'center',
     marginTop: 40
   }

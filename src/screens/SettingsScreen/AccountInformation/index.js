@@ -7,7 +7,7 @@ import UpdateInformation from '../../components/UpdateInformation';
 import { useTranslation } from 'react-i18next';
 
 export default function AccountInformation({ navigation }) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>

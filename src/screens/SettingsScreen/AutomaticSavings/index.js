@@ -1,12 +1,11 @@
-import { StyleSheet, Text, View } from "react-native";
-import AccountSettingsHeader from "../../components/AccountsSettingsHeader";
-import CustomButton from "../../components/CustomButton";
-import CustomHr from "../../components/CustomHr";
-import { useTranslation } from "react-i18next";
+import { StyleSheet, Text, View } from 'react-native';
+import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import CustomButton from '../../components/CustomButton';
+import CustomHr from '../../components/CustomHr';
+import { useTranslation } from 'react-i18next';
 
-
-export default function AutomaticSavings({navigation}) {
-  const {t} = useTranslation()
+export default function AutomaticSavings({ navigation }) {
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <AccountSettingsHeader
@@ -49,38 +48,38 @@ export default function AutomaticSavings({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    color: "white",
+    backgroundColor: 'white',
+    color: 'white',
     paddingTop: 40,
     paddingBottom: 40,
-    flexDirection: "column",
+    flexDirection: 'column'
   },
   innerContainer: {
-    paddingLeft: 20, 
-    paddingRight: 20,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   infoText: {
     fontSize: 25,
     fontWeight: 700,
     marginBottom: 0,
     marginTop: 40,
-    alignSelf: "center",
+    alignSelf: 'center'
   },
   detail: {
-    marginTop: 20,
+    marginTop: 20
   },
   buttonSection: {
-    marginTop: 30,
+    marginTop: 30
   },
   detailTextHeader: {
     fontWeight: 600,
     fontSize: 17,
-    marginTop: 30,
+    marginTop: 30
   },
   detailAmount: {
     fontWeight: 600,
     fontSize: 17,
     marginTop: 10,
-    marginBottom: 3,
-  },
+    marginBottom: 3
+  }
 });

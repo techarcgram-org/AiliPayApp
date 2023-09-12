@@ -59,8 +59,9 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed');
+          // Alert.alert('Modal has been closed');
           setModalVisible(!modalVisible);
+          ModalVisible;
         }}>
         <View style={styles.modalBox}>
           <View style={styles.popup}>
@@ -104,8 +105,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   initialValues={{ language: selectedValue }}
                   onSubmit={(values) => {
                     //handle submission code goes here
-
-                    console.log(`updated language is: ${values}`);
                   }}>
                   {({ handleSubmit, isValid }) => (
                     <View style={styles.languageOptions}>
@@ -157,8 +156,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   }}
                   onSubmit={(values) => {
                     // handle submission code goes here
-
-                    console.log(`card details are ${values}`);
                   }}>
                   {({ handleSubmit, isValid }) => (
                     <>
@@ -208,8 +205,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   initialValues={{ oldPassword: '', password: '', confirmPassword: '' }}
                   onSubmit={(values) => {
                     //handle submission code goes here
-
-                    console.log(`updated password is: ${values}`);
                   }}>
                   {({ handleSubmit, isValid }) => (
                     <>
@@ -305,8 +300,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                 initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
                 onSubmit={(values) => {
                   //handle submission code goes here
-
-                  console.log(`bank details are  ${values}`);
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -314,44 +307,38 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       component={CustomInput}
                       name="accountName"
                       placeholder="Account Holder Name"
-                      // inputMode="accountName"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="accountName" /> 
+                    <ErrorMessage component={InputErrorMessage} name="accountName" />
                     <Field
                       component={CustomInput}
                       name="accountNumber"
                       placeholder="Account Number"
-                      // inputMode="accountNumber"
                     />
                     <ErrorMessage component={InputErrorMessage} name="accountNumber" />
                     <Field
                       component={CustomInput}
                       name="routingNumber"
                       placeholder="Routing Number"
-                      // inputMode="routingNumber"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="routingNumber" /> 
+                    <ErrorMessage component={InputErrorMessage} name="routingNumber" />
                     <Field
                       component={CustomInput}
                       name="bankName"
                       placeholder="Bank Name"
-                      // inputMode="bankName"
                     />
                     <ErrorMessage component={InputErrorMessage} name="bankName" />
                     <Field
                       component={CustomInput}
                       name="bankAddress"
                       placeholder="Bank Address"
-                      // inputMode="bankAddress"
                     />
                     <ErrorMessage component={InputErrorMessage} name="bankAddress" />
                     <Field
                       component={CustomInput}
                       name="swiftCode"
                       placeholder="SWIFT/BIC Code"
-                      // inputMode="swiftCode"
                     />
-                    <ErrorMessage component={InputErrorMessage} name="swiftCode" /> 
+                    <ErrorMessage component={InputErrorMessage} name="swiftCode" />
                     <CustomButton
                       style={{ marginTop: 10 }}
                       title={'Add Bank Account'}
@@ -371,9 +358,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                 initialValues={{ name: '' }}
                 onSubmit={(values) => {
                   // handle submission code goes here
-
-
-                  console.log(`submitted values from update name: ${values}`);
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -402,9 +386,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                 validationSchema={emailValidationSchema}
                 initialValues={{ email: '' }}
                 onSubmit={(values) => {
-
-
-                  console.log(`update email value is ${values}`)
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -433,10 +414,13 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
               <Formik
                 validationSchema={phoneValidationSchema}
                 initialValues={{ phone: '' }}
-                onSubmit={(values) => {
-                  //code to handle phone number update goes here
-
-                  console.log(`the new phone number is: ${values}`);
+                onSubmit={async (values) => {
+                  try {
+                    const response = await ChangeNumber (values);
+                    console.log('api respnse', response);
+                  } catch (error) {
+                    console.error('api error', error.message);
+                  }
                 }}>
                 {({ handleSubmit, isValid }) => (
                   <>
@@ -462,7 +446,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
               </Formik>
             ) : editValue == 'Momo' ? (
               <Formik
-                validationSchema={ phoneValidationSchema }
+                validationSchema={phoneValidationSchema}
                 initialValues={{ phone: '' }}
                 onSubmit={(values) => onBankSubmitEvent(values)}>
                 {({ handleSubmit, isValid }) => (
@@ -541,9 +525,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // marginTop: 22,
     // backgroundColor: 'blue',
-    width: '100%',
-
-    alignItems: 'center'
+    width: '100%'
   },
   modalBox: {
     flex: 1,
