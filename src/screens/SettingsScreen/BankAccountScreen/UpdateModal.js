@@ -1,33 +1,41 @@
 import { StyleSheet, View } from 'react-native';
 import { ErrorMessage, Field, Formik } from 'formik';
-import { bankValidationSchema } from '../../validationSchemas/verificationSchema';
-import CustomButton from '../../components/CustomButton';
-import InputErrorMessage from '../../components/InputErrorMessage';
-import CustomInput from '../../components/CustomInput';
-import { CustomModal } from '../../components/CustomModal';
-import { phoneValidationSchema } from '../../validationSchemas/modalInputSchemas';
+import { bankValidationSchema } from '../../../validationSchemas/verificationSchema';
+import CustomButton from '../../../components/CustomButton';
+import CustomSelectInput from '../../../components/CustomSelectInput';
+import InputErrorMessage from '../../../components/InputErrorMessage';
+import CustomInput from '../../../components/CustomInput';
+import { CustomModal } from '../../../components/CustomModal';
 
-const MobileMoneyModal = ({ handleSubmit, loading, modalVisible, setModalVisible }) => {
+const UpdateModal = ({ handleSubmit, loading, modalVisible, setModalVisible, banks }) => {
   return (
     <View style={styles.container}>
       <CustomModal setModalVisible={setModalVisible} modalVisible={modalVisible}>
         <Formik
-          validationSchema={phoneValidationSchema}
-          initialValues={{ phone_number: '' }}
+          validationSchema={bankValidationSchema}
+          initialValues={{ bank_id: '', account_number: '' }}
           onSubmit={(values) => handleSubmit(values)}>
           {({ handleSubmit, isValid }) => (
             <>
               <Field
                 component={CustomInput}
-                name="phone_number"
-                placeholder="Enter Phone Number"
+                name="account_number"
+                placeholder="Bank Account Number"
                 editable={!loading}
-                inputMode="number"
+                inputMode="text"
               />
-              <ErrorMessage component={InputErrorMessage} name="phone_number" />
+              <ErrorMessage component={InputErrorMessage} name="account_number" />
+              <Field
+                component={CustomSelectInput}
+                name="bank_id"
+                placeholder="Select Your Bank"
+                editable={!loading}
+                options={banks}
+              />
+              <ErrorMessage component={InputErrorMessage} name="bank_id" />
               <CustomButton
                 style={{ marginTop: 10 }}
-                title={'Add MoMo Account'}
+                title={'Add Bank'}
                 backgroundColor="#063B87"
                 color="white"
                 onPress={handleSubmit}
@@ -41,7 +49,7 @@ const MobileMoneyModal = ({ handleSubmit, loading, modalVisible, setModalVisible
       </CustomModal>
       <View style={styles.buttonContainer}>
         <CustomButton
-          title="Add new MoMo account"
+          title="Add new bank account"
           color="white"
           backgroundColor="#063B87"
           onPress={() => setModalVisible(true)}
@@ -51,7 +59,7 @@ const MobileMoneyModal = ({ handleSubmit, loading, modalVisible, setModalVisible
   );
 };
 
-export default MobileMoneyModal;
+export default UpdateModal;
 
 const styles = StyleSheet.create({
   container: {

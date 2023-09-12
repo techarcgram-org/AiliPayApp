@@ -1,12 +1,12 @@
 import { View, StyleSheet, Text } from 'react-native';
 import React, { useEffect, useCallback } from 'react';
-import PaymentDetailsBox from '../../components/PaymentDetailsBox';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import PaymentDetailsBox from '../../../components/PaymentDetailsBox';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
 import { useState } from 'react';
-import { addNewBankAccount } from '../../services';
+import { addNewBankAccount } from '../../../services';
 import Toast from 'react-native-toast-message';
 import UpdateModal from './UpdateModal';
-import { getBanks, getUserBanks } from '../../services/userSettingsService';
+import { getBanks, getUserBanks } from '../../../services/userSettingsService';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function BankAccountScreen({ navigation }) {

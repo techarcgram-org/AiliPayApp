@@ -1,10 +1,10 @@
 import { StyleSheet, View, Text } from 'react-native';
 import React, { useContext } from 'react';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import LineSeparator from '../../components/LineSeparator';
-import ToggleButton from '../../components/ToggleButton';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import LineSeparator from '../../../components/LineSeparator';
+import ToggleButton from '../../../components/ToggleButton';
 import { Field, Formik } from 'formik';
-import { store } from '../../../store';
+import { store } from '../../../../store';
 
 export default function NotificationPreferencesScreen({ navigation }) {
   const { state, dispatch } = useContext(store);

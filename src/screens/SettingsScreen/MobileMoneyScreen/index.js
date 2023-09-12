@@ -1,10 +1,10 @@
 import { View, StyleSheet, Text } from 'react-native';
 import React, { useState, useCallback, useEffect } from 'react';
-import PaymentDetailsBox from '../../components/PaymentDetailsBox';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
+import PaymentDetailsBox from '../../../components/PaymentDetailsBox';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
 import MobileMoneyModal from './MobileMoneyModal';
 import Toast from 'react-native-toast-message';
-import { addMomoAccount, getMomoAccounts } from '../../services';
+import { addMomoAccount, getMomoAccounts } from '../../../services';
 import { ScrollView } from 'react-native-gesture-handler';
 
 export default function MobileMoneyScreen({ navigation }) {

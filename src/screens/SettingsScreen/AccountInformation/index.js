@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, Pressable } from 'react-native';
-import CustomHr from '../../components/CustomHr';
+import CustomHr from '../../../components/CustomHr';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import UpdateInformation from '../../components/UpdateInformation';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import UpdateInformation from '../../../components/UpdateInformation';
 import axios from 'axios';
 
 export const ChangePassword = async (data) => {
@@ -24,7 +24,7 @@ export const ChangeName = async (data) => {
   } catch (error) {
     throw new Error(error.message);
   }
-}
+};
 
 export const ChangeEmail = async (data) => {
   try {
@@ -33,7 +33,7 @@ export const ChangeEmail = async (data) => {
   } catch (error) {
     throw new Error(error.message);
   }
-}
+};
 
 export const ChangeNumber = async (data) => {
   try {
@@ -42,7 +42,7 @@ export const ChangeNumber = async (data) => {
   } catch (error) {
     throw new Error(error.message);
   }
-}
+};
 
 export const ChangeLanguage = async (data) => {
   try {
@@ -51,10 +51,9 @@ export const ChangeLanguage = async (data) => {
   } catch (error) {
     throw new Error(error.message);
   }
-}
+};
 
 export default function AccountInformation({ navigation }) {
-
   return (
     <View style={styles.container}>
       <AccountSettingsHeader headerTitle="ACCOUNT INFORMATION" navigation={navigation} />
