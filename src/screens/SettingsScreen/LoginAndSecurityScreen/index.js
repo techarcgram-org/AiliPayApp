@@ -1,8 +1,8 @@
 import { View, StyleSheet, Text, SafeAreaView } from 'react-native';
-import ToggleButton from '../../components/ToggleButton';
+import ToggleButton from '../../../components/ToggleButton';
 import { Actions } from 'react-native-router-flux';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
-import LineSeparator from '../../components/LineSeparator';
+import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
+import LineSeparator from '../../../components/LineSeparator';
 
 export default function LoginAndSecurityScreen({ navigation }) {
   return (

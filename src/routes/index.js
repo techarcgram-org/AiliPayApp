@@ -39,6 +39,7 @@ import {
   AutomaticSavings,
   CompletedTransfer as CompleteTransfer,
   PasswordResetScreen,
+  DefaultLanguageScreen,
   TransferFailedScreen,
   ChangePassword,
   AddDebitCardScreen,
@@ -241,6 +242,11 @@ export default function Routes() {
             title: 'Drawer Screens',
             headerShown: false
           }}
+        />
+        <Stack.Screen
+          name="DefaultLanguageScreen"
+          component={DefaultLanguageScreen}
+          options={{ title: 'Default language', headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

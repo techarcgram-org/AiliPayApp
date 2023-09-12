@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 
@@ -7,8 +7,10 @@ export default function CustomSelectInput(props) {
   const [selected, setSelected] = useState(null);
   const {
     field: { name, onBlur, onChange, value },
-    form: { errors, touched, setFieldTouched, setFieldValue },
+    form: { errors, touched, setFieldTouched, setFieldValue, handleSubmit },
     options,
+    placeholder,
+    submitOnChange,
     ...resProps
   } = props;
   const hasError = errors[name] && touched[name];
@@ -29,6 +31,9 @@ export default function CustomSelectInput(props) {
     setFieldTouched(name);
     onBlur(name);
     setOpen(false);
+    if (submitOnChange) {
+      handleSubmit();
+    }
   };
 
   const handleToggleOpen = () => {
@@ -38,7 +43,7 @@ export default function CustomSelectInput(props) {
   return (
     <View style={styles.container(hasError)}>
       <TouchableOpacity style={styles.selectContainer} onPress={handleToggleOpen}>
-        <Text style={styles.selectText}>{selected ? selected : 'Select your bank'}</Text>
+        <Text style={styles.selectText}>{selected ? selected : placeholder}</Text>
         <EntypoIcons name={open ? 'chevron-up' : 'chevron-down'} size={20} />
       </TouchableOpacity>
       {open ? (

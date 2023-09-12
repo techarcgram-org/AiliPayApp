@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView } from 'react-native';
-import CustomButton from '../../components/CustomButton';
+import CustomButton from '../../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { addNewBankAccount } from '../../services';
+import { addNewBankAccount } from '../../../services';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
 export default function addBankAccount(navigation) {

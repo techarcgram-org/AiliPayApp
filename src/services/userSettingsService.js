@@ -87,6 +87,24 @@ export const getUserAccountSettings = async () => {
   }
 };
 
+export const updateAccountSettings = async (data) => {
+  const token = await AsyncStorage.getItem('access_token');
+  await sleep(3000);
+  try {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    const response = await axios.patch(`account-settings/`, data);
+    return response;
+  } catch (error) {
+    // Handle error
+    console.error(
+      "Couldn't get user account settings:",
+      error.response.status,
+      error.response.data
+    );
+    return error.response;
+  }
+};
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
