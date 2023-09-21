@@ -6,11 +6,12 @@ import { getUserAccountSettings, validateAccessToken } from '../../services';
 import { store } from '../../../store';
 import Logo from '../../components/Logo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import i18next, { languageResources } from '../../services/i18next';
+import i18next from '../../services/i18next';
 import { useTranslation } from 'react-i18next';
-
+import { getUserBalance } from '../../services/airlipayBalance';
 export default function LandingScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
+  const [languageLoading, setLanguageLoading] = useState(false);
   const { state, dispatch } = useContext(store);
   const { t } = useTranslation();
 
@@ -22,27 +23,41 @@ export default function LandingScreen({ navigation }) {
       return;
     }
     const response = await validateAccessToken(token);
-    setLoading(false);
     if (response.status == 200) {
       await dispatch({
         type: 'SET_USER',
         payload: { data: response.data.data, accessToken: token }
       });
       const accountSettings = await getUserAccountSettings();
+      if (accountSettings.data.data?.language) {
+        i18next.changeLanguage(accountSettings.data.data.language);
+      }
       await dispatch({
         type: 'SET_ACCOUNT_SETTINGS',
         payload: { data: accountSettings.data.data }
       });
       navigation.navigate('DrawerScreens');
+      setLoading(false);
     } else {
       await AsyncStorage.removeItem('access_token');
     }
 
     return;
   }, []);
+
+  const getBalance = useCallback(async () => {
+    const balance = await getUserBalance();
+    await dispatch({
+      type: 'SET_BALANCE',
+      payload: { data: balance.data }
+    });
+  }, []);
+
   useEffect(() => {
     onSubmitEvent();
-  }, [onSubmitEvent]);
+    getBalance();
+  }, [onSubmitEvent, getBalance]);
+
   const goToLandingPage2 = () => {
     navigation.navigate('LandingScreen2');
   };

@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import CustomHr from '../../components/CustomHr';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 
 export default function CompletedPayments({ navigation }) {
   return (

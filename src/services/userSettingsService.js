@@ -2,7 +2,6 @@ import axios from './axiosConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const addNewBankAccount = async (userData) => {
-  await sleep(3000);
   try {
     // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     const response = await axios.post(`account-settings/add-user-bank-account`, userData);
@@ -15,7 +14,6 @@ export const addNewBankAccount = async (userData) => {
 };
 
 export const getBanks = async () => {
-  await sleep(3000);
   try {
     // axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     const response = await axios.get(`users/list-banks`);
@@ -29,7 +27,6 @@ export const getBanks = async () => {
 
 export const getUserBanks = async () => {
   const token = await AsyncStorage.getItem('access_token');
-  await sleep(3000);
   try {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const response = await axios.get(`users/list-user-banks`);
@@ -43,7 +40,6 @@ export const getUserBanks = async () => {
 
 export const addMomoAccount = async (data) => {
   const token = await AsyncStorage.getItem('access_token');
-  await sleep(3000);
   try {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const response = await axios.post(`account-settings/add-user-momo-account`, data);
@@ -57,7 +53,6 @@ export const addMomoAccount = async (data) => {
 
 export const getMomoAccounts = async () => {
   const token = await AsyncStorage.getItem('access_token');
-  await sleep(3000);
   try {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const response = await axios.get(`account-settings/list-user-momo-accounts`);
@@ -71,7 +66,6 @@ export const getMomoAccounts = async () => {
 
 export const getUserAccountSettings = async () => {
   const token = await AsyncStorage.getItem('access_token');
-  await sleep(3000);
   try {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const response = await axios.get(`account-settings/get-user-account-settings`);
@@ -89,7 +83,6 @@ export const getUserAccountSettings = async () => {
 
 export const updateAccountSettings = async (data) => {
   const token = await AsyncStorage.getItem('access_token');
-  await sleep(3000);
   try {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     const response = await axios.patch(`account-settings/`, data);
@@ -104,7 +97,3 @@ export const updateAccountSettings = async (data) => {
     return error.response;
   }
 };
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
