@@ -24,6 +24,8 @@ const StateProvider = ({ children }) => {
         return { ...state, user: payload.data, accessToken: payload.accessToken };
       case 'SET_ACCOUNT_SETTINGS':
         return { ...state, accountSettings: payload.data };
+      case 'SET_BALANCE':
+        return { ...state, balance: payload.data };
       default:
         throw new Error();
     }

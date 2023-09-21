@@ -1,27 +1,51 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView, ActivityIndicator } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import IconMaterial from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Formik, Field, Form } from 'formik';
+import { withdraw } from '../../services/airlipayBalance';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
-export default function TransferScreen({ navigation }) {
+export default function TransferScreen({ route, navigation }) {
+  const [loading, setLoading] = useState(false);
+  const { withdrawAmount, balance } = route.params;
+  const [fee, setFee] = useState(0);
+
+  const transferEvent = async () => {
+    setLoading(true);
+    const amount = withdrawAmount - fee;
+    const response = await withdraw({ amount });
+    console.log(response);
+    setLoading(false);
+    if (response.status === 201) {
+      navigation.navigate('TransferCompleteScreen', { data: response.data });
+    } else {
+      Toast.show({
+        type: 'error',
+        text1: 'Transaction failed',
+        text2: 'error'
+      });
+    }
+  };
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate('MainActivityScreen')}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
       <ScrollView>
-        <Text style={styles.infoText}>Almost Done! Just confirm your XAF 20 000 transfer</Text>
+        <Text style={styles.infoText}>
+          Almost Done! Just confirm your XAF {withdrawAmount} transfer
+        </Text>
         <View style={styles.detailSection}>
           <View style={styles.sumaryInfo}>
             <CustomHr width={1} />
             <View style={styles.row}>
-              <Text style={styles.sumaryTextHeader}>Balance</Text>
+              <Text style={styles.sumaryTextHeader}>Amount</Text>
               <Text style={styles.changeText}>Change</Text>
-              <Text style={styles.summaryInfoTex}> XAF 10 000</Text>
+              <Text style={styles.summaryInfoTex}> XAF {withdrawAmount}</Text>
             </View>
             <CustomHr width={1} />
             <View style={styles.row}>
@@ -60,23 +84,34 @@ export default function TransferScreen({ navigation }) {
             <CustomHr width={1} />
             <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>Amount You'll receive</Text>
-              <Text style={styles.summaryInfoTex}> XAF 20 000</Text>
+              <Text style={styles.summaryInfoTex}> XAF {withdrawAmount - fee}</Text>
             </View>
             <CustomHr width={1} />
             <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>Account Balance</Text>
-              <Text style={styles.summaryInfoTex}> XAF 50 000</Text>
+              <Text style={styles.summaryInfoTex}> XAF {balance - withdrawAmount}</Text>
             </View>
             <CustomHr width={1} />
           </View>
           <View style={styles.buttonsSection}>
             <CustomButton
-              title="Complete Transfer"
+              title={
+                loading ? (
+                  <ActivityIndicator color="#00ff00" animating={loading} hidesWhenStopped />
+                ) : (
+                  'Complete Transfer'
+                )
+              }
               backgroundColor="#063B87"
               color="white"
-              onPress={() => navigation.navigate('TransferCompleteScreen')}
+              onPress={transferEvent}
             />
-            <CustomButton title="Start Over" backgroundColor="transparent" color="#063B87" />
+            <CustomButton
+              title="Start Over"
+              backgroundColor="transparent"
+              color="#063B87"
+              onPress={() => navigation.navigate('MainActivityScreen')}
+            />
           </View>
         </View>
       </ScrollView>

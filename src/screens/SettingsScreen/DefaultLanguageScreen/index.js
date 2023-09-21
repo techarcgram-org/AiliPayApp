@@ -6,10 +6,12 @@ import { Field, Formik } from 'formik';
 import { store } from '../../../../store';
 import CustomSelectInput from '../../../components/CustomSelectInput';
 import { updateAccountSettings } from '../../../services';
+import i18next from '../../../services/i18next';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
-const lang = [
-  { id: 'eng', name: 'English' },
-  { id: 'fre', name: 'French' }
+const languages = [
+  { id: 'en', name: 'English' },
+  { id: 'fr', name: 'French' }
 ];
 
 export default function DefaultLanguageScreen({ navigation }) {
@@ -20,11 +22,16 @@ export default function DefaultLanguageScreen({ navigation }) {
     setLoading(true);
     const res = await updateAccountSettings(values);
     setLoading(false);
-    console.log(res);
     if (res.status == 200) {
+      i18next.changeLanguage(values.language);
       await dispatch({
         type: 'SET_ACCOUNT_SETTINGS',
         payload: { data: res.data.data }
+      });
+      Toast.show({
+        type: 'success',
+        text1: `language set to ${values.language}`,
+        text2: 'success'
       });
     }
   };
@@ -45,8 +52,8 @@ export default function DefaultLanguageScreen({ navigation }) {
               <Field
                 name="language"
                 component={CustomSelectInput}
-                options={lang}
-                placeholder="Language"
+                options={languages}
+                placeholder={accountSettings.language === 'en' ? 'English' : 'French'}
                 submitOnChange={true}
               />
             </View>
