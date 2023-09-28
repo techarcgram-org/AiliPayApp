@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 export default function PasswordSetupScreen({ navigation }) {
   const { state } = useContext(store);
   const [loading, setLoading] = useState(false);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const onSubmitEvent = async (values) => {
     setLoading(true);
@@ -65,7 +65,7 @@ export default function PasswordSetupScreen({ navigation }) {
 
           <View style={styles.confirmCode}>
             <View style={{ flexDirection: 'row', marginBottom: 20 }}>
-              <Text style={{ fontWeight: 700 }}>{t('passwordSetup.usernameLabel')}: </Text>
+              <Text style={{ fontWeight: 700 }}>{t('passwordSetup.usernameLabel')} </Text>
               <Text>{state.auth.email}</Text>
             </View>
             <Formik

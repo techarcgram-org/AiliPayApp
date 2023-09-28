@@ -12,7 +12,7 @@ export default function VerifyIdentityScreen({ navigation }) {
   const [selectedOption, setSelectedOption] = useState('phone');
   const [loading, setLoading] = useState(false);
   const { state } = useContext(store);
-  const {t} = useTranslation()
+  const { t } = useTranslation();
 
   const onSubmitEvent = async () => {
     setLoading(true);
@@ -59,16 +59,16 @@ export default function VerifyIdentityScreen({ navigation }) {
             <View style={styles.options}>
               <CustomRadioButton
                 value="phone"
-                label={`{t('verifyIdentity.info.getCode.option')} *****${state.auth.phoneNumber.slice(
-                  -4
-                )}`}
+                label={`${t(
+                  'verifyIdentity.info.getCode.option'
+                )} *****${state.auth.phoneNumber.slice(-4)}`}
                 selectedValue={selectedOption}
                 onValueChange={setSelectedOption}
                 style={{ fontWeight: 700 }}
               />
               <CustomRadioButton
                 value="email"
-                label={`{t('verifyIdentity.info.getCode.option')} ***${state.auth.email.slice(7)}`}
+                label={`${t('verifyIdentity.info.getCode.option')} ***${state.auth.email.slice(7)}`}
                 selectedValue={selectedOption}
                 onValueChange={setSelectedOption}
                 style={{ fontWeight: 700 }}

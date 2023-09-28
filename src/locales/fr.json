@@ -145,6 +145,7 @@
     "noAccessText": "Je n'ai pas accès aux comptes répertoriés",
     "resendCodeText": "Vous n'avez pas reçu le code de vérification ?",
     "sendCodeToText": "Envoyer le code à ",
+    "enterCodePlaceholder": "entrez le code",
     "common": {
       "loadingErrorText": "Une erreur s'est produite, veuillez réessayer ultérieurement 🥲",
       "helpText": "Besoin d'aide ?"
@@ -168,8 +169,8 @@
     "action2": "2 - Ajouter une carte de débit",
     "action3": "3 - Ajouter un compte bancaire",
     "action4": "4 - Vérifier le numéro de téléphone",
-    "button":"Commencer",
-    "footer":"Besoin d'aide ?"
+    "button": "Commencer",
+    "footer": "Besoin d'aide ?"
   },
   "needHelp": {
     "footer": "Besoin d'aide ?",
@@ -190,7 +191,8 @@
     "info4": "Épargne automatique",
     "info5": "Annulation du compte",
     "info6": "Paramètres de notification",
-    "info7": "Connexion et sécurité"
+    "info7": "Connexion et sécurité",
+    "info8": "langage par défaut"
   },
   "loginAndSecurity": {
     "text1": "Activer le code PIN",
@@ -207,7 +209,7 @@
     "title": "MOBILE MONEY",
     "header": "Compte Mobile Money",
     "status": "Mobile Money principal",
-    "button":"Ajouter un Compte Mobile Money"
+    "button": "Ajouter un Compte Mobile Money"
   },
   "debitCardScreen": {
     "headerTitle": "CARTE DE DEBIT",

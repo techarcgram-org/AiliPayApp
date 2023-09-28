@@ -156,6 +156,7 @@
     "noAccessText": "I don't have access to the listed accounts",
     "resendCodeText": "Didn't get verification code?",
     "sendCodeToText": "Send code to ",
+    "enterCodePlaceholder": "Enter Code",
     "common": {
       "loadingErrorText": "Something went wrong, please try again later 🥲",
       "helpText": "Need Help?"
@@ -180,7 +181,8 @@
     "info4": "Automatic Savings",
     "info5": "Account Councelation",
     "info6": "Notifications Settings",
-    "info7": "Login and Security"
+    "info7": "Login and Security",
+    "info8": "Default Language"
   },
   "loginAndSecurity": {
     "text1": "Enable Pin",
@@ -197,13 +199,13 @@
     "title": "MOBILE MONEY",
     "header": "Mobile Money Account",
     "status": "Primary Mobile Money",
-    "button":"Add Mobile Money Account"
+    "button": "Add Mobile Money Account"
   },
   "debitCardScreen": {
     "headerTitle": "DEBIT CARD",
     "infoTitle": "Debit Cards",
     "addNewDebitCard": "Add a new Debit Card",
-    "status":"Primary Debit Card"
+    "status": "Primary Debit Card"
   },
   "accountCancelation": {
     "title": "ACCOUNT CANCELLATION",
@@ -270,7 +272,7 @@
     "button1": "Update Automatic Saving",
     "button2": "Clear"
   },
-  "accountInformation":{
+  "accountInformation": {
     "headerTitle": "ACCOUNT INFORMATION",
     "editValue": "Edit",
     "text1": "Security Alert!",
@@ -281,14 +283,14 @@
     "password": "Password",
     "language": "Language"
   },
-  "welcomeScreen":{
-    "title":"Let's Go",
-    "header":"Password Created successfully",
-    "action1":"1 - Enable balance alerts",
-    "action2":"2 - Add a debit card",
-    "action3":"3 - Add a bank account",
-    "action4":"4 - Verify Phone Number",
-    "button":"Get started",
-    "footer":"Need Help?"
+  "welcomeScreen": {
+    "title": "Let's Go",
+    "header": "Password Created successfully",
+    "action1": "1 - Enable balance alerts",
+    "action2": "2 - Add a debit card",
+    "action3": "3 - Add a bank account",
+    "action4": "4 - Verify Phone Number",
+    "button": "Get started",
+    "footer": "Need Help?"
   }
 }

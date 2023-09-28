@@ -7,12 +7,11 @@ import { getUserEarlyPayments } from '../../services/airlipayBalance';
 
 export default function BalanceDetails({ navigation }) {
   const getTransactions = useCallback(async () => {
-    const transactions = await getUserEarlyPayments({
+    const response = await getUserEarlyPayments({
       type: 'DEPOSIT',
       status: 'SUCCESS',
       pageSize: 30
     });
-    console.log(transactions.data);
   }, []);
 
   useEffect(() => {

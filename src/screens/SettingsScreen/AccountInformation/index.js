@@ -66,17 +66,6 @@ export default function AccountInformation({ navigation }) {
             {/* <Text style={styles.editText}>Edit</Text> */}
           </View>
         </View>
-        <View style={styles.row}>
-          <MaterialIcons name="language" size={20} color="#3F5F90" />
-          <View style={styles.innerRow}>
-            <View>
-              <Text>{t('accountInformation.language')}</Text>
-              <Text>English Language</Text>
-            </View>
-            <UpdateInformation editValue="Language" />
-            {/* <Text style={styles.editText}>Edit</Text> */}
-          </View>
-        </View>
       </View>
     </View>
   );

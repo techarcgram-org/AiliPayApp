@@ -12,7 +12,7 @@ import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 import { useTranslation } from 'react-i18next';
 
 export default function SettingsScreen({ navigation }) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <AccountSettingsHeader headerTitle="Settings" navigation={navigation} />
@@ -89,11 +89,11 @@ export default function SettingsScreen({ navigation }) {
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="notifications-none" size={20} color="#3F5F90" />
+        <MaterialIcons name="language" size={20} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('DefaultLanguageScreen')}>
-          <Text style={{ fontSize: 20 }}>Default Language</Text>
+          <Text style={{ fontSize: 20 }}>{t('settingScreen.info8')}</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>

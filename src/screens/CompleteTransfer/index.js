@@ -5,15 +5,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
 import { useTranslation } from 'react-i18next';
 
-export default function CompleteTransfer({ navigation }) {
-  const {t} = useTranslation()
+export default function CompleteTransfer({ fromScreen, navigation }) {
+  const { t } = useTranslation();
+  console.log('from', fromScreen);
   return (
     <View style={styles.container}>
-      <AccountSettingsHeader
+      {/* <AccountSettingsHeader
         headerTitle={t('completeTransfer.headerTitle')}
         navigation={navigation}
-      />
-      <TouchableOpacity onPress={() => navigation.navigate('MainActivityScreen')}>
+      /> */}
+      <TouchableOpacity onPress={() => navigation.navigate(fromScreen)}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
       <ScrollView>

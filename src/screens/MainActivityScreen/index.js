@@ -1,14 +1,5 @@
-import React, { useContext, useState, useEffect, userCallback } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  TouchableOpacity,
-  Modal,
-  Pressable,
-  TextInput
-} from 'react-native';
+import React, { useContext, useState, useEffect } from 'react';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
