@@ -280,7 +280,20 @@
     "entireBalance": "Solde total",
     "startTransfer": "Démarrer le transfert",
     "save": "Enregistrer",
-    "others":"Autres",
-    "error":"ereure"
+    "others": "Autres",
+    "error": "ereure"
+  },
+  "savingsScreen": {
+    "confirm": "Veuillez confirmer votre allocation d'épargne de 20 000 FCAF",
+    "balance": "Solde",
+    "change": "Changement",
+    "when": "Quand",
+    "fee": "Frais",
+    "amount": "Montant que vous recevrez",
+    "balance1": "Solde du compte",
+    "completeSavings": "Terminer l'épargne",
+    "startOver": "Recommencer",
+    "now":"Maintenant",
+    "discount":"Gratuit"
   }
 }

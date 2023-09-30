@@ -303,7 +303,20 @@
     "entireBalance": "Entire Balance",
     "startTransfer": "Start Transfer",
     "save": "Save",
-    "others":"Others",
-    "error":"error"
+    "others": "Others",
+    "error": "error"
+  },
+  "savingsScreen": {
+    "confirm": "Please confirm your XAF 20,000 savings allocation",
+    "balance": "Balance",
+    "change": "Change",
+    "when": "When",
+    "fee": "Fee",
+    "amount": "Amount You'll receive",
+    "balance1": "Account Balance",
+    "completeSavings": "Complete Savings",
+    "startOver": "Start Over",
+    "now":"Now",
+    "discount":"Free"
   }
 }
