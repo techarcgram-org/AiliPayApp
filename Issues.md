@@ -33,6 +33,28 @@ const styles = Stylesheet.create({
 
 3. ## Scrollbar with should not be showing
 
+4. ## Update phone number is missing a Button | samething for the name
+
+5. ## The bottom navigation is not properly placed well at the bottom,such that it does have space with the element in the screens. 
+
+- A possible solution
+```Javascript
+const screenOptions = {
+  tabBarShowLabel: false,
+  headerShown: false,
+  tabBarHideOnKeyboard: true,
+  tabBarStyle: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    left: 0,
+    elevation: 0,
+    height: 60,
+    backgroundColor: COLORS.white,
+  },
+};
+```
+
 # Errors related to Functionality
 
 1. ## If a user is already having a session, when clicking on the login or signup, would it not best to route them to the next available screen instead?
@@ -61,6 +83,70 @@ const styles = Stylesheet.create({
  ERROR  The action 'NAVIGATE' with payload {"name":""} was not handled by any navigator.
 ```
 `https://reactnavigation.org/docs/navigation-actions`
+
+6. ## The notification icon or image does not navigate to the notification screen
+
+### Per the design or prototype, is it suppose to navigate?
+
+6. ## For the completed payment screen
+
+### Wouldn't it be best to add a loader while the fetching the transactions
+
+- A possible solution 
+
+```Javascript
+import React, { useState, useEffect } from 'react';
+import { View, Text, ActivityIndicator } from 'react-native';
+
+const MyComponent = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      // Start the loader
+      setLoading(true);
+
+      // Fetch data from the API
+      const response = await fetch('https://api.example.com/data');
+      const jsonData = await response.json();
+
+      // Set the fetched data
+      setData(jsonData);
+
+      // Stop the loader
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      // Handle error here
+      setLoading(false);
+    }
+  };
+
+  return (
+    <View>
+      {loading ? (
+        // Display loader while fetching data
+        <ActivityIndicator size="large" color="#0000ff" />
+      ) : (
+        // Display fetched data
+        <View>
+          {data.map((item) => (
+            <Text key={item.id}>{item.name}</Text>
+          ))}
+        </View>
+      )}
+    </View>
+  );
+};
+
+export default MyComponent;
+```
+
 
 # Errors related the API
 
