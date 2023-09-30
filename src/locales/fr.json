@@ -269,5 +269,18 @@
     "phone": "Numéro de téléphone",
     "password": "Mot de passe",
     "language": "Langue"
+  },
+  "mainActivity": {
+    "balance": "Solde AiliPay",
+    "lastUpdated": "Dernière mise à jour",
+    "viewBalanceSummary": "VOIR LE RÉSUMÉ DU SOLDE",
+    "chooseAmount": "Choisissez un montant",
+    "withdraw": "Retirer",
+    "enterAmount": "Entrez le montant que vous souhaitez retirer",
+    "entireBalance": "Solde total",
+    "startTransfer": "Démarrer le transfert",
+    "save": "Enregistrer",
+    "others":"Autres",
+    "error":"ereure"
   }
 }

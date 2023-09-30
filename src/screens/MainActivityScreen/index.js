@@ -17,6 +17,7 @@ import { store } from '../../../store';
 import { getUserBalance } from '../../services/airlipayBalance';
 import { CustomModal } from '../../components/CustomModal';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import {useTranslation} from 'react-i18next'
 
 export default function MainActivityScreen({ navigation }) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -25,6 +26,8 @@ export default function MainActivityScreen({ navigation }) {
   const [withdrawAmount, setWithdrawAmount] = useState(0);
   const [entireBalance, setEntireBalance] = useState(false);
 
+  const {t} = useTranslation()
+
   const handleSubmit = (values) => {
     // console.log('Selected Value', values.selectedOption);
   };
@@ -32,14 +35,15 @@ export default function MainActivityScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Header text="AiliPay Balance" />
+      <Header text={t('mainActivity.balance')} />
       <ScrollView>
         <View style={styles.sumary}>
           <Text style={{ fontSize: 35, fontWeight: 700 }}>XAF {balance.balance}</Text>
           <View style={styles.updateSection}>
             <IconMaterial name="refresh" size={10} color="black" />
             <Text style={{ fontWeight: 'bold', fontSize: 12, margin: 5 }}>
-              last updated {moment(balance.last_updated).format('Do MMM YYYY hh:mm a')}
+              {t('mainActivity.lastUpdated')}{' '}
+              {moment(balance.last_updated).format('Do MMM YYYY hh:mm a')}
             </Text>
             <IconFoundation name="info" sie={10} color="black" />
           </View>
@@ -51,14 +55,14 @@ export default function MainActivityScreen({ navigation }) {
               marginTop: 20
             }}
             onPress={() => navigation.navigate('BalanceSummary')}>
-            VIEW BALANCE SUMMARY
+            {t('mainActivity.viewBalanceSummary')}
             <IconCommunity name="greater-than" size={10} color="#3F5F90" />
           </Text>
         </View>
         <View style={styles.transferSection}>
           <Logo color="#063B87" style={{ alignSelf: 'center' }} />
           <Text style={{ color: 'black', fontSize: 16, textAlign: 'center' }}>
-            Choose an amount
+            {t('mainActivity.chooseAmount')}
           </Text>
 
           <View style={styles.transacButtons}>
@@ -189,7 +193,7 @@ export default function MainActivityScreen({ navigation }) {
                     fontSize: 18,
                     textAlign: 'center'
                   }}>
-                  Others
+                  {t('mainActivity.others')}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -214,12 +218,10 @@ export default function MainActivityScreen({ navigation }) {
                       inputMode="text"
                     />
                     <ErrorMessage component={InputErrorMessage} name="amount" />
-                    <Text style={styles.description}>
-                      Enter the amount you will like to withdraw.
-                    </Text>
+                    <Text style={styles.description}>{t('mainActivity.enterAmount')}</Text>
                     <CustomButton
                       style={{ marginTop: 40 }}
-                      title={'Withdraw'}
+                      title={t('mainActivity.withdraw')}
                       backgroundColor="#063B87"
                       color="white"
                       onPress={handleSubmit}
@@ -248,7 +250,7 @@ export default function MainActivityScreen({ navigation }) {
                   fontSize: 18,
                   textAlign: 'center'
                 }}>
-                Entire Balance
+                {t('mainActivity.entireBalance')}
               </Text>
             </TouchableOpacity>
 
@@ -256,14 +258,14 @@ export default function MainActivityScreen({ navigation }) {
               backgroundColor="#063B87"
               style={{ marginTop: 25 }}
               color="white"
-              title="Start Transfer"
+              title={t('mainActivity.startTransfer')}
               textStyle={{ fontWeight: 700, fontSize: 18 }}
               onPress={() => {
                 if (withdrawAmount <= 0) {
                   Toast.show({
                     type: 'error',
-                    text1: 'Select amount to withdraw',
-                    text2: 'error'
+                    text1: t('mainActivity.enterAmount'),
+                    text2: t('mainActivity.error')
                   });
                   return;
                 }
@@ -278,7 +280,7 @@ export default function MainActivityScreen({ navigation }) {
               backgroundColor="#063B87"
               style={{ marginTop: -10 }}
               color="white"
-              title="Save"
+              title={t('mainActivity.save')}
               textStyle={{ fontWeight: 700, fontSize: 18 }}
               onPress={() => navigation.navigate('SavingsScreen')}
               type="submit"

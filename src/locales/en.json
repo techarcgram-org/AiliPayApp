@@ -292,5 +292,18 @@
     "action4": "4 - Verify Phone Number",
     "button": "Get started",
     "footer": "Need Help?"
+  },
+  "mainActivity": {
+    "balance": "AiliPay Balance",
+    "lastUpdated": "Last updated",
+    "viewBalanceSummary": "VIEW BALANCE SUMMARY",
+    "chooseAmount": "Choose an amount",
+    "withdraw": "Withdraw",
+    "enterAmount": "Enter the amount you would like to withdraw",
+    "entireBalance": "Entire Balance",
+    "startTransfer": "Start Transfer",
+    "save": "Save",
+    "others":"Others",
+    "error":"error"
   }
 }
