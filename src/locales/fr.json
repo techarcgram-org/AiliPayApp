@@ -316,5 +316,34 @@
     "startOver": "Recommencer",
     "now": "Maintenant",
     "discount": "Gratuit"
+  },
+  "balanceSummary": {
+    "title": "Résumé du solde",
+    "lastUpdated": "dernière mise à jour",
+    "viewBalanceDetails": "Voir les détails du solde et des shifts",
+    "fromDate": "Du 1er décembre jusqu'à aujourd'hui",
+    "earned": "Vous avez gagné",
+    "totalEarnings": "Total des gains rapportés par votre employeur",
+    "estimated": "Retenues estimées",
+    "taxes": "Impôts estimés et autres déductions",
+    "savings": "Épargne",
+    "totalSavings": "Total des économies réalisées pour cette période de paie",
+    "others": "Autres",
+    "transfered": "Vous avez transféré",
+    "transferedSavings": "Total des économies réalisées pour cette période de paie",
+    "logo": "Vous avez transféré",
+    "balanceXAF": "XAF"
+  },
+  "balanceDetails": {
+    "total": "Total des gains estimés :",
+    "viewBalance": "Voir les détails du solde et des shifts",
+    "title": "Détails du solde",
+    "increase": "Augmentation du solde",
+    "savings": "Économies directes",
+    "december10th": "10 décembre",
+    "december9th": "9 décembre",
+    "december8th": "8 décembre",
+    "december7th": "7 décembre",
+    "december6th": "6 décembre"
   }
 }

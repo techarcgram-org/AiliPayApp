@@ -1,23 +1,21 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
-import Logo from '../../components/Logo';
-import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
-import InputErrorMessage from '../../components/InputErrorMessage';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import { ErrorMessage, Field, Formik } from 'formik';
+import moment from 'moment';
+import React, { useContext, useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import IconMaterial from 'react-native-vector-icons/FontAwesome';
 import IconFoundation from 'react-native-vector-icons/Foundation';
 import IconCommunity from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Formik, Field, ErrorMessage } from 'formik';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import moment from 'moment';
+import CustomButton from '../../components/CustomButton';
+import CustomInput from '../../components/CustomInput';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import InputErrorMessage from '../../components/InputErrorMessage';
+import Logo from '../../components/Logo';
 
-import { store } from '../../../store';
-import { getUserBalance } from '../../services/airlipayBalance';
-import { CustomModal } from '../../components/CustomModal';
+import { useTranslation } from 'react-i18next';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
-import {useTranslation} from 'react-i18next'
+import { store } from '../../../store';
+import { CustomModal } from '../../components/CustomModal';
 
 export default function MainActivityScreen({ navigation }) {
   const [isModalVisible, setIsModalVisible] = useState(false);

@@ -328,7 +328,7 @@
   },
   "transferScreen": {
     "confirm1": "Almost Done! Just confirm your",
-    "confirm2":"transfer",
+    "confirm2": "transfer",
     "balance": "Balance",
     "change": "Change",
     "when": "When",
@@ -339,5 +339,34 @@
     "startOver": "Start Over",
     "now": "Now",
     "discount": "Free"
+  },
+  "balanceSummary": {
+    "title": "Balance Summary",
+    "lastUpdated": "last updated",
+    "viewBalanceDetails": "View Balance and Shift Details",
+    "fromDate": "From December 1st till today",
+    "earned": "You earned",
+    "totalEarnings": "Total earnings reported by your employer",
+    "estimated": "Estimated Withholdings",
+    "taxes": "Estimated Taxes and any other deductions",
+    "savings": "Savings",
+    "totalSavings": "Total savings made for this pay period",
+    "others": "Others",
+    "transfered": "You Transferred",
+    "transferedSavings": "Total savings made for this pay period",
+    "logo": "You Transferred",
+    "balanceXAF": "XAF"
+  },
+  "balanceDetails": {
+    "total": "Total Estimated Earnings:",
+    "viewBalance": "View Balance and Shift Details",
+    "title": "Balance Details",
+    "increase": "Balance Increase",
+    "savings": "Direct Savings",
+    "december10th": "December 10th",
+    "december9th": "December 9th",
+    "december8th": "December 8th",
+    "december7th": "December 7th",
+    "december6th": "December 6th"
   }
 }
