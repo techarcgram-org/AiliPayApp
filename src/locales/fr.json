@@ -293,7 +293,28 @@
     "balance1": "Solde du compte",
     "completeSavings": "Terminer l'épargne",
     "startOver": "Recommencer",
-    "now":"Maintenant",
-    "discount":"Gratuit"
+    "now": "Maintenant",
+    "discount": "Gratuit"
+  },
+  "savingsComplete": {
+    "savingSuccess": "Succès de l'épargne !",
+    "savingsAllocationUpdated": "Votre allocation d'épargne a été mise à jour !",
+    "date": "Salaire du 31 décembre",
+    "total": "Le montant total de votre épargne sera déposé sur votre compte choisi lors de votre prochain jour de paie.",
+    "done": "Terminé !"
+  },
+  "transferScreen": {
+    "confirm1": "Presque terminé ! Veuillez confirmer votre",
+    "confirm2": "transfert",
+    "balance": "Solde",
+    "change": "Changer",
+    "when": "Quand",
+    "fee": "Frais",
+    "amount": "Montant que vous recevrez",
+    "balance1": "Solde du compte",
+    "completeTransfer": "Complete le transfer",
+    "startOver": "Recommencer",
+    "now": "Maintenant",
+    "discount": "Gratuit"
   }
 }

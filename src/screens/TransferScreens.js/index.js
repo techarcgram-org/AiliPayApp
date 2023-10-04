@@ -8,11 +8,13 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Formik, Field, Form } from 'formik';
 import { withdraw } from '../../services/airlipayBalance';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { useTranslation } from 'react-i18next';
 
 export default function TransferScreen({ route, navigation }) {
   const [loading, setLoading] = useState(false);
   const { withdrawAmount, balance } = route.params;
   const [fee, setFee] = useState(0);
+  const {t} = useTranslation()
 
   const transferEvent = async () => {
     setLoading(true);
@@ -37,19 +39,20 @@ export default function TransferScreen({ route, navigation }) {
       </TouchableOpacity>
       <ScrollView>
         <Text style={styles.infoText}>
-          Almost Done! Just confirm your XAF {withdrawAmount} transfer
+          {t('transferScreen.confirm1')}
+          {withdrawAmount} {t('transferScreen.confirm2')}
         </Text>
         <View style={styles.detailSection}>
           <View style={styles.sumaryInfo}>
             <CustomHr width={1} />
             <View style={styles.row}>
-              <Text style={styles.sumaryTextHeader}>Amount</Text>
-              <Text style={styles.changeText}>Change</Text>
+              <Text style={styles.sumaryTextHeader}>{t('transferScreen.balance')}</Text>
+              <Text style={styles.changeText}>{t('transferScreen.change')}</Text>
               <Text style={styles.summaryInfoTex}> XAF {withdrawAmount}</Text>
             </View>
             <CustomHr width={1} />
             <View style={styles.row}>
-              <Text style={styles.sumaryTextHeader}>When</Text>
+              <Text style={styles.sumaryTextHeader}>{t('transferScreen.when')}</Text>
               {/* <Formik
                 initialValues={{ selectedOption: 'now' }}
                 >
@@ -69,26 +72,26 @@ export default function TransferScreen({ route, navigation }) {
                   </Field>
               </Formik> */}
               <TouchableOpacity style={styles.nowSection}>
-                <Text style={styles.summaryInfoTex}> Now</Text>
+                <Text style={styles.summaryInfoTex}> {t('transferScreen.now')}</Text>
                 <IconMaterial name="arrow-drop-down" size={20} color="black" />
               </TouchableOpacity>
             </View>
             <CustomHr width={1} />
             <View style={styles.row}>
-              <Text style={styles.sumaryTextHeader}>Fee</Text>
+              <Text style={styles.sumaryTextHeader}>{t('transferScreen.fee')}</Text>
               <View style={styles.nowSection}>
-                <Text style={styles.freeText}>Free</Text>
+                <Text style={styles.freeText}>{t('transferScreen.discount')}</Text>
                 <Text style={[styles.summaryInfoTex, styles.strikeThrough]}> XAF 500</Text>
               </View>
             </View>
             <CustomHr width={1} />
             <View style={styles.row}>
-              <Text style={styles.sumaryTextHeader}>Amount You'll receive</Text>
+              <Text style={styles.sumaryTextHeader}>{t('transferScreen.amount')}</Text>
               <Text style={styles.summaryInfoTex}> XAF {withdrawAmount - fee}</Text>
             </View>
             <CustomHr width={1} />
             <View style={styles.row}>
-              <Text style={styles.sumaryTextHeader}>Account Balance</Text>
+              <Text style={styles.sumaryTextHeader}>{t('transferScreen.balance1')}</Text>
               <Text style={styles.summaryInfoTex}> XAF {balance - withdrawAmount}</Text>
             </View>
             <CustomHr width={1} />
@@ -99,7 +102,7 @@ export default function TransferScreen({ route, navigation }) {
                 loading ? (
                   <ActivityIndicator color="#00ff00" animating={loading} hidesWhenStopped />
                 ) : (
-                  'Complete Transfer'
+                  t('transferScreen.completeTransfer')
                 )
               }
               backgroundColor="#063B87"
@@ -107,7 +110,7 @@ export default function TransferScreen({ route, navigation }) {
               onPress={transferEvent}
             />
             <CustomButton
-              title="Start Over"
+              title={t('transferScreen.startOver')}
               backgroundColor="transparent"
               color="#063B87"
               onPress={() => navigation.navigate('MainActivityScreen')}

@@ -316,7 +316,28 @@
     "balance1": "Account Balance",
     "completeSavings": "Complete Savings",
     "startOver": "Start Over",
-    "now":"Now",
-    "discount":"Free"
+    "now": "Now",
+    "discount": "Free"
+  },
+  "savingsComplete": {
+    "savingSuccess": "Saving Success!",
+    "savingsAllocationUpdated": "Your savings allocation has been updated!",
+    "date": "December 31st Paycheck",
+    "total": "Your total savings allocations will be deposited to your chosen account on your next payday.",
+    "done": "Done!"
+  },
+  "transferScreen": {
+    "confirm1": "Almost Done! Just confirm your",
+    "confirm2":"transfer",
+    "balance": "Balance",
+    "change": "Change",
+    "when": "When",
+    "fee": "Fee",
+    "amount": "Amount You'll receive",
+    "balance1": "Account Balance",
+    "completeTransfer": "Complete TTransfer",
+    "startOver": "Start Over",
+    "now": "Now",
+    "discount": "Free"
   }
 }
