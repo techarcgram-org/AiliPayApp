@@ -345,5 +345,16 @@
     "december8th": "8 décembre",
     "december7th": "7 décembre",
     "december6th": "6 décembre"
+  },
+  "foot": {
+    "title1": "Périodes de paie précédentes.",
+    "title2": "Paiements effectués"
+  },
+  "completedTransfer": {
+    "headerText": "Montant du transfert terminé",
+    "transfer": "Transfert",
+    "to": "Transféré à",
+    "momo": "MTN MoMo",
+    "accountNumber": "Numéro de compte :"
   }
 }

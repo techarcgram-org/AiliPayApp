@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { getUserEarlyPayments } from '../../services/airlipayBalance';
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
 
 export default function CompletedPayments({ navigation }) {
   const [loading, setLoading] = useState(false);
@@ -28,12 +29,14 @@ export default function CompletedPayments({ navigation }) {
     getTransactions();
   }, [getTransactions]);
 
+  const {t} = useTranslation()
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
-      <Text style={styles.headerText}>Completed Payments</Text>
+      <Text style={styles.headerText}>{t('foot.title2')}</Text>
       <ScrollView>
         <View>
           {transactions.map((transaction) => (

@@ -368,5 +368,16 @@
     "december8th": "December 8th",
     "december7th": "December 7th",
     "december6th": "December 6th"
+  },
+  "foot": {
+    "title1": "Past Pay Periods",
+    "title2": "Completed Payments"
+  },
+  "completedTransfer": {
+    "headerText": "Completed Transfer Amount",
+    "transfer": "Transfer",
+    "to": "Transferred To",
+    "momo": "MTN MoMo",
+    "accountNumber": "Account Number:"
   }
 }

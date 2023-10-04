@@ -3,21 +3,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { useTranslation } from 'react-i18next';
 
 export default function CompletedTransferAmount({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
 
-      <Text style={styles.headerText}>Completed Transfer Amount</Text>
+      <Text style={styles.headerText}>{t('completedTransfer.headerText')}</Text>
       <View>
         <View style={styles.row}>
           <MaterialIcon name="check-circle" size={20} color="#1C8B27" />
           <View style={{ marginLeft: -80 }}>
             <Text style={{ fontSize: 16 }}>1/02/22</Text>
-            <Text>Transfer</Text>
+            <Text>{t('completedTransfer.transfer')}</Text>
           </View>
           <Text>XAF 100 000</Text>
           <MaterialIcon
@@ -29,11 +31,11 @@ export default function CompletedTransferAmount({ navigation }) {
         </View>
       </View>
 
-      <Text style={styles.headerText}>Transferred To</Text>
+      <Text style={styles.headerText}>{t('completedTransfer.to')}</Text>
       <View>
         <View style={styles.statementRow}>
-          <Text style={{ fontSize: 20, fontWeight: 600 }}>MTN MoMo</Text>
-          <Text style={{ fontSize: 16 }}>Account Number: xxxxxxxx34</Text>
+          <Text style={{ fontSize: 20, fontWeight: 600 }}>{t('completedTransfer.momo')}</Text>
+          <Text style={{ fontSize: 16 }}>{t('completedTransfer.accountNumber')}: xxxxxxxx34</Text>
         </View>
       </View>
     </View>
