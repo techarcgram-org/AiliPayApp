@@ -304,7 +304,8 @@
     "startTransfer": "Start Transfer",
     "save": "Save",
     "others": "Others",
-    "error": "error"
+    "error": "error",
+    "placeholder": "Amount"
   },
   "savingsScreen": {
     "confirm": "Please confirm your XAF 20,000 savings allocation",
@@ -388,5 +389,42 @@
     "remainder": "Remainder Payment",
     "remainingBalance": "Your remaining balance was automatically transferred for free on 30/02/33",
     "transferredBeforePaydays": "Transferred Before Paydays"
+  },
+  "changeLanguage": {
+    "title": "DEFAULT LANGUAGE",
+    "language": "en",
+    "value1": "English",
+    "value2": "French",
+    "toast": {
+      "text1": "language set to ",
+      "text2": "success"
+    }
+  },
+  "update": {
+    "updateName": "Update Name",
+    "updateEmail": "Update Email Address",
+    "addMomo": "Add Momo Number",
+    "updatePhone": "Update Phone Number",
+    "updateLanguage": "Change Language",
+    "updatePassword": "Update Password",
+    "addCard": "Add Debit Card",
+    "addBankAccount": "Add Bank Account",
+    "error!": "error!",
+    "English": "English",
+    "French": "French",
+    "holderName": "Card Holder Name",
+    "cardNumber": "Card Number",
+    "CVV/CVC": "CVV/CVC",
+    "expirationDate": "Expiration Date (MM/YY)",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirm": "Confirm New Password",
+    "accountNumber": "Bank Account Number",
+    "selectBank": "Select Your Bank",
+    "addBank": "Add Bank",
+    "addMomo1": "Add Mobile Money Account",
+    "addDebit": "Add a new Debit Card",
+    "addNewBank": "Add a new Bank Account",
+    "edit": "Edit"
   }
 }

@@ -212,7 +212,7 @@ export default function MainActivityScreen({ navigation }) {
                       //add validation so that amount is always less than or equal to balance
                       component={CustomInput}
                       name="amount"
-                      placeholder="Amount"
+                      placeholder={t('mainActivity.placeholder')}
                       inputMode="text"
                     />
                     <ErrorMessage component={InputErrorMessage} name="amount" />

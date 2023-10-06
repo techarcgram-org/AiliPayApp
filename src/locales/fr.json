@@ -281,7 +281,8 @@
     "startTransfer": "Démarrer le transfert",
     "save": "Enregistrer",
     "others": "Autres",
-    "error": "ereure"
+    "error": "ereure",
+    "placeholder": "Montant"
   },
   "savingsScreen": {
     "confirm": "Veuillez confirmer votre allocation d'épargne de 20 000 FCAF",
@@ -365,5 +366,42 @@
     "remainder": "Paiement restant",
     "remainingBalance": "Votre solde restant a été automatiquement transféré gratuitement le 30/02/33",
     "transferredBeforePaydays": "Transférés avant les jours de paie"
+  },
+  "changeLanguage": {
+    "title": "LANGUE PAR DÉFAUT",
+    "language": "fr",
+    "value1": "Anglais",
+    "value2": "Français",
+    "toast": {
+      "text1": "Langue définie sur ",
+      "text2": "avec succès"
+    }
+  },
+  "update": {
+    "updateName": "Mettre à jour le nom",
+    "updateEmail": "Mettre à jour l'adresse e-mail",
+    "addMomo": "Ajouter un numéro Momo",
+    "updatePhone": "Mettre à jour le numéro de téléphone",
+    "updateLanguage": "Changer de langue",
+    "updatePassword": "Mettre à jour le mot de passe",
+    "addCard": "Ajouter une carte de débit",
+    "addBankAccount": "Ajouter un compte bancaire",
+    "error!": "erreur !",
+    "English": "Anglais",
+    "French": "Français",
+    "holderName": "Nom du titulaire de la carte",
+    "cardNumber": "Numéro de carte",
+    "CVV/CVC": "CVV/CVC",
+    "expirationDate": "Date d'expiration (MM/AA)",
+    "oldPassword": "Ancien mot de passe",
+    "newPassword": "Nouveau mot de passe",
+    "confirm": "Confirmer le nouveau mot de passe",
+    "accountNumber": "Numéro de compte bancaire",
+    "selectBank": "Sélectionnez votre banque",
+    "addBank": "Ajouter une banque",
+    "addMomo1": "Ajouter un compte Mobile Money",
+    "Add a new Debit Card": "Ajouter une nouvelle carte de débit",
+    "addNewBank": "Ajouter un nouveau compte bancaire",
+    "edit": "Modifier"
   }
 }
