@@ -379,5 +379,14 @@
     "to": "Transferred To",
     "momo": "MTN MoMo",
     "accountNumber": "Account Number:"
+  },
+  "statementOverview": {
+    "headerText": "Statement Overview",
+    "net": "Net Earnings",
+    "transfered": "Transfered Before Payday",
+    "fee": "Fees Paid",
+    "remainder": "Remainder Payment",
+    "remainingBalance": "Your remaining balance was automatically transferred for free on 30/02/33",
+    "transferredBeforePaydays": "Transferred Before Paydays"
   }
 }
