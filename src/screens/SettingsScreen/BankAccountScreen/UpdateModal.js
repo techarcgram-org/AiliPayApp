@@ -6,8 +6,10 @@ import CustomSelectInput from '../../../components/CustomSelectInput';
 import InputErrorMessage from '../../../components/InputErrorMessage';
 import CustomInput from '../../../components/CustomInput';
 import { CustomModal } from '../../../components/CustomModal';
+import { useTranslation } from 'react-i18next';
 
 const UpdateModal = ({ handleSubmit, loading, modalVisible, setModalVisible, banks }) => {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <CustomModal setModalVisible={setModalVisible} modalVisible={modalVisible}>
@@ -20,7 +22,7 @@ const UpdateModal = ({ handleSubmit, loading, modalVisible, setModalVisible, ban
               <Field
                 component={CustomInput}
                 name="account_number"
-                placeholder="Bank Account Number"
+                placeholder={t('modal.bank')}
                 editable={!loading}
                 inputMode="text"
               />
@@ -28,14 +30,14 @@ const UpdateModal = ({ handleSubmit, loading, modalVisible, setModalVisible, ban
               <Field
                 component={CustomSelectInput}
                 name="bank_id"
-                placeholder="Select Your Bank"
+                placeholder={t('modal.select')}
                 editable={!loading}
                 options={banks}
               />
               <ErrorMessage component={InputErrorMessage} name="bank_id" />
               <CustomButton
                 style={{ marginTop: 10 }}
-                title={'Add Bank'}
+                title={t('modal.addBank')}
                 backgroundColor="#063B87"
                 color="white"
                 onPress={handleSubmit}
@@ -49,7 +51,7 @@ const UpdateModal = ({ handleSubmit, loading, modalVisible, setModalVisible, ban
       </CustomModal>
       <View style={styles.buttonContainer}>
         <CustomButton
-          title="Add new bank account"
+          title={t('modal.newBank')}
           color="white"
           backgroundColor="#063B87"
           onPress={() => setModalVisible(true)}

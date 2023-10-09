@@ -426,5 +426,13 @@
     "addDebit": "Add a new Debit Card",
     "addNewBank": "Add a new Bank Account",
     "edit": "Edit"
+  },
+  "modal": {
+    "bank": "Bank Account Number",
+    "select": "Select Your Bank",
+    "addBank": "Add Bank",
+    "newBank": "Add new bank account",
+    "phone":"Enter Phone Number",
+    "addMomo":"Add Momo Account"
   }
 }

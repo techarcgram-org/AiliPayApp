@@ -403,5 +403,11 @@
     "Add a new Debit Card": "Ajouter une nouvelle carte de débit",
     "addNewBank": "Ajouter un nouveau compte bancaire",
     "edit": "Modifier"
+  },
+  "modal": {
+    "bank": "Numéro de compte bancaire",
+    "select": "Sélectionnez votre banque",
+    "addBank": "Ajouter une banque",
+    "newBank": "Ajouter un nouveau compte bancaire"
   }
 }
