@@ -8,13 +8,16 @@ import CustomSelectInput from '../../../components/CustomSelectInput';
 import { updateAccountSettings } from '../../../services';
 import i18next from '../../../services/i18next';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { useTranslation } from 'react-i18next';
 
-const languages = [
-  { id: 'en', name: 'English' },
-  { id: 'fr', name: 'French' }
-];
+
 
 export default function DefaultLanguageScreen({ navigation }) {
+  const {t} = useTranslation()
+  const languages = [
+    { id: 'en', name: t('changeLanguage.value1') },
+    { id: 'fr', name: t('changeLanguage.value2') }
+  ];
   const [loading, setLoading] = useState(false);
   const { state, dispatch } = useContext(store);
   const { accountSettings } = state;
@@ -30,15 +33,15 @@ export default function DefaultLanguageScreen({ navigation }) {
       });
       Toast.show({
         type: 'success',
-        text1: `language set to ${values.language}`,
-        text2: 'success'
+        text1: `${t('changeLanguage.toast.text1')} ${values.language}`,
+        text2: t('changeLanguage.toast.text2')
       });
     }
   };
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <AccountSettingsHeader headerTitle="DEFAULT LANGUAGE" navigation={navigation} />
+        <AccountSettingsHeader headerTitle={t('changeLanguage.title')} navigation={navigation} />
       </View>
       <Formik
         initialValues={{
@@ -53,7 +56,11 @@ export default function DefaultLanguageScreen({ navigation }) {
                 name="language"
                 component={CustomSelectInput}
                 options={languages}
-                placeholder={accountSettings.language === 'en' ? 'English' : 'French'}
+                placeholder={
+                  accountSettings.language === 'en'
+                    ? t('changeLanguage.value1')
+                    : t('changeLanguage.value2')
+                }
                 submitOnChange={true}
               />
             </View>

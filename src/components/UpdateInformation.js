@@ -1,31 +1,29 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Alert, Modal, Pressable } from 'react-native';
-import { RadioButton, TouchableRipple } from 'react-native-paper';
-import CustomButton from './CustomButton';
-import LineSeparator from './LineSeparator';
-import CustomInput from './CustomInput';
 import { ErrorMessage, Field, Formik } from 'formik';
-import { createPasswordValidationSchema } from '../validationSchemas/verificationSchema';
+import React, { useState } from 'react';
+import { Modal, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { RadioButton, TouchableRipple } from 'react-native-paper';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import InputErrorMessage from '../components/InputErrorMessage';
 import {
-  nameValidationSchema,
-  emailValidationSchema,
-  phoneValidationSchema,
   bankValidationSchema,
   cardValidationSchema
 } from '../validationSchemas/modalInputSchemas';
-import CustomHr from './CustomHr';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createPasswordValidationSchema } from '../validationSchemas/verificationSchema';
+import CustomButton from './CustomButton';
+import CustomInput from './CustomInput';
+import LineSeparator from './LineSeparator';
 // import { ErrorMessage, Field, Formik } from 'formik';
 // import { bankValidationSchema } from '../validationSchemas/verificationSchema';
 // import CustomInput from './CustomInput';
 // import InputErrorMessage from './InputErrorMessage';
+import { useTranslation } from 'react-i18next';
 import CustomSelectInput from './CustomSelectInput';
 
 export default function UpdateInformation({ editValue, handleSubmit }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   const [loading, setLoading] = useState(false);
+  const {t} = useTranslation()
 
   const initialValues =
     editValue == 'Bank'
@@ -61,7 +59,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
         onRequestClose={() => {
           // Alert.alert('Modal has been closed');
           setModalVisible(!modalVisible);
-          ModalVisible;
+          modalVisible;
         }}>
         <View style={styles.modalBox}>
           <View style={styles.popup}>
@@ -74,22 +72,22 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
             </Pressable>
             <Text style={styles.heading}>
               {editValue == 'Name'
-                ? 'Update Name'
+                ? t('update.updateName')
                 : editValue == 'Email'
-                ? 'Update Email Address'
+                ? t('update.updateEmail')
                 : editValue == 'Momo'
-                ? 'Add Momo Number'
+                ? t('update.addMomo')
                 : editValue == 'Phone'
-                ? 'Update Phone Number'
+                ? t('update.updatePhone')
                 : editValue == 'Language'
-                ? 'Change Language'
+                ? t('update.updateLanguage')
                 : editValue == 'Password'
-                ? 'Update Password'
+                ? t('update.updatePassword')
                 : editValue == 'Card'
-                ? 'Add Debit Card'
+                ? t('update.addCard')
                 : editValue == 'Bank'
-                ? 'Add Bank Account'
-                : 'error!'}
+                ? t('update.addBankAccount')
+                : t('update.error!')}
             </Text>
 
             {/* field input -----------------------------*/}
@@ -162,14 +160,14 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       <Field
                         component={CustomInput}
                         name="holderName"
-                        placeholder="Card Holder Name"
+                        placeholder={t('update.holderName')}
                         // inputMode="holderName"
                       />
                       <ErrorMessage component={InputErrorMessage} name="holderName" />
                       <Field
                         component={CustomInput}
                         name="cardNumber"
-                        placeholder="Card Number"
+                        placeholder={t('update.cardNumber')}
                         // inputMode="cardNumber"
                       />
                       <ErrorMessage component={InputErrorMessage} name="cardNumber" />
@@ -183,13 +181,13 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       <Field
                         component={CustomInput}
                         name="expirationDate"
-                        placeholder="Expiration Date (MM/YY)"
+                        placeholder={t('update.expirationDate')}
                         // inputMode="expirationDate"
                       />
                       <ErrorMessage component={InputErrorMessage} name="expirationDate" />
                       <CustomButton
                         style={{ marginTop: 10 }}
-                        title={'Add Debit Card'}
+                        title={t('update.addCard')}
                         backgroundColor="#063B87"
                         color="white"
                         onPress={handleSubmit}
@@ -211,7 +209,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       <Field
                         component={CustomInput}
                         name="oldPassword"
-                        placeholder="Old Password"
+                        placeholder={t('update.oldPassword')}
                         // inputMode="oldPassword"
                       />
                       <ErrorMessage
@@ -222,20 +220,20 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       <Field
                         component={CustomInput}
                         name="password"
-                        placeholder="New Password"
+                        placeholder={t('update.newPassword')}
                         // inputMode="Password"
                       />
                       <ErrorMessage component={InputErrorMessage} name="password" />
                       <Field
                         component={CustomInput}
                         name="confirmPassword"
-                        placeholder="Confirm New Password"
+                        placeholder={t('update.confirm')}
                         // inputMode="confirmPassword"
                       />
                       <ErrorMessage component={InputErrorMessage} name="confirmPassword" />
                       <CustomButton
                         style={{ marginTop: 10 }}
-                        title={'Change Password'}
+                        title={t('update.updatePassword')}
                         backgroundColor="#063B87"
                         color="white"
                         onPress={handleSubmit}
@@ -252,16 +250,10 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                   onSubmit={handleSubmit}>
                   {({ handleSubmit, isValid }) => (
                     <>
-                      {/* <TextInput style={styles.inputField} placeholder="Account Holder Name"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Account Number"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Routing Number"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Bank Name"></TextInput>
-                <TextInput style={styles.inputField} placeholder="Bank Address"></TextInput> */}
-                      {/* <TextInput style={styles.inputField} placeholder="SWIFT/BIC code"></TextInput> */}
                       <Field
                         component={CustomInput}
                         name="account_number"
-                        placeholder="Bank Account Number"
+                        placeholder={t('update.accountNumber')}
                         editable={!loading}
                         inputMode="text"
                       />
@@ -270,7 +262,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       <Field
                         component={CustomSelectInput}
                         name="bank_id"
-                        placeholder="Select Your Bank"
+                        placeholder={t('update.selectBank')}
                         editable={!loading}
                         inputMode="text"
                         options={cameroonBanks}
@@ -278,7 +270,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
                       <ErrorMessage component={InputErrorMessage} name="bank_id" />
                       <CustomButton
                         style={{ marginTop: 10 }}
-                        title={'Add Bank'}
+                        title={t('update.addBank')}
                         backgroundColor="#063B87"
                         color="white"
                         onPress={handleSubmit}
@@ -294,202 +286,6 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
               {/* </>
               </Formik> */}
             </View>
-            {/* ( */}
-            {/* <Formik
-                validationSchema={ bankValidationSchema }
-                initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
-                onSubmit={(values) => {
-                  //handle submission code goes here
-                }}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="accountName"
-                      placeholder="Account Holder Name"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="accountName" />
-                    <Field
-                      component={CustomInput}
-                      name="accountNumber"
-                      placeholder="Account Number"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="accountNumber" />
-                    <Field
-                      component={CustomInput}
-                      name="routingNumber"
-                      placeholder="Routing Number"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="routingNumber" />
-                    <Field
-                      component={CustomInput}
-                      name="bankName"
-                      placeholder="Bank Name"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="bankName" />
-                    <Field
-                      component={CustomInput}
-                      name="bankAddress"
-                      placeholder="Bank Address"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="bankAddress" />
-                    <Field
-                      component={CustomInput}
-                      name="swiftCode"
-                      placeholder="SWIFT/BIC Code"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="swiftCode" />
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Add Bank Account'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik> */}
-            {/* 
-            ) : editValue == 'Name' ? (
-              <Formik
-                validationSchema={nameValidationSchema}
-                initialValues={{ name: '' }}
-                onSubmit={(values) => {
-                  // handle submission code goes here
-                }}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="name"
-                      placeholder="Enter Name"
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="name" />
-                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS.</Text>
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Update Name'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik>
-
-            ) : editValue == 'Email' ? (
-              <Formik
-                validationSchema={emailValidationSchema}
-                initialValues={{ email: '' }}
-                onSubmit={(values) => {
-                }}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="email"
-                      placeholder="Enter Email Address"
-                      type='email'
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="email" />
-                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS.</Text>
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Update Email'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik>
-
-            ) : editValue == 'Phone' ? (
-              <Formik
-                validationSchema={phoneValidationSchema}
-                initialValues={{ phone: '' }}
-                onSubmit={async (values) => {
-                  try {
-                    const response = await ChangeNumber (values);
-                    console.log('api respnse', response);
-                  } catch (error) {
-                    console.error('api error', error.message);
-                  }
-                }}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="phone"
-                      placeholder="Enter Phone Number"
-                      type='tel'
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="phone" />
-                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the Email Address we have on file.</Text>
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Update Number'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik>
-            ) : editValue == 'Momo' ? (
-              <Formik
-                validationSchema={phoneValidationSchema}
-                initialValues={{ phone: '' }}
-                onSubmit={(values) => onBankSubmitEvent(values)}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="phone"
-                      placeholder="Enter Phone Number"
-                      type='tel'
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="phone" />
-                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS.</Text>
-                    <CustomButton
-                      style={{ marginTop: 10 }}
-                      title={'Update Number'}
-                      backgroundColor="#063B87"
-                      color="white"
-                      onPress={handleSubmit}
-                      disabled={!isValid}
-                      type='submit'
-                    />
-                  </>
-                )}
-              </Formik>
-            ) : (
-              <Formik
-                // validationSchema={}
-                initialValues={{ phone: '' }}
-                onSubmit={(values) => onBankSubmitEvent(values)}>
-                {({ handleSubmit, isValid }) => (
-                  <>
-                    <Field
-                      component={CustomInput}
-                      name="phone"
-                      placeholder="Enter"
-                      type='tel'
-                    />
-                    <ErrorMessage component={InputErrorMessage} name="oldPassword" />
-                  </>
-                )}
-              </Formik>
-            ) */}
-            {/* } */}
           </View>
         </View>
       </Modal>
@@ -498,12 +294,12 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
           <CustomButton
             title={
               editValue == 'Momo'
-                ? 'Add Mobile Money Account'
+                ? t('update.addMomo1')
                 : editValue == 'Card'
-                ? 'Add a new Debit Card'
+                ? t('update.addDebit')
                 : editValue == 'Bank'
-                ? 'Add a new Bank Account'
-                : 'error!'
+                ? t('update.addNewBank')
+                : t('update.error!')
             }
             color="white"
             backgroundColor="#063B87"
@@ -512,7 +308,7 @@ export default function UpdateInformation({ editValue, handleSubmit }) {
         </View>
       ) : (
         <Pressable style={[styles.button, styles.buttonOpen]} onPress={() => setModalVisible(true)}>
-          <Text style={styles.editText}> Edit</Text>
+          <Text style={styles.editText}> {t('update.edit')}</Text>
         </Pressable>
       )}
     </View>

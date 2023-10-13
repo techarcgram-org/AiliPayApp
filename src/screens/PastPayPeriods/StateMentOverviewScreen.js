@@ -4,44 +4,46 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import CustomHr from '../../components/CustomHr';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { useTranslation } from 'react-i18next';
 
 export default function StatementOverviewScreen({ navigation }) {
+  const {t} = useTranslation()
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.navigate('MainActivityScreen')}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
-      <Text style={styles.headerText}>Statement Overview</Text>
+      <Text style={styles.headerText}>{t('statementOverview.headerText')}</Text>
       <View>
         <CustomHr width={1} />
         <View style={styles.statementRow}>
-          <Text style={styles.rowText}>Net Earnings</Text>
+          <Text style={styles.rowText}>{t('statementOverview.net')}</Text>
           <Text style={styles.rowText}>XAF 200 000</Text>
         </View>
 
         <CustomHr width={1} />
         <View style={styles.statementRow}>
-          <Text style={styles.rowText}>Transfered Before Payday</Text>
+          <Text style={styles.rowText}>{t('statementOverview.transfered')}</Text>
           <Text style={styles.rowText}>XAF 99 000</Text>
         </View>
 
         <CustomHr width={1} />
         <View style={styles.statementRow}>
-          <Text style={styles.rowText}>Fees Paid</Text>
+          <Text style={styles.rowText}>{t('statementOverview.fee')}</Text>
           <Text style={styles.rowText}>XAF 1 000</Text>
         </View>
 
         <CustomHr width={1} />
         <View style={styles.statementRow}>
-          <Text style={styles.rowText}>Remainder Payment</Text>
+          <Text style={styles.rowText}>{t('statementOverview.remainder')}</Text>
           <Text style={styles.rowText}>XAF 100 000</Text>
         </View>
         <CustomHr width={1} />
       </View>
       <Text style={{ textAlign: 'center', marginTop: 20, fontSize: 16 }}>
-        Your remaining balance was automatically transferred for free on 30/02/33
+        {t('statementOverview.remainingBalance')}
       </Text>
-      <Text style={styles.headerText}>Transferred Before Paydays</Text>
+      <Text style={styles.headerText}>{t('statementOverview.transfered')}</Text>
       <View>
         <TouchableOpacity onPress={() => navigation.navigate('CompletedTransferAmount')}>
           <View style={styles.row}>

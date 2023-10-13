@@ -292,5 +292,147 @@
     "action4": "4 - Verify Phone Number",
     "button": "Get started",
     "footer": "Need Help?"
+  },
+  "mainActivity": {
+    "balance": "AiliPay Balance",
+    "lastUpdated": "Last updated",
+    "viewBalanceSummary": "VIEW BALANCE SUMMARY",
+    "chooseAmount": "Choose an amount",
+    "withdraw": "Withdraw",
+    "enterAmount": "Enter the amount you would like to withdraw",
+    "entireBalance": "Entire Balance",
+    "startTransfer": "Start Transfer",
+    "save": "Save",
+    "others": "Others",
+    "error": "error",
+    "placeholder": "Amount"
+  },
+  "savingsScreen": {
+    "confirm": "Please confirm your XAF 20,000 savings allocation",
+    "balance": "Balance",
+    "change": "Change",
+    "when": "When",
+    "fee": "Fee",
+    "amount": "Amount You'll receive",
+    "balance1": "Account Balance",
+    "completeSavings": "Complete Savings",
+    "startOver": "Start Over",
+    "now": "Now",
+    "discount": "Free"
+  },
+  "savingsComplete": {
+    "savingSuccess": "Saving Success!",
+    "savingsAllocationUpdated": "Your savings allocation has been updated!",
+    "date": "December 31st Paycheck",
+    "total": "Your total savings allocations will be deposited to your chosen account on your next payday.",
+    "done": "Done!"
+  },
+  "transferScreen": {
+    "confirm1": "Almost Done! Just confirm your",
+    "confirm2": "transfer",
+    "balance": "Balance",
+    "change": "Change",
+    "when": "When",
+    "fee": "Fee",
+    "amount": "Amount You'll receive",
+    "balance1": "Account Balance",
+    "completeTransfer": "Complete TTransfer",
+    "startOver": "Start Over",
+    "now": "Now",
+    "discount": "Free"
+  },
+  "balanceSummary": {
+    "title": "Balance Summary",
+    "lastUpdated": "last updated",
+    "viewBalanceDetails": "View Balance and Shift Details",
+    "fromDate": "From December 1st till today",
+    "earned": "You earned",
+    "totalEarnings": "Total earnings reported by your employer",
+    "estimated": "Estimated Withholdings",
+    "taxes": "Estimated Taxes and any other deductions",
+    "savings": "Savings",
+    "totalSavings": "Total savings made for this pay period",
+    "others": "Others",
+    "transfered": "You Transferred",
+    "transferedSavings": "Total savings made for this pay period",
+    "logo": "You Transferred",
+    "balanceXAF": "XAF"
+  },
+  "balanceDetails": {
+    "total": "Total Estimated Earnings:",
+    "viewBalance": "View Balance and Shift Details",
+    "title": "Balance Details",
+    "increase": "Balance Increase",
+    "savings": "Direct Savings",
+    "december10th": "December 10th",
+    "december9th": "December 9th",
+    "december8th": "December 8th",
+    "december7th": "December 7th",
+    "december6th": "December 6th"
+  },
+  "foot": {
+    "title1": "Past Pay Periods",
+    "title2": "Completed Payments"
+  },
+  "completedTransfer": {
+    "headerText": "Completed Transfer Amount",
+    "transfer": "Transfer",
+    "to": "Transferred To",
+    "momo": "MTN MoMo",
+    "accountNumber": "Account Number:"
+  },
+  "statementOverview": {
+    "headerText": "Statement Overview",
+    "net": "Net Earnings",
+    "transfered": "Transfered Before Payday",
+    "fee": "Fees Paid",
+    "remainder": "Remainder Payment",
+    "remainingBalance": "Your remaining balance was automatically transferred for free on 30/02/33",
+    "transferredBeforePaydays": "Transferred Before Paydays"
+  },
+  "changeLanguage": {
+    "title": "DEFAULT LANGUAGE",
+    "language": "en",
+    "value1": "English",
+    "value2": "French",
+    "toast": {
+      "text1": "language set to ",
+      "text2": "success"
+    }
+  },
+  "update": {
+    "updateName": "Update Name",
+    "updateEmail": "Update Email Address",
+    "addMomo": "Add Momo Number",
+    "updatePhone": "Update Phone Number",
+    "updateLanguage": "Change Language",
+    "updatePassword": "Update Password",
+    "addCard": "Add Debit Card",
+    "addBankAccount": "Add Bank Account",
+    "error!": "error!",
+    "English": "English",
+    "French": "French",
+    "holderName": "Card Holder Name",
+    "cardNumber": "Card Number",
+    "CVV/CVC": "CVV/CVC",
+    "expirationDate": "Expiration Date (MM/YY)",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirm": "Confirm New Password",
+    "accountNumber": "Bank Account Number",
+    "selectBank": "Select Your Bank",
+    "addBank": "Add Bank",
+    "addMomo1": "Add Mobile Money Account",
+    "addDebit": "Add a new Debit Card",
+    "addNewBank": "Add a new Bank Account",
+    "edit": "Edit"
+  },
+  "modal": {
+    "bank": "Bank Account Number",
+    "select": "Select Your Bank",
+    "addBank": "Add Bank",
+    "newBank": "Add new bank account",
+    "phone":"Enter Phone Number",
+    "addMomo":"Add Momo Account"
   }
 }

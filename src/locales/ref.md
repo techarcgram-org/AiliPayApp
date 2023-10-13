@@ -185,4 +185,202 @@ marginTop: 20
 });
 
 using the above as reference, generate a json that will be used to translate the code below
+
+
+{/* ( */}
+            {/* <Formik
+                validationSchema={ bankValidationSchema }
+                initialValues={{ accountName: '', accountNumber: '', routingNumber: '', bankName: '', bankAddress: '', swiftCode: '' }}
+                onSubmit={(values) => {
+                  //handle submission code goes here
+                }}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="accountName"
+                      placeholder="Account Holder Name"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="accountName" />
+                    <Field
+                      component={CustomInput}
+                      name="accountNumber"
+                      placeholder="Account Number"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="accountNumber" />
+                    <Field
+                      component={CustomInput}
+                      name="routingNumber"
+                      placeholder="Routing Number"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="routingNumber" />
+                    <Field
+                      component={CustomInput}
+                      name="bankName"
+                      placeholder="Bank Name"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="bankName" />
+                    <Field
+                      component={CustomInput}
+                      name="bankAddress"
+                      placeholder="Bank Address"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="bankAddress" />
+                    <Field
+                      component={CustomInput}
+                      name="swiftCode"
+                      placeholder="SWIFT/BIC Code"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="swiftCode" />
+                    <CustomButton
+                      style={{ marginTop: 10 }}
+                      title={'Add Bank Account'}
+                      backgroundColor="#063B87"
+                      color="white"
+                      onPress={handleSubmit}
+                      disabled={!isValid}
+                      type='submit'
+                    />
+                  </>
+                )}
+              </Formik> */}
+            {/*
+            ) : editValue == 'Name' ? (
+              <Formik
+                validationSchema={nameValidationSchema}
+                initialValues={{ name: '' }}
+                onSubmit={(values) => {
+                  // handle submission code goes here
+                }}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="name"
+                      placeholder="Enter Name"
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="name" />
+                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS.</Text>
+                    <CustomButton
+                      style={{ marginTop: 10 }}
+                      title={'Update Name'}
+                      backgroundColor="#063B87"
+                      color="white"
+                      onPress={handleSubmit}
+                      disabled={!isValid}
+                      type='submit'
+                    />
+                  </>
+                )}
+              </Formik>
+
+            ) : editValue == 'Email' ? (
+              <Formik
+                validationSchema={emailValidationSchema}
+                initialValues={{ email: '' }}
+                onSubmit={(values) => {
+                }}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="email"
+                      placeholder="Enter Email Address"
+                      type='email'
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="email" />
+                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS.</Text>
+                    <CustomButton
+                      style={{ marginTop: 10 }}
+                      title={'Update Email'}
+                      backgroundColor="#063B87"
+                      color="white"
+                      onPress={handleSubmit}
+                      disabled={!isValid}
+                      type='submit'
+                    />
+                  </>
+                )}
+              </Formik>
+
+            ) : editValue == 'Phone' ? (
+              <Formik
+                validationSchema={phoneValidationSchema}
+                initialValues={{ phone: '' }}
+                onSubmit={async (values) => {
+                  try {
+                    const response = await ChangeNumber (values);
+                    console.log('api respnse', response);
+                  } catch (error) {
+                    console.error('api error', error.message);
+                  }
+                }}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="phone"
+                      placeholder="Enter Phone Number"
+                      type='tel'
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="phone" />
+                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the Email Address we have on file.</Text>
+                    <CustomButton
+                      style={{ marginTop: 10 }}
+                      title={'Update Number'}
+                      backgroundColor="#063B87"
+                      color="white"
+                      onPress={handleSubmit}
+                      disabled={!isValid}
+                      type='submit'
+                    />
+                  </>
+                )}
+              </Formik>
+            ) : editValue == 'Momo' ? (
+              <Formik
+                validationSchema={phoneValidationSchema}
+                initialValues={{ phone: '' }}
+                onSubmit={(values) => onBankSubmitEvent(values)}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="phone"
+                      placeholder="Enter Phone Number"
+                      type='tel'
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="phone" />
+                    <Text style={styles.description}>For confirmation, an OTP(One Time Password) will be sent to the phone number we have on file via SMS.</Text>
+                    <CustomButton
+                      style={{ marginTop: 10 }}
+                      title={'Update Number'}
+                      backgroundColor="#063B87"
+                      color="white"
+                      onPress={handleSubmit}
+                      disabled={!isValid}
+                      type='submit'
+                    />
+                  </>
+                )}
+              </Formik>
+            ) : (
+              <Formik
+                // validationSchema={}
+                initialValues={{ phone: '' }}
+                onSubmit={(values) => onBankSubmitEvent(values)}>
+                {({ handleSubmit, isValid }) => (
+                  <>
+                    <Field
+                      component={CustomInput}
+                      name="phone"
+                      placeholder="Enter"
+                      type='tel'
+                    />
+                    <ErrorMessage component={InputErrorMessage} name="oldPassword" />
+                  </>
+                )}
+              </Formik>
+            ) */}
+            {/* } */}
 ```

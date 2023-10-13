@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useTranslation } from 'react-i18next';
 
 export default function PastPayPeriodsScreen({ navigation }) {
   const openDrawer = () => {
@@ -13,11 +14,13 @@ export default function PastPayPeriodsScreen({ navigation }) {
     };
   };
 
+  const {t} = useTranslation()
+
   return (
     <View style={styles.container}>
       <Header text="AILIPAY" onPressMenu={openDrawer} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Text style={styles.headerText}>Past Pay Periods</Text>
+        <Text style={styles.headerText}>{t('foot.title1')}</Text>
         <View style={styles.summary}>
           <TouchableOpacity onPress={() => navigation.navigate('StatementOverviewScreen')}>
             <View style={styles.row}>
