@@ -5,7 +5,7 @@
   },
   "landing2": {
     "text1": "Get Instant Access to your Earnings When you need it the most",
-    "text2": "On demand pay enables fiinancial control you need to minimize borrowing and improve your financial well-being",
+    "text2": "On demand pay enables financial control you need to minimize borrowing and improve your financial well-being",
     "button": "Get started"
   },
   "getStartedId": {
@@ -57,7 +57,7 @@
     },
     "alreadyHaveAccount": "Already have an account?",
     "login": "Login",
-    "didNotReceiveCode": "Did not receive the code?",
+    "didNotReceiveCode": "Didn't receive the code?",
     "resend": "Resend",
     "dontHaveAccount": "Don't have an account?",
     "getStarted": "Get Started",
@@ -118,7 +118,7 @@
       "text1": "Error",
       "text2": "Something went wrong please try again later 🥲"
     },
-    "title": "Great! we found your account",
+    "title": "Great! We found your account",
     "info": {
       "verifyIdentity": "Verify Your Identify",
       "account": {
@@ -171,7 +171,7 @@
     "center4": "- If you’re a new employee, we might not have your information yet, so either contact us or wait a few days and try again.",
     "center5": "- If you’re information is correct contact support at: ***support nubmer*** ",
     "button1": "Get Started",
-    "button2": "Ask your employeer about getting AirliPay"
+    "button2": "Ask your employer about getting AirliPay"
   },
   "settingScreen": {
     "title": "Account Information",
@@ -179,7 +179,7 @@
     "info2": "Debit Card",
     "info3": "Mobile Money",
     "info4": "Automatic Savings",
-    "info5": "Account Councelation",
+    "info5": "Account Cancelation",
     "info6": "Notifications Settings",
     "info7": "Login and Security",
     "info8": "Default Language"
@@ -236,7 +236,7 @@
     "button": "Reset Password",
     "toast": {
       "text1": "Success",
-      "text2": "Password reseted successfully"
+      "text2": "Password reset successfully"
     },
     "errorToast": {
       "text1": "Error",
@@ -336,7 +336,7 @@
     "fee": "Fee",
     "amount": "Amount You'll receive",
     "balance1": "Account Balance",
-    "completeTransfer": "Complete TTransfer",
+    "completeTransfer": "Complete Transfer",
     "startOver": "Start Over",
     "now": "Now",
     "discount": "Free"
