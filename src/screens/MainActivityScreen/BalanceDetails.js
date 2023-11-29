@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
-import { 
-  StyleSheet,
-  Text,
-  View,
-  ScrollView
-} from 'react-native';
-import Header from '../../components/Header';
+import React, { useEffect, useCallback } from 'react';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import Footer from '../../components/Footer';
 import CustomHr from '../../components/CustomHr';
+import { Ionicons } from '@expo/vector-icons';
+import { getUserEarlyPayments } from '../../services/airlipayBalance';
 
-export default function BalanceDetails() {
+export default function BalanceDetails({ navigation }) {
+  const getTransactions = useCallback(async () => {
+    const response = await getUserEarlyPayments({
+      type: 'DEPOSIT',
+      status: 'SUCCESS',
+      pageSize: 30
+    });
+  }, []);
 
+  useEffect(() => {
+    getTransactions();
+  }, [getTransactions]);
   return (
     <View style={styles.container}>
-      <Header text="Balance Summary" />
+      <TouchableOpacity onPress={() => navigation.goBack()}>
+        <Ionicons name="md-arrow-back" size={30} color="black" />
+      </TouchableOpacity>
       <ScrollView>
         <View style={styles.sumary}>
           <Text style={styles.priceText}>XAF 100,000</Text>
@@ -99,16 +107,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    color: "white",
+    color: 'white',
     padding: 40,
-    flexDirection: "column"
+    flexDirection: 'column'
   },
-  header: {
-    
-  },
+  header: {},
   sumary: {
-    alignItems: "center",
-    marginTop: 40,
+    alignItems: 'center',
+    marginTop: 40
   },
   priceText: {
     fontSize: 35,
@@ -121,22 +127,22 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   updateSection: {
-    flexDirection: "row",
-    alignItems: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   balanceDetailsText: {
     fontSize: 22,
     fontWeight: 700,
-    alignSelf: "center",
-    color: "#063B87"
-  }, 
+    alignSelf: 'center',
+    color: '#063B87'
+  },
   transferSection: {
-    marginTop: 20,
+    marginTop: 20
   },
   row: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
     marginVertical: 4
   },
   middleRow: {
@@ -159,10 +165,7 @@ const styles = StyleSheet.create({
   },
   balanceText: {
     fontWeight: 700,
-    fontSize: 15,
+    fontSize: 15
   },
-  footer: {
-
-  }
-  
+  footer: {}
 });

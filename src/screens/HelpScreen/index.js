@@ -7,8 +7,10 @@ import {
 import { Actions } from 'react-native-router-flux';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
+import { useTranslation } from 'react-i18next';
 
 export default function HelpScreen({navigation}) {
+  const {t} = useTranslation()
 
   return (
     <View style={styles.container}>
@@ -16,25 +18,34 @@ export default function HelpScreen({navigation}) {
         <Logo color="#063B87" />
       </View>
       <View style={styles.info}>
-        <Text style={styles.infoHeader}>
-          Thank you for your interest in 
-          Airlipay, but we can’t find your account
-        </Text>
+        <Text style={styles.infoHeader}>{t('needHelp.title')}</Text>
         <View>
-          <View style={{alignSelf: "center"}}>
-            <Text style={{marginBottom: 5}}>- Confirm that your employer offers Airlipay</Text>
-            <Text style={{marginBottom: 5}}>- Check to make sure everything matches the information on file with your employer.</Text>
-            <Text style={{marginBottom: 5}}>- We can’t find your account using an email address, cell phone number or employee ID. If you’re having difficulties with one of these methods, try entering a different piece of information.</Text>
-            <Text style={{marginBottom: 5}}>- If you’re a new employee, we might not have your information yet, so either contact us or wait a few days and try again.</Text>
-            <Text style={{marginBottom: 5}}>- If you’re information is correct contact support at: ***support nubmer*** </Text>
+          <View style={{ alignSelf: 'center' }}>
+            <Text style={{ marginBottom: 5 }}>{t('needHelp.center1')}</Text>
+            <Text style={{ marginBottom: 5 }}>{t('needHelp.center2')}</Text>
+            <Text style={{ marginBottom: 5 }}>{t('needHelp.center3')}</Text>
+            <Text style={{ marginBottom: 5 }}>{t('needHelp.center4')}</Text>
+            <Text style={{ marginBottom: 5 }}>{t('needHelp.center5')}</Text>
           </View>
-          <CustomButton style={{marginTop: 40}} title="Get Started" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("GettingStartedEmailScreen")} />
-          <CustomButton style={{marginTop: 10}} title="Ask your employeer about getting AirliPay" backgroundColor="#063B87" color="white" onPress={() => navigation.navigate("VerificationCodeEmailScreen")} />
+          <CustomButton
+            style={{ marginTop: 40 }}
+            title={t('needHelp.button1')}
+            backgroundColor="#063B87"
+            color="white"
+            onPress={() => navigation.navigate('GettingStartedEmailScreen')}
+          />
+          <CustomButton
+            style={{ marginTop: 10 }}
+            title={t('needHelp.button2')}
+            backgroundColor="#063B87"
+            color="white"
+            onPress={() => navigation.navigate('VerificationCodeEmailScreen')}
+          />
         </View>
       </View>
       <View style={styles.pageFooter}>
         <View style={styles.helpText}>
-          <Text style={styles.frontText}>Need Help? </Text>
+          <Text style={styles.frontText}>{t('needHelp.footer')} </Text>
           <Text>© AirliPay 2023</Text>
         </View>
       </View>
