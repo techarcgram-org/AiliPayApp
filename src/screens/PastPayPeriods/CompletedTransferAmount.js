@@ -3,8 +3,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { generatemockDataFrom } from '../../utils/data/transactionsFrom';
+import { generateMockDataTo } from '../../utils/data/transactionsTo';
+
 
 export default function CompletedTransferAmount({ navigation }) {
+  const mockDataFrom = generatemockDataFrom()
+  console.log(mockDataFrom)
+  const mockDataTo = generateMockDataTo()
+  console.log(mockDataTo)
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
