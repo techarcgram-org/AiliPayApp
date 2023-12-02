@@ -8,8 +8,9 @@ export const generateMockDataTo = () => {
 
   for (let i = 0; i < 28; i++) {
     const bankAccountNumber = generateRandomBankAccountNumber();
+    const  bankAccountNumberH = 'x'.repeat(8) + bankAccountNumber.slice(8)
 
-    mockDataTo.push({ accountNumber: bankAccountNumber ,method:randomTransferMethod});
+    mockDataTo.push({ accountNumber: bankAccountNumberH ,method:randomTransferMethod});
   }
 
   return mockDataTo;

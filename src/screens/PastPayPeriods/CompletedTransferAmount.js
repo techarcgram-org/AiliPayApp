@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { generatemockDataFrom } from '../../utils/data/transactionsFrom';
 import { generateMockDataTo } from '../../utils/data/transactionsTo';
+import { ScrollView } from 'react-native';
 
 
 export default function CompletedTransferAmount({ navigation }) {
@@ -12,38 +13,54 @@ export default function CompletedTransferAmount({ navigation }) {
   console.log(mockDataFrom)
   const mockDataTo = generateMockDataTo()
   console.log(mockDataTo)
+
+  const renderTransferItemFrom = ({ item }) => (
+    <View style={styles.row}>
+      <MaterialIcon name="check-circle" size={20} color="#1C8B27" />
+      <View style={{ marginLeft: -80 }}>
+        <Text style={{ fontSize: 16 }}>{item.date}</Text>
+        <Text>Transfer</Text>
+      </View>
+      <Text>{item.amount}</Text>
+      <MaterialIcon
+        name="keyboard-arrow-right"
+        size={20}
+        color="#464242"
+        style={{ marginLeft: -90 }}
+      />
+    </View>
+  );
+
+  const renderTransferItemTo = ({ item }) => (
+    <View style={styles.statementRow}>
+      <Text style={{ fontSize: 20, fontWeight: 600 }}>{item.method}</Text>
+      <Text style={{ fontSize: 16 }}>Account Number: {item.accountNumber}</Text>
+    </View>
+  );
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
 
       <Text style={styles.headerText}>Completed Transfer Amount</Text>
       <View>
-        <View style={styles.row}>
-          <MaterialIcon name="check-circle" size={20} color="#1C8B27" />
-          <View style={{ marginLeft: -80 }}>
-            <Text style={{ fontSize: 16 }}>1/02/22</Text>
-            <Text>Transfer</Text>
-          </View>
-          <Text>XAF 100 000</Text>
-          <MaterialIcon
-            name="keyboard-arrow-right"
-            size={20}
-            color="#464242"
-            style={{ marginLeft: -90 }}
-          />
-        </View>
+        <FlatList
+          data={mockDataFrom}
+          renderItem={renderTransferItemFrom}
+          keyExtractor={(item, index) => index.toString()}
+        />
       </View>
 
       <Text style={styles.headerText}>Transferred To</Text>
       <View>
-        <View style={styles.statementRow}>
-          <Text style={{ fontSize: 20, fontWeight: 600 }}>MTN MoMo</Text>
-          <Text style={{ fontSize: 16 }}>Account Number: xxxxxxxx34</Text>
-        </View>
+        <FlatList
+          data={mockDataTo}
+          renderItem={renderTransferItemTo}
+          keyExtractor={(item, index) => index.toString()}
+        />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -53,7 +70,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     color: 'white',
     padding: 40,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    paddingBottom:16
   },
   headerText: {
     color: '#3F5F90',
