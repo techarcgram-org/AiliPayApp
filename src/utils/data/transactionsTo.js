@@ -4,9 +4,9 @@ export const generateMockDataTo = () => {
   const bankAccountRegex = /^\d{10}$/; // Regular expression for a 10-digit bank account number
 
   const transferMethods = ["Orange Money","MTN MOMO","Bank","Debit Card"]
-  const randomTransferMethod = transferMethods[Math.floor(Math.random() * transferMethods.length)]
-
+  
   for (let i = 0; i < 28; i++) {
+    const randomTransferMethod = transferMethods[Math.floor(Math.random() * transferMethods.length)]
     const bankAccountNumber = generateRandomBankAccountNumber();
     const  bankAccountNumberH = 'x'.repeat(8) + bankAccountNumber.slice(8)
 
