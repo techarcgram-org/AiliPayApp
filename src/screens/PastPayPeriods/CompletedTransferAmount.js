@@ -53,11 +53,18 @@ export default function CompletedTransferAmount({ navigation }) {
   );
 
   const renderSkeletonLoader = () => (
-    <SkeletonPlaceholder>
-      <View style={styles.row} />
-      <View style={styles.row} />
-      <View style={styles.row} />
-    </SkeletonPlaceholder>
+    <SkeletonPlaceholder.Item>
+      {/* <View />
+      <View />
+      <View /> */}
+      <View style={styles.row}>
+      <View style={{  }}>
+        <Text style={{ fontSize: 16 }}>Loading...</Text>
+        <Text>Transfer</Text>
+      </View>
+
+      </View>
+    </SkeletonPlaceholder.Item>
   );
 
   return (
