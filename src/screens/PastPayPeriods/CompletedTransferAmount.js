@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { generatemockDataFrom } from '../../utils/data/transactionsFrom';
 import { generateMockDataTo } from '../../utils/data/transactionsTo';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder'; 
+import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 
 export default function CompletedTransferAmount({ navigation }) {
   const [loading, setLoading] = useState(true);
@@ -54,21 +54,34 @@ export default function CompletedTransferAmount({ navigation }) {
 
   const renderSkeletonLoader = () => (
     <SkeletonPlaceholder.Item>
-      {/* <View />
-      <View />
-      <View /> */}
       <View style={styles.row}>
-      <View style={{  }}>
-        <Text style={{ fontSize: 16 }}>Loading...</Text>
-        <Text>Transfer</Text>
+        <MaterialIcon name="check-circle" size={20} color="#1C8B27" />
+        <View style={{marginLeft:-80}}>
+          <Text style={{ fontSize: 16 }}>Loading...</Text>
+          <Text>Transfer</Text>
+        </View>
+        <Text>XAF XXXX....</Text>
+        <MaterialIcon
+          name="keyboard-arrow-right"
+          size={20}
+          color="#464242"
+          style={{ marginLeft: -90 }}
+        />
       </View>
+    </SkeletonPlaceholder.Item>
+  );
 
+  const renderSkeletonLoaderTo = () => (
+    <SkeletonPlaceholder.Item>
+      <View style={styles.statementRow}>
+        <Text style={{ fontSize: 20, fontWeight: 600 }}>Loading....</Text>
+        <Text style={{ fontSize: 16 }}>Account Number: xxxxxxx....</Text>
       </View>
     </SkeletonPlaceholder.Item>
   );
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
@@ -88,7 +101,7 @@ export default function CompletedTransferAmount({ navigation }) {
       <Text style={styles.headerText}>Transferred To</Text>
 
       {loading ? (
-        renderSkeletonLoader()
+        renderSkeletonLoaderTo()
       ) : (
         <FlatList
           data={mockDataTo}
@@ -96,7 +109,7 @@ export default function CompletedTransferAmount({ navigation }) {
           keyExtractor={(item, index) => index.toString()}
         />
       )}
-    </View>
+    </ScrollView>
   );
 }
 
