@@ -126,11 +126,16 @@ export default function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MainActivityScreen"
+        initialRouteName="CompletedTransferAmount"
         screenOptions={{ gestureEnabled: false }}>
         <Stack.Screen
           name="LandingScreen"
           component={LandingScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CompletedTransferAmount"
+          component={CompletedTransferAmount}
           options={{ headerShown: false }}
         />
         <Stack.Screen
