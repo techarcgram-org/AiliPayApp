@@ -35,6 +35,7 @@ export default function App() {
          
          </Modal> 
         )}
+        
         <Button title='Open Language Switcher'
         onPress={handleOpenModal}/>
        
