@@ -51,7 +51,7 @@ export default function VerifyIdentityScreen({ navigation }) {
               <Text style={{ fontWeight: 700 }}>
                 {t('verifyIdentity.info.account.employeeId')}:{' '}
               </Text>
-              <Text>******{state.auth.employeeId.slice(-3)}</Text>
+              <Text>******{state.auth.employeeId?.slice(-3)}</Text>
             </View>
           </View>
           <Text>{t('verifyIdentity.info.verificationCode')}</Text>
@@ -61,14 +61,16 @@ export default function VerifyIdentityScreen({ navigation }) {
                 value="phone"
                 label={`${t(
                   'verifyIdentity.info.getCode.option'
-                )} *****${state.auth.phoneNumber.slice(-4)}`}
+                )} *****${state.auth.phoneNumber?.slice(-4)}`}
                 selectedValue={selectedOption}
                 onValueChange={setSelectedOption}
                 style={{ fontWeight: 700 }}
               />
               <CustomRadioButton
                 value="email"
-                label={`${t('verifyIdentity.info.getCode.option')} ***${state.auth.email.slice(7)}`}
+                label={`${t('verifyIdentity.info.getCode.option')} ***${state.auth.email?.slice(
+                  7
+                )}`}
                 selectedValue={selectedOption}
                 onValueChange={setSelectedOption}
                 style={{ fontWeight: 700 }}
