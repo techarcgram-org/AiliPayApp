@@ -74,7 +74,7 @@ export default function LandingScreen2({ navigation }) {
           </Modal>
         )}
         <View style={styles.lngswitchbtn}>
-          <Button title='Open Language Switcher'
+          <Button title='Change Language '
           color={'#063B87'}
 
             onPress={handleOpenModal} />
