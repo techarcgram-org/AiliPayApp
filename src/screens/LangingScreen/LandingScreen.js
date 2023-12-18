@@ -73,12 +73,12 @@ export default function LandingScreen2({ navigation }) {
 
           </Modal>
         )}
-        <View style={styles.lngswitchbtn}>
+       
           <Button title='Change Language '
           color={'#063B87'}
 
             onPress={handleOpenModal} />
-        </View>
+       
 
       </I18nextProvider>
 
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   lngswitchbtn:{
-    // backgroundColor:'blue',
+    backgroundColor:"#063B87",
     // width:'80%',
   }
 });
