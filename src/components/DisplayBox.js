@@ -17,19 +17,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 40,
     paddingHorizontal: 35,
-    borderRadius: 30
+    borderRadius: 30,
+    // flex:3,
   },
   header: {
     color: '#063B87',
     textAlign: 'center',
     fontSize: 18,
-    marginBottom: 20,
+    marginBottom: 5,
     fontWeight: 700
   },
   body: {
     fontSize: 16,
     textAlign: 'center',
     fontWeight: 400,
-    marginBottom: 20
-  }
+    marginBottom: 5,
+    }
 });

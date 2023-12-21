@@ -1,36 +1,29 @@
 import {
   StyleSheet,
   View,
-  ScrollView,
-  Dimensions,
-  Button,
-  Modal
+  Dimensions
+
+
 } from "react-native";
 import Logo from "../../components/Logo";
 import CustomButton from "../../components/CustomButton";
 import DisplayBox from "../../components/DisplayBox";
 import i18n, { languageResources } from '../../services/i18next';
 import React, { useState } from 'react';
-
-
 import { useTranslation, I18nextProvider } from 'react-i18next'
-// import ChangeLanguage from "../../components/ChangeLanguage";
+import SwitchLanguage from "../../components/switchLanguage";
+import { SafeAreaView } from "react-native";
+
 
 
 export default function LandingScreen2({ navigation }) {
   const { t } = useTranslation()
 
-  const [showModal, setShowModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-  const handleCloseModal = () => {
-    setShowModal(false);
 
-  };
   return (
-    <ScrollView>
+    <SafeAreaView style={styles.safeContainer}>
+
       <I18nextProvider i18n={i18n}>
 
 
@@ -58,93 +51,61 @@ export default function LandingScreen2({ navigation }) {
                 />
               }
             />
+
           </View>
+
         </View>
 
+        <SwitchLanguage />
 
-
-        {showModal && (
-          <Modal visible={true} animationType='slide-left' >
-            <View style={styles.modalontainer}>
-              <View style={styles.modalContent}>
-                <LanguageSwitcher onClose={handleCloseModal} />
-              </View>
-            </View>
-
-          </Modal>
-        )}
-       
-          <Button title='Change Language '
-          color={'#063B87'}
-
-            onPress={handleOpenModal} />
-       
 
       </I18nextProvider>
+    </SafeAreaView>
 
-
-
-    </ScrollView>
   );
 }
+const windowWidth = Dimensions.get('window').width
+const windowHeight = Dimensions.get('window').height
 
-function LanguageSwitcher({ onClose }) {
-  const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-  const handleClose = () => {
-    onClose();
-  }
-
-  return (
-    <View>
-      <Button title={t('switchToEnglish')} onPress={() => changeLanguage('en')} />
-      <Button title={t('switchToFrench')} onPress={() => changeLanguage('fr')} />
-      <Button title='close' onPress={handleClose} />
-    </View>
-  );
-}
 const styles = StyleSheet.create({
+  safeContainer: {
+    flex: 1,
+    backgroundColor: "#063B87",
+  },
   container: {
     flex: 1,
     backgroundColor: "#063B87",
-    color: "white",
-    padding: 40,
+    // color: "white",
+    padding: 30,
   },
   header: {
     flexDirection: "row",
-    top: 20,
+    // top: 20,
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 5,
+    flex: 1,
   },
   image: {
-    width: "100%",
-    height: 160,
+    flex: 2,
+    width: windowWidth > 500 ? "80%" : "100%",
+    height: windowHeight > 600 ? "60%" : "100%",
     backgroundColor: "#D9D9D9",
-    marginTop: 70,
+    marginTop: 5,
     borderRadius: 30,
   },
   info: {
-    marginTop: 30,
+    marginTop: 20,
+    flex: 3,
+    width: windowWidth > 500 ? "80%" : "100%",
+    height: windowHeight > 600 ? "50%" : "80%",
+    fontSize: windowWidth > 500 ? 30 : 24,
+    // marginBottom:40,
+
   },
-  modalontainer: {
+  lngSwitchBtn: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-  },
-  modalContent: {
-    backgroundColor: '#fff',
-    width: '75%',
-    maxHeight: Dimensions.get('window').height / 4,
-    padding: 16,
-    borderRadius: 8,
-  },
-  lngswitchbtn:{
-    backgroundColor:"#063B87",
-    // width:'80%',
+
   }
 });
