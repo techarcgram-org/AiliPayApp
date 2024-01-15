@@ -30,7 +30,7 @@ export default function LoginScreen({ navigation }) {
       await dispatch({ type: 'SET_USER', payload: response.data.data });
       await AsyncStorage.setItem('access_token', response.data.access_token);
       navigation.navigate('DrawerScreens');
-    } else {
+    } else {  
       Toast.show({
         type: 'error',
         text1: t('login.toast.text1'),
