@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, ScrollView, Button } from 'react-native';
 import CustomButton from '../../../components/CustomButton';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -11,7 +11,9 @@ export default function changePassword(navigation) {
         <Ionicons name="md-arrow-back" size={30} color="black" />
       </TouchableOpacity>
       <ScrollView>
-        <Text style={styles.infoText}>Change Password</Text>
+        <Button style={styles.infoText}
+        onPress={() => navigation.navigate('MainActivityScreen')}
+        >Change Password</Button>
         <TextInput style={styles.inputField} placeholder="Enter Old Password"></TextInput>
         <TextInput style={styles.inputField} placeholder="Enter New Password"></TextInput>
         <TextInput style={styles.inputField} placeholder="Confirm Password"></TextInput>

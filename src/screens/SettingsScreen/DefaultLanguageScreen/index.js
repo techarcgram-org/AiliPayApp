@@ -38,7 +38,7 @@ export default function DefaultLanguageScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <AccountSettingsHeader headerTitle="DEFAULT LANGUAGE" navigation={navigation} />
+        <AccountSettingsHeader headerTitle="LANGUAGE" navigation={navigation} />
       </View>
       <Formik
         initialValues={{

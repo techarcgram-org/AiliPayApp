@@ -583,9 +583,10 @@ const styles = StyleSheet.create({
     width: '10%'
   },
   editText: {
-    // alignSelf: "center",
-    fontSize: 14,
-    color: '#3F5F90'
+    alignSelf:'flex-end',
+    fontSize: 16,
+    color: '#3F5F90',
+   
   },
   button: {
     alignItems: 'center',

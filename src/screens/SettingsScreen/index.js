@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity , ScrollView} from 'react-native';
 // import Footer from '../../components/Footer';
 import React from 'react';
 import AccountSettingsHeader from '../../components/AccountsSettingsHeader';
@@ -14,6 +14,7 @@ import { useTranslation } from 'react-i18next';
 export default function SettingsScreen({ navigation }) {
   const { t } = useTranslation();
   return (
+    <ScrollView>
     <View style={styles.container}>
       <AccountSettingsHeader headerTitle="Settings" navigation={navigation} />
 
@@ -93,7 +94,7 @@ export default function SettingsScreen({ navigation }) {
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('DefaultLanguageScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info8')}</Text>
+          <Text style={{ fontSize: 20 }}>Language</Text>
           <FontAwesome name="angle-right" size={20} />
         </TouchableOpacity>
       </View>
@@ -109,6 +110,7 @@ export default function SettingsScreen({ navigation }) {
       </View>
       <LineSeparator />
     </View>
+    </ScrollView>
   );
 }
 

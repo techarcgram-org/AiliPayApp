@@ -44,13 +44,13 @@ export default function TransferScreen({ route, navigation }) {
             <CustomHr width={1} />
             <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>Amount</Text>
-              <Text style={styles.changeText}>Change</Text>
+              
               <Text style={styles.summaryInfoTex}> XAF {withdrawAmount}</Text>
             </View>
             <CustomHr width={1} />
-            <View style={styles.row}>
+            {/* <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>When</Text>
-              {/* <Formik
+               <Formik
                 initialValues={{ selectedOption: 'now' }}
                 >
                   <Field
@@ -67,12 +67,12 @@ export default function TransferScreen({ route, navigation }) {
                     <option value='now'>Now</option>
                     <option value='next day'>Next Day</option>
                   </Field>
-              </Formik> */}
+              </Formik> 
               <TouchableOpacity style={styles.nowSection}>
                 <Text style={styles.summaryInfoTex}> Now</Text>
                 <IconMaterial name="arrow-drop-down" size={20} color="black" />
               </TouchableOpacity>
-            </View>
+            </View> */}
             <CustomHr width={1} />
             <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>Fee</Text>
