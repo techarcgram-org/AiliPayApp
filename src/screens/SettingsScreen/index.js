@@ -20,92 +20,97 @@ export default function SettingsScreen({ navigation }) {
 
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <Ionicons name="person" size={20} color="#3F5F90" />
+        {/* account information */}
+        <Ionicons name="person" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AccountInformation')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.title')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.title')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
+{/*      
       <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="bank" size={20} color="#3F5F90" />
+        <MaterialCommunityIcons name="bank" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('BankAccountScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info1')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info1')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
-      </View>
+      </View> 
       <LineSeparator />
+      
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="credit-card" size={20} color="#3F5F90" />
+        <MaterialIcons name="credit-card" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('DebitCardScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info2')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info2')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="send-to-mobile" size={20} color="#3F5F90" />
+        <MaterialIcons name="send-to-mobile" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('MobileMoneyScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info3')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info3')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
+      
       <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="content-save-check" size={20} color="#3F5F90" />
+        <MaterialCommunityIcons name="content-save-check" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AutomaticSavings')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info4')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info4')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
+      */}
       <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="account-cancel" size={20} color="#3F5F90" />
+        <MaterialCommunityIcons name="account-cancel" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AccountCancellation')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info5')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info5')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="notifications-none" size={20} color="#3F5F90" />
+        <MaterialIcons name="notifications-none" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('NotificationPreferencesScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info6')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info6')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="language" size={20} color="#3F5F90" />
+        <MaterialIcons name="language" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('DefaultLanguageScreen')}>
-          <Text style={{ fontSize: 20 }}>Language</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info8')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="login" size={20} color="#3F5F90" />
+        <MaterialCommunityIcons name="login" size={25} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('LoginAndSecurityScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info7')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <Text style={{ fontSize:20 }}>{t('settingScreen.info7')}</Text>
+          <FontAwesome name="angle-right" size={25} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
@@ -118,15 +123,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 40,
-    paddingBottom: 40,
+    // paddingBottom: 40,
     flexDirection: 'column'
   },
   innerSettingsContainer: {
     flex: 1,
     flexDirection: 'row',
-    marginLeft: 20,
+    marginLeft: 25,
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingTop:5,
   },
   settingsContainer: {
     flexDirection: 'row',

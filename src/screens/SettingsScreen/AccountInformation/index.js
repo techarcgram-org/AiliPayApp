@@ -39,6 +39,7 @@ export default function AccountInformation({ navigation, username }) {
         {/* user personal information */}
         <View style={styles.userInformation}>
           <CustomHr width={1} />
+         
           {/* user email */}
           <View style={styles.row}>
 
