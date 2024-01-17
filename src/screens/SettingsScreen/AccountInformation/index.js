@@ -23,14 +23,14 @@ export default function AccountInformation({ navigation, username }) {
           <Ionicons name="person" size={100} color="black" alignSelf="center" />
           <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
 
-            <Text style={{ justifyContent: 'center' }}>Peter</Text>
+            <Text style={{ justifyContent: 'center' }}>Peter Durry</Text>
             <UpdateInformation editValue="Name"
               style={{ justifyContent: 'center', fontWeight: 'bold', fontSize: 25 }} />
           </View>
         </View>
         {/* security alert */}
         <View style={styles.securityAlert}>
-          <MaterialCommunityIcons name="shield-alert-outline" size={30} color="white" />
+          <MaterialCommunityIcons name="shield-alert-outline" size={40} color="white" />
           <View style={styles.alertText}>
             <Text style={styles.headingText}>{t('accountInformation.text1')}</Text>
             <Text style={styles.headingText}>{t('accountInformation.text2')}</Text>
@@ -43,7 +43,7 @@ export default function AccountInformation({ navigation, username }) {
           {/* user email */}
           <View style={styles.row}>
 
-            <MaterialCommunityIcons name="email" size={20} color="#3F5F90" />
+            <MaterialCommunityIcons name="email" size={25} color="#3F5F90" />
             <View style={styles.innerRow}>
               <View style={styles.textSection}>
                 <View style={{ alignContent: 'space-between', flexDirection: 'row' }}>
@@ -61,7 +61,7 @@ export default function AccountInformation({ navigation, username }) {
           {/* user phone number */}
           <View style={styles.row}>
             <View style={styles.horintalline} />
-            <MaterialCommunityIcons name="cellphone" size={20} color="#3F5F90" />
+            <MaterialCommunityIcons name="cellphone" size={25} color="#3F5F90" />
             <View style={styles.innerRow}>
               <View style={styles.textSection}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -76,7 +76,7 @@ export default function AccountInformation({ navigation, username }) {
           </View>
           {/* change password */}
           <View style={styles.row}>
-            <MaterialCommunityIcons name="form-textbox-password" size={20} color="#3F5F90" />
+            <MaterialCommunityIcons name="form-textbox-password" size={25} color="#3F5F90" />
             <View style={styles.innerRow}>
               <View style={{ alignContent: 'center' }}>
                 <Text>{t('accountInformation.password')}</Text>
