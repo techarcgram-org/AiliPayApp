@@ -15,13 +15,13 @@ export default function StatementOverviewScreen({ navigation }) {
       <View>
         <CustomHr width={1} />
         <View style={styles.statementRow}>
-          <Text style={styles.rowText}>Net Earnings</Text>
+          <Text style={styles.rowText}>Total Early Payments</Text>
           <Text style={styles.rowText}>XAF 200 000</Text>
         </View>
 
         <CustomHr width={1} />
         <View style={styles.statementRow}>
-          <Text style={styles.rowText}>Transfered Before Payday</Text>
+          <Text style={styles.rowText}>Transferred Before Payday</Text>
           <Text style={styles.rowText}>XAF 99 000</Text>
         </View>
 
@@ -32,14 +32,14 @@ export default function StatementOverviewScreen({ navigation }) {
         </View>
 
         <CustomHr width={1} />
-        <View style={styles.statementRow}>
+        {/* <View style={styles.statementRow}>
           <Text style={styles.rowText}>Remainder Payment</Text>
           <Text style={styles.rowText}>XAF 100 000</Text>
         </View>
-        <CustomHr width={1} />
+        <CustomHr width={1} /> */}
       </View>
       <Text style={{ textAlign: 'center', marginTop: 20, fontSize: 16 }}>
-        Your remaining balance was automatically transferred for free on 30/02/33
+        Funds not transferred before payday will be sent as part of your salary
       </Text>
       <Text style={styles.headerText}>Transferred Before Paydays</Text>
       <View>

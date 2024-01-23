@@ -15,17 +15,17 @@ export default function NotificationPreferencesScreen({ navigation }) {
         <LineSeparator />
         <View style={styles.notificationSettings}>
           <Text style={styles.textStyle}>{t('notifications.text1')}</Text>
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </View>
         <LineSeparator />
         <View style={styles.notificationSettings}>
           <Text style={styles.textStyle}>{t('notifications.text2')}</Text>
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </View>
         <LineSeparator />
         <View style={styles.notificationSettings}>
           <Text style={styles.textStyle}>{t('notifications.text3')}</Text>
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </View>
         <LineSeparator />
       </View>

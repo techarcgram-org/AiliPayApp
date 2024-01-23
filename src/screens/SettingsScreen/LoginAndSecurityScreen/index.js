@@ -15,12 +15,12 @@ export default function LoginAndSecurityScreen({ navigation }) {
         <LineSeparator />
         <View style={styles.configurationOptions}>
           <Text style={styles.textStyle}>{t('loginAndSecurity.text1')}</Text>
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </View>
         <LineSeparator />
         <View style={styles.configurationOptions}>
           <Text style={styles.textStyle}>{t('loginAndSecurity.text2')}</Text>
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </View>
         <LineSeparator />
       </View>

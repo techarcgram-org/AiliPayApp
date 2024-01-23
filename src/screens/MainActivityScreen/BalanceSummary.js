@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Header from '../../components/Header';
@@ -7,18 +7,23 @@ import IconMaterial from 'react-native-vector-icons/FontAwesome';
 import IconFoundation from 'react-native-vector-icons/Foundation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import CustomHr from '../../components/CustomHr';
+import moment from 'moment';
+import { store } from '../../../store';
 
 export default function BalanceSummary({ navigation }) {
+  const { state, dispatch } = useContext(store);
+  const { balance } = state;
+
   return (
     <View style={styles.container}>
       <Header text="Balance Summary" />
       <ScrollView>
         <View style={styles.sumary}>
-          <Text style={{ fontSize: 35, fontWeight: 700 }}>XAF 100,000</Text>
+          <Text style={{ fontSize: 35, fontWeight: 700 }}>XAF {balance.balance}</Text>
           <View style={styles.updateSection}>
             <IconMaterial name="refresh" size={10} color="black" />
             <Text style={{ fontWeight: 'bold', fontSize: 12, margin: 5 }}>
-              last updated 15 Feb 2023
+              last updated {moment(balance.last_updated).format('Do MMM YYYY hh:mm a')}
             </Text>
             <IconFoundation name="info" sie={10} color="black" />
           </View>
@@ -31,7 +36,7 @@ export default function BalanceSummary({ navigation }) {
               justifyContent: 'center'
             }}
             onPress={() => navigation.navigate('BalanceDetails')}>
-            View Balance and Shift Details
+            Early Pay Details
             <Ionicons name="arrow-forward" size={15} color="#3F5F90" />
           </Text>
         </View>
@@ -41,12 +46,12 @@ export default function BalanceSummary({ navigation }) {
             <View style={styles.row}>
               <IconMaterial name="building-o" size={40} color="#063B87" />
               <View style={styles.middleRow}>
-                <Text style={styles.sumaryTextHeader}>You earned</Text>
-                <Text>Total earnings reported by your employer</Text>
+                <Text style={styles.sumaryTextHeader}>Base Salary</Text>
+                <Text>Predetermined amount of money you receive at the end of the month</Text>
               </View>
               <Text style={styles.balanceText}>XAF 200 000</Text>
             </View>
-            <View style={styles.row}>
+            {/* <View style={styles.row}>
               <IconMaterial name="minus-circle" size={40} color="#063B87" />
               <View style={styles.middleRow}>
                 <Text style={styles.sumaryTextHeader}>Estimated Withholdings</Text>
@@ -77,7 +82,7 @@ export default function BalanceSummary({ navigation }) {
                 <Text>Total savings made for this pay period</Text>
               </View>
               <Text style={styles.balanceText}>XAF 80 000</Text>
-            </View>
+            </View> */}
             <CustomHr color="#063B87" width={1} />
             <View style={[styles.row, { alignItems: 'center' }]}>
               <Ionicons name="logo-angular" size={40} color="#063B87" style={styles.icon} />
