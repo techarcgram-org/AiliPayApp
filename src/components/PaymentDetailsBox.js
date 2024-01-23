@@ -86,7 +86,7 @@ const styles = {
   },
   cardText: {
     fontSize: 15,
-    fontWeight: 'bold'
+    fontWeight: 700
   },
   imageContainer: {
     marginRight: 10

@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     marginBottom: 40
   },
   formHeader: {
-    fontWeight: 'bold',
+    fontWeight: 700,
     fontSize: 25,
     marginTop: 40,
     marginBottom: 20
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   loginInstead: {
-    fontWeight: 'bold',
+    fontWeight: 700,
     color: '#3F5F90',
     marginBottom: 20
   },
@@ -160,6 +160,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   frontText: {
-    fontWeight: 'bold'
+    fontWeight: 700
   }
 });

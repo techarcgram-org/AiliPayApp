@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   drawerHeaderText: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: 700
   },
   drawerLinks: {
     marginTop: 20,

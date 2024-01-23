@@ -17,7 +17,7 @@ export default function BalanceSummary({ navigation }) {
           <Text style={{ fontSize: 35, fontWeight: 700 }}>XAF 100,000</Text>
           <View style={styles.updateSection}>
             <IconMaterial name="refresh" size={10} color="black" />
-            <Text style={{ fontWeight: 'bold', fontSize: 12, margin: 5 }}>
+            <Text style={{ fontWeight: 700, fontSize: 12, margin: 5 }}>
               last updated 15 Feb 2023
             </Text>
             <IconFoundation name="info" sie={10} color="black" />

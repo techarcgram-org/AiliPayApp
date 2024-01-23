@@ -38,7 +38,7 @@ export default function MainActivityScreen({ navigation }) {
           <Text style={{ fontSize: 35, fontWeight: 700 }}>XAF {balance.balance}</Text>
           <View style={styles.updateSection}>
             <IconMaterial name="refresh" size={10} color="black" />
-            <Text style={{ fontWeight: 'bold', fontSize: 12, margin: 5 }}>
+            <Text style={{ fontWeight: 700, fontSize: 12, margin: 5 }}>
               last updated {moment(balance.last_updated).format('Do MMM YYYY hh:mm a')}
             </Text>
             <IconFoundation name="info" sie={10} color="black" />
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: 700,
     textAlign: 'center',
     lineHeight: 23
   },
