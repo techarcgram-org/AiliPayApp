@@ -4,6 +4,8 @@ import { Alert, Pressable, StyleSheet, Text, View } from 'react-native';
 import Modal from 'react-native-modal';
 
 export const CustomModal = ({ children, setModalVisible, modalVisible }) => {
+  
+ 
   return (
     <Modal
       animationType="slide"
@@ -11,10 +13,11 @@ export const CustomModal = ({ children, setModalVisible, modalVisible }) => {
       visible={modalVisible}
       avoidKeyboard={true}
       style={{ margin: 0 }}
-      onRequestClose={() => {
+      onRequestClose={()=>{
         Alert.alert('Modal has been closed');
         setModalVisible(!modalVisible);
-      }}>
+      }}
+      >
       <View style={styles.modalBox}>
         <View style={styles.popup}>
           <Pressable

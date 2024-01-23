@@ -1,16 +1,21 @@
 import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View, Image } from 'react-native';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
 import CustomHr from '../../../components/CustomHr';
 import UpdateInformation from '../../../components/UpdateInformation';
 import { useTranslation } from 'react-i18next';
+import { CustomModal } from '../../../components/CustomModal';
+import ResetForm from '../../PasswordResetScreen/ResetForm';
+import NewPasswordResetForm from '../../PasswordResetScreen/NewPasswordForm';
 
 export default function AccountInformation({ navigation, username }) {
   const { t } = useTranslation();
+  const [modalVisible, setModalVisible] =useState(false);
+ 
 
   return (
-    <ScrollView>
+    
       <View style={styles.container}>
         {/* header */}
         <AccountSettingsHeader
@@ -18,14 +23,14 @@ export default function AccountInformation({ navigation, username }) {
           navigation={navigation}
         />
         {/* user profile */}
+        <ScrollView>
         <View style={styles.avatar}>
-          {/* <Image source={require('../../../../assets/ScreenIcons/unverifiedacc.png')}/> */}
           <Ionicons name="person" size={100} color="black" alignSelf="center" />
           <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
 
             <Text style={{ justifyContent: 'center' }}>Peter Durry</Text>
-            <UpdateInformation editValue="Name"
-              style={{ justifyContent: 'center', fontWeight: 'bold', fontSize: 25 }} />
+            <Text style={styles.editText}>Edit</Text>
+           
           </View>
         </View>
         {/* security alert */}
@@ -82,14 +87,21 @@ export default function AccountInformation({ navigation, username }) {
                 <Text>{t('accountInformation.password')}</Text>
                 <Text>*********</Text>
               </View>
-              <UpdateInformation editValue="Password"
-                style={styles.editText} />
+              
+              <Text style={styles.editText} onPress={setModalVisible}>Edit
+              {modalVisible &&(
+              <CustomModal onPress={!modalVisible} >
+                <NewPasswordResetForm/>
+              </CustomModal>)}
+              
+              </Text>
 
             </View>
           </View>
         </View>
+        </ScrollView>
       </View>
-    </ScrollView>
+    
   );
 }
 
