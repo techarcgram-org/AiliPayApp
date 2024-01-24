@@ -5,7 +5,7 @@ import CustomButton from '../../components/CustomButton';
 import { useTranslation } from 'react-i18next';
 
 export default function WelcomeScreen({ navigation }) {
-  const {t} = useTranslation()
+  const { t } = useTranslation();
   return (
     <View style={styles.container}>
       <View style={styles.header}>
