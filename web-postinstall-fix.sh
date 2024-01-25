@@ -18,3 +18,13 @@ then
 else
     echo 'Text.propTypes = {}'>> node_modules/react-native-web/dist/exports/Text/index.js
 fi
+
+if grep -qs "ViewPropTypes?.style" node_modules/react-native-router-flux/src/Router.js
+then
+    echo "'ViewPropsTypes' already fixed in react-native-router-flux."
+else
+    sed -i '' 's/ViewPropTypes.style/ViewPropTypes?.style/g' node_modules/react-native-router-flux/src/Router.js
+    echo "Replaced 'ViewPropTypes.style' with 'ViewPropTypes?.style' in react-native-router-flux."
+fi
+
+echo 'PropTypes issues fixed successfully!'
