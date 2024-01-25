@@ -24,7 +24,7 @@ then
     echo "'ViewPropsTypes' already fixed in react-native-router-flux."
 else
     sed -i '' 's/ViewPropTypes.style/ViewPropTypes?.style/g' node_modules/react-native-router-flux/src/Router.js
-    echo "Replaced 'ViewPropTypes' with 'ViewPropTypes?' in react-native-router-flux."
+    echo "Replaced 'ViewPropTypes.style' with 'ViewPropTypes?.style' in react-native-router-flux."
 fi
 
 echo 'PropTypes issues fixed successfully!'
