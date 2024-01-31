@@ -11,8 +11,13 @@ import {
 } from 'react-native';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 
+function dismissKeyboard() {
+  if (Platform.OS != 'web') {
+    Keyboard.dismiss();
+  }
+}
 const DismissKeyboard = ({ children }) => (
-  <TouchableWithoutFeedback onPress={Keyboard.dismiss}>{children}</TouchableWithoutFeedback>
+  <TouchableWithoutFeedback onPress={dismissKeyboard}>{children}</TouchableWithoutFeedback>
 );
 
 export default function CustomInput(props) {
