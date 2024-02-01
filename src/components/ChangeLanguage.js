@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { RadioButton } from 'react-native-paper';
 import LineSeparator from './LineSeparator';
 
-export default function changeLanguage() {
+export default function ChangeLanguage() {
   const [checked, setChecked] = useState('English');
 
   return (

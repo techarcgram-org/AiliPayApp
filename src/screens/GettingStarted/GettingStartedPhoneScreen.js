@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator,ScrollView } from 'react-native';
 import Logo from '../../components/Logo';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
@@ -9,6 +9,7 @@ import Toast from 'react-native-toast-message';
 import { useState } from 'react';
 import { searchUserByEmployeePhone } from '../../services';
 import { useTranslation } from 'react-i18next';
+// import changeLanguage from '../../components/ChangeLanguage';
 
 export default function GettingStartedPhoneScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
@@ -45,6 +46,9 @@ export default function GettingStartedPhoneScreen({ navigation }) {
   };
 
   return (
+    <ScrollView>
+
+   
     <View style={styles.container}>
       <View style={styles.header}>
         <Logo color="#063B87" />
@@ -112,7 +116,10 @@ export default function GettingStartedPhoneScreen({ navigation }) {
           <Text>{t('getStartedPhone.footer2')}</Text>
         </View>
       </View>
+    
+      
     </View>
+    </ScrollView>
   );
 }
 
