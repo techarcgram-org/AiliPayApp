@@ -4,7 +4,7 @@ const os = require('os');
 const isWindows = os.platform() === 'win32';
 
 const script = isWindows
-  ? './systemScripts/web-postinstall-fix.bat'
+  ? '.\\systemScripts\\web-postinstall-fix.bat'
   : 'sh ./systemScripts/web-postinstall-fix.sh';
 
 exec(script, (error, stdout, stderr) => {
