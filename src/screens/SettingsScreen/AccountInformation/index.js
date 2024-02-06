@@ -37,7 +37,7 @@ export default function AccountInformation({ navigation }) {
             <View style={styles.textSection}>
               <Text>{t('accountInformation.email')}</Text>
               <Text>fname.lname@dname.com</Text>
-              <Image source={require('./assets/ScreenIcons/verified.png')}/>
+              {/* <Image source={require('./assets/ScreenIcons/verified.png')}/> */}
             </View>
             <Text style={styles.editText}>Edit</Text>
            </View>
