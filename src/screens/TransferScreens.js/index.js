@@ -42,12 +42,12 @@ export default function TransferScreen({ route, navigation }) {
         <View style={styles.detailSection}>
           <View style={styles.sumaryInfo}>
             <CustomHr width={1} />
-            <View style={styles.row}>
+            {/* <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>Amount</Text>
               <Text style={styles.changeText}>Change</Text>
               <Text style={styles.summaryInfoTex}> XAF {withdrawAmount}</Text>
-            </View>
-            <CustomHr width={1} />
+            </View> */}
+            {/* <CustomHr width={1} /> */}
             <View style={styles.row}>
               <Text style={styles.sumaryTextHeader}>When</Text>
               {/* <Formik

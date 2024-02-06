@@ -1,6 +1,6 @@
 import { Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View,ScrollView,Image } from 'react-native';
 import AccountSettingsHeader from '../../../components/AccountsSettingsHeader';
 import CustomHr from '../../../components/CustomHr';
 import UpdateInformation from '../../../components/UpdateInformation';
@@ -16,57 +16,56 @@ export default function AccountInformation({ navigation }) {
         navigation={navigation}
       />
 
+    <ScrollView>
       <View style={styles.avatar}>
         <Ionicons name="person" size={100} color="black" alignSelf="center" />
-        <Text style={styles.nameText}>Fname Lname</Text>
-        <UpdateInformation editValue="Name" />
-
-        {/* <Text style={styles.editNameText}>Edit</Text> */}
+        <Text style={styles.nameText}>Fname Lname</Text>       
+        <Text style={styles.editNameText}>Edit</Text>
       </View>
       <View style={styles.securityAlert}>
         <MaterialCommunityIcons name="shield-alert-outline" size={30} color="white" />
         <View style={styles.alertText}>
           <Text style={styles.headingText}>{t('accountInformation.text1')}</Text>
-          <Text>{t('accountInformation.text2')}</Text>
+          <Text style={styles.headingText}>{t('accountInformation.text2')}</Text>
         </View>
       </View>
       <View style={styles.userInformation}>
         <CustomHr width={1} />
         <View style={styles.row}>
-          <MaterialCommunityIcons name="email" size={20} color="#3F5F90" />
+          <MaterialCommunityIcons name="email" size={40} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View style={styles.textSection}>
               <Text>{t('accountInformation.email')}</Text>
               <Text>fname.lname@dname.com</Text>
+              <Image source={require('./assets/ScreenIcons/verified.png')}/>
             </View>
-            <Text>Verify</Text>
-            <UpdateInformation editValue="Email" />
-            {/* <Button onPress={() => setEditEmail(true)} style={styles.editButton} title='Edit'></Button> */}
-          </View>
+            <Text style={styles.editText}>Edit</Text>
+           </View>
         </View>
+        <CustomHr width={1} />
         <View style={styles.row}>
-          <MaterialCommunityIcons name="cellphone" size={20} color="#3F5F90" />
+          <MaterialCommunityIcons name="cellphone" size={40} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View style={styles.textSection}>
               <Text>{t('accountInformation.phone')}</Text>
               <Text>+237XXXXXXXXX</Text>
             </View>
-            <UpdateInformation editValue="Phone" />
-            {/* <Text style={styles.editText}>Edit</Text> */}
           </View>
         </View>
+        <CustomHr width={1} />
         <View style={styles.row}>
-          <MaterialCommunityIcons name="form-textbox-password" size={20} color="#3F5F90" />
+          <MaterialCommunityIcons name="form-textbox-password" size={40} color="#3F5F90" />
           <View style={styles.innerRow}>
             <View>
               <Text>{t('accountInformation.password')}</Text>
               <Text>*********</Text>
             </View>
-            <UpdateInformation editValue="Password" />
-            {/* <Text style={styles.editText}>Edit</Text> */}
+            
+            <Text style={styles.editText}>Edit</Text>
           </View>
         </View>
       </View>
+      </ScrollView>
     </View>
   );
 }
@@ -82,15 +81,14 @@ const styles = StyleSheet.create({
   },
   avatar: {
     alignSelf: 'center',
-    marginTop: 40,
-    marginLeft: 40,
-    marginRight: 40,
-    marginBottom: 20
+    marginBottom: 20,
+    justifyContent:'center',
   },
   nameText: {
-    alignSelf: 'center',
+    justifyContent:'center',
     fontSize: 15,
-    fontWeight: 600
+    fontWeight: 600,
+    paddingLeft:15,
   },
   editButton: {
     backgroundColor: 'transparent',
@@ -99,8 +97,7 @@ const styles = StyleSheet.create({
     textTransform: 'capitalize'
   },
   editText: {
-    // alignSelf: "center",
-    fontSize: 12,
+     fontSize: 15,
     color: '#3F5F90'
   },
   editNameText: {
@@ -111,14 +108,19 @@ const styles = StyleSheet.create({
   securityAlert: {
     backgroundColor: '#063B87',
     flexDirection: 'row',
-    padding: 20
+    padding: 20,
+    color: 'white',
+    margin:5,
+
   },
   alertText: {
-    marginLeft: 10
+    marginLeft: 10,
+    color: 'white'
   },
   headingText: {
     fontSize: 15,
-    fontWeight: 600
+    fontWeight: 600,
+    color: 'white'
   },
   userInformation: {
     margin: 20
