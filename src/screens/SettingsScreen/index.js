@@ -19,92 +19,53 @@ export default function SettingsScreen({ navigation }) {
 
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <Ionicons name="person" size={20} color="#3F5F90" />
+        <Ionicons name="person" size={35} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AccountInformation')}>
           <Text style={{ fontSize: 20 }}>{t('settingScreen.title')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <FontAwesome name="angle-right" size={35} />
         </TouchableOpacity>
       </View>
+           
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="bank" size={20} color="#3F5F90" />
-        <TouchableOpacity
-          style={styles.innerSettingsContainer}
-          onPress={() => navigation.navigate('BankAccountScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info1')}</Text>
-          <FontAwesome name="angle-right" size={20} />
-        </TouchableOpacity>
-      </View>
-      <LineSeparator />
-      <View style={styles.settingsContainer}>
-        <MaterialIcons name="credit-card" size={20} color="#3F5F90" />
-        <TouchableOpacity
-          style={styles.innerSettingsContainer}
-          onPress={() => navigation.navigate('DebitCardScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info2')}</Text>
-          <FontAwesome name="angle-right" size={20} />
-        </TouchableOpacity>
-      </View>
-      <LineSeparator />
-      <View style={styles.settingsContainer}>
-        <MaterialIcons name="send-to-mobile" size={20} color="#3F5F90" />
-        <TouchableOpacity
-          style={styles.innerSettingsContainer}
-          onPress={() => navigation.navigate('MobileMoneyScreen')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info3')}</Text>
-          <FontAwesome name="angle-right" size={20} />
-        </TouchableOpacity>
-      </View>
-      <LineSeparator />
-      <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="content-save-check" size={20} color="#3F5F90" />
-        <TouchableOpacity
-          style={styles.innerSettingsContainer}
-          onPress={() => navigation.navigate('AutomaticSavings')}>
-          <Text style={{ fontSize: 20 }}>{t('settingScreen.info4')}</Text>
-          <FontAwesome name="angle-right" size={20} />
-        </TouchableOpacity>
-      </View>
-      <LineSeparator />
-      <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="account-cancel" size={20} color="#3F5F90" />
+        <MaterialCommunityIcons name="account-cancel" size={35} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('AccountCancellation')}>
           <Text style={{ fontSize: 20 }}>{t('settingScreen.info5')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <FontAwesome name="angle-right" size={35} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="notifications-none" size={20} color="#3F5F90" />
+        <MaterialIcons name="notifications-none" size={35} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('NotificationPreferencesScreen')}>
           <Text style={{ fontSize: 20 }}>{t('settingScreen.info6')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <FontAwesome name="angle-right" size={35} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialIcons name="language" size={20} color="#3F5F90" />
+        <MaterialIcons name="language" size={35} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('DefaultLanguageScreen')}>
           <Text style={{ fontSize: 20 }}>{t('settingScreen.info8')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <FontAwesome name="angle-right" size={35} />
         </TouchableOpacity>
       </View>
       <LineSeparator />
       <View style={styles.settingsContainer}>
-        <MaterialCommunityIcons name="login" size={20} color="#3F5F90" />
+        <MaterialCommunityIcons name="login" size={35} color="#3F5F90" />
         <TouchableOpacity
           style={styles.innerSettingsContainer}
           onPress={() => navigation.navigate('LoginAndSecurityScreen')}>
           <Text style={{ fontSize: 20 }}>{t('settingScreen.info7')}</Text>
-          <FontAwesome name="angle-right" size={20} />
+          <FontAwesome name="angle-right" size={35} />
         </TouchableOpacity>
       </View>
       <LineSeparator />

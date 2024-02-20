@@ -179,10 +179,10 @@
     "info2": "Debit Card",
     "info3": "Mobile Money",
     "info4": "Automatic Savings",
-    "info5": "Account Councelation",
+    "info5": "Account Cancelation",
     "info6": "Notifications Settings",
     "info7": "Login and Security",
-    "info8": "Default Language"
+    "info8": "Language"
   },
   "loginAndSecurity": {
     "text1": "Enable Pin",
